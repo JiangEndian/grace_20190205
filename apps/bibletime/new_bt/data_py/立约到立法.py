@@ -1,0 +1,1 @@
+data_dict = {"name":"立约到立法", "start_time":2093, "pass_time":430, "story":'''430年'''}

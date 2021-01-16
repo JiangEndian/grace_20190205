@@ -1,0 +1,80 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<title>普通HTML(继承base)</title>
+</head>
+<body>
+<h1 align="center" class="root">
+<a name="0hbc7k010hh4lehj5rvlshskgm">普通HTML(继承base)</a>
+</h1>
+<div align="center" class="globalOverview">
+<img src="%E6%99%AE%E9%80%9AHTML(%E7%BB%A7%E6%89%BFbase)_files/images/%E6%99%AE%E9%80%9AHTML(%E7%BB%A7%E6%89%BFbase).jpg"></div>
+<h2 class="topic">
+<a name="0elqidrkj6sjvpk6l2bka5704r">blogs.html显示日志们</a>
+</h2>
+<div class="overview">
+<img src="%E6%99%AE%E9%80%9AHTML(%E7%BB%A7%E6%89%BFbase)_files/images/blogs.html%E6%98%BE%E7%A4%BA%E6%97%A5%E5%BF%97%E4%BB%AC.jpg"></div>
+<h3 class="topic">
+<a name="7rkmpm05ittl8sk8g6efnlolj0">&nbsp;从@get('/')得到page和blogs</a>
+</h3>
+<h3 class="topic">
+<a name="2n5iegf83vi7vk667t81tk7o6j">&nbsp;遍历blogs生成日志页</a>
+</h3>
+<h3 class="topic">
+<a name="3emg1f3uq318uajaagppao4j2m">&nbsp;pagination('/?page=', page)翻页</a>
+</h3>
+<h3 class="topic">
+<a name="37835fe1qhog6jmhqmpakb3pd5">&nbsp;翻页，就是自动get请求加上参数/?page=</a>
+</h3>
+<h2 class="topic">
+<a name="5vpl7bru28uqjbostar9jmcolo">blog.html显示日志和评论们</a>
+</h2>
+<div class="overview">
+<img src="%E6%99%AE%E9%80%9AHTML(%E7%BB%A7%E6%89%BFbase)_files/images/blog.html%E6%98%BE%E7%A4%BA%E6%97%A5%E5%BF%97%E5%92%8C%E8%AF%84%E8%AE%BA%E4%BB%AC.jpg"></div>
+<h3 class="topic">
+<a name="5ptv8d6lduabl1iflu545qk4c1">&nbsp;载入ready开始加载评论form，提交url为/api/blogs/{{ blog.id }}/comments</a>
+</h3>
+<h3 class="topic">
+<a name="416os83rh94s3hl5g6mgsi491e">&nbsp;其实上一步加载好了，也不一定显示出来，要有__user__才行</a>
+</h3>
+<h3 class="topic">
+<a name="5k7qlgn3oob48q1hh3hoeoqv4d">&nbsp;显示blog相关信息后显示评论form，再遍历comments显示</a>
+</h3>
+<h3 class="topic">
+<a name="1f66q79uf7sme6qik5unte8qug">&nbsp;comment.html|_content|safe。遍历的else提示没人评论</a>
+</h3>
+<h3 class="topic">
+<a name="4ngui3mobht15aop02k6iktbcb">&nbsp;最后加上日志评价名字和头像，其他链接，结束。(提交成功刷新)</a>
+</h3>
+<h2 class="topic">
+<a name="4fdbma8er83kmm1abpt8e6gpp8">register.html</a>
+</h2>
+<div class="overview">
+<img src="%E6%99%AE%E9%80%9AHTML(%E7%BB%A7%E6%89%BFbase)_files/images/register.html.jpg"></div>
+<h3 class="topic">
+<a name="5fj8fjefg6f5sn7pko8re1mru0">&nbsp;载入ready初始化Vue(#vm视图)的data与提交方法</a>
+</h3>
+<h3 class="topic">
+<a name="75j4e8u1nf83pjlvu0hh45d5g2">&nbsp;提交方法中检测了输入们后提交给/api/users，成功则/</a>
+</h3>
+<h3 class="topic">
+<a name="3tv82ibkg5vqi62dt9jge6va6t">&nbsp;form id="vm"生成data对应的v-model的显示标签</a>
+</h3>
+<h2 class="topic">
+<a name="33q5mugrojl29ed8ck1ibdi3l7">signin.html</a>
+</h2>
+<div class="overview">
+<img src="%E6%99%AE%E9%80%9AHTML(%E7%BB%A7%E6%89%BFbase)_files/images/signin.html.jpg"></div>
+<h3 class="topic">
+<a name="1db5uk9odnlaj53tot9pvm93lf">&nbsp;载入ready初始化Vue的data和提交方法</a>
+</h3>
+<h3 class="topic">
+<a name="3ah09q15ldjcjlflh87d7biril">&nbsp;提交给/api/authenticate，成功则/</a>
+</h3>
+<h3 class="topic">
+<a name="2hf1t4vhdn80sd9fa1g9ui0acr">&nbsp;form id="vm"生成和data对应的v-model的显示标签们</a>
+</h3>
+</body>
+</html>

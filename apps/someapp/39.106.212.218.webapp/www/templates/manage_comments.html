@@ -1,0 +1,99 @@
+{% extends '__base__.html' %}
+
+{% block title %}评论{% endblock %}
+
+{% block beforehead %}
+
+<script>
+
+function initVM(data) {
+    $('#vm').show();  //vm标签(View)刚开始并不显示的哦。。。
+    var vm = new Vue({ //获得vm对象并使用(VMMV)
+        el: '#vm', //与这个view #vm绑定
+        data: { //data初始化，api返回的是dict(page=p, comments=comments)
+            comments: data.comments,
+            page: data.page
+        },
+        methods: { //方法们-delete_comment事件触发的方法(HTML中定义的)
+            delete_comment: function (comment) {
+                var content = comment.content.length > 20 ? comment.content.substring(0, 20) + '...' : comment.content;
+                if (confirm('确认要删除评论“' + comment.content + '”？删除后不可恢复！')) { //这里应该是上面的var的content才对。。。全显示了。。。
+                    postJSON('/api/comments/' + comment.id + '/delete', function (err, r) {
+                        if (err) {
+                            return error(err);
+                        }
+                        refresh(); //刷新页面，会怎样呢？哦，就是F5一样刷新重新请求，也重新运行下面的方法
+                    });
+                }
+            }
+        }
+    });
+}
+
+//$(function() {});是$(document).ready(function(){ })的简写
+//就是载入好了的事件，会触发这个方法
+$(function() { //这个function只有一行语句getJSON，得到了就开始initVM
+    getJSON('/api/comments', {
+        page: {{ page_index }} //这个page_index是1，是get此页面的函数给的名为page_index，一直是get此页面的后返回给,后来的get能传别页了
+    }, function (err, results) {
+        if (err) {
+            return fatal(err);
+        }
+        $('#loading').hide(); //隐藏正在加载
+        initVM(results); //初始化
+    });
+});
+
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="uk-width-1-1 uk-margin-bottom">
+        <div class="uk-panel uk-panel-box">
+            <ul class="uk-breadcrumb">
+                <li class="uk-active"><span>评论</span></li>
+                <li><a href="/manage/blogs">日志</a></li>
+                <li><a href="/manage/users">用户</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="error" class="uk-width-1-1">
+    </div>
+
+    <div id="loading" class="uk-width-1-1 uk-text-center">
+        <span><i class="uk-icon-spinner uk-icon-medium uk-icon-spin"></i> 正在加载...</span>
+    </div>
+
+    <div id="vm" class="uk-width-1-1" style="display:none">
+        <table class="uk-table uk-table-hover">
+            <thead>
+                <tr>
+                    <th class="uk-width-2-10">作者</th>
+                    <th class="uk-width-5-10">内容</th>
+                    <th class="uk-width-2-10">创建时间</th>
+                    <th class="uk-width-1-10">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-repeat="comment: comments" >
+                    <td>
+                        <span v-text="comment.user_name"></span>
+                    </td>
+                    <td>
+                        <span v-text="comment.content"></span>
+                    </td>
+                    <td>
+                        <span v-text="comment.created_at.toDateTime()"></span>
+                    </td>
+                    <td>
+                        <a href="#0" v-on="click: delete_comment(comment)"><i class="uk-icon-trash-o"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table> <!--用page来自动处理page分页问题，处理页面的方法也是定义的page='1'呢，是page哦。。。-->
+        <div v-component="pagination" v-with="page"></div>
+    </div>
+{% endblock %}

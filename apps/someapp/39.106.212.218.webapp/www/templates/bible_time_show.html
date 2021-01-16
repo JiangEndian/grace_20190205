@@ -1,0 +1,79 @@
+{% extends 'bible_base.html' %}
+
+{% block title %}显示所有{% endblock %}
+
+{% block beforehead %}
+
+<script>
+
+function initVM(data) {
+    var vm = new Vue({
+        el: '#vm',
+        data: {
+            bibletimes: data.bibletimes,
+        }
+    });
+    $('#vm').show();
+}
+
+$(function() {
+    getJSON('/api/bibletime/show', function (err, results) {
+        if (err) {
+            return fatal(err);
+        }
+        $('#loading').hide();
+        initVM(results);
+    });
+});
+
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+
+    <div id="error" class="uk-width-1-1">
+    </div>
+
+    <div id="loading" class="uk-width-1-1 uk-text-center">
+        <span><i class="uk-icon-spinner uk-icon-medium uk-icon-spin"></i> 正在加载...</span>
+    </div>
+
+    <div id="vm" class="uk-width-1-1">
+        <a href="/bibletime/add" class="uk-button uk-button-primary"><i class="uk-icon-plus"></i> 新增</a>
+
+        <table class="uk-table uk-table-hover">
+            <thead>
+                <tr>
+                    <th class="uk-width-1-10">名字</th>
+                    <th class="uk-width-1-10">AA始</th>
+                    <th class="uk-width-1-10">AA终</th>
+                    <th class="uk-width-1-10">持续</th>
+                    <th class="uk-width-2-10">内容</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-repeat="bibletime: bibletimes" >
+                    <td>
+                        <a target="_blank"  v-text="bibletime.name"></a>
+                    </td>
+                    <td>
+                        <a target="_blank"  v-text="bibletime.aa_start"></a>
+                    </td>
+                    <td>
+                        <span v-text="bibletime.aa_end"></span>
+                    </td>
+                    <td>
+                        <span v-text="bibletime.last"></span>
+                    </td>
+                    <td>
+                        <span v-text="bibletime.content"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+{% endblock %}

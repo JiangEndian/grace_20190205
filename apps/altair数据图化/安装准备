@@ -1,0 +1,6 @@
+pip3 install -U altair vega_datasets jupyterlab
+由于Altair的教程文档中还包含vega数据集，因此也需要一并安装上。
+接着在终端中输入：jupyter lab，就能在你的浏览器中自动打开它啦。
+嗯，这个玩意，不是在终端编辑的，是在网页中，他的服务器中运行的。。。
+Jupyter源于Ipython Notebook，是使用Python（也有R、Julia、Node等其他语言的内核）进行代码演示、数据分析、可视化、教学的很好的工具
+

@@ -1,0 +1,144 @@
+数据库是通过手动创建的，脚本名为schema.sql:
+    >>先删除已存的此库
+    >>创建库
+    >>授权数据库对象的用户和密码
+    >>创建表的语句们
+
+app.py：
+>>从asyncio获取EventLoop(把协程扔进去执行，就能实现异步)引用loop
+>>用得到的loop执行init(loop)
+    >>init(loop)首先通过orm.create_pool(loop, **configs.db)创建数据库连接池
+        orm.py的create_pool(loop, **kw):
+        >>定义一个全局变量global __pool来存放全局连接池
+        >>__pool = aiomysql.create_pool(loop, **kw)生出了这个连接池
+            >>host/port/user/password/db/.../loop等等数据库相关参数
+            >>configs.db得到覆盖某些基本配置的configs再得到其db{数据库信息的Dict}
+    >>通过web.Application(loop, middlewares)得到响应HTTP请求的app
+        >>有4个middlewares(中间软件)拦截器，它先处理下请求再分发出去
+        >>logger_factory是用来统一记录URL的request的方法和路径的
+        >>auth_factory是用来检测cookie并提取user信息附到request上的
+            并且检测路径为管理时，判断user后直接返回登陆页或予以通过
+        >>response_factory是先r = handler(request)分发出去得到结果r
+            再对r进行处理，转为web.Response对象返回去(拦截器可以双向)
+        >>data_factory没有用到，是用来检测POST请求并处理其提交数据的
+            处理方法为按照POST的内容类型相应处理后附加到request上
+    >>用init_jinja2(app, **kw)初始化jinja2模板引擎
+        >>根据kw设定一些选项，如是否自动重新载入之类，并提供默认值
+        >>再得到路径设定，如果没有就设为当前路径下的templates
+        >>再根据设定的选项和路径载入，得到Environment对象的env引用
+        >>再找filters们，如果不为空，就把filters也附到env里面
+        >>最后再把env附为app的__templating__属性
+    >>通过add_routes(app, 'handlers')把handlers.py的URL处理函数注册(干活的在这里)
+    coroweb.py的add_routes(app, module_name):注册handlers的所有带method和path的函数
+        >>得到mod对象<module 'handlers' from '/home/ed/grace/git/someapp/webapp/www/handlers.py'>
+        >>for attr in dir(mod):遍历mod对象的所有属性(名)
+        >>if attr.startswith('_')排除掉以_开头的属性
+        >>fn = getattr(mod, attr)按属性名来找到属性值(函数对象)
+        >>if callable(fn)判断如果是方法的话(自己定义的方法们)
+        >>通过fn的'__method__'和'__route__'来得到method和path
+            >>通过@coroweb.py的get(path)/post(path)装饰器给附加的
+                >>get把原来的方法嵌入到wrapper(*args, **kw)中
+                >>wrapper附加__method__和__route__属性值为'GET'和path
+                >>返回这个有了附加属性的方法(已装饰好了的原函数)
+                >>因为装饰器也要接受自己的参数path
+                >>就得编写一个返回装饰器的函数decorator
+                >>最后，返回这个函数。共三层嵌套
+                >>post(path)同样，只不过把__method__的值换为'POST'了
+        >>判断如果二者都存在，那么add_route(app, fn)注册此方法对象
+            就是把request的方法method(get/post),路径(URL),处理函数对象fn给注册了
+            >>coroweb.py的add_route(app, fn):
+                >>按照惯例取出方法和路径(又重复判断了下二者都存在)
+                >>如果不是协程方法@/async并且不是迭代器，就协程一下
+                >>然后，用app.router.add_route(method, path, 处理方法
+                >>RequestHandler(app, fn))给注册到app对象上去
+                    coroweb.py的RequestHandler(object):
+                    >>把app附加到self._app上，再把fn的相关信息提取并附加到self上
+                        >>_func=fn这是把这个处理函数先附加上
+                        >>_has_request_arg=has_request_arg(fn)判断有无要求request参数
+                            >>先得到函数的(参数们)这样的tuple的引用sig
+                            >>再分析sig得到参数的排序字典引用params.'参数名':默认值?
+                            >>把found置为False再遍历params如果得到'request'则True
+                        >>_has_var_kw_arg=has_var_kw_arg(fn)判断有无VAR_KEYWORD
+                            >>同上遍历参数的排序字典如果有参数的类型为VAR_KEYWORD为True
+                        >>还有其他的关于fn的信息...
+                    >>定义__call__(self, request):不就是当方法用嘛
+                        >>嗯，就是得当方法用嘛，add_route要求的就是要方法
+                        >>根据fn的信息和request的信息进行一系列处理得到kw
+                        >>再try异步运行_func(**kw)得到结果r(用干活的开始干活)
+                        >>返回r或者运行出错的话返回dict(错误相关信息)
+    >>通过add_static(app)添加静态文件
+        coroweb.py的add_static(app)
+        >>得到当前路径下的static文件夹，通过app.router.add_static()把路径添加进去
+    >>通过asyncio的EventLoop的create_server(app.make_handler(), 'host', port)创建服务
+    >>return 异步执行的上一步得到的返回结果srv。完成
+>>loop执行的方式是run_forever()
+
+好了，整个系统形成了，现在，可以处理get/post的各种URL请求了
+处理方法要用web框架的批量注册方法注册的话得写在handlers.py里并附上method和path
+然后它处理的时候，就各种操作数据库并各种返回了，当然，它处理前后要经过中间软件过滤器
+
+分析handles.py(由它来对GET/POST的URL的request进行各种处理后返回出去)
+    >>定义了cookie的相关信息，包括名和secret字串
+    >>定义了检测request里面的用户(如果中间软件/拦截器给成功加上了)并判断是否为管理员的方法
+        >>不是的话，抛出APIPermissionErro()
+    >>定义了page_str转换为int的方法get_page_index，如果小于1(不足一页)则赋值1,然后返回p
+    >>定义了user2cookie和coolie2user方法来进行cookie和user之间的转换生成
+>>开始正文——处理方法们的生活～首先，已经注册了自己要处理的method和路径，然后，躺着等叫
+>>@get('/')处理GET:'/'的方法index(*, page='1')生成第一页blog页面
+    >>得到page_index = get_page_index(page)(第一页)
+    >>然后yield from Blog.findNumber('count(id)')执行得到num总的blog表条数
+        >>Blog类等Model的子类，只负责定义数据库表和作为接收参数们的容器，方法是Model的
+        >>Model的元类是ModelMetaclass(正面的参数cls代表的是对象的类对象)
+        orm.py的Model的findNumber(cls, selectField, where=None, args=None):
+            >>根据selectField和cls里面的__table__信息加上如果存在的条件拼接成sql语句
+            >>select(' '.join(sql), args, 1)用select方法执行得到rs并返回rs[0]['_num_']
+            >>上面的返回结果是一个行数，共有几行的意思，其拼的sql语句就是执行这个功能
+            orm.py的select(sql, args, size=None):
+                >>首先从__pool中得到conn，然后，从conn中得到cur
+                >>cur.execute(sql.replace('?', '%s'), args or ())来替换成mysql的占位符
+                >>if size:判断有无要求大小，有的话，cur.fetchmany(size)，否则all...
+                    >>8行的user表共得到一行结果，为'_num_'=8这样的
+                >>关闭cur然后返回上面得到的结果rs
+    >>再用Page(num)处理下得到page对象(包含条数/页数等等相关信息)
+        apis.py的Page对象init by (item_count, page_index=1, page_size=10)
+            >>根据item_count总条数,page_index从哪页开始,page_size每页size条数
+            >>计算得到page_count总页数,offset起始条目(如第8页为70-80),limit=page_size
+            >>再通过要求的页和总页数得到有无下页，并通过page_index>1判断有无前页
+            >>通过__str__(self)生成带有上面前两行的6条信息的字串并__reper__ = __str__
+    >>通过Blog.findAll(orderBy='created_at desc', limit=(page.offset, page.limit))
+    >>得到了要的具体条目们(可按顺序取是因为有排序)blogs
+    orm.py的findAll(cls, where=None, args=None, **kw)用来按条件查询(如果有的话)
+        >>select语句已经在元类中通过用户定义的Model子类信息生成好了，附上条件就行
+        >>其他的语句也已经生成好了，只是差了参数们而已，当然，都是?占位(%sPy得用)
+        >>通过执行select(' '.join(sql), args)来得到返回值rs
+        orm.py的select(sql, args, size=None):
+            >>首先从__pool中得到conn，然后，从conn中得到cur
+            >>cur.execute(sql.replace('?', '%s'), args or ())来替换成mysql的占位符
+            >>if size:判断有无要求大小，有的话，cur.fetchmany(size)，否则all...
+            >>关闭cur然后返回上面得到的结果rs
+    >>再返回{'__template__':'blogs.html', 'page':page, 'blogs':blogs}这样的数据
+    blogs.html是怎样处理的呢？
+        >>{% extends '__base__.html' %}来继承父模板
+        __bash__.html是怎样的呢:
+            >>HTML的老规距代码行+定义了charset="utf-8"
+            >>block meta
+            >>block title(块后面给附加上了-Awesome Python Webapp...)
+            >>引入了css和js的相关资源文件
+            >>block beforehead用来写自己的JS代码+</head>关闭head...
+            >>一串HTML代码，还有推销作者自己网站的链接
+            >>判断{% if __user__ %}显示{{__user__.name}}并加上登出的链接图标
+            >>{% else %}就给出登陆和注册的链接图标{% endif %}
+                ({% x %}{% endx %}是jinja2模板引擎的语法)
+            >>封闭标签们+block content
+            >>作者的相关链接
+            >>底部的Powered by和其他链接...
+        >>{% block title %}日志{% endblock %}标题设为日志
+        >>{% block content %}中写blog相关的HTML信息
+        >>并{% for blog in blogs %}遍历用{{blog.id}}来引用相关参数
+        >>并生成类似<a href="/blog/{{blog.id}}">{{blog.name}}</a>这样的链接来
+        >>{% end for %}+{{pagination('/?page=', page)}}生成page操作链接们
+        >>加上链接到作者的友情链接们。。。
+        >>{% endblock %}了...
+>>@get('/blog/{id}')处理GET:'/blog/{id}'的方法get_blog(id)
+    id是在coroweb中通过request.match_info得到的(web.Application注册的URL:/blog/{id}和请求的URL:/blog/aslfkjsalk对比判断是给它或者给后面定义的同样的URL:/blog/{cd}...，生成kw{'id'('cd'):001514861142476bd95fab85f7542178dba245d02470c57000'}
+

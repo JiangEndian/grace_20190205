@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% block content %}
+
+<script type="text/javascript">
+    //显示某隐藏标签或隐藏其显示
+    function display(id){
+        var traget=document.getElementById(id);
+        if(traget.style.visibility=="hidden"){
+            traget.style.visibility="";
+        }else{
+            traget.style.visibility="hidden";
+      }
+      }
+
+      //获取滚动条位置
+       function get_scroll_position(){
+           return document.documentElement.scrollTop
+       }
+
+       //自动滚动，且对鼠标滚动支持
+       function scroller()  
+       {  
+           if(true)  
+           {   
+               position = get_scroll_position()
+               position += 1;  
+               scroll(0,position);  
+               clearTimeout(timer);  
+               var timer = setTimeout("scroller()",30);  
+           }
+        }
+        //setTimeout("scroller()", 4000);
+
+        function back2top(event){
+            event = event
+            event.stopPropagation()
+            scroll(0,0);
+        //    setTimeout(function(){ scroll(0, 0);},100)
+        }
+        
+        //function simulator_pagedown(){
+        //document.onclick = function (){
+        function page_down(){
+            position = get_scroll_position()
+            position += 200;
+            scroll(0, position)
+        }
+        //setTimeout("scroll(0,20000)", 2000)
+
+</script>
+
+
+<form id="form" action="/accept-cmd-alt3" method="get">
+    <input type="hidden" name="every" value={{ every_info }}>
+    {% ifequal every_info 'common' %}
+        {% include "input_cmd_one.html" %}
+    {% endifequal %}
+    
+    {% ifequal every_info 'week' %}
+        {% include "input_cmd_default2.html" %}
+    {% endifequal %}
+
+    {% ifequal every_info 'month' %}
+        {% include "input_cmd_default2.html" %}
+    {% endifequal %}
+
+    {% ifequal every_info 'year' %}
+        {% include "input_cmd.html" %}
+    {% endifequal %}
+</form>
+
+<div onclick="page_down()">
+<font size="7">
+{% ifequal every_info 'common' %}
+    <pre style="white-space: pre-wrap; word-wrap:break-word;">
+    {{ con }}
+    </pre>
+    </font>
+    <font size="6">
+    <div id="lb" style="visibility;">
+    {{ env }}
+    </div>
+    <hr>
+    {{ next_con }}
+    <hr>
+
+
+    <audio id="myAudio1" autoplay src="/static/grace_voice/{{ ext }}.mp3" />
+    <audio id="myAudio2" src="/static/grace_voice/{{ ext }}.mp3" />
+    <audio id="myAudio3" src="/static/grace_voice/{{ ext }}.mp3" />
+    <script>
+        var aud1 = document.getElementById("myAudio1");
+        var aud2 = document.getElementById("myAudio2");
+        var aud3 = document.getElementById("myAudio3");
+        aud1.onended = function() {
+            //按时间算重复两三遍或者不重复
+            //因为和python3注释不同导致错误过...
+            //document.getElementById("form").submit();
+            aud2.play()
+        }; 
+        aud2.onended = function() {
+            document.getElementById("form").submit();
+            //aud3.play()
+        }; 
+        aud3.onended = function() {
+            document.getElementById("form").submit();
+        }; 
+    </script>
+{% else %}
+    </font>
+    <font size="7">
+    <pre style="white-space: pre-wrap; word-wrap:break-word;">
+    {{ con }}
+    </pre>
+    </font>
+    <font size="6">
+    <div>
+    {{ env }}
+    </div>
+    <hr>
+    {{ next_con }}
+    <hr>
+    <u>{{ every_info }}</u>
+    <hr>
+    <audio id="myAudio1" autoplay src="/static/grace_voice/{{ ext }}.mp3" />
+    <audio id="myAudio2" src="/static/grace_voice/{{ ext }}.mp3" />
+    <audio id="myAudio3" src="/static/grace_voice/{{ ext }}.mp3" />
+    <script>
+        var loop_times = 1
+        var aud1 = document.getElementById("myAudio1");
+        var aud2 = document.getElementById("myAudio2");
+        var aud3 = document.getElementById("myAudio3");
+        aud1.onended = function() {
+            ++loop_times
+            if (loop_times > 2){
+                document.getElementById("form").submit();
+                //aud3.play()
+            }
+            else {
+                aud1.play()
+            }
+        }; 
+        aud2.onended = function() {
+            //document.getElementById("form").submit();
+            aud3.play()
+        }; 
+        aud3.onended = function() {
+            document.getElementById("form").submit();
+        }; 
+    </script>
+{% endifequal %}
+</font>
+</div>
+<br>
+
+<p align="right">
+<button onclick='back2top(event)' style="width:180px;height:60px"> back2top </button>
+{{ showinfo }} <a href=/alt1234> 回到主页 </a>
+</p>
+
+<p>{{ every }} {{ cmd }}</p>
+
+{% endblock %}
+

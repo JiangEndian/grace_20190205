@@ -1,0 +1,946 @@
+##!/usr/bin/env python3
+#-*- coding: utf-8 -*-
+from urllib import request
+from collections import Counter
+import time ,  threading
+import subprocess
+import pickle#对象序列化（持久化）
+from multiprocessing import Process ,  Queue
+from multiprocessing.managers import BaseManager
+import os ,  time ,  random ,  queue
+import pdb
+import math
+import logging
+from functools import reduce
+import functools
+from datetime import datetime , timedelta
+import hashlib
+from tkinter import *#导入Tkinter所有包，这是编写TKGUI的第一步
+import tkinter.messagebox as messagebox
+import socket#导入socket库
+print('YouInputIs:' , int(input('PleaseInputYourNumber:')))
+lista = ['1' ,  '2' ,  '3']
+print(lista[0] , lista , lista[-1])
+lista.append('4')
+lista.insert(0 , '0')
+lista.pop()
+lista.pop(0)
+lista.append(['4' ,  '5'])
+tuplea = ('1' ,  '2' ,  '3')
+tupleb = (1 , )
+tuplec = ('1' ,  ['2' ,  '3'])
+tuplec[1][0] = 1
+tuplec[1][1] = 2
+print(tuplec)
+for i in list(range(6)):
+    if i == 5:
+        print(i , 'break')
+        break
+    inputnum = int(input('InputNumVS3'))
+    if inputnum > 3:
+        print('YourInputNumBiggerThen3')
+    elif inputnum < 3:
+        print('YourInputNumSmallerThen3')
+    else:
+        print('YourInputNumIs3')
+while int(input('Input3ToExitWhile.')) != 3:
+    pass
+    
+dicta = {'1':1 ,  '2':2 ,  '3':3}
+print(dicta , dicta['1'])
+dicta['4'] = 4
+dicta.pop('1')
+print(dicta , '4' in dicta ,  '5' in dicta)
+setb = set([1 ,  1 ,  2 ,  3])
+seta = set([1 ,  2 ,  3])
+seta.remove(3)
+print(seta ,  '\n' ,  seta & setb ,  '\n' ,  seta | setb)
+print(hex(16) ,  abs(-10) , max(1 ,  2) ,  int('123') ,  int(12.3) ,  float('1.23') ,  str(123) ,  str(1.23) ,  bool(1) ,  bool(''))
+#Python中，一切都是对象，包括函数。因此，可以把函数赋值给其他的。
+def hello(name):
+    print('hello , ' ,  name)
+    return 'Yourname:' ,  name
+print(hello(input('InputYourName:')))
+def printfun(a ,  b=2):
+    print(a ,  b)
+printfun(1 ,  3)
+printfun(1)
+printfun([1 ,  2] ,  4)
+#*numbers , 可变参数
+def clac(*numbers):
+    sum = 0
+    for n in numbers:
+        sum += n**2
+    return sum
+nums = list(range(1 ,  10))
+print(clac(1 ,  2 ,  3) ,  clac(1 ,  2 ,  3 ,  4) ,  clac(*nums))
+#**kw , 关键字参数
+def person(name ,  age ,  **kw):
+    print(name ,  age ,  kw)
+person('Endian' ,  24)
+person('E' ,  24 ,  city = 'xxx' ,  job = 'xxx')
+extra = {'city':'x' ,  'job':'xx'}
+person('j' ,  24 ,  **extra)
+#* , 命名(必传入的名)关键字参数，如果已经有了一个可变参数，就不需要再个*了。
+def persona(name ,  age ,  * ,  city ,  job):
+    print(name ,  age ,  city ,  job)
+persona('j' ,  24 ,  city='b' ,  job='j')
+def person(name ,  age ,  *args ,  city ,  job='job'):
+    print(name ,  age ,  args ,  city ,  job)
+person('j' ,  24 ,  city='c')
+person('j' ,  24 ,  1 ,  2 ,  city='c' ,  job='j')
+
+#顺序：必选，默认，可变，命名关键字，关键字。
+def f1(a ,  b ,  c=0 ,  *args ,  **kw):
+    print(a ,  b ,  c ,  args ,  kw)
+def f2(a ,  b ,  c=0 ,  * ,  d ,  **kw):
+    print(a ,  b ,  c ,  d ,  kw)
+f1(1 ,  2 ,  3 ,  'a' , 'b' , x=99)
+f2(1 ,  2 ,  d=99 ,  ext=None)
+args = (1 ,  2 ,  3 ,  4)
+kw = {'d':99 ,  'x':'#'}
+f1(*args ,  **kw)# 1,2,3为abc,4为可变参数，kw为关键字参数
+args = (1 ,  2 ,  3)
+kw = {'d':88 ,  'x':'#'}
+f2(*args ,  **kw)# 1， 2， 3， 为abc,d为命名关键字参数，x为关键字参数
+#对于任意函数，都可以通过类似func(*args ,  **kw)的形式调用它，无论它的参数是如何定义的。
+#*args是可变参数，args接收的是一个tuple；
+#**kw是关键字参数，kw接收的是一个dict。
+
+#哪里需要全局变量，哪里声明一下；但是函数千万不要传参数， Fuc(a)是不行的。global a , 用的时候，global下，声明的时候，不能赋值。
+global a 
+a = 3.这样 。要两行。
+#在Python中，代码不是越多越好，而是越少越好。代码不是越复杂越好，而是越简单越好。
+L = [0 ,  1 ,  2 ,  3 ,  4 ,  5]# 可切片的
+str = 'ABCDEFG'# 同样可切片的
+d = {'a':1 ,  'b':2 ,  'c':3}
+for key in d:
+    print(key)
+for value in d.values():
+    print(value)
+for k ,  v in d.items():
+    print(k , ':' , v)
+for ch in 'JiangEnDian':
+    print(ch)
+for x ,  y in [(1 ,  1) ,  (2 ,  4) ,  (3 ,  9)]:
+    print(x ,  y)
+L = list(range(1 ,  11))
+L1 = [x * x for x in range(1 ,  11)]
+L2 = [x * x for x in range(1 ,  11) if x % 2 == 0]
+L3 = [m + n for m in 'ABC' for n in 'XYZ']
+L4 = [d for d in os.listdir('.')]
+d = {'x':'A' ,  'y':'B' ,  'z':'C'}
+L5 = [k + '=' + v for k ,  v in d.items()]
+ls = ['Hello' ,  'World' ,  'IBM' ,  'Apple']
+L6 = [s.lower() for s in ls]
+g = (x * x for x in range(10))# 非列表生成式，这个是小括号，此为生成器
+print(g)
+print(next(g))
+for n in g:#并不重新来，for , 也是和上面一样用的next
+    print(n)
+def fib(max):
+        n ,  a ,  b=0 ,  0 ,  1
+        while n < max:
+            print(b)
+            a ,  b = b ,  a + b
+            n = n + 1
+        return 'done'
+fib(7)  
+def fib(max):
+        n ,  a ,  b=0 ,  0 ,  1
+        while n < max:
+            yield b#只有这个不同 , 在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行。
+            a ,  b = b ,  a + b
+            n = n + 1
+        return 'done'#想要拿到返回值，必须捕获StopIteration错误，返回值包含在StopIteration的value中
+def odd():#这是一个generator , 要先生成一个generator对象
+    print('step 1')
+    yield 1
+    print('step 2')
+    yield(3)
+    print('step 3')
+    yield(5)
+o = odd()
+next(o)
+next(o)
+next(o)
+next(o)#这个就会抛出异常
+for n in o:
+    print(n)#n 是返回值，yield返回的东西
+for n in fib(6):
+    print(n)
+#这些可以直接作用于for循环的对象统称为可迭代对象：Iterable（可迭代对象）。
+#生成器都是Iterator对象，但list、dict、str虽然是Iterable，却不是Iterator。把list、dict、str等Iterable变成Iterator可以使用iter()函数：
+#Iterator对象可以被next()函数调用并不断返回下一个数据，直到没有数据时抛出StopIteration错误。可以把这个数据流看做是一个有序序列，但我们却不能提前知道序列的长度，只能不断通过next()函数实现按需计算下一个数据，所以Iterator的计算是惰性的，只有在需要返回下一个数据时它才会计算。Iterator甚至可以表示一个无限大的数据流，例如全体自然数。而使用list是永远不可能存储全体自然数的。
+def add(x ,  y ,  f):
+    return f(x) + f(y)
+print(add(-5 ,  6 ,  abs))
+#map()函数接收两个参数，一个是函数，一个是Iterable（可迭代对象），map将传入的函数依次作用到序列的每个元素，并把结果作为新的Iterator（迭代器）返回。
+def f(x):
+    return x * x
+r = map(f ,  [1 ,  2 ,  3 ,  4 ,  5 ,  6 ,  7 ,  8 ,  9])
+print(r , list(r))#结果r是一个Iterator，Iterator是惰性序列，因此通过list()函数让它把整个序列都计算出来并返回一个list。
+print(list(map(str ,  [1 ,  2 ,  3 ,  4 ,  5])))
+#reduce把一个函数作用在一个序列[x1 ,  x2 ,  x3 ,  ...]上，这个传入的函数必须接收两个参数，reduce把结果继续和序列的下一个元素做累积计算reduce(f ,  [x1 ,  x2 ,  x3 ,  x4]) = f(f(f(x1 ,  x2) ,  x3) ,  x4)
+def add(x ,  y):# 接收两个参数的函数
+    return x + y
+print(reduce(add ,  [1 ,  3 ,  5 ,  7 ,  9]))# 接收两个参数，计算得一个结果，和下个参数形成两个参数
+def str2int(s):
+    def fn(x ,  y):
+        return x * 10 + y 
+    def char2num(s):
+        numdict = {'0':0 ,  '1':1 ,  '2':2 ,  '3':3 ,  '4':4 ,  '5':5 ,  '6':6 ,  '7':7 ,  '8':8 ,  '9':9}
+        return numdict[s]
+    return reduce(fn ,  map(char2num ,  s))# 先map得到一序列单个数字，再reduce得到一个大数字
+print(list(map(str2int ,  ['123' , '123456' , '123456789'])))
+#lambda
+def char2num(s):
+    numdict = {'0':0 ,  '1':1 ,  '2':2 ,  '3':3 ,  '4':4 ,  '5':5 ,  '6':6 ,  '7':7 ,  '8':8 ,  '9':9}
+    return numdict[s]
+def str2int(s):
+    return reduce(lambda x ,  y: x * 10 + y , map(char2num ,  s))
+print(str2int('123456'))
+def normalize(name):# name接收的，作为map的参数，应该是一个可迭代对象
+    return list(map(str.capitalize ,  name))# capitalize把单词变成首字母大写的格式
+print(normalize(['adam' ,  'LISA' ,  'barT']))
+def str2float(s):
+    s1 = s.split('.')[0]# 以.为分界，分成列表，浮点数有两个部分呢
+    s2 = s.split('.')[1]
+    print('s1=' , s1 , 's2=' , s2)
+    def char2num(z):
+        numdict = {'0':0 ,  '1':1 ,  '2':2 ,  '3':3 ,  '4':4 ,  '5':5 ,  '6':6 ,  '7':7 ,  '8':8 ,  '9':9}
+        return numdict[z]
+    def int(a):
+        return reduce(lambda x ,  y: x * 10 + y ,  map(char2num ,  a))
+    return int(s1 + s2) / pow(10 ,  len(s2))# 两个“字串”加一起变成数字，除以小数位数个的10
+print(str2float('123.456'))
+def if_odd(n):
+    return n % 2 == 1# 返回的是这个表达式的布尔值，偶为False，奇为True
+print(list(filter(lambda x: x % 2 == 1 ,  [1 ,  2 ,  4 ,  5 ,  6 ,  9 ,  10 ,  15])))# True的过滤出来，要
+#filter()函数返回的是一个Iterator，也就是一个惰性序列，所以要强迫filter()完成计算结果，需要用list()函数获得所有结果并返回list。
+def _odd_iter():#生成无限奇数序列
+    n = 1
+    while True:
+        n = n + 2
+        yield n
+for i in _odd_iter():
+    print(i)
+    input()
+def _not_divisible(n):#返回的是一个函数：接收一个参数，返回一个函数，返回的函数需要再接收一个参数
+    return lambda x: x % n > 0# 返回这个函数，此函数接收：前面的，返回：后面的
+#作用，需要两个参数 , 用n，来判断，x , 除尽n , False
+def primes():
+    yield 2
+    it = _odd_iter()#无限奇数序列的一个新名
+    while True:
+        n = next(it)#序列中的下一个(必是奇数)
+        yield n
+        it = filter(_not_divisible(n) ,  it)#遍历it，除不尽n的，过滤出来要（除尽n的，过滤不要）, 于是，这是一个过滤了一次的新序列（生成器），并没有真的开始遍历，但，序列生成算法已经存储，next , 就开始计算序列下一个
+for n in primes():# 遍历此序列（一个一个计算出来，循环里面需要有终止此无穷序列的条件）
+    if n < 100:
+        print(n)
+    else:
+        break
+        
+def is_palindrome(n):#过滤掉非（回数12321）
+    if(n >= 10):#n 12345
+        a = list(str(n))#a ['1' ,  '2' ,  '3' ,  '4' ,  '5']
+        a.reverse()#a ['5' ,  '4' ,  '3' ,  '2' ,  '1']
+        b = 0
+        for x in a:
+            x = int(x) #5 4 3 2 1
+            b = b * 10 + x#54321
+        return n == b#相等，is_palindrome(n)返回True.即，此数与反过来相等，为回数
+output = filter(is_palindrome ,  range(1 ,  1000))# 回数的话，判断函数返回是True，过滤出来要
+print(list(output))# 过滤后的序列，此序列是一个可迭代对象，保存的是生成算法，需要列出来。
+out1 = filter(lambda x: str(x) == str(x)[::-1] ,  range(10 ,  1000))# str(x)[::-1],把此串反过来。简单直接
+print(list(out1))
+print('12345' , '12345'[::-1])#这个可以对str倒序。。。
+L = [36 ,  5 ,  -12 ,  9 ,  -21]
+print(sorted(L) , sorted(L ,  key=abs))#key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。
+L = ['bob' ,  'about' ,  'Zoo' ,  'Credit']
+print(sorted(L) , '\n' , sorted(L ,  key=str.lower) , '\n' , sorted(L ,  key=str.lower ,  reverse=True))
+#高阶函数的抽象能力是非常强大的，而且，核心代码可以保持得非常简洁。
+#（收到一个函数，然后，返回一个新函数——别的加上原函数）在代码运行期间动态增加功能的方式，称之为“装饰器”（Decorator）。不要。。。
+print(int('123') ,  int('123' ,  base=8) ,  int('123' ,  16))
+def int2(x ,  base=2):    
+return int(x ,  base)#不直接传进2，是为了保留别的选项
+print(int2('111'))#把这个字符串数转换，输出为10进制，字符串数值进制提前设定
+int16 = functools.partial(int ,  base=16)#functools.partial的作用就是，把一个函数的某些参数给换个值固定住（也就是换个默认值生成个新函数），返回一个新的函数，调用这个新函数会更简单。
+print(int16('10'))# 16
+#创建偏函数时，实际上可以接收函数对象、*args和**kw这3个参数
+#max2 = functools.partial(max ,  10)实际上会把10作为*args的一部分自动加到左边，也就是：max2(5 ,  6 ,  7)相当于：args = (10 ,  5 ,  6 ,  7)，max(*args)
+#在计算机程序的开发过程中，随着程序代码越写越多，在一个文件里代码就会越来越长，越来越不容易维护。为了编写可维护的代码，我们把很多函数分组，分别放到不同的文件里，这样，每个文件包含的代码就相对较少
+#!/usr/bin/env python3
+#-*- coding: utf-8 -*-
+#' a test module '
+#if __name__=='__main__':
+    #test()
+#__author__ = 'Michael Liao'
+#第1行和第2行是标准注释，第1行注释可以让这个hello.py文件直接在Unix/Linux/Mac上运行，第2行注释表示.py文件本身使用标准UTF-8编码；第3行是一个字符串，表示模块的文档注释，任何模块代码的第一个字符串都被视为模块的文档注释；第6行使用__author__变量把作者写进去，这样当你公开源代码后别人就可以瞻仰你的大名；以上就是Python模块的标准文件模板，当然也可以全部删掉不写，但是，按标准办事肯定没错。
+#当我们在命令行运行hello模块文件时，Python解释器把一个特殊变量__name__置为__main__，而如果在其他地方导入该hello模块时，if判断将失败
+#pip install 模块名称
+class Myclass(object):
+    def __init__(self ,  name):
+        self.name = name     
+    def hello(self):
+        print('Hello' , self.name)
+myclass = Myclass('Endian')# 接收参数为__init__里的self后面的其他参数
+myclass.hello()# 调用对象方法
+myclass.score = 99# 为对象添加属性
+print(myclass.score)# 直接调用文件属性
+#双下划线开头的实例变量是不是一定不能从外部访问呢？其实也不是。不能直接访问__name是因为Python解释器对外把__name变量改成了_Student__name，所以，仍然可以通过_Student__name来访问__name变量：
+#但是强烈建议你不要这么干，因为不同版本的Python解释器可能会把__name改成不同的变量名。总的来说就是，Python本身没有任何机制阻止你干坏事，一切全靠自觉。
+class Myclassson(Myclass):# 从Myclass继承，有__init__方法和hello方法和name属性，需name参数传入
+    def say(self):
+        print('MyNameIs' ,  self.name)# 直接用父类的属性
+son = Myclassson('Endian')
+son.hello()# 可调用父类方法
+son.say()# 可调用本类方法
+#类似__xxx__的属性和方法在Python中都是有特殊用途的，比如__len__方法返回长度。在Python中，如果你调用len()函数试图获取一个对象的长度，实际上，在len()函数内部，它自动去调用该对象的__len__()方法，所以，下面的代码是等价的：
+print(len('abc') , 'abc'.__len__())
+class MyDog(object):
+    def __len__(self):
+        return 100000000
+MyDog.name = 'dog'# 为类添加属性和对应值
+dog = MyDog()# 实例化一个对象，有name属性及值
+print(dog.name)
+print(len(dog))# 调用了此对象的__len__方法，返回100000000.
+print(hasattr(dog ,  'leg'))# 此对象，有这个属性吗？
+setattr(dog ,  'leg' ,  4)# 设置此对象的此属性为此值
+print(getattr(dog ,  'leg'))# 得到这个对象的这个属性。。。
+print(dog.leg)# 直接用，比上面的简单明了
+print(getattr(dog ,  'ear' ,  404))# 得到这个对象的这个属性，如果没有此属性，默认返回此值（404）
+#操作attr的方法，同样可以操作函数，因函数与属性一样，都是对象啦啦~一切，都是对象。。。
+#只有在不知道对象信息的时候，我们才会去获取对象信息。如果可以直接写：sum = obj.x + obj.y就不要写：sum = getattr(obj ,  'x') + getattr(obj ,  'y')
+class Student(object):
+    @property
+    def score(self):#get方法变成属性操控了
+        return self._score
+    @score.setter#setter方法变成属性操控了
+    def score(self ,  value):
+        if value < 0 or value > 100:
+            print('Your input is not 0-100.')
+            return 
+        self._score = value 
+s = Student()
+s.score = 60#实际上转化为s.set_score(60)
+print(s.score)
+s.score = 999#赋值时进行参数检查，是函数的功劳，看起来像赋值。。。
+print(s.score)#出错信息，并不赋值，函数的功劳
+class Dog():
+    def hello(self):
+        print('hello , dog.')
+    def run(self):
+        print('I run...')
+class Bird():
+    def hello(self):
+        print('hello , bird.')
+    def fly(self):
+        print('I fly...')
+class Oooo(Dog ,  Bird):# 多重继承，有两者的方法和属性了
+    pass
+ooo = Oooo()# 这下厉害了，同名hello方法，取第一个的Dog，这个对象，又能跑，又能飞。。。
+ooo.hello()
+ooo.run()
+ooo.fly()
+#__str__()返回用户看到的字符串，而__repr__()返回程序开发者看到的字符串
+#一个类想被用于for ... in循环，类似list或tuple那样，就必须实现一个__iter__()方法，该方法返回一个迭代对象，然后，Python的for循环就会不断调用该迭代对象的__next__()方法拿到循环的下一个值，直到遇到StopIteration错误时退出循环。
+#要表现得像list那样按照下标取出元素，需要实现__getitem__()方法
+#把对象看成dict，__getitem__()的参数也可能是一个可以作key的object，例如str。与之对应的是__setitem__()方法，把对象视作list或dict来对集合赋值。最后，还有一个__delitem__()方法，用于删除某个元素。总之，通过上面的方法，我们自己定义的类表现得和Python自带的list、tuple、dict没什么区别，这完全归功于动态语言的“鸭子类型”，不需要强制继承某个接口。
+#任何类，只需要定义一个__call__()方法，就可以直接对实例进行调用。obj() , 这样
+#__call__()还可以定义参数。对实例进行直接调用就好比对一个函数进行调用一样，所以你完全可以把对象看成函数，把函数看成对象，因为这两者之间本来就没啥根本的区别。
+#from enum import Enum
+#Month = Enum('Month' ,  ('Jan' ,  'Feb' ,  'Mar' ,  'Apr' ,  'May' ,  'Jun' ,  'Jul' ,  'Aug' ,  'Sep' ,  'Oct' ,  'Nov' ,  'Dec'))
+#for name ,  member in Month.__members__.items():
+    #print(name ,  '=>' ,  member ,  ' , ' ,  member.value)
+#这样我们就获得了Month类型的枚举类，可以直接使用Month.Jan来引用一个常量，或者枚举它的所有成员
+#当我们认为某些代码可能会出错时，就可以用try来运行这段代码，如果执行出错，则后续代码不会继续执行，而是直接跳转至错误处理代码，即except语句块，执行完except后，如果有finally语句块，则执行finally语句块，至此，执行完毕。由于没有错误发生，所以except语句块不会被执行，但是finally如果有，则一定会被执行（可以没有finally语句）此外，如果没有错误发生，可以在except语句块后面加一个else，当没有错误发生时，会自动执行else语句：
+#Python的错误其实也是class，所有的错误类型都继承自BaseException，所以在使用except时需要注意的是，它不但捕获该类型的错误，还把其子类也“一网打尽”。
+#因为错误是class，捕获一个错误就是捕获到该class的一个实例。因此，错误并不是凭空产生的，而是有意创建并抛出的。Python的内置函数会抛出很多类型的错误，我们自己编写的函数也可以抛出错误。如果要抛出错误，首先根据需要，可以定义一个错误的class，选择好继承关系，然后，用raise语句抛出一个错误的实例
+#只有在必要的时候才定义我们自己的错误类型。如果可以选择Python已有的内置的错误类型（比如ValueError，TypeError），尽量使用Python内置的错误类型。
+#捕获错误目的只是记录一下，便于后续追踪。但是，由于当前函数不知道应该怎么处理该错误，所以，最恰当的方式是继续往上抛，让顶层调用者去处理。raise语句如果不带参数，就会把当前错误原样抛出。
+#程序能一次写完并正常运行的概率很小，基本不超过1%。总会有各种各样的bug需要修正。
+#凡是用print()来辅助查看的地方，都可以用断言（assert）来替代：
+def foo(s):
+    n = int(s)
+    assert n != 0 ,  'n is zero!'# 断言失败（False）时，输出后面的信息
+    return 10 / n
+foo('0')#断言错误:n is zero!
+#把print()替换为logging是第3种方式，和assert比，logging不会抛出错误，而且可以输出到文件
+#第4种方式是启动Python的调试器pdb，让程序以单步方式运行，可以随时查看运行状态。
+#python3 -m pdb err.py
+#以参数-m pdb启动后，pdb定位到下一步要执行的代码-> s = '0'。输入命令l来查看代码
+#输入命令n可以单步执行代码 , 任何时候都可以输入命令p 变量名来查看变量
+#输入命令q结束调试，退出程序
+#这种通过pdb在命令行调试的方法理论上是万能的，但实在是太麻烦了，如果有一千行代码，要运行到第999行得敲多少命令啊。还好，我们还有另一种调试方法。pdb.set_trace()这个方法也是用pdb，但是不需要单步执行，我们只需要import pdb，然后，在可能出错的地方放一个pdb.set_trace()，就可以设置一个断点
+test = 1
+print(test)
+test = 2
+pdb.set_trace()
+print(test)
+#如果要比较爽地设置断点、单步执行，就需要一个支持调试功能的IDE。
+#单元测试是用来对一个模块、一个函数或者一个类来进行正确性检验的测试工作。单元测试通过了并不意味着程序就没有bug了，但是不通过程序肯定有bug。
+#Python内置的“文档测试”（doctest）模块可以直接提取注释中的代码并执行测试。
+with open('test' ,  'w') as f:# 打开，作为文本写入
+    f.write('''第一行
+第二行
+第三行''')# 写入
+with open('test' ,  'r') as f:# 打开，作为文本读取
+    print(f.read())# 全部读取
+with open('test' ,  'r') as f:
+    print('print1' ,  f.readline())# 读取一行
+    print('print2' ,  f.readline())
+with open('test' ,  'r') as f:
+    for line in f.readlines():# 读取所有行，一行一行的，可迭代对象
+        print(line.strip())#把末尾的\n去掉
+with open('test' ,  'r' ,  encoding='gb2312' ,  errors='ignore') as f:
+#编码设定，以忽略来处理非法编码字符抛出的异常
+    print(f.read())
+print(os.name)#如果是posix，说明系统是Linux、Unix或Mac OS X，如果是nt，就是Windows系统。
+print(os.environ.get('PATH'))#查看系统环境变量
+print(os.path.abspath('.'))#查看当前目录的绝对路径
+print(os.path.join(os.path.abspath('.') ,  'testdir'))
+os.mkdir(os.path.join(os.path.abspath('.') ,  'testdir'))
+os.rmdir(os.path.join(os.path.abspath('.') ,  'testdir'))
+#把两个路径合成一个时，不要直接拼字符串，而要通过os.path.join()函数，这样可以正确处理不同操作系统的路径分隔符。在Linux/Unix/Mac下，os.path.join()返回这样的字符串：part-1/part-2而Windows下会返回这样的字符串：part-1\part-2
+#同样的道理，要拆分路径时，也不要直接去拆字符串，而要通过os.path.split()函数，这样可以把一个路径拆分为两部分，后一部分总是最后级别的目录或文件名：>>> os.path.split('/Users/michael/testdir/file.txt')('/Users/michael/testdir' ,  'file.txt')
+#os.path.splitext()可以直接让你得到文件扩展名，很多时候非常方便
+#对文件重命名:>>> os.rename('test.txt' ,  'test.py')删掉文件:>>> os.remove('test.py')
+#但是复制文件的函数居然在os模块中不存在！原因是复制文件并非由操作系统提供的系统调用。理论上讲，我们通过上一节的读写文件可以完成文件复制，只不过要多写很多代码。幸运的是shutil模块提供了copyfile()的函数，你还可以在shutil模块中找到很多实用函数，它们可以看做是os模块的补充。
+##利用Python的特性来过滤文件。比如我们要列出当前目录下的所有目录，只需要一行代码：
+##>>> [x for x in os.listdir('.') if os.path.isdir(x)]
+##['.lein' ,  '.local' ,  '.m2' ,  '.npm' ,  '.ssh' ,  '.Trash' ,  '.vim' ,  'Applications' ,  'Desktop' ,  ...]
+##要列出所有的.py文件，也只需一行代码：
+##>>> [x for x in os.listdir('.') if os.path.isfile(x) and os.path.splitext(x)[1]=='.py']
+##['apis.py' ,  'config.py' ,  'models.py' ,  'pymonitor.py' ,  'test_db.py' ,  'urls.py' ,  'wsgiapp.py']
+#Python提供了pickle模块来实现序列化。（持久化对象）
+with open('dumpint' ,  'wb') as f:# 把对象dump入文件或从文件load对象，需要以二进制方式打开
+    pickle.dump(12345 ,  f)
+with open('dumpint' ,  'rb') as f:
+    intnum = pickle.load(f)
+    print(intnum)
+#还有别的如XML ,  JSON , 等通用的文件
+#因为复杂度高，调试困难，所以，不是迫不得已，我们也不想编写多任务（解决方案有效的话，越简单越好。）。
+下面封起来多任务相关的：
+#Unix/Linux操作系统提供了一个fork()系统调用，它非常特殊。普通的函数调用，调用一次，返回一次，但是fork()调用一次，返回两次，因为操作系统自动把当前进程（称为父进程）复制了一份（称为子进程），然后，分别在父进程和子进程内返回。
+#子进程永远返回0，而父进程返回子进程的ID。这样做的理由是，一个父进程可以fork出很多子进程，所以，父进程要记下每个子进程的ID，而子进程只需要调用getppid()就可以拿到父进程的ID。
+import os
+print('Process (%s) start...' % os.getpid())
+#Only works on Unix/Linux/Mac:
+pid = os.fork()
+if pid == 0:
+    print('I am child process (%s) and my parent is %s.' % (os.getpid() ,  os.getppid()))
+else:
+    print('I (%s) just created a child process (%s).' % (os.getpid() ,  pid))
+#multiprocessing模块提供了一个Process类来代表一个进程对象，下面的例子演示了启动一个子进程并等待其结束
+def run_proc(name):
+    print('Run child process %s (%s)...' % (name ,  os.getpid()))
+if __name__ == '__main__':
+    print('Parent process %s.' % os.getpid())
+    p = Process(target = run_proc ,  args = ('Test' , ))
+    print('Child process will start.')
+    p.start()
+    p.join()
+    print('Child process end')
+#创建子进程时，只需要传入一个执行函数和函数的参数，创建一个Process实例，用start()方法启动，这样创建进程比fork()还要简单。join()方法可以等待子进程结束后再继续往下运行，通常用于进程间的同步。
+#如果要启动大量的子进程，可以用进程池的方式批量创建子进程
+#Process之间肯定是需要通信的，操作系统提供了很多机制来实现进程间的通信。Python的multiprocessing模块包装了底层的机制，提供了Queue、Pipes等多种方式来交换数据。
+#写数据进程的代码
+def write(q):
+    print('Process to write:%s' % os.getpid())
+    for value in ['A' ,  'B' ,  'C']:
+        print('Put %s to queue...' % value)
+        q.put(value)
+        time.sleep(random.random())
+#读数据进程执行的代码
+def read(q):
+    print('Process to read:%s' % os.getpid())
+    while True:
+        value = q.get(True)
+        print('Get %s from queue.' % value)
+if __name__ == '__main__':
+    q = Queue()
+    pw = Process(target = write ,  args = (q , ))
+    pr = Process(target = read ,  args = (q , ))
+    pw.start()#启示PW进程写入
+    pr.start()#启示PR进程读取
+    pw.join()#等候PW结束
+    pr.terminate()#PR是死循环，无法等待结束，只能强制终止。
+#在Unix/Linux下，multiprocessing模块封装了fork()调用，使我们不需要关注fork()的细节。由于Windows没有fork调用，因此，multiprocessing需要“模拟”出fork的效果，父进程所有Python对象都必须通过pickle序列化再传到子进程去，所有，如果multiprocessing在Windows下调用失败了，要先考虑是不是pickle失败了。
+def loop():
+    print('thread %s is running...' % threading.current_thread().name)
+    n = 0
+    while n < 5:
+        n += 1
+        print('thread %s >>> %s' % (threading.current_thread().name ,  n))
+        time.sleep(2)
+    print('thread %s ended.' % threading.current_thread().name)
+print('Thread %s is running...' % threading.current_thread().name)
+t = threading.Thread(target = loop ,  name = 'Mythread.')
+t.start()
+t.join()
+print('thread %s ended.' % threading.current_thread().name)
+#由于任何进程默认就会启动一个线程，我们把该线程称为主线程，主线程又可以启动新的线程，Python的threading模块有个current_thread()函数，它永远返回当前线程的实例。主线程实例的名字叫MainThread，子线程的名字在创建时指定，我们用LoopThread命名子线程。名字仅仅在打印时用来显示，完全没有其他意义，如果不起名字Python就自动给线程命名为Thread-1，Thread-2……多线程和多进程最大的不同在于，多进程中，同一个变量，各自有一份拷贝存在于每个进程中，互不影响，而多线程中，所有变量都由所有线程共享，所以，任何一个变量都可以被任何一个线程修改，因此，线程之间共享数据最大的危险在于多个线程同时改一个变量，把内容给改乱了
+#如果我们要确保balance计算正确，就要给change_it()上一把锁，当某个线程开始执行change_it()时，我们说，该线程因为获得了锁，因此其他线程不能同时执行change_it()，只能等待，直到锁被释放后，获得该锁以后才能改。由于锁只有一个，无论多少线程，同一时刻最多只有一个线程持有该锁，所以，不会造成修改的冲突。创建一个锁就是通过threading.Lock()来实现：
+#当多个线程同时执行lock.acquire()时，只有一个线程能成功地获取锁，然后继续执行代码，其他线程就继续等待直到获得锁为止。获得锁的线程用完后一定要释放锁，否则那些苦苦等待锁的线程将永远等待下去，成为死线程。所以我们用try...finally来确保锁一定会被释放。锁的好处就是确保了某段关键代码只能由一个线程从头到尾完整地执行，坏处当然也很多，首先是阻止了多线程并发执行，包含锁的某段代码实际上只能以单线程模式执行，效率就大大地下降了。其次，由于可以存在多个锁，不同的线程持有不同的锁，并试图获取对方持有的锁时，可能会造成死锁，导致多个线程全部挂起，既不能执行，也无法结束，只能靠操作系统强制终止。
+#Python的线程虽然是真正的线程，但解释器执行代码时，有一个GIL锁：Global Interpreter Lock，任何Python线程执行前，必须先获得GIL锁，然后，每执行100条字节码，解释器就自动释放GIL锁，让别的线程有机会执行。这个GIL全局锁实际上把所有线程的执行代码都给上了锁，所以，多线程在Python中只能交替执行，即使100个线程跑在100核CPU上，也只能用到1个核。GIL是Python解释器设计的历史遗留问题，通常我们用的解释器是官方实现的CPython，要真正利用多核，除非重写一个不带GIL的解释器。所以，在Python中，可以使用多线程，但不要指望能有效利用多核。如果一定要通过多线程利用多核，那只能通过C扩展来实现，不过这样就失去了Python简单易用的特点。不过，也不用过于担心，Python虽然不能利用多线程实现多核任务，但可以通过多进程实现多核任务。多个Python进程有各自独立的GIL锁，互不影响。在多线程环境下，每个线程都有自己的数据。一个线程使用自己的局部变量比使用全局变量好，因为局部变量只有线程自己能看见，不会影响其他线程，而全局变量的修改必须加锁。但是局部变量也有问题，就是在函数调用的时候，传递起来很麻烦如果用一个全局dict存放所有的Student对象，然后以thread自身作为key获得线程对应的Student对象如何？ThreadLocal应运而生，不用查找dict，ThreadLocal帮你自动做这件事全局变量local_school就是一个ThreadLocal对象，每个Thread对它都可以读写student属性，但互不影响。你可以把local_school看成全局变量，但每个属性如local_school.student都是线程的局部变量，可以任意读写而互不干扰，也不用管理锁的问题，ThreadLocal内部会处理。可以理解为全局变量local_school是一个dict，不但可以用local_school.student，还可以绑定其他变量，如local_school.teacher等等。ThreadLocal最常用的地方就是为每个线程绑定一个数据库连接，HTTP请求，用户身份信息等，这样一个线程的所有调用到的处理函数都可以非常方便地访问这些资源。
+#要实现多任务，通常我们会设计Master-Worker模式，Master负责分配任务，Worker负责执行任务，因此，多任务环境下，通常是一个Master，多个Worker。
+#多进程模式最大的优点就是稳定性高，因为一个子进程崩溃了，不会影响主进程和其他子进程。（当然主进程挂了所有进程就全挂了，但是Master进程只负责分配任务，挂掉的概率低）著名的Apache最早就是采用多进程模式。多进程模式的缺点是创建进程的代价大，在Unix/Linux系统下，用fork调用还行，在Windows下创建进程开销巨大。另外，操作系统能同时运行的进程数也是有限的，在内存和CPU的限制下，如果有几千个进程同时运行，操作系统连调度都会成问题。
+#多线程模式通常比多进程快一点，但是也快不到哪去，而且，多线程模式致命的缺点就是任何一个线程挂掉都可能直接造成整个进程崩溃，因为所有线程共享进程的内存。在Windows上，如果一个线程执行的代码出了问题，你经常可以看到这样的提示：“该程序执行了非法操作，即将关闭”，其实往往是某个线程出了问题，但是操作系统会强制结束整个进程。在Windows下，多线程的效率比多进程要高，所以微软的IIS服务器默认采用多线程模式。由于多线程存在稳定性的问题，IIS的稳定性就不如Apache。为了缓解这个问题，IIS和Apache现在又有多进程+多线程的混合模式，真是把问题越搞越复杂。
+#多任务一旦多到一个限度，就会消耗掉系统所有的资源，结果效率急剧下降，所有任务都做不好。是否采用多任务的第二个考虑是任务的类型。我们可以把任务分为计算密集型和IO密集型。
+#计算密集型任务的特点是要进行大量的计算，消耗CPU资源，比如计算圆周率、对视频进行高清解码等等，全靠CPU的运算能力。这种计算密集型任务虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU执行任务的效率就越低，所以，要最高效地利用CPU，计算密集型任务同时进行的数量应当等于CPU的核心数。计算密集型任务由于主要消耗CPU资源，因此，代码运行效率至关重要。Python这样的脚本语言运行效率很低，完全不适合计算密集型任务。对于计算密集型任务，最好用C语言编写。第二种任务的类型是IO密集型，涉及到网络、磁盘IO的任务都是IO密集型任务，这类任务的特点是CPU消耗很少，任务的大部分时间都在等待IO操作完成（因为IO的速度远远低于CPU和内存的速度）。对于IO密集型任务，任务越多，CPU效率越高，但也有一个限度。常见的大部分任务都是IO密集型任务，比如Web应用。
+#IO密集型任务执行期间，99%的时间都花在IO上，花在CPU上的时间很少，因此，用运行速度极快的C语言替换用Python这样运行速度极低的脚本语言，完全无法提升运行效率。对于IO密集型任务，最合适的语言就是开发效率最高（代码量最少）的语言，脚本语言是首选，C语言最差。考虑到CPU和IO之间巨大的速度差异，一个任务在执行的过程中大部分时间都在等待IO操作，单进程单线程模型会导致别的任务无法并行执行，因此，我们才需要多进程模型或者多线程模型来支持多任务并发执行。
+#现代操作系统对IO操作已经做了巨大的改进，最大的特点就是支持异步IO。如果充分利用操作系统提供的异步IO支持，就可以用单进程单线程模型来执行多任务，这种全新的模型称为事件驱动模型，Nginx就是支持异步IO的Web服务器，它在单核CPU上采用单进程模型就可以高效地支持多任务。在多核CPU上，可以运行多个进程（数量与CPU核心数相同），充分利用多核CPU。由于系统总的进程数量十分有限，因此操作系统调度非常高效。用异步IO编程模型来实现多任务是一个主要的趋势。对应到Python语言，单进程的异步编程模型称为协程，有了协程的支持，就可以基于事件驱动编写高效的多任务程序。
+#在Thread和Process中，应当优选Process，因为Process更稳定，而且，Process可以分布到多台机器上，而Thread最多只能分布到同一台机器的多个CPU上。Python的multiprocessing模块不但支持多进程，其中managers子模块还支持把多进程分布到多台机器上。一个服务进程可以作为调度者，将任务分布到其他多个进程中，依靠网络通信。由于managers模块封装很好，不必了解网络通信的细节，就可以很容易地编写分布式多进程程序。
+#如果我们已经有一个通过Queue通信的多进程程序在同一台机器上运行，现在，由于处理任务的进程任务繁重，希望把发送任务的进程和处理任务的进程分布到两台机器上。怎么用分布式进程实现？原有的Queue可以继续使用，但是，通过managers模块把Queue通过网络暴露出去，就可以让其他机器的进程访问Queue了。
+#服务进程负责启动Queue，把Queue注册到网络上，然后往Queue里面写入任务：
+#以下代码在Linux上运行。。。
+#请注意，当我们在一台机器上写多进程程序时，创建的Queue可以直接拿来用，但是，在分布式多进程环境下，添加任务到Queue不可以直接对原始的task_queue进行操作，那样就绕过了QueueManager的封装，必须通过manager.get_task_queue()获得的Queue接口添加。
+task_queue = queue.Queue()#发送任务的队列
+result_queue = queue.Queue()#接收结果的队列
+class QueueManager(BaseManager):#从BaseManager继承的QueueManager
+    pass
+QueueManager.register('get_task_queue' ,  callable=lambda: task_queue)
+QueueManager.register('get_result_queue' ,  callable=lambda: result_queue)##注册两个Queue
+manager = QueueManager(address=('' ,  5000) ,  authkey=b'abc')##绑定端口5000，验证码'abc'
+manager.start()#启动Queue
+task = manager.get_task_queue()
+result = manager.get_result_queue()#获得通过网络访问的Queue对象
+for i in range(10):#放几个任务进去
+    n = random.randint(1 ,  10000)
+    print('Put task %d...' % n)
+    task.put(n)
+print('Try get result...')#从result队列读取结果
+for i in range(10):
+    r = result.get(timeout = 10)
+    print('Result: %s' % r)
+manager.shutdown()#关闭
+print('master exit.')
+#然后，在另一台机器上启动任务进程（本机上启动一个任务进程也可以）
+#task_worke.py
+#import time ,  sys ,  queue
+#from multiprocessing.managers import BaseManager
+class QueueManager(BaseManager):#从BaseManager继承的QueueManager
+    pass
+QueueManager.register('get_task_queue')#由于这个QueueManager只从网络上获取queue , 所以，注册时只提供名字
+QueueManager.register('get_result_queue')
+server_addr = '127.0.0.1'#连接到服务器
+print('Connect to server %s...' % server_addr)
+m = QueueManager(address=(server_addr ,  5000) ,  authkey=b'abc')#端口和验证码和主任务一致
+m.connect()#从网络连接
+task = m.get_task_queue()#获取Queue的对象
+result = m.get_result_queue()
+for i in range(10):#从task队列取任务，并把结果写入result队列
+    try:
+        n = task.get(timeout=1)
+        print('run task %d * %d...' % (n ,  n))
+        r = '%d * %d = %d' % (n ,  n ,  n * n)
+        time.sleep(1)
+        result.put(r)
+    except Queue.Empty:
+        print('task queue is empty.')
+print('worker exit.')#处理结束
+#这个简单的Master/Worker模型有什么用？其实这就是一个简单但真正的分布式计算，把代码稍加改造，启动多个worker，就可以把任务分布到几台甚至几十台机器上，比如把计算n*n的代码换成发送邮件，就实现了邮件队列的异步发送。
+##Queue对象存储在哪？注意到task_worker.py中根本没有创建Queue的代码，所以，Queue对象存储在task_master.py进程中而Queue之所以能通过网络访问，就是通过QueueManager实现的。由于QueueManager管理的不止一个Queue，所以，要给每个Queue的网络调用接口起个名字，比如get_task_queue。authkey有什么用？这是为了保证两台机器正常通信，不被其他机器恶意干扰。如果task_worker.py的authkey和task_master.py的authkey不一致，肯定连接不上。Python的分布式进程接口简单，封装良好，适合需要把繁重任务分布到多台机器的环境下。注意Queue的作用是用来传递任务和接收结果，每个任务的描述数据量要尽量小。比如发送一个处理日志文件的任务，就不要发送几百兆的日志文件本身，而是发送日志文件存放的完整路径，由Worker进程再去共享的磁盘上读取文件。
+#可以在Python中使用正则表达式了。Python提供re模块，包含所有正则表达式的功能。由于Python的字符串本身也用\转义，所以要特别注意。因此我们强烈建议使用Python的r前缀，就不用考虑转义的问题了
+#注意到datetime是模块，datetime模块还包含一个datetime类，通过from datetime import datetime导入的才是datetime这个类。如果仅导入import datetime，则必须引用全名datetime.datetime。
+now = datetime.now()#获得当前datetime
+dt = datetime(2015 ,  4 ,  19 ,  12 ,  20)#2015-04-19 12:20:00
+dts = dt.timestamp()#timestamp是一个浮点数，它没有时区的概念，而datetime是有时区的。上述转换是在timestamp和本地时间做转换。
+print(dts)#转换为timestamp.在计算机中，时间实际上是用数字表示的。我们把1970年1月1日 00:00:00 UTC+00:00时区的时刻称为epoch time，记为0（1970年以前的时间timestamp为负数），当前时间就是相对于epoch time的秒数，称为timestamp。
+print(datetime.fromtimestamp(dts) , datetime.fromtimestamp(1429417200))#本地时间
+print(datetime.utcfromtimestamp(dts))#UTC时间2015-04-19 04:20:00...
+cday = datetime.strptime('2015-6-1 18:19:59' ,  '%Y-%m-%d %H:%M:%S')#STR转换成时间
+print(cday)
+print(now ,  '\n' ,  now.strftime('%a ,  %b %d %H:%M'))#格式化日期时间
+tomorrow = now + timedelta(days=1)# 加天数
+now10 = now + timedelta(hours=10)# 加小时数
+ttomorrow = now + timedelta(days=2 ,  hours=12)# 加天数，再加小时数
+#时区转换的关键在于，拿到一个datetime时，要获知其正确的时区，然后强制设置时区，作为基准时间。利用带时区的datetime，通过astimezone()方法，可以转换到任意时区。注：不是必须从UTC+0:00时区转换到其他时区，任何带时区的datetime都可以正确转换，例如上述bj_dt到tokyo_dt的转换。
+#我们知道tuple可以表示不变集合，例如，一个点的二维坐标就可以表示成：>>> p = (1 ,  2)但是，看到(1 ,  2)，很难看出这个tuple是用来表示一个坐标的。定义一个class又小题大做了，这时，namedtuple就派上了用场
+#namedtuple是一个函数，它用来创建一个自定义的tuple对象，并且规定了tuple元素的个数，并可以用属性而不是索引来引用tuple的某个元素。这样一来，我们用namedtuple可以很方便地定义一种数据类型，它具备tuple的不变性，又可以根据属性来引用，使用十分方便。
+#使用list存储数据时，按索引访问元素很快，但是插入和删除元素就很慢了，因为list是线性存储，数据量大的时候，插入和删除效率很低。deque是为了高效实现插入和删除操作的双向列表，适合用于队列和栈
+#使用dict时，如果引用的Key不存在，就会抛出KeyError。如果希望key不存在时，返回一个默认值，就可以用defaultdict
+#如果要保持Key的顺序，可以用OrderedDict
+#Counter是一个简单的计数器，例如，统计字符出现的个数(Counter实际上也是dict的一个子类)
+c = Counter()
+for ch in 'agafjdkjaljflkasdfjoqiwtjalkfjlka':
+    c[ch] = c[ch] + 1# 以字符为KEY，出现一次，加一
+print(c)
+#Base64是一种用64个字符来表示任意二进制数据的方法。用记事本打开exe、jpg、pdf这些文件时，我们都会看到一大堆乱码，因为二进制文件包含很多无法显示和打印的字符，所以，如果要让记事本这样的文本处理软件能处理二进制数据，就需要一个二进制到字符串的转换方法。Base64是一种最常见的二进制编码方法。
+#Base64编码会把3字节的二进制数据编码为4字节的文本数据，长度增加33%，好处是编码后的文本数据可以在邮件正文、网页等直接显示。如果要编码的二进制数据不是3的倍数，最后会剩下1个或2个字节怎么办？Base64用\x00字节在末尾补足后，再在编码的末尾加上1个或2个=号，表示补了多少字节，解码的时候，会自动去掉。Python内置的base64可以直接进行base64的编解码
+#Base64是一种通过查表的编码方法，不能用于加密，即使使用自定义的编码表也不行。Base64适用于小段内容的编码，比如数字证书签名、Cookie的内容等。由于=字符也可能出现在Base64编码中，但=用在URL、Cookie里面会造成歧义，所以，很多Base64编码后会把=去掉
+#去掉=后怎么解码呢？因为Base64是把3个字节变为4个字节，所以，Base64编码的长度永远是4的倍数，因此，需要加上=把Base64字符串的长度变为4的倍数，就可以正常解码了。
+#Python提供了一个struct模块来解决bytes和其他二进制数据类型的转换。
+#Python的hashlib提供了常见的摘要算法，如MD5，SHA1等等。什么是摘要算法呢？摘要算法又称哈希算法、散列算法。它通过一个函数，把任意长度的数据转换为一个长度固定的数据串（通常用16进制的字符串表示）。
+#摘要算法之所以能指出数据是否被篡改过，就是因为摘要函数是一个单向函数，计算f(data)很容易，但通过digest反推data却非常困难。而且，对原始数据做一个bit的修改，都会导致计算出的摘要完全不同。
+md5 = hashlib.md5()
+md5.update('afjkdlfjaklsfjdkalsjdf'.encode('utf-8'))
+print(md5.hexdigest())
+#如果数据量很大，可以分块多次调用update()，最后计算的结果是一样的
+md5 = hashlib.md5()
+md5.update('afjkdlfjaklsfjdkalsjd'.encode('utf-8'))#少一个f
+print(md5.hexdigest())
+md5.update('f'.encode('utf-8'))#加上f来更新计算结果，一样的
+print(md5.hexdigest())
+#MD5是最常见的摘要算法，速度很快，生成结果是固定的128 bit字节，通常用一个32位的16进制字符串表示。
+#SHA1的结果是160 bit字节，通常用一个40位的16进制字符串表示。
+#比SHA1更安全的算法是SHA256和SHA512，不过越安全的算法不仅越慢，而且摘要长度更长。
+#有没有可能两个不同的数据通过某个摘要算法得到了相同的摘要？完全有可能，因为任何摘要算法都是把无限多的数据集合映射到一个有限的集合中。这种情况称为碰撞，比如Bob试图根据你的摘要反推出一篇文章'how to learn hashlib in python - by Bob'，并且这篇文章的摘要恰好和你的文章完全一致，这种情况也并非不可能出现，但是非常非常困难。
+#如果以明文保存用户口令，如果数据库泄露，所有用户的口令就落入黑客的手里。此外，网站运维人员是可以访问数据库的，也就是能获取到所有用户的口令。正确的保存口令的方式是不存储用户的明文口令，而是存储用户口令的摘要，比如MD5
+#当用户登录时，首先计算用户输入的明文口令的MD5，然后和数据库存储的MD5对比，如果一致，说明口令输入（视为100%）正确，如果不一致，口令肯定错误。采用MD5存储口令是否就一定安全呢？也不一定。假设你是一个黑客，已经拿到了存储MD5口令的数据库，如何通过MD5反推用户的明文口令呢？暴力破解费事费力，真正的黑客不会这么干。考虑这么个情况，很多用户喜欢用123456，888888，password这些简单的口令，于是，黑客可以事先计算出这些常用口令的MD5值，得到一个反推表：
+'e10adc3949ba59abbe56e057f20f883e': '123456'
+'21218cca77804d2ba1922c33e0151105': '888888'
+'5f4dcc3b5aa765d61d8327deb882cf99': 'password'
+#这样，无需破解，只需要对比数据库的MD5，黑客就获得了使用常用口令的用户账号。对于用户来讲，当然不要使用过于简单的口令。但是，我们能否在程序设计上对简单口令加强保护呢？由于常用口令的MD5值很容易被计算出来，所以，要确保存储的用户口令不是那些已经被计算出来的常用口令的MD5，这一方法通过对原始口令加一个复杂字符串来实现，俗称“加盐”：
+def calc_md5(password):
+    return get_md5(password + 'the-Salt')
+#经过Salt处理的MD5口令，只要Salt不被黑客知道，即使用户输入简单口令，也很难通过MD5反推明文口令。
+#但是如果有两个用户都使用了相同的简单口令比如123456，在数据库中，将存储两条相同的MD5值，这说明这两个用户的口令是一样的。有没有办法让使用相同口令的用户存储不同的MD5呢？
+#如果假定用户无法修改登录名，就可以通过把登录名作为Salt的一部分来计算MD5，从而实现相同口令的用户也存储不同的MD5。
+#摘要算法在很多地方都有广泛的应用。要注意摘要算法不是加密算法，不能用于加密（因为无法通过摘要反推明文），只能用于防篡改，但是它的单向计算特性决定了可以在不存储明文口令的情况下验证用户口令。
+#Python的内建模块itertools提供了非常有用的用于操作迭代对象的函数。itertools提供的几个“无限”迭代器：
+#count()会创建一个无限的迭代器，count(1)会打印出自然数序列，根本停不下来，只能按Ctrl+C退出。
+#cycle()会把传入的一个序列无限重复下去,count(‘Endian’)会把此“序列”无限重复，E,n,d......
+#repeat()负责把一个元素无限重复下去，不过如果提供第二个参数就可以限定重复次数。repeat(2).222222...
+#无限序列只有在for迭代时才会无限地迭代下去，如果只是创建了一个迭代对象，它不会事先把无限个元素生成出来，事实上也不可能在内存中创建无限多个元素。无限序列虽然可以无限迭代下去，但是通常我们会通过takewhile()等函数根据条件判断来截取出一个有限的序列
+#itertools模块提供的全部是处理迭代功能的函数，它们的返回值不是list，而是Iterator，只有用for循环迭代的时候才真正计算。
+try:
+    f = open('test' ,  'r')
+    print(f.read())
+finally:
+    if f:
+        f.close()
+##在Python中，读写文件这样的资源要特别注意，必须在使用完毕后正确关闭它们。正确关闭文件资源的一个方法是使用try...finally
+#写try...finally非常繁琐。Python的with语句允许我们非常方便地使用资源，而不必担心资源没有关闭，所以上面的代码可以简化为：
+with open('test' ,  'r') as f:
+    print(f.read())
+#实现上下文管理是通过__enter__和__exit__这两个方法实现的。
+#编写__enter__和__exit__仍然很繁琐，因此Python的标准库contextlib提供了更简单的写法
+#很多时候，我们希望在某段代码执行前后自动执行特定代码，也可以用@contextmanager实现。
+#@contextmanager让我们通过编写generator来简化上下文管理。
+#如果一个对象没有实现上下文，我们就不能把它用于with语句。这个时候，可以用closing()来把该对象变为上下文对象。
+#操作XML有两种方法：DOM和SAX。DOM会把整个XML读入内存，解析为树，因此占用内存大，解析慢，优点是可以任意遍历树的节点。SAX是流模式，边读边解析，占用内存小，解析快，缺点是我们需要自己处理事件。在Python中使用SAX解析XML非常简洁
+#Python提供了HTMLParser来非常方便地解析HTML，只需简单几行代码
+#urllib提供了一系列用于操作URL的功能。urllib的request模块可以非常方便地抓取URL内容，也就是发送一个GET请求到指定的页面，然后返回HTTP的响应：
+with request.urlopen('https://api.douban.com/v2/book/2129650') as f:
+    data = f.read()
+    print('Status:' ,  f.status ,  f.reason)
+    for k ,  v in f.getheaders():
+        print('%s: %s' % (k ,  v))
+    print('Data:' ,  data.decode('utf-8'))
+#如果我们要想模拟浏览器发送GET请求，就需要使用Request对象，通过往Request对象添加HTTP头，我们就可以把请求伪装成浏览器。
+#如果要以POST发送一个请求，只需要把参数data以bytes形式传入。
+#urllib提供的功能就是利用程序去执行各种HTTP请求。如果要模拟浏览器完成特定功能，需要把请求伪装成浏览器。伪装的方法是先监控浏览器发出的请求，再根据浏览器的请求头来伪装，User-Agent头就是用来标识浏览器的。
+#每个应用可能需要各自拥有一套“独立”的Python运行环境。virtualenv就是用来为一个应用创建一套“隔离”的Python运行环境。virtualenv是如何创建“独立”的Python运行环境的呢？原理很简单，就是把系统Python复制一份到virtualenv的环境，用命令source venv/bin/activate进入一个virtualenv环境时，virtualenv会修改相关环境变量，让命令python和pip均指向当前的virtualenv环境。
+#Python支持多种图形界面的第三方库，包括：Tk ,  wxWidgets ,  Qt ,  GTK
+#Python自带的库是支持Tk的Tkinter，使用Tkinter，无需安装任何包，就可以直接使用。我们编写的Python代码会调用内置的Tkinter，Tkinter封装了访问Tk的接口；Tk是一个图形库，支持多个操作系统，使用Tcl语言开发；Tk会调用操作系统提供的本地GUI接口，完成最终的GUI。所以，我们的代码只需要调用Tkinter提供的接口就可以了。
+class Application(Frame):#从Frame派生一个Application类，这是所有Widget的父容器
+    def __init__(self ,  master=None):
+        Frame.__init__(self ,  master)#调用父类的__init__()方法
+        self.pack()# 把自己pack（打包，塞进去）
+        self.createWidgets()# 调用此方法
+    def createWidgets(self):# 此方法干了下面的事情↓↓↓↓↓
+        self.helloLabel = Label(self ,  text='Hello , world!')# 生成一个Label标签，然后，pack它
+        self.helloLabel.pack()#把Widget加入到父窗口中，并实现布局
+        self.quitButton = Button(self , text='Quit' , command=self.quit)#生成一个Button按钮，触发命令
+        self.quitButton.pack()#pack()是最简单的布局 , grid()可以实现更复杂的布局
+        self.nameInput = Entry(self)#生成一个Entry输入框，然后，pack它
+        self.nameInput.pack()
+        self.alertButton = Button(self ,  text='Hello' ,  command=self.hello)#点击，触发命令
+        self.alertButton.pack()#定义好了Widgets，加进去
+    def hello(self):#被触发的东西。。。显示一个消息盒子
+        name = self.nameInput.get() or 'World'# 前面没有，取后面的
+        messagebox.showinfo('EndianMessage' ,  'Hello ,  %s' % name)# show一个消息盒子。。。
+#在GUI中，每个Button、Label、输入框等，都是一个Widget。Frame则是可以容纳其他Widget的Widget，所有的Widget组合起来就是一棵树。
+app = Application()#第三步，实例化Application , 并启动消息循环
+app.master.title('Hello World')#设置窗口标题
+app.mainloop()#主消息循环，就是显示出来，然后，等待用户操作。
+#GUI程序的主线程负责监听来自操作系统的消息，并依次处理每一条消息。因此，如果消息处理非常耗时，就需要在新线程中处理。
+#Python内置的Tkinter可以满足基本的GUI程序的要求，如果是非常复杂的GUI程序，建议用操作系统原生支持的语言和库来编写。
+#因为互联网协议包含了上百种协议标准，但是最重要的两个协议是TCP和IP协议，所以，大家把互联网的协议简称TCP/IP协议。下面是网络相关的封：
+#Socket是网络编程的一个抽象概念。通常我们用一个Socket表示“打开了一个网络链接”，而打开一个Socket需要知道目标计算机的IP地址和端口号，再指定协议类型即可。
+s = socket.socket(socket.AF_INET ,  socket.SOCK_STREAM)#创建一个socket
+s.connect(('www.sina.com.cn' ,  80)) #建立连接，参数是个tuple哦。。。地址加端口
+#创建Socket时，AF_INET指定使用IPv4协议，如果要用更先进的IPv6，就指定为AF_INET6。SOCK_STREAM指定使用面向流的TCP协议，这样，一个Socket对象就创建成功
+#作为服务器，提供什么样的服务，端口号就必须固定下来。由于我们想要访问网页，因此新浪提供网页服务的服务器必须把端口号固定在80端口，因为80端口是Web服务的标准端口。其他服务都有对应的标准端口号，例如SMTP服务是25端口，FTP服务是21端口，等等。端口号小于1024的是Internet标准服务的端口，端口号大于1024的，可以任意使用。
+s.send(b'GET / HTTP/1.1\r\nHost: www.sina.com.cn\r\nConnection: close\r\n\r\n')#发送数据
+#TCP连接创建的是双向通道，双方都可以同时给对方发数据。但是谁先发谁后发，怎么协调，要根据具体的协议来决定。例如，HTTP协议规定客户端必须先发请求给服务器，服务器收到后才发数据给客户端。
+#发送的文本格式必须符合HTTP标准，如果格式没问题，接下来就可以接收新浪服务器返回的数据了
+buffer = []#接收数据
+while True:
+    每次最多接收1k字节
+    d = s.recv(1024)
+    if d:
+        buffer.append(d)
+    else:
+        break
+data = b''.join(buffer)
+#接收数据时，调用recv(max)方法，一次最多接收指定的字节数，因此，在一个while循环中反复接收，直到recv()返回空数据，表示接收完毕，退出循环。当我们接收完数据后，调用close()方法关闭Socket，这样，一次完整的网络通信就结束了：
+s.close()#关闭连接
+#接收到的数据包括HTTP头和网页本身，我们只需要把HTTP头和网页分离一下，把HTTP头打印出来，网页内容保存到文件
+header ,  html = data.split(b'\r\n\r\n' ,  1)
+print(header.decode('utf-8'))
+with open('sina.html' ,  'wb') as f:#把接收到的数据写入文件
+    f.write(html)
+#服务器进程首先要绑定一个端口并监听来自其他客户端的连接。如果某个客户端连接过来了，服务器就与该客户端建立Socket连接，随后的通信就靠这个Socket连接了。
+#服务器会打开固定端口（比如80）监听，每来一个客户端连接，就创建该Socket连接。由于服务器会有大量来自客户端的连接，所以，服务器要能够区分一个Socket连接是和哪个客户端绑定的。一个Socket依赖4项：服务器地址、服务器端口、客户端地址、客户端端口来唯一确定一个Socket。
+#每个连接都需要一个新的进程或者新的线程来处理，否则，服务器一次就只能服务一个客户端了。
+#1、创建一个基于IPV4和TCP协议的socket
+s = socket.socket(socket.AF_INET ,  socket.SOCK_STREAM)
+#2、然后，我们要绑定监听的地址和端口。服务器可能有多块网卡，可以绑定到某一块网卡的IP地址上，也可以用0.0.0.0绑定到所有的网络地址，还可以用127.0.0.1绑定到本机地址。127.0.0.1是一个特殊的IP地址，表示本机地址，如果绑定到这个地址，客户端必须同时在本机运行才能连接，也就是说，外部的计算机无法连接进来。
+s.bind(('127.0.0.1' ,  9999))#a tuple....
+#3、紧接着，调用listen()方法开始监听端口，传入的参数指定等待连接的最大数量
+s.listen(5)
+print('Waiting for connection...')
+#每个连接都必须创建新线程（或进程）来处理，否则，单线程在处理连接的过程中，无法接受其他客户端的连接
+def tcplink(sock ,  addr):#生成一个线程，处理一个连接
+    print('Accept new connection from %s:%s...' % addr)
+    sock.send(b'Welcome!')
+    while True:#永恒的处理
+        data = sock.recv(1024)#接收
+        time.sleep(1)
+        if not data or data.decode('utf-8') == 'exit':#not最高优先，没有数据或者数据为exit
+            break
+        sock.send(('Hello ,  %s!' % data.decode('utf-8')).encode('utf-8'))#解码数据，处理下（加前缀），再编码发回去。。。
+    sock.close()#客户端不连了，这边也结束
+    print('Connection from %s:%s closed.' % addr)
+#4、服务器程序通过一个永久循环来接受来自客户端的连接，accept()会等待并返回一个客户端的连接
+while True:
+    sock ,  addr = s.accept()#接受一个新连接 , 得到连接的sock和地址，端口
+    t = threading.Thread(target=tcplink ,  args=(sock ,  addr))
+    t.start()
+#客户端程序如下：
+s = socket.socket(socket.AF_INET ,  socket.SOCK_STREAM)
+s.connect(('127.0.0.1' ,  9999))#建立连接，成功建立后
+print(s.recv(1024).decode('utf-8'))#接收信息，解码BYTE，打印
+for date in [b'Jiang' ,  b'En' ,  b'Dian']:
+    s.send(date)#发送BYTE信息
+    print(s.recv(1024).decode('utf-8'))#接收信息，解码BYTE为UTF8，打印
+s.send(b'exit')##发3个，就不玩了。。。发送退出指令了。。。
+s.close()#关闭连接
+#使用UDP协议时，不需要建立连接，只需要知道对方的IP地址和端口号，就可以直接发数据包。但是，能不能到达就不知道了。
+#虽然用UDP传输数据不可靠，但它的优点是和TCP比，速度快，对于不要求可靠到达的数据，就可以使用UDP协议。
+#和TCP类似，使用UDP的通信双方也分为客户端和服务器。服务器首先需要绑定端口：
+s = socket.socket(socket.AF_INET ,  socket.SOCK_DGRAM)
+s.bind(('127.0.0.1' ,  9999))
+#创建Socket时，SOCK_DGRAM指定了这个Socket的类型是UDP。绑定端口和TCP一样，但是不需要调用listen()方法，而是直接接收来自任何客户端的数据：
+print('Bind UDP on 9999...')
+while True:#作为服务器一直收，这个的功能是收之后，返回原来的，加上前后。。。
+    data ,  addr = s.recvfrom(1024)
+    print('Received from %s:%s.'  % addr , data.decode('utf-8'))
+    s.sendto((('Server have received %s...' % data.decode('utf-8')).encode('utf-8')) ,  addr)
+#recvfrom()方法返回数据和客户端的地址与端口，这样，服务器收到数据后，直接调用sendto()就可以把数据用UDP发给客户端。
+#客户端使用UDP时，首先仍然创建基于UDP的Socket，然后，不需要调用connect()，直接通过sendto()给服务器发数据：
+s = socket.socket(socket.AF_INET ,  socket.SOCK_DGRAM)
+for data in [b'数据一' ,  b'数据二' ,  b'江恩典']:#循环发送这3个数据，发完就完
+    s.sendto(data ,  ('127.0.0.1' ,  9999))#发送数据
+    print(s.recv(1024).decode('utf-8'))#从服务器接收数据，用recv()方法
+s.close()#发完要发的，再见，不陪服务器了，让他继续循环等待吧。。。其实人家根本没有理你，直接抛给了别的，一直是循环等待的。。。
+#UDP的使用与TCP类似，但是不需要建立连接。此外，服务器绑定UDP端口和TCP端口互不冲突，也就是说，UDP的9999端口与TCP的9999端口可以各自绑定。
+#发件人 -> MUA -> MTA -> MTA -> 若干个MTA -> MDA <- MUA <- 收件人
+#Python对SMTP支持有smtplib和email两个模块，email负责构造邮件，smtplib负责发送邮件。
+#Python内置一个poplib模块，实现了POP3协议，可以直接用来收邮件。
+#要把POP3收取的文本变成可以阅读的邮件，还需要用email模块提供的各种类来解析原始文本，变成可阅读的邮件对象。
+#Python就内置了SQLite3，所以，在Python中使用SQLite，不需要安装任何东西，直接使用。SQL的封：
+#要操作关系数据库，首先需要连接到数据库，一个数据库连接称为Connection；
+#连接到数据库后，需要打开游标，称之为Cursor，通过Cursor执行SQL语句，然后，获得执行结果。
+#Python定义了一套操作数据库的API接口，任何数据库要连接到Python，只需要提供符合Python标准的数据库驱动即可。
+#由于SQLite的驱动内置在Python标准库中，所以我们可以直接来操作SQLite数据库。
+导入SQLite驱动:>>> import sqlite3
+连接到SQLite数据库，数据库文件是test.db，如果文件不存在，会自动在当前目录创建:
+>>> conn = sqlite3.connect('test.db')
+创建一个Cursor:
+>>> cursor = conn.cursor()
+执行一条SQL语句，创建user表:
+>>> cursor.execute('create table user (id varchar(20) primary key ,  name varchar
+(20))')
+<sqlite3.Cursor object at 0x10f8aa260>
+继续执行一条SQL语句，插入一条记录:
+>>> cursor.execute('insert into user (id ,  name) values (\'1\' ,  \'Michael\')')
+<sqlite3.Cursor object at 0x10f8aa260>
+通过rowcount获得插入的行数:
+>>> cursor.rowcount
+1
+关闭Cursor:
+>>> cursor.close()
+提交事务:
+>>> conn.commit()
+关闭Connection:
+>>> conn.close()
+我们再试试查询记录：
+>>> conn = sqlite3.connect('test.db')
+>>> cursor = conn.cursor()
+执行查询语句:
+>>> cursor.execute('select * from user where id=?' ,  ('1' , ))
+<sqlite3.Cursor object at 0x10f8aa340>
+获得查询结果集:
+>>> values = cursor.fetchall()
+>>> values
+[('1' ,  'Michael')]
+>>> cursor.close()
+>>> conn.close()
+#使用Python的DB-API时，只要搞清楚Connection和Cursor对象，打开后一定记得关闭，就可以放心地使用。
+#使用Cursor对象执行insert，update，delete语句时，执行结果由rowcount返回影响的行数，就可以拿到执行结果。
+#使用Cursor对象执行select语句时，通过featchall()可以拿到结果集。结果集是一个list，每个元素都是一个tuple，对应一行记录。
+#如果SQL语句带有参数，那么需要把参数按照位置传递给execute()方法，有几个?占位符就必须对应几个参数，例如：
+cursor.execute('select * from user where name=? and pwd=?' ,  ('abc' ,  'password'))
+#在Python中操作数据库时，要先导入数据库对应的驱动，然后，通过Connection对象和Cursor对象操作数据。
+#如何才能确保出错的情况下也关闭掉Connection对象和Cursor对象呢？请回忆try:...except:...finally:...的用法。
+#MySQL是Web世界中使用最广泛的数据库服务器。SQLite的特点是轻量级、可嵌入，但不能承受高并发访问，适合桌面和移动应用。而MySQL是为服务器端设计的数据库，能承受高并发访问，同时占用的内存也远远大于SQLite。
+#如果MySQL的版本≥5.5.3，可以把编码设置为utf8mb4，utf8mb4和utf8完全兼容，但它支持最新的Unicode标准，可以显示emoji字符。由于MySQL服务器以独立的进程运行，并通过网络对外服务，所以，需要支持Python的MySQL驱动来连接到MySQL服务器。MySQL官方提供了mysql-connector-python驱动，但是安装的时候需要给pip命令加上参数--allow-external：
+$ pip install mysql-connector-python --allow-external mysql-connector-python
+#由于Python的DB-API定义都是通用的，所以，操作MySQL的数据库代码和SQLite类似。
+#执行INSERT等操作后要调用commit()提交事务；MySQL的SQL占位符是%s。
+#ORM技术：Object-Relational Mapping，把关系数据库的表结构映射到对象上。
+#在Python中，最有名的ORM框架是SQLAlchemy。pip安装SQLAlchemy：$ pip install sqlalchemy
+#ORM框架的作用就是把数据库表的一行记录与一个对象互相做自动转换。
+#在BS架构下，客户端只需要浏览器，应用程序的逻辑和数据都存储在服务器端。
+#Python有上百种Web开发框架，有很多成熟的模板技术
+#WSGI接口定义非常简单，它只要求Web开发者实现一个函数，就可以响应HTTP请求。
+#整个application()函数本身没有涉及到任何解析HTTP的部分，也就是说，底层代码不需要我们自己编写，我们只负责在更高层次上考虑如何响应请求就可以了。
+#application()函数必须由WSGI服务器来调用。Python内置了一个WSGI服务器，这个模块叫wsgiref，它是用纯Python编写的WSGI服务器的参考实现。所谓“参考实现”是指该实现完全符合WSGI标准，但是不考虑任何运行效率，仅供开发和测试使用。
+#复杂的Web应用程序，光靠一个WSGI函数来处理还是太底层了，我们需要在WSGI之上再抽象出Web框架，进一步简化Web开发。
+#们需要在WSGI接口之上能进一步抽象，让我们专注于用一个函数处理一个URL，至于URL到函数的映射，就交给Web框架来做。
+#由于用Python开发一个Web框架十分容易，所以Python有上百个开源的Web框架。这里我们先不讨论各种Web框架的优缺点，直接选择一个比较流行的Web框架——Flask来使用。
+#除了Flask，常见的Python Web框架还有：    Django：全能型Web框架；web.py：一个小巧的Web框架；Bottle：和Flask类似的Web框架；Tornado：Facebook的开源异步Web框架。
+#在编写URL处理函数时，除了配置URL外，从HTTP请求拿到用户数据也是非常重要的。Web框架都提供了自己的API来实现这些功能。Flask通过request.form['name']来获取表单的内容。
+#由于在Python代码里拼字符串是不现实的，所以，模板技术出现了。
+#和Web框架类似，Python的模板也有很多种。Flask默认支持的模板是jinja2
+#使用模板的另一大好处是，模板改起来很方便，而且，改完保存后，刷新浏览器就能看到最新的效果，这对于调试HTML、CSS和JavaScript的前端工程师来说实在是太重要了。
+协程和异步的封：
+#看起来A、B的执行有点像多线程，但协程的特点在于是一个线程执行，那和多线程比，协程有何优势？最大的优势就是协程极高的执行效率。因为子程序切换不是线程切换，而是由程序自身控制，因此，没有线程切换的开销，和多线程比，线程数量越多，协程的性能优势就越明显。第二大优势就是不需要多线程的锁机制，因为只有一个线程，也不存在同时写变量冲突，在协程中控制共享资源不加锁，只需要判断状态就好了，所以执行效率比多线程高很多。因为协程是一个线程执行，那怎么利用多核CPU呢？最简单的方法是多进程+协程，既充分利用多核，又充分发挥协程的高效率，可获得极高的性能。Python对协程的支持是通过generator实现的。
+注意到consumer函数是一个generator，把一个consumer传入produce后：
+    首先调用c.send(None)启动生成器；
+    然后，一旦生产了东西，通过c.send(n)切换到consumer执行；
+    consumer通过yield拿到消息，处理，又通过yield把结果传回；
+    produce拿到consumer处理的结果，继续生产下一条消息；
+    produce决定不生产了，通过c.close()关闭consumer，整个过程结束。
+整个流程无锁，由一个线程执行，produce和consumer协作完成任务，所以称为“协程”，而非线程的抢占式多任务。
+最后套用Donald Knuth的一句话总结协程的特点：
+“子程序就是协程的一种特例。”
+asyncio是Python 3.4版本引入的标准库，直接内置了对异步IO的支持。
+asyncio的编程模型就是一个消息循环。我们从asyncio模块中直接获取一个EventLoop的引用，
+然后把需要执行的协程扔到EventLoop中执行，就实现了异步IO。
+用asyncio实现Hello world代码如下：
+import asyncio
+@asyncio.coroutine
+def hello():
+    print("Hello world!")
+    异步调用asyncio.sleep(1):
+    r = yield from asyncio.sleep(1)
+    print("Hello again!")
+获取EventLoop:
+loop = asyncio.get_event_loop()
+执行coroutine
+loop.run_until_complete(hello())
+loop.close()
+@asyncio.coroutine把一个generator标记为coroutine类型，然后，我们就把这个coroutine扔到EventLoop中执行。hello()会首先打印出Hello world!，然后，yield from语法可以让我们方便地调用另一个generator。由于asyncio.sleep()也是一个coroutine，所以线程不会等待asyncio.sleep()，而是直接中断并执行下一个消息循环。当asyncio.sleep()返回时，线程就可以从yield from拿到返回值（此处是None），然后接着执行下一行语句。
+把asyncio.sleep(1)看成是一个耗时1秒的IO操作，在此期间，主线程并未等待，而是去执行EventLoop中其他可以执行的coroutine了，因此可以实现并发执行。
+asyncio提供了完善的异步IO支持；
+异步操作需要在coroutine中通过yield from完成；
+多个coroutine可以封装成一组Task然后并发执行。
+用asyncio提供的@asyncio.coroutine可以把一个generator标记为coroutine类型，然后在
+coroutine内部用yield from调用另一个coroutine实现异步操作。
+为了简化并更好地标识异步IO，从Python 3.5开始引入了新的语法async和await，可以让
+coroutine的代码更简洁易读。
+请注意，async和await是针对coroutine的新语法，要使用新的语法，只需要做两步简单的替换
+：
+    把@asyncio.coroutine替换为async；
+    把yield from替换为await。
+让我们对比一下上一节的代码：
+@asyncio.coroutine
+def hello():
+    print("Hello world!")
+    r = yield from asyncio.sleep(1)
+    print("Hello again!")
+用新语法重新编写如下：
+async def hello():
+    print("Hello world!")
+    r = await asyncio.sleep(1)
+    print("Hello again!")
+剩下的代码保持不变。
+asyncio可以实现单线程并发IO操作。如果仅用在客户端，发挥的威力不大。如果把asyncio用在服务器端，例如Web服务器，由于HTTP连接就是IO操作，因此可以用单线程+coroutine实现多用户的高并发支持。
+asyncio实现了TCP、UDP、SSL等协议，aiohttp则是基于asyncio实现的HTTP框架。
+input('\n\nPressEnterToExit.')
+
+表4 Radiobutton组件常用参数
+参数
+描述
+variable
+单选框索引变量，通过变量的值确定哪个单选框被选中。一组单选框使用同一个索引变量
+value
+单选框选中时变量的值
+command
+单选框选中时执行的命令（函数）
+
+表5 Checkbutton组件常用参数
+参数
+描述
+variable
+复选框索引变量，通过变量的值确定哪些复选框被选中。每个复选框使用不同的变量，使复选框之间相互独立
+onvalue
+复选框选中（有效）时变量的值
+offvalue
+复选框未选中（无效）时变量的值
+command
+复选框选中时执行的命令（函数）
+
+1.2.4.绘图组件
+绘图组件（Canvas）可以在GUI中实现2D图形的绘制，相当于画图板。组件内置了多种绘图函数，可以通过简单的2D坐标绘制直线、矩形、圆形、多边形等。本例代码演示了Canvas组件的绘图功能，更多的绘图函数可以查阅Canvas的参考页面。
+import tkinter as tk
+def drawCircle(self ,  x ,  y ,  r ,  **kwargs):# 通过画椭圆，来画圆
+return self.create_oval(x-r ,  y-r ,  x+r ,  y+r ,  **kwargs)
+top = tk.Tk()# 生成一个窗口
+top.title("Canvas Test")# 窗口名
+cvs = tk.Canvas(top ,  width = 600 ,  height = 400)# 生成一个Canvas
+cvs.pack()# pack它
+cvs.create_line(50 ,  50 ,  50 ,  300)# 画线条，x1, y1, x2, y2
+cvs.create_line(100 ,  50 ,  200 ,  300 ,  fill = "red" ,  dash = (4 ,  4) ,  arrow = tk.LAST)
+# 画线条,x1, y1 ,x2, y2, 填充颜色, 线段长, 箭头
+cvs.create_rectangle(200 ,  50 ,  400 ,  200 ,  fill = "blue")# 画矩形x, y, 长, 宽
+cvs.create_oval(450 ,  50 ,  550 ,  200 ,  fill = "green" )# 画椭圆
+drawCircle(cvs ,  450 ,  300 ,  50 ,  fill = "red")# 画圆，#随便4点画，填充
+cvs.create_polygon(200 ,  250 ,  350 ,  250 ,  350 ,  350 ,  220 ,  300 ,  fill="yellow")
+top.mainloop()# 主消息循环
+1.2.5.消息窗口
+消息窗口（messagebox）用于弹出提示框向用户进行告警，或让用户选择下一步如何操作。消息框包括很多类型，常用的有info、warning、error、yeno、okcancel等，包含不同的图标、按钮以及弹出提示音。下面的代码演示了各消息框的运行效果，大家可以自己一一尝试。
+import tkinter as tk
+from tkinter import messagebox as msgbox
+# 一堆点击后的处理参数
+def btn1_clicked():
+msgbox.showinfo("Info" ,  "Showinfo test.")# 提示标题，提示内容
+def btn2_clicked():
+msgbox.showwarning("Warning" ,  "Showwarning test.")# 警告标题，警告内容
+def btn3_clicked():
+msgbox.showerror("Error" ,  "Showerror test.")# 错误标题，错误内容
+def btn4_clicked():
+msgbox.askquestion("Question" ,  "Askquestion test.")# 询问标题，询问内容
+def btn5_clicked():
+msgbox.askokcancel("OkCancel" ,  "Askokcancel test.")# 确认标题，确认内容
+def btn6_clicked():
+msgbox.askyesno("YesNo" ,  "Askyesno test.")# 是否标题，是否内容
+def btn7_clicked():
+msgbox.askretrycancel("Retry" ,  "Askretrycancel test.")# 重试标题，重试内容
+# 生成窗口和标题
+top = tk.Tk()
+top.title("MsgBox Test")
+# 生成一堆拕，并绑定上面的方法1-7，然后pack之
+btn1 = tk.Button(top ,  text = "showinfo" ,  command = btn1_clicked)
+btn1.pack(fill = tk.X)
+btn2 = tk.Button(top ,  text = "showwarning" ,  command = btn2_clicked)
+btn2.pack(fill = tk.X)
+btn3 = tk.Button(top ,  text = "showerror" ,  command = btn3_clicked)
+btn3.pack(fill = tk.X)
+btn4 = tk.Button(top ,  text = "askquestion" ,  command = btn4_clicked)
+btn4.pack(fill = tk.X)
+btn5 = tk.Button(top ,  text = "askokcancel" ,  command = btn5_clicked)
+btn5.pack(fill = tk.X)
+btn6 = tk.Button(top ,  text = "askyesno" ,  command = btn6_clicked)
+btn6.pack(fill = tk.X)
+btn7 = tk.Button(top ,  text = "askretrycancel" ,  command = btn7_clicked)
+btn7.pack(fill = tk.X)
+# 开始主消息循环
+top.mainloop()
+

@@ -1,0 +1,1 @@
+data_dict = {"name":"玛土撒拉", "start_time":688, "pass_time":969, "story":'''生拉麦 人类史最长寿的男人'''}

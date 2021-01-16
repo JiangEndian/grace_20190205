@@ -1,0 +1,103 @@
+#GIT设置
+git config --global user.name 'your name'
+git config --global user.email 'e@e.com'
+
+#GITHUB官网的教程。new git后的提示。
+echo "# grace_git" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:JiangEndian/grace_git.git
+git push -u origin master
+
+#创建版本库
+mkdir test && cd test && git init
+
+#把文件放入GIT仓库
+git add file1 file2 ...
+git commit -m '说明'
+
+#查看方面
+git status
+git diff readme.txt
+git log --pretty=oneline
+git diff HEAD -- readme.txt
+
+你要解决的不是如何git rm删除中文文件，而是要更改中文文件的显示方式。
+git config --global core.quotepath false
+中文显示正常。然后add rm什么的正常输入就行。
+
+
+#回退与前进，HEAD为最新版本
+git reset --hard HEAD^/HEAD^^
+git reset --hard 3131515(commit id)
+
+#撤销工作区修改与回退暂存区修改至工作区
+git checkout -- readme.txt
+git reset HEAD readme.txt
+
+#GIT的删除或恢复
+rm file
+git rm file
+git commit -m 'remove file'
+git checkout -- file
+
+#创建SSH KEY
+ssh-keygen -t rsa -C 'youremail@example.com'
+
+#关联push与克隆
+git remote add origin git@github.com***
+git push -u origin master
+git clone git@github.com***
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#搭建Git服务器
+sudo apt-get install git
+sudo adduser git
+
+收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个。
+
+假定是/srv/sample.git(git用户可访问)，在/srv目录下输入命令：
+sudo git init --bare sample.git
+
+Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以.git结尾。然后，把owner改为git
+sudo chown -R git:git sample.git
+
+第五步，禁用shell登录：
+编辑/etc/passwd
+git:x:1001:1001:,,,:/home/git:/bin/bash
+改为
+git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell
+这样，git用户可以正常通过ssh使用git，但无法登录shell，因为我们为git用户指定的git-shell每次一登录就自动退出。
+
+
+第六步，克隆远程仓库：
+现在，可以通过git clone命令克隆远程仓库了，在各自的电脑上运行：
+$ git clone git@server:/srv/sample.git
+剩下的推送就简单了。
+
+
+
+
+
+
+
+
+
+
+
+

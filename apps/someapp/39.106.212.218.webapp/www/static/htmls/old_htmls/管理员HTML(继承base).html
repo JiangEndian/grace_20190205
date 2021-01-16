@@ -1,0 +1,98 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<title>管理员HTML(继承base)</title>
+</head>
+<body>
+<h1 align="center" class="root">
+<a name="7gs7ioak3s4ifte95obft32tjq">管理员HTML(继承base)</a>
+</h1>
+<div align="center" class="globalOverview">
+<img src="%E7%AE%A1%E7%90%86%E5%91%98HTML(%E7%BB%A7%E6%89%BFbase)_files/images/%E7%AE%A1%E7%90%86%E5%91%98HTML(%E7%BB%A7%E6%89%BFbase).jpg"></div>
+<h2 class="topic">
+<a name="5m0evrj5hs1l9s7vdg6jki8gtc">manage_comments.html</a>
+</h2>
+<div class="overview">
+<img src="%E7%AE%A1%E7%90%86%E5%91%98HTML(%E7%BB%A7%E6%89%BFbase)_files/images/manage_comments.html.jpg"></div>
+<h3 class="topic">
+<a name="1v698tccji7q0ef67rb6j8ksl7">&nbsp;载入完毕根据传入的page_index值getJSON从/api/comments</a>
+</h3>
+<h3 class="topic">
+<a name="0eaddj1qbeg86n5bp9kfookdpn">&nbsp;用得到的结果(page和comments的dict)initVM，初始化data与#vm，设定delete触发</a>
+</h3>
+<h3 class="topic">
+<a name="2nh3s7cpujin37dgl1ngvr8bqt">&nbsp;v-repeat遍历comments，并用&lt;tr v-text="comment.user_name"绑定此数据与此行</a>
+</h3>
+<h3 class="topic">
+<a name="3vgh56rvehrgalh00kqdf6l44d">&nbsp;为每行添加个delete_comment，此函数POST给/api/comments/comment.id/delete</a>
+</h3>
+<h3 class="topic">
+<a name="7ol7iljv1iubc3vh2k0nonqrgn">&nbsp;用page处理分页问题，下页时自动get加上/?page=?</a>
+</h3>
+<h3 class="topic">
+<a name="5grgfho74dh2paujfgfcfu5q4s">&nbsp;不过那个@get可不处理数据，只是原值送回page_index再由JS用此交给API请求数据</a>
+</h3>
+<h2 class="topic">
+<a name="33dfl08o0v0n27nr3dffhaibtt">manage_blogs.html</a>
+</h2>
+<div class="overview">
+<img src="%E7%AE%A1%E7%90%86%E5%91%98HTML(%E7%BB%A7%E6%89%BFbase)_files/images/manage_blogs.html.jpg"></div>
+<h3 class="topic">
+<a name="7a2v5mup46ace2g51nm6d98b6p">&nbsp;载入完毕根据传入的page_index值getJSON从/api/blogs</a>
+</h3>
+<h3 class="topic">
+<a name="20r0po2du08r711hnuqgjelc1v">&nbsp;用得到的结果(page和blogs的dict)initVM，初始化data与#vm</a>
+</h3>
+<h3 class="topic">
+<a name="4rfa0esqn76vq09u395jjflbrd">&nbsp;设定edit_blog和delete_blog事件触发函数(不靠名，用事件触发，分开html和JS)</a>
+</h3>
+<h3 class="topic">
+<a name="59tcegj6s692kbv7m35h2cvid6">&nbsp;显示相关信息和创建新日志链接至/manage/blogs/create</a>
+</h3>
+<h3 class="topic">
+<a name="7nf7vh8m6doh6ik8memptamqr9">&nbsp;v-repeat遍历blogs生成页面和edit/delete，并用page生成分页</a>
+</h3>
+<h3 class="topic">
+<a name="2s9fkq7u4u84vs2rl3m0gkah1v">&nbsp;edit:/manage/blogs/edit?id=||delete:postJSON给/api/blogs/blog.id/delete</a>
+</h3>
+<h2 class="topic">
+<a name="6gifr89bm6t4k7hg67abv1aopa">manage_users.html</a>
+</h2>
+<div class="overview">
+<img src="%E7%AE%A1%E7%90%86%E5%91%98HTML(%E7%BB%A7%E6%89%BFbase)_files/images/manage_users.html.jpg"></div>
+<h3 class="topic">
+<a name="6buujc72pf81mv0425h9brd252">&nbsp;载入ready根据传入的page_index值getJSON从/api/users</a>
+</h3>
+<h3 class="topic">
+<a name="3520r9jnp1vvfofrrmh3ptbiqs">&nbsp;用得到的结果(page和users的dict)initVM，初始化#vm与data</a>
+</h3>
+<h3 class="topic">
+<a name="02ra3uj66qp75pnl8j5bkt7no3">&nbsp;v-repeat遍历users，并加上if有的管理员标志和其他信息显示之</a>
+</h3>
+<h3 class="topic">
+<a name="6suffmorphd956tb0jt3inoav5">&nbsp;用page处理下分页信息，那个@get也不处理信息，还是送回页面再由JS用此向API请求</a>
+</h3>
+<h2 class="topic">
+<a name="7mjek28sfmpfp4cejdbhk3q3au">manage_blog_edit.html</a>
+</h2>
+<div class="overview">
+<img src="%E7%AE%A1%E7%90%86%E5%91%98HTML(%E7%BB%A7%E6%89%BFbase)_files/images/manage_blog_edit.html.jpg"></div>
+<h3 class="topic">
+<a name="7e8b22b9i3kt3bemv4svidq59b">&nbsp;首先获取id和action信息</a>
+</h3>
+<h3 class="topic">
+<a name="5cf1ubohsv9ov9sbaa5du7a7am">&nbsp;载入ready如果有id则getJSON从/api/blogs/+ID，initVM(blog)</a>
+</h3>
+<h3 class="topic">
+<a name="1o0jhgi57amfnsod8q4c5a4hls">&nbsp;如果没有则initVM({name:'', ..})</a>
+</h3>
+<h3 class="topic">
+<a name="4f2rmss3kmlb33hvvqik7j4hbp">&nbsp;initVM:得到blog(data:blog)，并设定提交事件触发的方法，正确则/manage/blogs</a>
+</h3>
+<h3 class="topic">
+<a name="35ok2lqhnuqn6rke2aqs4dsvkm">&nbsp;提交的对象是action，POST给其/api/blogs or /api/blogs/id值</a>
+</h3>
+</body>
+</html>

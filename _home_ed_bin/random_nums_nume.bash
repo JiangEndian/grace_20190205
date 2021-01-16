@@ -1,0 +1,13 @@
+#!/bin/bash
+
+START_NUMBER=$1
+
+END_NUMBER=$2
+
+NUMBERS=$(($END_NUMBER-$START_NUMBER+1))
+
+INITIAL=$(($RANDOM%$NUMBERS))
+
+echo $(($INITIAL+$START_NUMBER))
+
+exit 0

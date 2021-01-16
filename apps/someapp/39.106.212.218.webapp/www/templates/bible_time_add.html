@@ -1,0 +1,109 @@
+{% extends 'bible_base.html' %}
+
+{% block title %}添加一条信息{% endblock %}
+
+{% block beforehead %}
+
+<script>
+
+var
+    ID = ''
+    action = '{{ action }}';
+
+function initVM(bibletime) {
+    var vm = new Vue({
+        el: '#vm',
+        data: bibletime,
+        methods: {
+            submit: function (event) {
+                event.preventDefault();
+                var $form = $('#vm').find('form');
+                $form.postJSON(action, this.$data, function (err, r) {
+                    if (err) {
+                        $form.showFormError(err);
+                    }
+                    else {
+                        return location.assign('/bibletime/show');
+                    }
+                });
+            }
+        }
+    });
+    $('#vm').show();
+}
+
+$(function () {
+    if (ID) {
+        getJSON('/api/blogs/' + ID, function (err, blog) {
+            if (err) {
+                return fatal(err);
+            }
+            $('#loading').hide();
+            initVM(blog);
+        });
+    }
+    else {
+        $('#loading').hide();
+        initVM({
+            aa_start: '',
+            aa_end: '',
+            name: '',
+            last:'',
+            content:''
+        });
+    }
+});
+
+</script>
+
+{% endblock %}
+
+{% block content %}
+    <div id="error" class="uk-width-1-1">
+    </div>
+
+
+    <div id="loading" class="uk-width-1-1 uk-text-center">
+        <span><i class="uk-icon-spinner uk-icon-medium uk-icon-spin"></i> 正在加载...</span>
+    </div>
+
+    <div id="vm" class="uk-width-2-3">
+        <form v-on="submit: submit" class="uk-form uk-form-stacked">
+            <div class="uk-alert uk-alert-danger uk-hidden"></div>
+            <div class="uk-form-row">
+                <label class="uk-form-label">AA_Start:</label>
+                <div class="uk-form-controls">
+                    <input v-model="aa_start" name="aa_start" type="number" placeholder="3969" class="uk-width-1-1">
+                </div>
+            </div>
+            <div class="uk-form-row">
+                <label class="uk-form-label">AA_End:</label>
+                <div class="uk-form-controls">
+                    <input v-model="aa_end" name="aa_end" type="number" placeholder="3970" class="uk-width-1-1">
+                </div>
+            </div>
+            <div class="uk-form-row">
+                <label class="uk-form-label">事件/人名:</label>
+                <div class="uk-form-controls">
+                    <input v-model="name" name="name" type="text" placeholder="亚当" class="uk-width-1-1">
+                </div>
+            </div>
+            <div class="uk-form-row">
+                <label class="uk-form-label">持续时间:</label>
+                <div class="uk-form-controls">
+                    <input v-model="last" name="last" type="number" placeholder="930" class="uk-width-1-1">
+                </div>
+            </div>
+            <div class="uk-form-row">
+                <label class="uk-form-label">内容:</label>
+                <div class="uk-form-controls">
+                    <textarea v-model="content" rows="16" name="content" placeholder="亚当被造" class="uk-width-1-1" style="resize:none;"></textarea>
+                </div>
+            </div>
+            <div class="uk-form-row">
+                <button type="submit" class="uk-button uk-button-primary"><i class="uk-icon-save"></i> 保存</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

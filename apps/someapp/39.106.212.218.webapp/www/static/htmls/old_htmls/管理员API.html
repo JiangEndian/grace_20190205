@@ -1,0 +1,103 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<title>管理员API</title>
+</head>
+<body>
+<h1 align="center" class="root">
+<a name="0t88strhpi6rbtmm7aarem73fq">管理员API</a>
+</h1>
+<div align="center" class="globalOverview">
+<img src="%E7%AE%A1%E7%90%86%E5%91%98API_files/images/%E7%AE%A1%E7%90%86%E5%91%98API.jpg"></div>
+<h2 class="topic">
+<a name="3kl024e1uilq0en7uol2j6bpec">@get('/api/comments')在manage_comments.html有提交</a>
+</h2>
+<div class="overview">
+<img src="%E7%AE%A1%E7%90%86%E5%91%98API_files/images/@get(' api comments')%E5%9C%A8manage_comments.html%E6%9C%89%E6%8F%90%E4%BA%A4.jpg"></div>
+<h3 class="topic">
+<a name="67o4jdj24tckjnl1q9phqdtvir">&nbsp;api_comments(*, page='1')有个关键字参数(是要求的页码)</a>
+</h3>
+<h3 class="topic">
+<a name="6vis03f8aouc8mvsnkd1g67aus">&nbsp;得到参数int值，得到评论总数，根据页码和评论总数(默认10条一页)得到page对象</a>
+</h3>
+<h3 class="topic">
+<a name="4pn60aee02rvero75kukvo6eng">&nbsp;根据上面得到的信息定条件从库中查找得到comments并返回其和page的dict</a>
+</h3>
+<h2 class="topic">
+<a name="6uh7q921hpjrvf9a2p2c9sfdbe">@get('/api/blogs')在manage_blogs.html有提交</a>
+</h2>
+<div class="overview">
+<img src="%E7%AE%A1%E7%90%86%E5%91%98API_files/images/@get(' api blogs')%E5%9C%A8manage_blogs.html%E6%9C%89%E6%8F%90%E4%BA%A4.jpg"></div>
+<h3 class="topic">
+<a name="44q89qns5p16k7gbt7tg2f1qri">&nbsp;api_blogs(*, page='1')有个关键字参数(和上面类似吧)</a>
+</h3>
+<h3 class="topic">
+<a name="5mcjfc12sj6ifa7c01msmk1uc6">&nbsp;得到页码int值、日志总数，根据此和默认每页数算好page对象</a>
+</h3>
+<h3 class="topic">
+<a name="1qajl32o4o3e362479gvd6f19q">&nbsp;根据上面得到的信息定条件从库中查找得到blogs并返回其和page的dict</a>
+</h3>
+<h2 class="topic">
+<a name="100ng0ros0rsr4q25a172b98dt">@get('/api/blogs/{id}')在manage_blog_edit.html有提交</a>
+</h2>
+<div class="overview">
+<img src="%E7%AE%A1%E7%90%86%E5%91%98API_files/images/@get(' api blogs {id}')%E5%9C%A8manage_blog_edit.html%E6%9C%89%E6%8F%90%E4%BA%A4.jpg"></div>
+<h3 class="topic">
+<a name="7sq9pnivq5m2cnsbivqvgf1r0n">&nbsp;根据id查找blog并返回</a>
+</h3>
+<h2 class="topic">
+<a name="36nimsjur50is2ncptca7iolo5">@get('/api/users')在manage_users.html有提交</a>
+</h2>
+<div class="overview">
+<img src="%E7%AE%A1%E7%90%86%E5%91%98API_files/images/@get(' api users')%E5%9C%A8manage_users.html%E6%9C%89%E6%8F%90%E4%BA%A4.jpg"></div>
+<h3 class="topic">
+<a name="0mfpi7r814req0bu8tsq9ubles">&nbsp;api_get_users(*, page='1')有个关键字参数，和上面类似吧～</a>
+</h3>
+<h3 class="topic">
+<a name="3c4296fhtc5s6sj1sqft441g34">&nbsp;得到页码int值、用户总数，据此和默认每页10条的算好page对象</a>
+</h3>
+<h3 class="topic">
+<a name="026471k443g6hlaa49b48dt7a9">&nbsp;根据上面得到的信息定条件从库中查找得到users，置密码*后返回page和users的dict</a>
+</h3>
+<h2 class="topic">
+<a name="1pemhqk6bkfne6atdl8c58omie">@post('/api/blogs')在manage_blog_edit.html有提交</a>
+</h2>
+<div class="overview">
+<img src="%E7%AE%A1%E7%90%86%E5%91%98API_files/images/@post(' api blogs')%E5%9C%A8manage_blog_edit.html%E6%9C%89%E6%8F%90%E4%BA%A4.jpg"></div>
+<h3 class="topic">
+<a name="0lbleanisev2b737q14oft0hrg">&nbsp;因为是api没通过manage路径，所以，再检测一遍admin，还有例行的数据检查</a>
+</h3>
+<h3 class="topic">
+<a name="3lmvd6p5vgurcqqibnm96icocf">&nbsp;用得到的信息生成成blog对象，保存并返回之</a>
+</h3>
+<h2 class="topic">
+<a name="3ouqfnmvl7hubhkugf8oal6ose">@post('/api/blogs/{id}')在manage_blog_edit.html有提交</a>
+</h2>
+<div class="overview">
+<img src="%E7%AE%A1%E7%90%86%E5%91%98API_files/images/@post(' api blogs {id}')%E5%9C%A8manage_blog_edit.html%E6%9C%89%E6%8F%90%E4%BA%A4.jpg"></div>
+<h3 class="topic">
+<a name="01ome2rt84smvi69op9u74rj6e">&nbsp;检查admin，例行的数据检查，获得blog，成功的话更新blog属性</a>
+</h3>
+<h3 class="topic">
+<a name="1nremt8p0o6r6h4o3pi7fnrjq2">&nbsp;用此更新过属性的blog对象，执行update()并返回之</a>
+</h3>
+<h2 class="topic">
+<a name="06scnfvafpmjgpg18o2344m8vp">@post('/api/blogs/{id}/delete')在manage_blogs有提交</a>
+</h2>
+<div class="overview">
+<img src="%E7%AE%A1%E7%90%86%E5%91%98API_files/images/@post(' api blogs {id} delete')%E5%9C%A8manage_blogs%E6%9C%89%E6%8F%90%E4%BA%A4.jpg"></div>
+<h3 class="topic">
+<a name="4tdhaor4n3tfu4i4lr1gdfr0f6">&nbsp;检查admin，按id查找到blog对象，执行remove并返回dict(id=id)</a>
+</h3>
+<h2 class="topic">
+<a name="6215ngk6pr0u4gdh7l52lagja3">@post('/api/comments/{id}/delete)在manage_comments.html有提交</a>
+</h2>
+<div class="overview">
+<img src="%E7%AE%A1%E7%90%86%E5%91%98API_files/images/@post(' api comments {id} delete)%E5%9C%A8manage_comments.html%E6%9C%89%E6%8F%90%E4%BA%A4.jpg"></div>
+<h3 class="topic">
+<a name="1ddpbt24srsr17v5hi53o1jta3">&nbsp;检查admin，按id查找到comment对象，不为空则remove，返回dcit(id=id)</a>
+</h3>
+</body>
+</html>

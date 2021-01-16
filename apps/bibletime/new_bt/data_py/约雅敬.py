@@ -1,0 +1,1 @@
+data_dict = {"name":"约雅敬", "start_time":3361, "pass_time":11, "story":'''BC605/BC606 约雅敬 但以理 贵族王族 '''}

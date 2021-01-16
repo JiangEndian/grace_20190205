@@ -1,0 +1,73 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<title>普通方法</title>
+</head>
+<body>
+<h1 align="center" class="root">
+<a name="14lutlbkfjg2mv3cg2dhji7arj">普通方法</a>
+</h1>
+<div align="center" class="globalOverview">
+<img src="%E6%99%AE%E9%80%9A%E6%96%B9%E6%B3%95_files/images/%E6%99%AE%E9%80%9A%E6%96%B9%E6%B3%95.jpg"></div>
+<h2 class="topic">
+<a name="6dke4ncf6dqh3nfc6mnn23j06c">@get('/')</a>
+</h2>
+<div class="overview">
+<img src="%E6%99%AE%E9%80%9A%E6%96%B9%E6%B3%95_files/images/@get(' ').jpg"></div>
+<h3 class="topic">
+<a name="2mftf1t08jqeg0btder3g00pu8">&nbsp;index(*, page='1')接收关键字参数page</a>
+</h3>
+<h3 class="topic">
+<a name="0nbvjhrpgom5hniur7dgt44kof">&nbsp;获取博客(下面用日志)第一页</a>
+</h3>
+<h3 class="topic">
+<a name="3ipislmnnbl9abov2v3dk4bbli">&nbsp;返回blogs.html, Page对象, blogs对象集</a>
+</h3>
+<h2 class="topic">
+<a name="31kokaqpo3c6d43eejrdqd5llu">@get('/blog/{id}')</a>
+</h2>
+<div class="overview">
+<img src="%E6%99%AE%E9%80%9A%E6%96%B9%E6%B3%95_files/images/@get(' blog {id}').jpg"></div>
+<h3 class="topic">
+<a name="0rtchvueknklg5sqcs15dt86mh">&nbsp;get_blog(id, request)接收/blog/blog_id</a>
+</h3>
+<h3 class="topic">
+<a name="0o03qrq5hgdom9n196n2a1r77b">&nbsp;request是后加的，为了返回给模板__user__可以评论</a>
+</h3>
+<h3 class="topic">
+<a name="10333nf0uj1tpu7a2huhjkibd4">&nbsp;得到blog并对应的所有评论，遍历转成HTML</a>
+</h3>
+<h3 class="topic">
+<a name="5t1delgvhj1v5og4paaip3cqq5">&nbsp;返回blog.html, blog, comments, __user__</a>
+</h3>
+<h2 class="topic">
+<a name="7shtum9ohvbo5tnrjctt3scl0o">@get('/register')</a>
+</h2>
+<div class="overview">
+<img src="%E6%99%AE%E9%80%9A%E6%96%B9%E6%B3%95_files/images/@get(' register').jpg"></div>
+<h3 class="topic">
+<a name="2sk2k5oc059v657oaltqs1l007">&nbsp;返回注册页面(模板)register.html</a>
+</h3>
+<h2 class="topic">
+<a name="429f08p0a1in51p0hma3ag5707">@get('/signin')</a>
+</h2>
+<div class="overview">
+<img src="%E6%99%AE%E9%80%9A%E6%96%B9%E6%B3%95_files/images/@get(' signin').jpg"></div>
+<h3 class="topic">
+<a name="0omv1rvuh4fh2ht4nso8nbnt5l">&nbsp;返回登陆页面signin.html</a>
+</h3>
+<h2 class="topic">
+<a name="1bv4fv063g8mjd1ghltor2tsjb">@get('/signout')</a>
+</h2>
+<div class="overview">
+<img src="%E6%99%AE%E9%80%9A%E6%96%B9%E6%B3%95_files/images/@get(' signout').jpg"></div>
+<h3 class="topic">
+<a name="7a4vo5kmh6crir9gsbe4h4n5uu">&nbsp;从request得到referer再得到r</a>
+</h3>
+<h3 class="topic">
+<a name="1ibfm7is7nt4quolkdevm821oc">&nbsp;r设定cookie为deleted并返回之</a>
+</h3>
+</body>
+</html>

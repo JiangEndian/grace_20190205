@@ -1,0 +1,20 @@
+添加了注册和登陆功能在handles中
+添加了从cookie中取出user的过滤器
+添加了注册和登陆的网页模板html
+在Sat Dec 30 22:17:23 CST 2017
+
+让检测改动代码后自动重新加载，不用Ctrl-C来回弄了。。。
+作者的思路是：
+编写一个辅助程序pymonitor.py，让它启动wsgiapp.py，并时刻监控www目录下的代码改动，有改动时，先把当前wsgiapp.py进程杀掉，再重启，就完成了服务器进程的自动重启。
+要监控目录文件的变化，我们也无需自己手动定时扫描，Python的第三方库watchdog可以利用操作系统的API来监控目录文件的变化，并发送通知。
+评论区有人说
+使用gunicorn可以一步搞定。
+看aiohttp的官方文档支持gunicorn。
+pip3 install gunicorn
+gunicorn -b 127.0.0.1:8800 -k aiohttp.worker.GunicornWebWorker -w 1 -t 60 --reload app:app
+只支持linux系统（行是行，反应有点慢。。。）
+在Mon Jan  1 21:21:24 CST 2018
+
+忽然有点懂了，静态资源只能从static获取，因为是只添加了它
+模型是由jinja2负责的，获取资源得从static里呢
+static是静态资源，其他的不是，www下是应用，templates下是模板，static下是静态资源

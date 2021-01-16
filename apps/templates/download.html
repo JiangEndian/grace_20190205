@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<font size="5">
+{% for file_name in file_list %}
+    <a href="/static/files/{{ file_name }}">  {{ file_name }} </a>
+    <br>
+{% endfor %}
+
+<form action="/accept-text" method="get">
+    <input name="cmd" value="submit" type="submit" style="width:900px;height:80px;font-size:40px" >
+    <input name="text" placeholder="text" value="" style="width:900px;height:100px;font-size:40px" >
+</form>
+
+<br>
+<form enctype="multipart/form-data" action="/upload_file" method="post">
+       <input type="file" name="myfiles" multiple style="width:900px;height:60px;font-size:40px"/>
+       <input type="submit" value="upload"style="width:900px;height:80px;font-size:40px"/>
+</form>
+<br>
+<br>
+<<<<<<< HEAD
+<a href=/video_view > video_view </a> 
+=======
+<a href=/video_view > video_view </a> <br/>
+<a href="/submitToGithub" > 提交服务器变动至github </a>
+<a href="https://github.com/JiangEndian/grace_20190205/archive/master.zip" > 全站在github的master.zip </a>
+>>>>>>> 3225fbab04dcc8a0123ef3b2c9798e681a4f1a37
+{% endblock %}

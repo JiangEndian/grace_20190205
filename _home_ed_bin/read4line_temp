@@ -1,0 +1,5 @@
+grep '[()（）[]' $1 > $TEMP
+ALLLINE=$(wc -l $TEMP | cut -d" " -f1)
+for((i=1;i<=ALLLINE;i++));do
+    #head -n$i $TEMP | tail -n1 | grep --color=auto '[(（[]'
+    head -n$i $TEMP | tail -n1 | grep --color=auto '[()（）[]'

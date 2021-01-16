@@ -1,0 +1,119 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<title>coroweb</title>
+</head>
+<body>
+<h1 align="center" class="root">
+<a name="45mmglk99f7atf2710umorvouq">coroweb</a>
+</h1>
+<div align="center" class="globalOverview">
+<img src="coroweb_files/images/coroweb.jpg"></div>
+<h2 class="topic">
+<a name="59dhe8kbko3a5k085sqvcdg63a">add_routes(app, module_name)注册module_name的函数</a>
+</h2>
+<div class="overview">
+<img src="coroweb_files/images/add_routes(app, module_name)%E6%B3%A8%E5%86%8Cmodule_name%E7%9A%84%E5%87%BD%E6%95%B0.jpg"></div>
+<h3 class="topic">
+<a name="1g0mgebemimnlt1l2ib5nkc89p">&nbsp;通过module_name得到mod对象</a>
+</h3>
+<h3 class="topic">
+<a name="64hqta7de8qu6evi7psmf4iah8">&nbsp;遍历mode对象的所有属性</a>
+</h3>
+<div class="overview">
+<img src="coroweb_files/images/%E9%81%8D%E5%8E%86mode%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%80%E6%9C%89%E5%B1%9E%E6%80%A7.jpg"></div>
+<h3 class="topic">
+<a name="1med92bcrng2nmt2eg01iqq9gu">&nbsp;&nbsp;排除以_开头的</a>
+</h3>
+<div class="overview">
+<img src="coroweb_files/images/%E6%8E%92%E9%99%A4%E4%BB%A5_%E5%BC%80%E5%A4%B4%E7%9A%84.jpg"></div>
+<h3 class="topic">
+<a name="6914dhlb1fetcr93oamr5ev0dm">&nbsp;&nbsp;&nbsp;按属性名找到属性值(函数对象)</a>
+</h3>
+<h3 class="topic">
+<a name="5oa6osev7rqiv3lg6079b1tuh2">&nbsp;if callable(fn)(fn是@get/@post装饰的方法)</a>
+</h3>
+<div class="overview">
+<img src="coroweb_files/images/if callable(fn)(fn%E6%98%AF@get @post%E8%A3%85%E9%A5%B0%E7%9A%84%E6%96%B9%E6%B3%95).jpg"></div>
+<h3 class="topic">
+<a name="5efhirgp4p8dn0se84dmbc4a7n">&nbsp;&nbsp;通过fn的__method__和__route__得到method和path</a>
+</h3>
+<h3 class="topic">
+<a name="42a8rcqatk8lo7rs02sscf2eo3">&nbsp;如果二者都存在则add_route(app, fn)把此方法注册到app上</a>
+</h3>
+<h2 class="topic">
+<a name="0opt2rn2gf41p9r73aha884fm5">add_route(app, fn)注册fn至app</a>
+</h2>
+<div class="overview">
+<img src="coroweb_files/images/add_route(app, fn)%E6%B3%A8%E5%86%8Cfn%E8%87%B3app.jpg"></div>
+<h3 class="topic">
+<a name="3fv93q3h4i3clip40ir5ov0755">&nbsp;取出fn的method和path，如果不是协程方法就协程一下</a>
+</h3>
+<h3 class="topic">
+<a name="2fcuoq8p6157idb3sso4efr35n">&nbsp;用app.router.add_route(method, path, 处理方法RequestHandler(app, fn))来注册</a>
+</h3>
+<h2 class="topic">
+<a name="1qr13ub80l8l3414nq6vbvl72v">RequestHandler(object)</a>
+</h2>
+<div class="overview">
+<img src="coroweb_files/images/RequestHandler(object).jpg"></div>
+<h3 class="topic">
+<a name="5arvicn5mcjgoi8oeuf9lh670q">&nbsp;把app附加到self._app上，并把fn和其相关信息附加至self上(use *_*_*(fn) functions)</a>
+</h3>
+<h3 class="topic">
+<a name="4cd9e1bheu5god0pthfmij994t">&nbsp;定义__call__(self, request)当函数用，app的注册方法要求的就是处理函数嘛</a>
+</h3>
+<h3 class="topic">
+<a name="4qe7fkhhb2imhplu382ta1fohr">&nbsp;根据fn的信息和调用者app提供的request的信息得到kw</a>
+</h3>
+<h3 class="topic">
+<a name="3k6kq06gbmadfcgaoruvqe8vhm">&nbsp;再_func(**kw)得到结果r并返回(就是fn(**kw))**kw转成关键字参数</a>
+</h3>
+<h3 class="topic">
+<a name="0jg0b185jnu9l0sa7c25n36tup">&nbsp;when run it, app give it some value</a>
+</h3>
+<h2 class="topic">
+<a name="2c96tv91o3ue5l2s0cbmdtt30u">get(path)/post(path)装饰器</a>
+</h2>
+<div class="overview">
+<img src="coroweb_files/images/get(path) post(path)%E8%A3%85%E9%A5%B0%E5%99%A8.jpg"></div>
+<h3 class="topic">
+<a name="565mlrirk8gsirj8kqh5tvi9u6">&nbsp;把原来的方法嵌入到wrapper(*args, **kw)中</a>
+</h3>
+<h3 class="topic">
+<a name="66a7n191bjgbnh14ncsb73m02j">&nbsp;wrapper对象附加__method__和__route__属性值为'GET'/'POST'和path</a>
+</h3>
+<h3 class="topic">
+<a name="18bbfuv6q5su5b54uov0opo6cn">&nbsp;返回这个装饰器</a>
+</h3>
+<h3 class="topic">
+<a name="1t0atdgpjt3v417rvcu731ne2m">&nbsp;因为此装饰器也要接收自己的参数path</a>
+</h3>
+<div class="overview">
+<img src="coroweb_files/images/%E5%9B%A0%E4%B8%BA%E6%AD%A4%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B9%9F%E8%A6%81%E6%8E%A5%E6%94%B6%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8F%82%E6%95%B0path.jpg"></div>
+<h3 class="topic">
+<a name="78gp1kjvffbot3f35c1ap15ven">&nbsp;&nbsp;就得有一个返回装饰器的decorator</a>
+</h3>
+<h3 class="topic">
+<a name="04s4ik2n5h1bajhsi2cmf8ocd7">&nbsp;返回这个decorator。</a>
+</h3>
+<div class="overview">
+<img src="coroweb_files/images/%E8%BF%94%E5%9B%9E%E8%BF%99%E4%B8%AAdecorator%E3%80%82.jpg"></div>
+<h3 class="topic">
+<a name="2rgvbf23dpialei2dmputm2r40">&nbsp;&nbsp;fn嵌入wrapper嵌入decorator嵌入get/post</a>
+</h3>
+<h2 class="topic">
+<a name="7v5uqrkiq0h5mk1vvsc5qedbbk">add_static(app)</a>
+</h2>
+<div class="overview">
+<img src="coroweb_files/images/add_static(app).jpg"></div>
+<h3 class="topic">
+<a name="5m6efci5r529gts3suqtkmk5af">&nbsp;得到当前路径下的static文件夹</a>
+</h3>
+<h3 class="topic">
+<a name="47oieir9fhu092nnhefv5mlrcm">&nbsp;app.router.add_static()把路径添加进去</a>
+</h3>
+</body>
+</html>

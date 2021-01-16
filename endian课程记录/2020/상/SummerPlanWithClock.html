@@ -1,0 +1,400 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.0.6.2 (Linux)"/>
+	<meta name="created" content="2020-06-30T12:50:27.438640048"/>
+	<meta name="changed" content="2020-07-01T09:26:04.509858805"/>
+	<style type="text/css">
+		@page { margin: 2cm }
+		p { margin-bottom: 0.25cm; line-height: 115% }
+		td p { margin-bottom: 0cm }
+	</style>
+
+
+
+
+
+<style type="text/css">
+div.dig, div.hour, div.min, div.sec
+{
+position:absolute;
+}
+div.hour, div.min, div.sec
+{
+width:2px;
+height:2px;
+font-size:2px;
+}
+div.dig
+{
+width:30px;
+height:30px;
+font-family:arial,verdana,sans-serif;
+font-size:10px;
+color:#000000;
+text-align:center;
+padding-top:10px
+}
+div.min
+{
+background:#0000FF;
+}
+div.hour
+{
+background:#000000;
+}
+div.sec
+{
+background:#FF0000;
+}
+</style>
+<script>
+
+var H='....';
+var H=H.split('');
+var M='.....';
+var M=M.split('');
+var S='......';
+var S=S.split('');
+var Ypos=0;
+var Xpos=0;
+var Ybase=8;
+var Xbase=8;
+var dots=12;
+
+function clock(){
+var time=new Date ();
+var secs=time.getSeconds();
+var sec=-1.57 + Math.PI * secs/30;
+var mins=time.getMinutes();
+var min=-1.57 + Math.PI * mins/30;
+var hr=time.getHours();
+var hrs=-1.57 + Math.PI * hr/6 + Math.PI*parseInt(time.getMinutes())/360;
+for (i=0; i < dots; ++i){
+document.getElementById("dig" + (i+1)).style.top=0-15+40*Math.sin(-0.49+dots+i/1.9).toString() + "px";
+document.getElementById("dig" + (i+1)).style.left=0-14+40*Math.cos(-0.49+dots+i/1.9).toString() + "px";
+}
+for (i=0; i < S.length; i++){
+document.getElementById("sec" + (i+1)).style.top =Ypos+i*Ybase*Math.sin(sec).toString() + "px";
+document.getElementById("sec" + (i+1)).style.left=Xpos+i*Xbase*Math.cos(sec).toString() + "px";
+}
+for (i=0; i < M.length; i++){
+document.getElementById("min" + (i+1)).style.top =Ypos+i*Ybase*Math.sin(min).toString() + "px";
+document.getElementById("min" + (i+1)).style.left=Xpos+i*Xbase*Math.cos(min).toString() + "px";
+}
+for (i=0; i < H.length; i++){
+document.getElementById("hour" + (i+1)).style.top =Ypos+i*Ybase*Math.sin(hrs).toString() + "px";
+document.getElementById("hour" + (i+1)).style.left=Xpos+i*Xbase*Math.cos(hrs).toString() + "px";
+} 
+setTimeout('clock()',50);
+}
+window.onload=clock;
+
+</script>
+
+</head>
+<body lang="en-US" dir="ltr">
+<p align="center" style="margin-bottom: 0cm; line-height: 100%"><font size="4" style="font-size: 14pt">2020</font><font face="WenQuanYi Micro Hei"><font size="4" style="font-size: 14pt"><span lang="zh-CN">暑假作业计划：分时而休，分时而作</span></font></font></p>
+<p align="center" style="margin-bottom: 0cm; line-height: 100%"><font face="WenQuanYi Micro Hei"><font size="4" style="font-size: 14pt"><span lang="zh-CN">分别的浪费，是神圣的，是不可侵犯的</span></font></font></p>
+
+
+
+<p align="center" >
+
+<table><tbody><tr><td>
+<div style="width:120px;height:100px;position:relative;left:58px;top:50px;">
+	<div id="dig1" class="dig" style="top: -49.823px; left: 5.6814px;">1</div>
+	<div id="dig2" class="dig" style="top: -35.2232px; left: 20.5112px;">2</div>
+	<div id="dig3" class="dig" style="top: -15.1496px; left: 25.9997px;">3</div>
+	<div id="dig4" class="dig" style="top: 4.96459px; left: 20.6614px;">4</div>
+	<div id="dig5" class="dig" style="top: 19.6749px; left: 5.94126px;">5</div>
+	<div id="dig6" class="dig" style="top: 24.9996px; left: -14.1765px;">6</div>
+	<div id="dig7" class="dig" style="top: 19.4976px; left: -34.2464px;">7</div>
+	<div id="dig8" class="dig" style="top: 4.65796px; left: -48.8363px;">8</div>
+	<div id="dig9" class="dig" style="top: -15.5025px; left: -53.9968px;">9</div>
+	<div id="dig10" class="dig" style="top: -35.527px; left: -48.3314px;">10</div>
+	<div id="dig11" class="dig" style="top: -49.9953px; left: -33.3734px;">11</div>
+	<div id="dig12" class="dig" style="top: -54.9914px; left: -13.1715px;">12</div>
+
+	<div id="hour1" class="hour" style="top: 0px; left: 0px;"></div>
+	<div id="hour2" class="hour" style="top: -0.703592px; left: -7.969px;"></div>
+	<div id="hour3" class="hour" style="top: -1.40718px; left: -15.938px;"></div>
+	<div id="hour4" class="hour" style="top: -2.11078px; left: -23.907px;"></div>
+
+	<div id="min1" class="min" style="top: 0px; left: 0px;"></div>
+	<div id="min2" class="min" style="top: -3.99448px; left: 6.93139px;"></div>
+	<div id="min3" class="min" style="top: -7.98896px; left: 13.8628px;"></div>
+	<div id="min4" class="min" style="top: -11.9834px; left: 20.7942px;"></div>
+	<div id="min5" class="min" style="top: -15.9779px; left: 27.7255px;"></div>
+
+	<div id="sec1" class="sec" style="top: 0px; left: 0px;"></div>
+	<div id="sec2" class="sec" style="top: 1.66952px; left: 7.82385px;"></div>
+	<div id="sec3" class="sec" style="top: 3.33905px; left: 15.6477px;"></div>
+	<div id="sec4" class="sec" style="top: 5.00857px; left: 23.4716px;"></div>
+	<div id="sec5" class="sec" style="top: 6.6781px; left: 31.2954px;"></div>
+	<div id="sec6" class="sec" style="top: 8.34762px; left: 39.1193px;"></div>
+</div>
+</td></tr></tbody></table>
+
+
+
+</p>
+
+
+
+</p>
+<table width="100%" cellpadding="4" cellspacing="0">
+	<col width="85*">
+	<col width="85*">
+	<col width="85*">
+	<tr valign="top">
+		<td width="33%" bgcolor="#000000" style="background: #000000" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="33%" style="background: transparent" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p><font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">周一至周六</span></font></font></p>
+		</td>
+		<td width="33%" style="background: transparent" style="border: 1px solid #000000; padding: 0.1cm">
+			<p><font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">周日</span></font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#bee3d3" style="background: #bee3d3" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕚 <font size="3" style="font-size: 12pt">23-6</font></p>
+		</td>
+		<td width="33%" bgcolor="#bee3d3" style="background: #bee3d3" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🛏️<font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">躺着睡觉</span></font></font></p>
+		</td>
+		<td width="33%" bgcolor="#bee3d3" style="background: #bee3d3" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕕 <font size="3" style="font-size: 12pt">6-7</font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🚶<font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">起床刷牙走着赞美祷告</span></font></font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕖 <font size="3" style="font-size: 12pt">7-8</font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p><font color="#000000">🚶</font><font color="#ed1c24">🍚<font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">早饭</font>站着洗澡开新</span></font></font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#fcd4d1" style="background: #fcd4d1" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕗 <font size="3" style="font-size: 12pt">8-9</font></p>
+		</td>
+		<td width="33%" bgcolor="#fcd4d1" style="background: #fcd4d1" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p><span style="background: #fff200">📖</span><font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">坐着</span></font></font><font size="2" style="font-size: 10pt">401</font><font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">教室读经按番茄走动</span></font></font></p>
+		</td>
+		<td width="33%" bgcolor="#fcd4d1" style="background: #fcd4d1" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕘 <font size="3" style="font-size: 12pt">9-10</font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🚶<font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">躺着刷</span></font></font><font size="2" style="font-size: 10pt">alt23</font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#fcd4d1" style="background: #fcd4d1" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕙 <font size="3" style="font-size: 12pt">10-11</font></p>
+		</td>
+		<td width="33%" bgcolor="#fcd4d1" style="background: #fcd4d1" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p><span style="background: #fff200">📖</span><font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">坐着刷</span></font></font><font size="2" style="font-size: 10pt">alt14</font><font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">按番茄走动</span></font></font></p>
+		</td>
+		<td width="33%" bgcolor="#fcd4d1" style="background: #fcd4d1" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕚 <font size="3" style="font-size: 12pt">11-12</font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🚶<font color="#ed1c24">🍚<font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">午饭</font><font color="#000000">站着</font>开电视查单词</span></font></font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p>⛪<font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">坐着教会聚会</span></font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕛 <font size="3" style="font-size: 12pt">12-13</font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🚶<font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">站着刷个视频躺着准备入睡</span></font></font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p>🚶<font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">站着午饭后开电视转录查词</span></font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#bee3d3" style="background: #bee3d3" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕐 <font size="3" style="font-size: 12pt">13-15</font></p>
+		</td>
+		<td width="33%" bgcolor="#bee3d3" style="background: #bee3d3" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🛏️<font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">躺着午睡</span></font></font></p>
+		</td>
+		<td width="33%" bgcolor="#bee3d3" style="background: #bee3d3" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#bee3d3" style="background: #bee3d3" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕐 <font size="3" style="font-size: 12pt">13-15</font></p>
+		</td>
+		<td width="33%" bgcolor="#bee3d3" style="background: #bee3d3" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🛏️<font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">躺着午睡</span></font></font></p>
+		</td>
+		<td width="33%" bgcolor="#bee3d3" style="background: #bee3d3" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#bee3d3" style="background: #bee3d3" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕒 <font size="3" style="font-size: 12pt">15-16</font></p>
+		</td>
+		<td width="33%" bgcolor="#bee3d3" style="background: #bee3d3" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🛏️<font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">躺着醒后刷一小时</span></font></font></p>
+		</td>
+		<td width="33%" bgcolor="#bee3d3" style="background: #bee3d3" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#fcd4d1" style="background: #fcd4d1" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕓 <font size="3" style="font-size: 12pt">16-17</font></p>
+		</td>
+		<td width="33%" bgcolor="#fcd4d1" style="background: #fcd4d1" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p><span style="background: #fff200">📖</span><font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">坐着电子书按番茄走动</span></font></font></p>
+		</td>
+		<td width="33%" bgcolor="#fcd4d1" style="background: #fcd4d1" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕔 <font size="3" style="font-size: 12pt">17-18</font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🚶<font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">躺着刷</span></font></font><font size="2" style="font-size: 10pt">alt23</font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕕 <font size="3" style="font-size: 12pt">18-19</font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p><font color="#000000">🚶</font><font color="#ed1c24">🍚<font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">晚饭</font>站着加新</span></font></font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕖 <font size="3" style="font-size: 12pt">19-20</font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🚶<font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">站着清理信息</span></font></font><font size="2" style="font-size: 10pt">/</font><font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">洗衣购物</span></font></font><font size="2" style="font-size: 10pt">/</font><font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">其他</span></font></font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#fcd4d1" style="background: #fcd4d1" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕗 <font size="3" style="font-size: 12pt">20-21</font></p>
+		</td>
+		<td width="33%" bgcolor="#fcd4d1" style="background: #fcd4d1" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p><span style="background: #fff200">📖</span><font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">坐着安享看书按番茄走动</span></font></font></p>
+		</td>
+		<td width="33%" bgcolor="#fcd4d1" style="background: #fcd4d1" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕘 <font size="3" style="font-size: 12pt">21-22</font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🚶<font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">站着洗澡刷个视频查看消息</span></font></font></p>
+		</td>
+		<td width="33%" bgcolor="#adc5e7" style="background: #adc5e7" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" bgcolor="#bee3d3" style="background: #bee3d3" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🕙 <font size="3" style="font-size: 12pt">22-23</font></p>
+		</td>
+		<td width="33%" bgcolor="#bee3d3" style="background: #bee3d3" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p>🛏️<font face="WenQuanYi Micro Hei"><font size="2" style="font-size: 10pt"><span lang="zh-CN">躺着最后清理准备入睡</span></font></font></p>
+		</td>
+		<td width="33%" bgcolor="#bee3d3" style="background: #bee3d3" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+</body>
+</html>

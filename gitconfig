@@ -1,0 +1,7 @@
+[user]
+	git config user.name JiangEndian
+	git config user.email c_cstudy@126.com
+
+tig：字符模式下交互查看git项目，可以替代git命令。
+
+

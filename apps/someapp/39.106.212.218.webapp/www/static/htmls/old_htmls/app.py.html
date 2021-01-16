@@ -1,0 +1,76 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<title>app.py</title>
+</head>
+<body>
+<h1 align="center" class="root">
+<a name="31vgkrv4j5216ir7tfgtvfdmd4">app.py</a>
+</h1>
+<div align="center" class="globalOverview">
+<img src="app.py_files/images/app.py.jpg"></div>
+<h2 class="topic">
+<a name="3mot0omgdr4p6rj6nunb033o9k">从asyncio获取EventLoop引用loop</a>
+</h2>
+<div class="overview">
+<img src="app.py_files/images/%E4%BB%8Easyncio%E8%8E%B7%E5%8F%96EventLoop%E5%BC%95%E7%94%A8loop.jpg"></div>
+<h3 class="topic">
+<a name="4qlm8ubkvcmqgko2ku1suo7m53">&nbsp;用得到的loop执行init(loop)</a>
+</h3>
+<h2 class="topic">
+<a name="4krrlcd2ge04cm71g2r2q3cc1v">init(loop)</a>
+</h2>
+<div class="overview">
+<img src="app.py_files/images/init(loop).jpg"></div>
+<h3 class="topic">
+<a name="0908li3dde47ile70em80aetcb">&nbsp;通过rom.create_pool()创建数据库连接池</a>
+</h3>
+<div class="overview">
+<img src="app.py_files/images/%E9%80%9A%E8%BF%87rom.create_pool()%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0.jpg"></div>
+<h3 class="topic">
+<a name="0h3c4cbfm2rlbjb1mqs55pvofd">&nbsp;&nbsp;请看orm.py</a>
+</h3>
+<h3 class="topic">
+<a name="6a5scfb09nvijssbcu3n7f83bj">&nbsp;web.Application(loop, middlewares)得到响应HTTP请求的app</a>
+</h3>
+<div class="overview">
+<img src="app.py_files/images/web.Application(loop, middlewares)%E5%BE%97%E5%88%B0%E5%93%8D%E5%BA%94HTTP%E8%AF%B7%E6%B1%82%E7%9A%84app.jpg"></div>
+<h3 class="topic">
+<a name="1tts39r6ic199c7c60s0a3rc10">&nbsp;&nbsp;app添加了4个middlewares中间软件/拦截器</a>
+</h3>
+<h3 class="topic">
+<a name="64st0t9na3epkdnl6i59bq15kk">&nbsp;init_jinja2(app, **kw)初始化jinja2模板引擎</a>
+</h3>
+<h2 class="topic">
+<a name="5pjecvlctqf226lugm8ftjgs66">init_jinja2(app, **kw)</a>
+</h2>
+<div class="overview">
+<img src="app.py_files/images/init_jinja2(app,   kw).jpg"></div>
+<h3 class="topic">
+<a name="47f344tkl552a5n9gtfonnm0qd">&nbsp;根据kw设定Jinja2选项</a>
+</h3>
+<h3 class="topic">
+<a name="4bdi9ofdu9pikm52h0636b1j8e">&nbsp;得到路径，默认为当前路径的templates</a>
+</h3>
+<h3 class="topic">
+<a name="112su3a9tk7n9ck2g4sbtcer49">&nbsp;根据设定的选项和路径载入得到Environment对象的引用env</a>
+</h3>
+<h3 class="topic">
+<a name="3pncdrkumfbio4ufs87sbbhi3d">&nbsp;再get(kw, 'filters')得到filters并附到env</a>
+</h3>
+<h3 class="topic">
+<a name="2dtcu7aa4fe2huj8agtldoo7n5">&nbsp;把env附为app的__templating__属性</a>
+</h3>
+<h2 class="topic">
+<a name="4n593cr6t0l2t34fme3021s5nk">coroweb.py的add_routes(app, 'handlers')注册handlers.py的URL处理函数</a>
+</h2>
+<h2 class="topic">
+<a name="3krtr6bg51nfm0a32g1sgm0fis">coroweb.py的add_static(app)添加静态文件</a>
+</h2>
+<h2 class="topic">
+<a name="2i26464m1bdo08kqi7u7m4c1fo">通过EventLoop的create_server(app.make_handler(), 'host', port)创建服务并返回结果srv。完成</a>
+</h2>
+</body>
+</html>

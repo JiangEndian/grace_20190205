@@ -1,0 +1,1 @@
+data_dict = {"name":"北国以色列", "start_time":3039, "pass_time":209, "story":'''19 0 BC722 亚述 以色列 南北王图'''}

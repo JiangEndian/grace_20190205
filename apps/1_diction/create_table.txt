@@ -1,0 +1,4 @@
+create table Common (id integer primary key,ymd varchar(200),content varchar(200),other1 varchar(200),other2 varchar(200),other3 varchar(200))
+create table EveryWeek (id integer primary key,day varchar(200),content varchar(200),other1 varchar(200),other2 varchar(200),other3 varchar(200))
+create table EveryMonth (id integer primary key,day varchar(200),content varchar(200),other1 varchar(200),other2 varchar(200),other3 varchar(200))
+create table EveryYear (id integer primary key,monthday varchar(200),content varchar(200),other1 varchar(200),other2 varchar(200),other3 varchar(200))

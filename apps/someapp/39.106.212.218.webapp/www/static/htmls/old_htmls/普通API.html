@@ -1,0 +1,54 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<title>普通API</title>
+</head>
+<body>
+<h1 align="center" class="root">
+<a name="1uasr6ngk6h5io0a94lfsebm9p">普通API</a>
+</h1>
+<div align="center" class="globalOverview">
+<img src="%E6%99%AE%E9%80%9AAPI_files/images/%E6%99%AE%E9%80%9AAPI.jpg"></div>
+<h2 class="topic">
+<a name="6is3u4jrs3n6g6eidtek3lh098">@post('/api/blogs/{id}/comments')在blog.html有提交</a>
+</h2>
+<div class="overview">
+<img src="%E6%99%AE%E9%80%9AAPI_files/images/@post(' api blogs {id} comments')%E5%9C%A8blog.html%E6%9C%89%E6%8F%90%E4%BA%A4.jpg"></div>
+<h3 class="topic">
+<a name="4csl520g9fmkhh1lgi96f8d0nd">&nbsp;得到user判断空否，以id查找有无此blog</a>
+</h3>
+<h3 class="topic">
+<a name="5j7gnvdpetdqtvjmcotru3a39v">&nbsp;都没错则按信息生成此comment并执行保存及返回此</a>
+</h3>
+<h2 class="topic">
+<a name="6ko8jue1pbc295rjhb16on5202">@post('/api/users')在register.html有提交</a>
+</h2>
+<div class="overview">
+<img src="%E6%99%AE%E9%80%9AAPI_files/images/@post(' api users')%E5%9C%A8register.html%E6%9C%89%E6%8F%90%E4%BA%A4.jpg"></div>
+<h3 class="topic">
+<a name="6a7ec8eg19l2es4sphbep88bro">&nbsp;例行的检查数据并判断是否已有此邮箱注册</a>
+</h3>
+<h3 class="topic">
+<a name="257ni2rj27nu0cl9qpbifvc452">&nbsp;passwd和uid再次hash得到密码(passwd是输入密码的hash)</a>
+</h3>
+<h3 class="topic">
+<a name="5eh94f0bldnostbaounl6asunt">&nbsp;加上其他相关信息得到user对象存储并利用之r.set_cookie</a>
+</h3>
+<h3 class="topic">
+<a name="3i7s5f774h23du60in2hftoatr">&nbsp;r加上其他信息，返回(有user信息的cookie才能提取出user信息)</a>
+</h3>
+<h2 class="topic">
+<a name="6t8n01e72csu50io00ugcpolpa">@post('/api/authenticate')在signin.html有提交</a>
+</h2>
+<div class="overview">
+<img src="%E6%99%AE%E9%80%9AAPI_files/images/@post(' api authenticate')%E5%9C%A8signin.html%E6%9C%89%E6%8F%90%E4%BA%A4.jpg"></div>
+<h3 class="topic">
+<a name="2d8rh4oevduho1iaud892gcsq9">&nbsp;例行检查，从库中找到user，并hash了id和送进来的passwd</a>
+</h3>
+<h3 class="topic">
+<a name="559dta2dql70coqocvkmrnvhk6">&nbsp;检测是否一致，并设定cookie返回之</a>
+</h3>
+</body>
+</html>

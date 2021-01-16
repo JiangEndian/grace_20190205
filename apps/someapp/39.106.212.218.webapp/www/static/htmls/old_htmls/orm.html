@@ -1,0 +1,141 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<title>orm</title>
+</head>
+<body>
+<h1 align="center" class="root">
+<a name="7nbtcrnr88i3u5e3u1bb7854s3">orm</a>
+</h1>
+<div align="center" class="globalOverview">
+<img src="orm_files/images/orm.jpg"></div>
+<h2 class="topic">
+<a name="527fr84f9jr7b3j2seg39dnrgs">create_pool(loop, **kw)</a>
+</h2>
+<div class="overview">
+<img src="orm_files/images/create_pool(loop,   kw).jpg"></div>
+<h3 class="topic">
+<a name="28d8s0bt71kaif521da15b2ccf">&nbsp;global __pool存放全局连接波</a>
+</h3>
+<h3 class="topic">
+<a name="6f94hffjin5i5jmvvi95e2787f">&nbsp;通过aiomysql.create_pool(loop, **kw)生成此连接池</a>
+</h3>
+<div class="overview">
+<img src="orm_files/images/%E9%80%9A%E8%BF%87aiomysql.create_pool(loop,   kw)%E7%94%9F%E6%88%90%E6%AD%A4%E8%BF%9E%E6%8E%A5%E6%B1%A0.jpg"></div>
+<h3 class="topic">
+<a name="09qdlqnghr1irqhpklb9pharnn">&nbsp;&nbsp;**kw通过configs.db得到数据库设定</a>
+</h3>
+<h2 class="topic">
+<a name="301lao8a42apds27s9k30juaub">select(sql, args, size=None)</a>
+</h2>
+<div class="overview">
+<img src="orm_files/images/select(sql, args, size=None).jpg"></div>
+<h3 class="topic">
+<a name="48tl5mu73ceol0sslf493e4ced">&nbsp;__pool=&gt;conn=&gt;cur</a>
+</h3>
+<h3 class="topic">
+<a name="5juuds62fbmuttpunmkdnr64bh">&nbsp;cur.execute(sql, args)</a>
+</h3>
+<h3 class="topic">
+<a name="4se15fm93esg8vgd5kcen6r3bs">&nbsp;rs = fetchmany(size) or fetchall()</a>
+</h3>
+<h3 class="topic">
+<a name="5g7k7eui49n1ag13et7etjk46j">&nbsp;cur.close() and return rs</a>
+</h3>
+<h2 class="topic">
+<a name="4jotbgasr5nqvuihp0589dhago">execute(sql, args, autocommit=True)</a>
+</h2>
+<div class="overview">
+<img src="orm_files/images/execute(sql, args, autocommit=True).jpg"></div>
+<h3 class="topic">
+<a name="6hgj4ababtr87b5rb12ksappmb">&nbsp;__pool=&gt;conn=&gt;cur</a>
+</h3>
+<h3 class="topic">
+<a name="64265bqj3bk0of8f20ui0hbqea">&nbsp;cur.execute(sql, args)</a>
+</h3>
+<h3 class="topic">
+<a name="2jcmg8r7lg2s4drdlu9iaviqmt">&nbsp;affected = cur.rowcont</a>
+</h3>
+<h3 class="topic">
+<a name="7hrjsid0qe2sqbgbl5c50ltlr5">&nbsp;return affected</a>
+</h3>
+<h2 class="topic">
+<a name="6s23c1dkd8928562qov8g7a83i">class Field</a>
+</h2>
+<div class="overview">
+<img src="orm_files/images/class Field.jpg"></div>
+<h3 class="topic">
+<a name="7giqvufd1k0qjq2kjgbm2sa9ir">&nbsp;StringField</a>
+</h3>
+<h3 class="topic">
+<a name="7878fttgp0harm18k8q7na4eua">&nbsp;BooleanField</a>
+</h3>
+<h3 class="topic">
+<a name="4hqr5bjns034gbqja3r24fa1h7">&nbsp;others Field</a>
+</h3>
+<h2 class="topic">
+<a name="1kk4rs5mpqigh0dhjs2d1pgqhi">class Model</a>
+</h2>
+<div class="overview">
+<img src="orm_files/images/class Model.jpg"></div>
+<h3 class="topic">
+<a name="7old410afd15etklbj0de1o9ri">&nbsp;__get/setattr__ for x.y</a>
+</h3>
+<h3 class="topic">
+<a name="467rqrobrl9qsg8b0mtr8s8huv">&nbsp;getValue and getValueOrDefault</a>
+</h3>
+<h3 class="topic">
+<a name="3rokin4r0gd229cq9eonk740ve">&nbsp;@classmethod@asyncio.coroutine</a>
+</h3>
+<div class="overview">
+<img src="orm_files/images/@classmethod@asyncio.coroutine.jpg"></div>
+<h3 class="topic">
+<a name="55manmhd2qeclfcv3aiqhs8hra">&nbsp;&nbsp;findAll:find objects by where clause</a>
+</h3>
+<h3 class="topic">
+<a name="3d1ulb2bt2o3ki4r8npfik9nh2">&nbsp;&nbsp;findNumber:find number by selectField and where</a>
+</h3>
+<h3 class="topic">
+<a name="7jdenmb9i7iqief21n339one0g">&nbsp;&nbsp;find:find object by primary key</a>
+</h3>
+<h3 class="topic">
+<a name="6hjea04sld267vupbqkuhji803">&nbsp;@asyncio.corotine</a>
+</h3>
+<div class="overview">
+<img src="orm_files/images/@asyncio.corotine.jpg"></div>
+<h3 class="topic">
+<a name="0jraddt6tjsbt6i7pe8ik0si57">&nbsp;&nbsp;save(self)</a>
+</h3>
+<h3 class="topic">
+<a name="1vjgv5hpu462bq3u8odmp38b0n">&nbsp;&nbsp;update(self)</a>
+</h3>
+<h3 class="topic">
+<a name="4eabl24co92gc22cg1ot5psjur">&nbsp;&nbsp;remove(self)</a>
+</h3>
+<h2 class="topic">
+<a name="5amh55nito701fn0peak255htc">class ModelMetaclass</a>
+</h2>
+<div class="overview">
+<img src="orm_files/images/class ModelMetaclass.jpg"></div>
+<h3 class="topic">
+<a name="3a7fasnbok50iuufmkgcc8coat">&nbsp;__mappings__</a>
+</h3>
+<h3 class="topic">
+<a name="7ncrhnj6fh58ao50b9hnu389ed">&nbsp;__table__</a>
+</h3>
+<h3 class="topic">
+<a name="7f2fl79u3lbes37plm6jn87m52">&nbsp;__primary_key__</a>
+</h3>
+<h3 class="topic">
+<a name="733417k7uq1gk94v8kh2nddn67">&nbsp;__fields__</a>
+</h3>
+<h3 class="topic">
+<a name="1frpuiolgtk2lg2ckasfihlo6f">&nbsp;__select/insert/update/delete__</a>
+</h3>
+<h3 class="topic">
+<a name="72621cj1aim8tgu6tj1g6513fs">&nbsp;return type.__new__(cls, name, bases, attrs)</a>
+</h3>
+</body>
+</html>

@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+{% block content %}
+
+<font size="6">
+程序要有，目的不变，实际调整，每天训练。<br>
+调整：(→ )
+
+{% ifequal show_exercise 'YES' %}
+<hr>
+<table border="1">
+    <tr>
+        <td>
+        <a href=/alt1234?file_name="exercise01" > {{ exercise01 }} 8点30敬虔后锻炼 </a>
+        </td>
+        <td>
+        <a href=/alt1234?file_name="exercise02" > {{ exercise02 }} 12点30敬虔后锻炼 </a>
+        </td>
+        <td>
+        <a href=/alt1234?file_name="exercise03" > {{ exercise03 }}  20点敬虔后锻炼 </a>
+        </td>
+    </tr>
+</table>
+
+{% else %}
+<hr>
+<table border="1">
+    <tr>
+        <td>
+        <a href=/alt1234?file_name="exercise01" > {{ exercise01 }} notNapButWalk 1 </a>
+        </td>
+        <td>
+        <a href=/alt1234?file_name="exercise02" > {{ exercise02 }} walkOrMop  </a>
+        </td>
+        <td>
+        <a href=/alt1234?file_name="exercise03" > {{ exercise03 }}  notNapButWalk 2  </a>
+        </td>
+    </tr>
+</table>
+
+{% endifequal %}
+
+<table border="1">
+<tr>
+<td>
+<a href=/alt1234?file_name="wake_up" > {{ wake_up }} 4点30起床 </a>
+</td>
+<td>
+<a href=/alt1234?file_name="breakfast" > {{ breakfast }} 7点早饭 </a>
+</td>
+<td>
+<a href=/alt1234?file_name="morning_prayer" > {{ morning_prayer }}  8点30祷告赞美</a>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href=/alt1234?file_name="alt23" >{{ alt23 }}  alt23</a>
+</td>
+<td>
+<a href=/alt1234?file_name="stand_service" >{{ stand_service }}  侍立服侍喂养</a>
+</td>
+<td>
+<a href=/alt1234?file_name="bible_read" > {{ bible_read }} 读经</a>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href=/alt1234?file_name="meditation" >{{ meditation }}  默想</a>
+</td>
+<td>
+<a href=/alt1234?file_name="lunch" >{{ lunch }}  12点30午饭</a>
+</td>
+<td>
+<a href=/alt1234?file_name="midday_prayer" >{{ midday_prayer }}  13点30祷告赞美</a>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href=/alt1234?file_name="arrangement" >{{ arrangement }}  整理承启</a>
+</td>
+<td>
+<a href=/alt1234?file_name="nap" >{{ nap }} 15点30午休 </a>
+</td>
+<td>
+<a href=/alt1234?file_name="wake_up_nap" >{{ wake_up_nap }}  17点起来</a>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href=/alt1234?file_name="add_new" >{{ add_new }}  无限加新节制</a>
+</td>
+<td>
+<a href=/alt1234?file_name="supper" >{{ supper }}  19点晚饭</a>
+</td>
+<td>
+<a href=/alt1234?file_name="evening_prayer" >{{ evening_prayer }}  20点祷告赞美</a>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href=/alt1234?file_name="alt14_submit" >{{ alt14_submit }}  alt14，提交</a>
+</td>
+<td>
+<a href=/alt1234?file_name="night_sleep" >{{ night_sleep }} 21点30睡觉</a>
+</td>
+<td>
+{{ finished_all }} 已完成条数：{{ finished }}/ {{ all_tasks }} <!-- 已完成条数：n条 --!>
+</td>
+</tr>
+</table>
+
+
+<hr>
+<a href=/alt1  ><button style="width:220px;height:100px;font-size:40px"> alt1  </button></a> &nbsp;
+<a href=/alt1  >{{ alt1 }} </a> &nbsp;
+<a href=/alt1-common  >{{ alt1_common }} </a> 
+<hr>
+
+<a href=/alt2  ><button style="width:220px;height:100px;font-size:40px"> alt2  </button></a> &nbsp;
+<a href=/alt2  > {{ alt2 }} </a> &nbsp;
+<a href=/alt2-common  >{{ alt2_common }} </a> 
+<hr>
+
+<a href=/alt3  ><button style="width:220px;height:100px;font-size:40px"> alt3  </button></a> &nbsp;
+<a href=/alt3  > {{ alt3 }} </a> &nbsp;
+<a href=/alt3-common  >{{ alt3_common }} </a> 
+<a href=/alt3_all_mp3  > {{ alt3_all }} </a> 
+<hr>
+
+<a href=/alt4  ><button style="width:220px;height:100px;font-size:40px"> alt4  </button></a> &nbsp;
+<a href=/alt4  > {{ alt4 }} </a> &nbsp;
+<a href=/alt4-common  >{{ alt4_common }} </a> 
+<hr>
+
+<a href=/grace_calculator >ChurchSystem</a> 
+<a href=/alt  >download_upload</a> 
+<a href=/life_code > {{ show_life_code }}</a> 
+<hr>
+<a href=/world_emulator  > world_emulator </a>
+
+<hr>
+
+<form action="/accept-text" method="get">
+    <input name="cmd" value="submit" type="submit" style="width:900px;height:80px;font-size:40px" >
+    <input name="text" placeholder="text" value="" style="width:900px;height:100px;font-size:40px" >
+</form>
+
+
+<pre style="white-space: pre-wrap; word-wrap:break-word;">
+{{ plan_endian }}
+</pre>
+<hr>
+
+<a href="/submitToGithub" > 提交服务器变动至github </a>
+<a href="https://github.com/JiangEndian/grace_20190205/archive/master.zip" > 全站在github的master.zip </a>
+
+{% endblock %}
+

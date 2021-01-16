@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!--这是注释-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学习html相关</title>
+
+    在head中的样式表,这里style不再是属性，而是一个标签了-文档内嵌样式表
+    <style type="text/css">
+        /*控制a标签*/
+        a{
+            font-size: 40px;
+            color: #345cff;
+        }
+    </style>
+
+    从外部文件导入样式表
+    <link rel="stylesheet" type="text/css" href="css/4index.css">
+
+    <style type="text/css">
+        a{
+            font-size: 40px;
+            color: #345cff;
+        }
+
+        p{
+            font-size: 40px;
+            color: #cff345;
+        }
+
+        选择所有
+        *{
+            font-size: 40px;
+            color: #345cff;
+        }
+
+        样式类名前得加点。然后所有此类用此样式
+        .class1{
+            font-size: 40px;
+            color: #345cff;
+
+            /*边框，有很多种边框及属性。。。*/
+            border-width: 5px;
+            border-color: #345cff;
+            /*border-style: solid;*/
+            /*border-style: dashed;*/
+            border-style: dotted;
+
+            /*background: #0000ff;*/
+
+            /*用此图片铺底，body设置class为此时，网页背景～*/
+            background-image: url(favicon.ico);
+        }
+
+        <!--/*!*id名前加井号，然后唯一此id的用此样式。强行共用也行，尴尬。。。*!*/-->
+        <!--/*#id1{*/-->
+            <!--/*font-size: 40px;*/-->
+            <!--/*color: #ff0000;*/-->
+        <!--/*}*/-->
+
+        <!--/*还有根据属性选择样式表等等其他选择方式和选择器运作:，但感觉class才最好～*/-->
+        <!--/*然后还有文本的各种样式，像word一样排版的东西*/-->
+        <!--/*还有过渡效果，动画，变换等特效*/-->
+
+        <!--/*css盒子模型：一种思维模型，中心是content，然后四边距，四边框，四边margin*/-->
+
+    </style>
+
+    <script>
+        var value1='变量value1'
+        // alert('javascript，不用特别标明语言，默认js.'+value1)
+        document.write(value1) //这是写入网页里面，body之后的文本
+
+        var name=prompt('你的名字是：', "") //弹框输入
+        document.write(name)
+
+        if(pwd='123456'){ //语法和java/c一致，但不强制最后分号
+            document.write('密码正确')
+        }
+        else if(pwd='123'){
+            alert('密码错误')
+        }
+        else{
+            alert('其他')
+        }
+    </script>
+</head>
+
+<body>
+
+<h1> 这是标题标签，还有各种文字格式标签。话说，直接用word处理好然后生成成html用也行吧。 </h1>
+
+<a href="for_a.html" target="_blank">这是链接标签,blank是用来打开新标签的。不设置等于默认为_self</a>
+
+<table border="1px">
+    <!--这是表格，border是边框，不建议使用，属性都放css建议-->
+    <tr>
+        <!--这是表的头，也可以用td，但这里推荐th-->
+        <!--还可以加thead,tbody,tfoot,合并单元格等表相关的元素-->
+        <th>
+            1
+        </th>
+        <th>
+            2
+        </th>
+    </tr>
+    <tr>
+        <!--这是一行-->
+        <td>
+            <!--这是列-->
+            一行一列
+        </td>
+        <td>
+            1.2
+        </td>
+    </tr>
+    <tr>
+        <!--这是二行-->
+        <td>
+            <!--这是列-->
+            二行一列
+        </td>
+        <td>
+            二行二列
+        </td>
+    </tr>
+</table>
+
+<!--这是列表,可设置序列号形式及反序排列，并可层级镶嵌-->
+<ol type="I">
+    <li>a</li>
+    <ol type="a">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+    <li>b</li>
+    <li>c</li>
+</ol>
+
+<!--ul的并不标序号了，就是点点-->
+<ul type="I">
+    <li>a</li>
+    <ol type="a">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+    <li>b</li>
+    <li>c</li>
+</ul>
+
+获取用户输入的表单元素，input属性有29种。。。提交格式={name:value}
+<form method="提交的方式" action="提交的Api">
+    <input>
+    <!--input不需要封闭标签，反而可能出错,默认type=text-->
+    <input type="text" value="text:value">
+    <input type="text" placeholder="text:placeholder">
+    <input type="text" placeholder="maxlength_8" maxlength="8">
+    <br><br>
+
+    <input type="text" placeholder="默认填充size_50" size="50">
+    <input type="text" value="readonly" readonly>
+    <br><br>
+
+    <input type="password" placeholder="密码">
+    <br><br>
+
+    <textarea>this is textarea this is textarea this is textarea this is textarea this is textarea this is textarea this is textarea </textarea>
+    <textarea rows="20">rows20 rows rows rows rows rows rows rows rows rows rows rows rows rows rows rows rows rows rows rows rows rows rows rows rows </textarea>
+    <br><br>
+
+    <input type="button" value="button_type">
+    <button>button标签，无value。用于与js合作，有onclick属性</button>
+    <input type="submit" vlaue="submit_type，提交表单,html5中基本不使用">
+    <br><br>
+
+    数字滑动
+    <input type="range" min="-100" max="100" step="100" >
+    <input type="range" min="-100" max="100" value="-100">
+    <br>
+    手动输入数字
+    <input type="number">
+    <input type="number" min="-100" max="100" value="0">
+    <br><br>
+
+    <input type="checkbox" name="checkbox" value="value">同名checkbox1
+    <input type="checkbox" name="checkbox" checked>同名checkbox2,checked
+    <input type="checkbox" name="checkbox">同名checkbox3
+    <br>
+    <input type="radio" name="radio">同名radio1
+    <input type="radio" name="radio" checked>同名radio2,checked
+    <input type="radio" name="radio">同名radio3
+    <br><br>
+
+    <select>
+        <option>select:option1</option>
+        <option>select:option2</option>
+        <option>select:option3</option>
+    </select>
+    <br><br>
+
+    和上个select相比，可以在给定选项外自己输入内容
+    <input type="text" list="datalist1" name="datalist1" value="datalist">
+    <datalist id="datalist1">
+        <option>datalist:option1</option>
+        <option>datalist:option2</option>
+        <option>datalist:option3</option>
+    </datalist>
+    <br><br>
+
+    提交表单时检测，其实并不好用
+    <input type="email">
+    <input type="tel">
+    <input type="url">
+    <br><br>
+
+    其他input类型：日期/颜色/搜索/隐藏/图片按纽获取坐标/上传文件
+    <br>
+    <input type="date">
+    <input type="color">
+    <input type="search">
+    <input type="hidden" value="123">
+    <input type="image" src="favicon.ico">
+    <br>
+    上传文件，form要设置enctype="multipart/form-data"
+    <input type="file" multiple required>
+</form>
+
+<img src="favicon.ico">
+<img src="favicon.ico" width="50">
+<img src="favicon.ico" width="50" height="100">
+<img src="ico" width="50" alt="下载按纽">
+<!--alt为备用内容，当文件加载不了时，显示文字-->
+<br><br>
+<!--也可以用图片作为链接-->
+<a href="index.html"> <img src="favicon.ico" width="50"> </a>
+<br><br>
+
+<a style="font-size: 40px;color: #ffad2a;">带style的a标签-元素内嵌样式表</a>
+<br>
+<a>不带style的a标签，然后有个文档内嵌的样式表。。。</a>
+<br>
+<a>然后，有个导入的外部样式表文件，范围更大，风格统一～</a>
+<br>
+
+<a class="class1">a标签,带class1</a>
+<br>
+<a id="id1">a标签, 带id1</a>
+<p class="class1">p标签，带class1</p>
+<h1>h1标签</h1>
+<br>
+
+<p class="class1">p标签class1</p>
+<br>
+
+<div>div标签是没有意义的，排版用这个比较好。嗯，就是括起来其他然后整体加css～</div>
+
+
+</body>
+</html>

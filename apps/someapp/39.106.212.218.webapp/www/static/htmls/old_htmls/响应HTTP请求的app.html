@@ -1,0 +1,55 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<title>响应HTTP请求的app</title>
+</head>
+<body>
+<h1 align="center" class="root">
+<a name="4p3sm288euep3991gcueaoknln">响应HTTP请求的app</a>
+</h1>
+<div align="center" class="globalOverview">
+<img src="%E5%93%8D%E5%BA%94HTTP%E8%AF%B7%E6%B1%82%E7%9A%84app_files/images/%E5%93%8D%E5%BA%94HTTP%E8%AF%B7%E6%B1%82%E7%9A%84app 3.jpg"></div>
+<h2 class="topic">
+<a name="19e4tfrlga23edbsomnbgg27ve">从web.Application(loop, middlewares)生成</a>
+</h2>
+<div class="overview">
+<img src="%E5%93%8D%E5%BA%94HTTP%E8%AF%B7%E6%B1%82%E7%9A%84app_files/images/%E4%BB%8Eweb.Application(loop, middlewares)%E7%94%9F%E6%88%90 2.jpg"></div>
+<h3 class="topic">
+<a name="1skhbedkoqguk0rrfdlpqg8ngg">&nbsp;EventLoop中异步执行</a>
+</h3>
+<h2 class="topic">
+<a name="1fcppvtl0ofe9r0of9denqdp83">添加了4个middlewares拦截器(3进/1出)</a>
+</h2>
+<div class="overview">
+<img src="%E5%93%8D%E5%BA%94HTTP%E8%AF%B7%E6%B1%82%E7%9A%84app_files/images/%E6%B7%BB%E5%8A%A0%E4%BA%864%E4%B8%AAmiddlewares%E6%8B%A6%E6%88%AA%E5%99%A8(3%E8%BF%9B 1%E5%87%BA) 2.jpg"></div>
+<h3 class="topic">
+<a name="43b62imk4aqj87q1t4bsfespgd">&nbsp;logger_factory统一记录URL的request的方法和路径(进)</a>
+</h3>
+<h3 class="topic">
+<a name="5rjbrieb9nnlaaupqc91orekg6">&nbsp;auth_factory检测cookie并提取urse信息附加到request上(进)</a>
+</h3>
+<h3 class="topic">
+<a name="0m8kifaf34rqfp0habomcps4ev">&nbsp;上面的中间软件还判断了/manage/开始的请求，不是admin就/signin</a>
+</h3>
+<h3 class="topic">
+<a name="0mnfe2p998190u9dd1vvthj1eq">&nbsp;data_factory检测POST请求并处理提交数据附加到request上(此处并没用到,进)</a>
+</h3>
+<h3 class="topic">
+<a name="3q255r8q2rrub3jni9b4j8n7un">&nbsp;response_factory先分发再拦截返回的转为web.Response对象返回(出)</a>
+</h3>
+<h2 class="topic">
+<a name="29nlgtbcbi84tfa4ncbsb80oc7">app的__templating__为jinja2模板引擎</a>
+</h2>
+<h2 class="topic">
+<a name="0p4a67nsd77pmsuoiglsla6mfo">handlers.py的@get/@post的函数注册到app上。这个才是干活的，一切请求通过拦截器处理后按路径分发给注册该路径的函数(后注册的同路径函数覆盖之前的)来处理，返回时也经过下拦截器。</a>
+</h2>
+<h2 class="topic">
+<a name="3cp2ln3u6jdk4uv0pou8h4npcd">app添加了static文件夹存放静态资源</a>
+</h2>
+<h2 class="topic">
+<a name="2ucc5gi4kd3ccjggddvfrkc2au">app已成，由loop创建服务make_handler()在host的port上</a>
+</h2>
+</body>
+</html>

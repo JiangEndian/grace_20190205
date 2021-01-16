@@ -1,0 +1,1375 @@
+				Linux命令大全
+常用命令大全
+	文件命名规则：
+	Windows：/ \ | ? * < > CON 以点开头，默认都不能作为文件名使用
+	Linux：除了/ 之外，所有的字符都合法
+	Tab键自动补全命令或文件名
+	
+	Linux中的命令格式：
+	例：ls -l -a /etc 
+	当有多个选项时，可以写在一起。例：ls -la /etc
+	缩略选项用一个减号，完整选项用两个减号。例：ls --all
+	
+	命令存放目录不一样，决定权限不一样
+	Root 才有权限的命令存放目录： /sbin   /usr/sbin
+	所有用户(all users)都可以使用的命令存放目录： /bin   /usr/bin
+	其中bin是binary二进制的缩写
+	
+	命令提示符：
+	[root@localhost~]#  超级管理员(root)
+	[jack@localhost~]$  普通用户
+	
+	Linux特点：
+	内核只认识数字(例：文件的i节点)
+	修改和设置需要写配置文件，改后通常需要重启相关的服务
+	在linux中，所有的东西，都是文件
+	/dev这个目录包含了所有Linux系统中使用的外部设备
+	设备文件分为两种：块设备文件(b)和字符设备文件(c)
+	/dev/sd[a-z]:SCSI 或 SATA设备
+	/dev/hd[a-t]:IDE设备
+	/dev/null:无限数据接收设备，相当于黑洞
+	Find / -name access_log 2 > /dev/null
+	Find 命令在/目录下查找名为access_log的文件，并且错误输出不会显示出来
+	/dev/zero:提供无限零资源
+	dd if=/dev/zero of=test.txt bs=1k count=2
+	每块1k，读两块输出到test.txt文件中，产生2KB大小的文件test.txt
+	
+	ctrl+c终止正在执行的命令
+	例：ping 127.0.0.1执行后，不会停，按ctrl+c停止
+	
+-------------------------------------------------------------------------------
+文件处理命令
+-------------------------------------------------------------------------------
+
+ls 查看目录或文件信息 list
+	-a 显示所有文件all
+	-l 显示详细信息long
+	-d 查看目录信息directory而不是查看该目录下有哪些文件
+	-h 文件大小单位使用KB MB等人性化显示(默认单位：字节)
+	文件类型(第一个字符)
+	d 目录
+	- 二进制文件
+	l 软连接文件link
+	文件权限
+	r 	read可读
+	w 	write可写
+	x	execute可执行
+	用户分类
+	u	user(owner)所有者
+	g	group 所有组
+	o	others其他人
+	分页查看目录内的信息：ls -l /etc|more 
+
+cd	改变目录change directory
+	cd ~ 回家(用户的宿主目录)或直接cd
+	cd - 上次目录
+	cd .. 上级目录
+pwd 显示当前目录 print working directory
+
+mkdir 创建目录 make directories
+	mkdir -p 11/22/33/44	递归建立目录
+touch 创建文件
+cp 复制 copy
+	复制目录需要加-r 如：cp -r /etc /test/
+	复制目录下的所有文件 cp -r /etc/. /test/
+	cp -p file file2 让新文件时间都一样
+	参数：
+	-r 复制目录 或 -R
+	-p 连带文件属性一起复制
+	-d 若源文件是链接文件，则复制链接属性
+	-a 相当于 -pdr
+	cp aa /test/ 	原名复制
+	cp aa /test/bb 	 改名复制
+	如果是做备份，建议目标文件加上时间：
+	YYYYMMDDXX 四位年两位月两位日两位当天修改次数
+mv 移动 move (剪切或改名)
+	操作目录不需要加-r选项，注意与cp的区别
+	可以在移动的同时改名	例：mv oldname newname
+rm 删除文件remove
+	rm -f 不确定直接删除
+	rm -rf 删除目录(不确定，直接删除)
+	rm -rf* 删除当前目录下的所有文件或目录(不能在根目录下执行这个操作)
+	rm -rf /test/* 删除/test下的所有文件或目录
+cat 查看文件所有内容，此命令不能完整的显示太长的文件
+	cat /etc/services
+more 分页查看
+	下一页：空格或f
+	下一行：回车
+	向上翻：b
+	退出：q或Q
+	例：more /etc/services
+head 查看前几行
+	例：head -20 /etc/services
+tail 查看最后几行
+	例：tail -30 /etc/services
+	动态显示：-f
+	例：tail -f my.log 监视日志文件，当文件被添加新行，将刷新显示新内容
+	测试时，可以用另一个用户登录执行命令echo `date`>>my.log,tail会刷新
+ln link
+	创建软链： ln -s 源文件 新文件
+	创建硬链接：ln 源文件 新文件
+---------------------------------------------------------------------------------------------------------------
+权限管理
+----------------------------------------------------------------------------------------------------------------
+chmod 修改权限 change mode
+	用户类型分为ugo三种 
+	权限分为rwx三种
+	操作有三种：添加(+) 去除(-) 覆盖(=)
+	组合以上三种，可以灵活设置文件权限
+	如：
+	给所属组添加写权限：chmod g+w filename
+	将其他人读权限去掉：chmod o-r filename
+	将所有者权限设rwx：	chmod a=rwx filename
+	
+	将每一个用户的三种权限，用一个数字表示
+	如：
+	rwxr-xr-x 755 默认创建新目录的权限
+	rw-r--r-- 644 默认创建新文件的权限
+
+	rwx权限对目录和文件，实际意义不一样
+	文件：
+	r：cat more head tail	 查看文件内容
+	w：echo vi 			修改文件内容
+	x：sh(脚	本)			执行
+	目录：
+	r：ls find tree		列出文件
+	w：touch mkdir rm		创建删除文件
+	x：cd				进入目录
+	对文件有写权限，只代表可以修改这个文件，要想删除文件，需要文件所在目录有写权限；只要对目录有写权限，目录中的文件，就算是root创建的，普通用户一样能删除。
+	
+chown 改变所有者 change owner
+例如：chown nobody filename 将filename文件所有者改为nobody用户
+
+chgrp 改变所属组 change group
+例如：chgrp adm filename 将filename文件所属组改为adm组
+
+while 定位到命令的绝对路径
+	范例：$ which ls 
+whereis 	范例：$ whereis ls 
+区别：which除了找到该命令，还能找到与之相关的别名记录
+ 	  whereis还能找到帮助信息文件
+
+find
+	-name 根据文件名查找 *任意字符 ？单个字符
+	例如：find /etc -name init 这是精确查找
+ 		  find /etc -name init* 查找以init开头的
+	-size 根据大小查找 单位是block数据块 一块是512字节  10M=1024k×10×2=20480 	block
+	例如：find /etc -size -20480 查找小于10M的文件
+	  find /etc -size +204800 查找大于100M的文件
+	-user 根据所有者查找
+	例如：find /home -user jack 在/home中，查找所有jack用户的文件
+	
+	按时间查找
+	按天 	ctime atime mtime
+	安分钟 	cmin  amin  mmin
+	c change 改变 表示属性被修改过：所有者、所属组、权限
+	a access 访问 被访问过
+	m modify 修改 表示内容被修改过
+	例如：find /etc -mmin -120 查找120分钟内被修改过的
+	  find /etc -mtime +7 超过7天没有改过的文件
+
+	-type 根据文件类型查找
+	例如：-type -f 二进制文件
+	  -type -l 软链接文件
+	  -type -d 目录
+	
+	范例： 
+	$ find /etc -name init 	   在目录/etc中查找文件init 
+	$ find / -size +204800     在根目录下查找大于100MB的文件 -小于 
+	$ find /home -user samlee  在根目录下查找所有者为samlee的文件 
+	$ find /etc -cmin -5  	   在/etc下查找5分钟内被修改过属性的文件和 
+	目录 
+	$ find /etc -size +163840 -a -size -204800  在/etc下查找大于80MB小于100MB的文件 
+	$ find /etc -name inittab -exec ls -l {} \;  在/etc下查找inittab文件并显示其详细信息
+
+locate 这是Linux特有的命令
+	locate filename  速度比find快，但新建的文件是找不到的，需要更新数据库
+	updatedb 更新locate的数据库，系统有计划任务，会定期执行updatedb
+	
+grep ftp /etc/services 查看services中查找ftp相关的行
+	grep -v "^#" /etc/httpd/conf/httpd.conf 不显示行首为#号的
+	
+| 管道符
+netstat -tlun | grep 80 
+-------------------------------------------------------------------------------
+帮助命令
+-------------------------------------------------------------------------------
+man 可以获取命令的帮助，也可以获取配置文件的帮助
+	man ls 查看ls命令的帮助
+whatis  例如：Whatis ls 显示ls命令的简单描述信息
+-------------------------------------------------------------------------------
+压缩解压
+-------------------------------------------------------------------------------
+gzip 
+	压缩文件 gzip 文件名
+	解压文件 gunzip 文件名 或 gzip -d 文件名
+tar 
+	打包并压缩 tar -czvf 目标文件.tar.gz 目录名
+	解包并解压 tar -xzvf 压缩文件名 
+zip
+	压缩目录 zip services.zip /etc/services 先写生成的目标文件
+	 zip -r test.zip/test 压缩/test目录
+	解压目录 unzip
+bzip2
+	压缩目录 bzip2 file 或 bzip2 -k file
+	解压目录 bunzip2 file.bz2 或 bunzip2 -k file.bz2
+-------------------------------------------------------------------------------
+网络通信指令
+------------------------------------------------------------------------------
+write 给用户发信息   例如：write user1 回车后，输出内容 crtl+d结束
+who 当前登录系统的用户列表  tty本地终端  pts远程登录
+wall 发广播    例如：wall 内容 在线用户都会收到
+ping 例如：ping ip地址 
+	ping -c 3 -a -s 65507 192.168.1.1  指定ping192.168.1.1这个ip三次且包大小只能为65507
+ifconfig 查看虚拟机中的ip地址
+临时改ip ：ifconfig eth0 192.168.1.8
+关机：shutdown -h now   或  init 0
+重启：restart
+清屏：clear  快捷键：ctrl+l
+清除一行：ctrl+u
+ 		  ctrl+C 终止命令
+	  ctrl+A 光标到行首
+	  ctrl+E 光标到行尾
+	  	  ctrl+K  剪切光标后的内容
+	  ctrl+Y  粘贴剪切的内容
+命令历史：
+	history	列出所有的命令
+	！序号 执行历史中第几个命令
+
+------------------------------------------------------------------------------
+文本编辑器Vim/Vi
+-------------------------------------------------------------------------------
+工作模式
+命令模式:
+1.移动光标命令(hjkl)
+2.进入插入模式(i)
+3.进入编辑模式(:)
+插入模式:
+进行字符输入
+esc 返回命令模式
+编辑模式:
+保存退出(wq)
+设行号
+查找等
+进入vi
+vi 文件名
+或直接 vi
+
+进入后，默认是命令模式
+
+插入
+a 光标后插入(append)
+i 光标前插入(insert)
+o 光标所在行的下面插入新行(字母o)
+A 光标所在行的末尾插入
+I 光标所在行的最前面插入
+O 光标所在行的上面插入新行
+
+光标定位
+hjkl 左下上右
+
+$ 行尾
+0 行首	(数字0)	^也可以
+
+H 屏幕上端(height)
+M 屏幕中央(middle)
+L 屏幕下端(low)
+:ser nu 设置行号
+5G 光标跳到第5 行
+:6 光标跳到第6 行
+:set nonu 取消行号显示
+gg 光标跳到第一行
+G 光标跳到最后一行	(大哥在最后面)
+
+删除内容
+x 删除光标处的字符
+3x 删除3 个字符
+dd 删除当前行 (delete)
+3dd 删除3 行
+dG 删除光标所在行到文档末尾的内容	(G 是跳到最后)
+D 删除从光标所在处到行尾
+:1,5d 删除指定范围的行 (删除了1 到5 行)
+
+复制和剪切
+yy 或 Y	复制当前行
+3yy 或 3Y	复制3 行
+dd 剪切当前行
+3dd 剪切3 行
+p 或 P	粘贴在当前光标所在行下或行上
+
+替换和撤消
+r 取代光标所在处单个字符
+R 从光标所在处开始替换字符，按ESC 结束
+u 撤消上一步操作
+ctrl+r 反撤销
+
+搜索和替换
+/string 搜索指定字符串
+n 下一个(next)
+N 上一个
+:set ic 搜索不区分大小写
+:set noic	搜索区分大小写
+:%s/old/new/g	 全文替换 将old 替换为new
+一共 4 个部份，用/分隔
+第一个部份是表示范围，%s 表示全文
+:3,6s/old/new/g
+在3 到6 行范围内替换
+最后一个g，表示不确认
+如果是c，表示要确认 (confirm)
+
+保存退出
+:wq 保存退出
+ZZ 保存退出
+:wq! 强制保存退出(root 用户编辑一个没有写权限的文件，或文件的所有者)
+q! 强制不保存退出
+:w 只保存，不退出
+:w newfile 另存为
+
+如果只是维护服务器，以上命令够用了
+
+导入文件
+	:r 文件名
+在vi 中执行Linux 命令
+	:! 命令
+	
+将一条命令的执行结果导入到文件中
+	:r!date
+定义快捷键
+	：map 快捷键 触发命令
+
+例
+定义一个ctrl+p 的快捷键，无论光标在哪儿，按下这个快捷键后，在行首加一个#号
+:map ^P
+I#<ESCfaa>
+^P 表示ctrl+快捷键，注意这个^P 是按ctrl+v+p 出来的
+触发的命令是
+先输入一个大写I，于是光标跳到行首，插入一个#号，再按下ESC 键
+
+定义一个ctrl+e，输入我的邮箱地址
+:map ^E iit9981@gmail.com 注意这个^E 是按ctrl+v+e 出来的,第一个字母i 是进入插入模式
+
+定义一个ctrl+b，删除注释
+:map
+^B
+0x
+数字0 是将光标移到行首，x 是删除字符
+:unmap
+^P
+取消快捷键ctrl+p 这个快捷键
+这些快捷键，都是在当前环境生效，退出vi 后，将失效
+-------------------------------------------------------------------------------
+linux软件包管理
+-------------------------------------------------------------------------------
+Redhat 系列(Redhat、CentOS、红旗…)
+	二进制(yum 或rpm)
+	源代码
+	脚本安装
+Dibian 系列(Debian、Ubuntu…)
+	apt
+这个系列在软件包管理方式上是不一样的
+----------------------------------------------------------------------------------
+RPM 包管理
+----------------------------------------------------------------------------------
+卸载：
+rpm ‐e 软件名称
+	例:rpm ‐e sudo
+	注意：是软件名称，不是文件名
+
+如果有软件包依赖正在卸载的软件包，会提示xxx needed by ...，
+我们应该先卸载相关软件包，如果你不想处理相关软件包，也可以强行卸载：
+rpm ‐e --nodeps 软件包名
+当然，强制卸载后，有依赖关系的软件包也不能使用了，所以不建议这么做。
+随 Linux 安装的软件包，都是rpm 包
+
+如何获得软件安装包:
+linux 光盘中如果有：
+mkdir /mnt/cdrom
+mount /dev/cdrom	/mnt/cdrom
+提示挂载成功：mount: block device /dev/cdrom iswrite-protected, mounting read-only
+CentOS 5.5 为例，光盘中，有一个CentOS 目录中
+到挂载好的光盘目录中去查找一下是否有sudo 这个软件
+cd /mnt/cdrom/CentOS/
+ls | grep sudo		#用ls 列出所有文件，用 grep 过滤sudo 相关的
+
+光盘中没有的软件
+wget http://www.xxx.xxx/xxx.rpm
+WinScp 传到服务器
+
+安装：
+rpm ‐ivh 文件名
+	注意：是安装包文件名，不是软件名
+	-i 参数必须参数
+	‐v 表示显示安装过程，可以省略
+	‐h 表示有进度条，可以省略
+	例：
+	rpm ‐ivh /mnt/cdrom/CentOS/sudo‐1.7.2p1‐5.el5.i386.rpm
+	如果当前在/mnt/cdrom/CentOS 目录中，直接rpm -ivh sudo-1.7.2p1-5.el5.i386.rpm
+	大多数rpm 包，不能指定安装目录
+	
+查询是否已安装
+rpm ‐q 软件名
+例： rpm ‐q sudo 		#明确查询是否安装 sudo 软件包
+	如果记不清软件包叫什么名怎么办？
+	rpm ‐qa | grep samba 	#查所有已安装，用 grep 过滤关键字，本例是查 samba 相关的
+	
+升级安装
+	rpm ‐Uvh sudo‐1.7.2p1-10.el5.i386.rpm 	#换成U，需要先下载这个rpm 软件包
+	如果不是U 参数，会提示文件冲突
+	file /etc/sudoers from install of sudo-1.7.2p1-10.el5.i386 conflicts with file from package sudo-1.7.2p1-5.el5.i386
+	
+常见问题处理：
+已安装的如何复盖安装sudo
+	想复盖安装提示已安装：package sudo-1.7.2p1-5.el5.i386 is already installed 
+	rpm -ivh-replacepkgs sudo-1.7.2p1-5.el5.i386.rpm
+
+文件冲突
+	例如提示confilcts with file from bark-3.2-11 sudo‐1.7.2p1-5.el5.i386.rpm cannot be installed
+	-replacefiles	参数复盖有冲突的文件
+依赖关系
+	例如提示failed dependencies: sudo is needed by bark‐3.2-11
+	我们应该先安装依赖的软件包，再安装。
+	-nodeps	参数，可以强制安装，不过，就算安装好，多数情况下，也不能正确使用，不是特殊情况，不这么做。
+	
+依赖关系是 rpm 很麻烦的问题，我们现在多数用 yum 工具来管理 rpm 包
+
+YUM 包管理器
+1.自动解决软件包依赖关系
+2.方便软件包升级，我们不用下载升级包回来，会直接连接到yum源升级
+
+安装
+yum	install sudo	#安装sudo
+	需要联网
+	或将升级源修改为光盘:
+	vi /etc/yum.repos.d/CentOS-Media.repo
+	baseurl=file:///mnt/cdrom
+	enabled=1
+	mv /etc/yum.repos.d/CentOS-Base.repo /backup/
+	
+检查升级
+yum check-update sudo
+
+升级
+yum update sudo
+
+查看yum 源上所有软件
+yum list
+
+查看yum 源上，sudo 的版本，还会显示是否需要安装或升级
+yum list |grep sudo
+	如果我们只想知道是否安装了此软件包，用rpm ‐q 更方便
+	
+显示软件包的信息
+yum info sudo
+
+卸载
+yum remove sudo
+
+
+帮助
+yum --help
+man yum
+-------------------------------------------------------------------------------
+rpm 包管理
+1.查询文件属于哪一个软件包 rpm ‐qf 	配置文件或命令都可以查到，Redhat 系列Linux 中的软件，都是通过 rpm 安装，所以，每一个文件或命令，都会属于某一个包
+	例rpm ‐qf /etc/services
+	如果配置文件丢失了，没有备份，可以安装包中提取
+2.查询软件包的信息 rpm ‐qi 与 yum info 是一样的
+	例rpm ‐qi samba 
+	还没有安装r 软件包 rpm ‐qip
+	例：rpm ‐qip vsftpd--‐rp2.0.5--‐16.el5_4.1.i386.rpm		#查将当前目录中这个rpm 包的信息
+3.查询软件包安装了哪些文件
+	rpm ‐ql sudo
+	如果是一个没有安装的安装包：rpm ‐qlp sudo-1.7.2p1-5.el5.i386.rpm
+	Linux 中的目录习惯：
+	/etc 下是配置文件
+	在.../bin 或 .../sbin 下是命令
+	/usr/libexec 下是库文件
+	/usr/share/doc 是文档
+	/usr/share/man 帮助
+	相同类型的文件，存在放相同的目录下
+4.查看软件包帮助文档有哪些
+	rpm ‐qd sudo
+	rpm ‐qdp sudo-1.7.2p1-5.el5.i386.rpm
+5.查看软件包有哪些配置文件
+	rpm ‐qc sudo
+	rpm ‐qcp sudo-1.7.2p1-5.el5.i386.rpm
+
+重点记住
+	rpm ‐qi		(info)
+	rpm ‐ql		(list)
+	rpm ‐qf		(file)
+	如果是没有安装的 rpm 文件，就加一个-p		(package)
+思路：
+1.查看帮助
+	man vi	发现找不到配置文件相关的帮助
+2.安装时，会有帮助或示例文档
+	将列出vim 的相关安装包
+	rpm ‐qa | grep vim 	或用yum list 也可以
+	结果：
+	vim-common-7.0.109-6.el5
+	vim-enhanced-7.0.109-6.el5
+	vim-minimal-7.0.109-6.el5
+	查看每一个安装包有哪些文件
+	rpm ‐ql vim-common
+	或者偿试查看是否有相关示例
+	rpm ‐ql vim‐common | grep example	大多数安装包的示例文档都叫example
+	结果：
+	/usr/share/vim/vim70/gvimrc_example.vim
+	/usr/share/vim/vim70/macros/urm/examples
+	/usr/share/vim/vim70/vimrc_example.vim
+	最后一个，就是我们想要的
+	more /usr/share/vim/vim70/vimrc_example.vim
+	打开后，发现注释格是用双引号，而不是#
+	
+校验
+	rpm ‐q sudo
+	提示sudo-1.7.2p1-5.el5，说明我们安装了sudo
+	如果某天被管理员改坏了，不能用了，怎么办？
+	rpm ‐ql sudo 查看有哪些配置文件，随便改一个
+	例vi /etc/sudoers 改后需要强制保存	wq!
+
+	然后用下面的方法，校验
+	rpm ‐V sudo
+	结果：
+	S.5....T c /etc/sudoers
+	S 表示size 变了
+	5 表示md5 变了
+	md5sum 文件名 	#可以查看一个文件的权限
+	T 表示time 变了
+	chmod 777 /etc/sudoers
+	M 表示mode权限变了
+	chown zouyiliang /etc/sudoers
+	U 表示user 所有者改变了
+	
+源代码包安装
+	几乎所有软件最新发布，都是源代码包形式，需要自己编译
+	推荐使用源代码包
+	
+	安装apache 
+	/configure --prefix=/usr/local/apache2
+	
+
+以proftpd 这个软件为例
+	1.将文件下载或上传到Linux 中 	http://www.proftpd.org/
+	2.解压
+	#tar ‐zvxf proftpd-1.3.4a.tar.gz
+	3.进入解压后目录
+	#cd proftpd-1.3.4a
+	4.目录中，有一个可执行的脚本文件configure，调用这个文件，生成配置
+	#./configure --prefix=/usr/local/proftpd
+	二进制包，是分硬件平台的，源代码包，会在这个时候，收集系统信息，为后面的编译做准备
+	开始检测，然后创建文件一些，其中会创建一个重要的文件Makefile
+	
+	prefix 是一个最常用的选项，用于指定安装目录
+	源代码包建议指定安装目录，因为源代码包一般不提供卸载命令
+	通常习惯安装在/usr/local/中
+	如果失败，提示没有检查到C compiler 编译器
+	（如果安装rpm ‐q gcc 或查到相关信息），则通过yum 安装gcc
+	yum install gcc 	有很多依赖包，所以尽量用yum 安装
+	5.编译
+	#make
+	6.安装
+	#make install
+	7.使用
+	cd /usr/local/proftpd
+	ls
+	目录如下:
+	bin  etc  include  lib  libexec  sbin  share  var  telnet localhost 21
+
+	如果需要卸载
+	1.停止服务
+	2.rm ‐rf /usr/local/proftpd
+	直接删除目录即可，没有Windows 的注册表
+	
+	源代码包总结
+	1.有广范的适用性
+	2.比较灵活，可以有很多的设置和选项，定制
+	
+三、脚本安装
+	很多初级用户用源代码包不了解，对 yum 也不熟
+	很多大型软件，就采用脚本安装，这样，就和windows 中软件安装类似了
+	一种是shell 脚本，一种是java 脚本
+	如webmin、OpenOffice
+	
+	远程管理工具webmin	www.webmin.com
+	tar ‐zxvf webmin-1.580.tar.gz
+	执行 ./configure 时，发现没有这个文件
+	如果不是一个标准的源代码包，请查看README 或INSTALL
+	./setup.sh
+	根据向导提示
+	然后会自己完成编译安装的过程
+	
+
+APT 包管理
+	如ubuntu 系统
+	
+	搜索软件包apt-cache search
+	软件包信息apt-cache show
+	安装apt-get install (reinstall、‐f 修复安装)
+	删除apt-get remove (autoremove、--purge 把配置文件也删除)
+	更新软件源 apt -get update
+	更新已安装包 apt -getupgrade
+------------------------------------------------------------------------------
+linux进程管理
+------------------------------------------------------------------------------
+
+进程和程序的区别
+	1.程序是静态概念，本身作为一种软件资源长期保存;
+	进程是程序执行过程，它是动态概念，有一定的生命期，是动态产生和消亡的。
+	启动Apache 源代码安装(源代码安装的，找到安装目录，一般有bin或sbin目录)
+	/usr/local/apache2/bin/apachectl start
+	启动Apache 二进制包安装(二进制安装的一般都在/etc/rc.d/init.d下有启动脚本)
+	/etc/rc.d/init.d/httpd start
+	查看Apache的进程
+	ps -le | grep httpd
+	
+	2.程序和进程无一一对应关系统。一个程序可以由多个进程共用；
+	一个进程在活动中有可能顺序的执行若干个程序
+	例：
+	pwd;date;find / -name abc
+
+父进程与子进程
+	1.子进程是由一个进程所产生的进程，产生这个子进程的进程称为父进程
+	2.在Linux系统中，使用系统调用fork创建进程。
+	fork复制的内容包括父进程的数据和堆栈段以及父进程的进程环境
+	3.父进程终止，子进程自然终止。
+	如果子进程没有终止，叫孤儿进程，父进程被指向到init
+	子进程终止了，父进程不知道，子进程变成僵尸进程
+	
+
+ 	在ps -le查看进程时
+	进程PID  父进程PPID
+	
+前台进程和后台进程
+	前台进程
+	例：find / -name init
+	在Shell提示处打投入命令后，创建一个子进程，运行命令，Shell等待命令
+	退出，然后返回到对用户给出提示符。这条命令在前台运行，用户在它完成
+	之前不能执行另一个命令
+	
+	后台进程
+	例：find / -name init > /test/init.find &  将查找结果保存到/test/init.find文件
+	在Shell提示处打入一个命令，若后随一个&，Shell创建子进程运行此命令，
+	但不等待命令退出，而是直接返回到对用户给出提示。
+	后台进程必须是非交互式的
+	
+常用命令
+w
+	09:49:34up 4 min,2 users,  load average: 0.42, 0.81, 0.38
+	服务器时间 开机时长 登录用户数 平均负载:1、5、15分钟(一般0.8以下，说明较轻)
+	USER 登录用户名
+	TTY 在哪登录:0表示XWindow登录
+	FROM 来自哪里:0.0 表示来自于XWindow    -表示本地命令行登录
+	LOGIN@ 什么时候登录的
+	IDLE 空闲时间
+	JCPU 该终端消耗的CPU时间
+	PCPU 正在执行程序消耗的时间
+	WHAT 正在做什么
+ps查看进程信息(process status)
+	-a 显示终端下的进程(不含其他用户)
+	-u 显示用户和启动时间
+	-x 表示没有控制终端的进程
+	-e 显示所有进程，包括没有控制终端的进程
+	-l 长格式显示
+
+应用实例
+ps 显示当前用户自己的进程
+ps-l 查看隶属于自己的进程详细信息
+ps -uU 用户名 查看系统中指定用户执行的进程
+ps -le  或-aux 查看所有用户执行的进程详细信息用得很多
+	通常结合grep使用如ps -le | prep httpd查看apache进程是否启动
+ 	/etc/rc.d/init.d/httpd status通过启动脚本，也能查看进程是否已启动
+ps -le--sort pid 可按pid排序
+ps –aux | grep jack 查看jack用户的进程
+pstree | more 树状结构显示进程
+
+常见选项的含义
+	PID 进程号(processid)
+	PPID 父进程的进程号(parent process id) 
+	TTY 启动的终端
+	STAT 进程当前状态:  S休眠D不可中断的休眠R运行Z僵死T停止
+	NI 进程优先级
+	TIME 进程自启动以来占用CPU的总时间
+	COM/COMMAND 进程的命令名
+	USER 用户名(ps -uU 用户名)
+	%CPU 占用CPU时间和总时间的百分比
+	%MEM 占用内存与系统内存的百分比
+
+kill杀死一个进程
+	为什么要杀死进程?
+	1. 该进程占用了过多的CPU时间
+	2. 该进程锁住的一个终端，使其它前台进程无法运行
+	3. 运行时间过长，但没有预期的效果
+	4. 产生了过多的到屏幕或磁盘文件输出例如find / -name "*"
+	5. 无法正常退出
+
+	关闭进程 kill 进程号(PID)
+	apache的httpd有很多个，我们关闭了父进程，子进程将自动关闭
+	或调用/etc/rc.d/init.d/httpd stop
+	kill的信号kill -l可以列出
+	kill-9 进程号(强行关闭)
+	kill-1 进程号(重启进程)
+	也可以调用/etc/rc.d/init.d/httpd restart重启apache进程
+	关闭图形程序xkill鼠标按哪儿，将关闭哪儿点右键取消
+	结束所有同名进程killall 进程名称(如killall httpd)
+
+以p开头的命令
+pgrep httpd 查看httpd进程的所有pid
+重启apache进程：kill -1 `pgrep httpd`
+pkill httpd 直接关闭httpd进程，不用查pid了
+
+ls /proc
+	存放的是进程信息，数字是以pid为目录名，信息存放在目录中
+	cat /proc/cpuinfo 查看cpu信息
+	cat /proc/meminfo 内存信息
+	cat /proc/partitions 分区信息
+
+优先级命令
+nice
+	指定程序进行的优先级
+	格式nice nmyprogram
+	例nice --5/etc/rc.d/init.d/httpd start(默认是0，指定为-5)
+	ps -le | grep httpd        #NI 进程优先级
+renice
+	改变一个正在进行的进程的优先级
+	例renice n pidLinux 资料 讲师：邹义良 http://www.weibo.com/it266 
+	优先级取值范围为(-20,19)默认是0值越小，权越大
+	ps -le 中，NI就是优先级
+	让进程在用户退出登录后仍旧继续执行
+	格式 nohup program &
+	nohupfind / -name init* > /root/find.init.20130501&
+
+把进程放到后台运行在后面加&
+	ping 127.0.0.1 >>/test/ping.result &
+	另一个终端去查看:
+	tail -f /test/ping.result
+进程的挂起和终止
+	挂起 ctrl+z 暂停 # ping 127.0.0.1 然后按ctrl+z
+	终止 ctrl+c 		# ping 127.0.0.1 然后按ctrl+c
+查看被挂起或在后台执行的进程
+	jobs
+进程的恢复
+	fg序号恢复到前右继续运行
+	bg序号恢复到后台继续运行
+	如果是ping命令，在后台运行，也会将信息输出到显示器，
+	但不影响我们使用其它命令，例如执行ls试试
+	如果在前台运行，我们无法执行其它命令，需要等这个进程结束后，才可以做别的事情
+	
+top命令
+	上面的信息，类似于w显示的信息
+	下面类似于 ps –le信息
+	内置命令d 然后输入5，将改为每5秒刷新一次
+	内置命令c 显示整个命令行，而不仅仅显示命令名command
+	U 用户名 只显示某用户的信息，管理员可以查看某个用户在做什么，
+	K 		 提示输入pid 关闭进程
+	 可以在u查看某个用户时，kill掉用户的bash进程，
+	 		 将用户踢下线，提示输入kill的信号，例如9强制关闭
+	R		 调优先级
+	Q		 退出
+	h or ?	 帮助信息
+	
+进程处理方式
+	Standalone 独立运行
+	Xinetd 	  进程托管
+	atd、crond 计划任务
+	
+	Standalone 独立运行
+	如apache、mysql的服务，启动后，进程会一直在系统中，
+	占用CPU和内存资源，等待或处理客户端的请求
+	占用系统资源多，但响应速度快
+	xinetd进程托管
+	有些服务，用得很少，没必要独立运行例如telnet服务
+	ls /etc/xinetd.d 查看这个目录中有很多脚本
+	服务不启动，由xinetd监听这个端口，有客户端访问，则启动进程，等服务完成后，结束进程
+	响应速度慢一点，但减少了系统资源占用
+	atd、crond计划任务
+	每隔一分钟，从休眠中醒来一次，所以，计划任务不能精确到秒。
+
+服务管理
+	#chkconfig  --list
+	列出在每一种运行级别下服务是启动还是关闭
+	chkconfig  --list | grep atd 查看计划任务
+
+	启动服务
+	/etc/rc.d/init.d/ 服务名 start|stop|restart|status
+	例/etc/rc.d/init.d/httpd  start
+	service  服务名 start|stop|restart|status
+	例 service network start
+	自启动
+	vi  /etc/rc.local  ---->/etc/rc.d/rc.local
+	例 /etc/rc.d/init.d/httpd  start
+	ntsysv（setup中会调用此工具）
+	所有系统默认安装服务都可以使用ntsysv命令进行自启动管理
+	源码包安装的服务
+	绝对路径启动
+	/usr/local/apache2/bin/apachectl  start
+	自启动
+	vi /etc/rc.local
+	/usr/local/apache2/bin/apachectl  start
+-----------------------------------------------------------------------------------------------------------------------------
+计划任务
+------------------------------------------------------------------------------------------------------------------------------
+
+ 主要分两种
+	一次性计划任务
+	at
+	周期性计划任务
+	
+
+at
+	指定的时间执行一次
+	指定时间的方式
+	绝对计时方法:
+	midnight午夜noon中午teatime下午茶(16:00)
+	hh:mm [today]
+	hh:mm tomorrow
+	hh:mm MM/DD/YY
+	相对计时方法:
+	now + n minutes
+	now + n hours
+	now + n days
+	具体看帮助 man at
+
+	系统时钟 date
+ 	设置日期date -s '2013-05-14 11:27:00'
+	
+	硬件时钟clock
+	clock --systohc将系统时间存回硬件时钟内
+	clock --hctosys 系统时间设成和硬件时钟一致
+	
+	指定在今天下午17:30执行某命令，假设当前时间是2013年1月15日
+ 	at 17:30
+	at 5:30pm
+	at 17:30 today
+	at now + 3 hours
+	at now + 180 minutes
+	at 17:30 01/15/13
+	at 17:30 15.01.13   如果用(.)表示日月年
+	
+
+ 	at now + 5 minutes 回车后，输入要执行命令，写完按ctrl+d保存
+	命令最好写绝对路径(例如 which ls 将查询到ls命令在哪里)
+	例at now + 1 minutes
+	/usr/bin/wall hi,this is a test.       一分种后发一个广播
+	
+	查看计划任务进程是否开启 ps -le | grep atd
+	启动进程 /etc/rc.d/init.d/atd start
+	默认都会安装计划任务并启动
+	
+	查看队列中的任务
+	at -l  或 atq 
+	
+	存放在这里
+	ls /var/spool/at/
+	
+	删除一次性计划任务
+	at -d 序号
+	
+	at配置文件，哪些用户可以使用 at
+	/etc/at.allow
+	/etc/at.deny
+	如果存在/etc/at.allow，只有在此文件中的用户才可以使用at命令
+	如果存在/etc/at.deny，在此文件中的用户不可使用at命令
+	如果两个文件都不存在，只有超级用户可以使用at命令
+	如果两个文件都存在均为空，则所有用户都可以使用at命令
+	
+batch 用法与at一样
+	安排在系统负载较轻时运行一次
+	一般情况负载较低指0.8以下(w或top命令能看到)
+
+crontab 命令
+
+	周期性计划任务
+	三个常用选项:
+	-l 列出当前crontab
+	-r 删除当前的crontab      不建议用，直接用-e编辑就好
+	-e 编辑当前的crontab文件
+
+	crontab -e
+	分钟 小时 日 月 周 命令/脚本
+	把知道的具体时间添上，不知道的用*号 周日是0
+ 
+	每天04:00
+	0   4   *   *   *  要执行的命令
+
+	周二和周五18:00
+	0   18  *   *   2,5  要执行的命令
+	
+	1月到3月份，周二和周五18:00
+	0   18  *   1-3   2,5  要执行的命令
+
+	周一到周五17:30发广播，然后17:45分关机
+	写两条计划任务，不是只能写一条
+	30 17  *  *  1-5  /usr/bin/wall < /root/msg
+	45 17  *  *  1-5  /sbin/shutdown -h now
+	
+	中午12点到14点，每两个钟
+	*/2  12-14  *   *  *   命令
+	
+	写命令时，最后要写上出错信息
+	例/bin/cp -r/etc /backup/etc.bak 2 >>/backup/etc.bak.err
+	2表示错误信息
+	这6项,都不能为空
+	多个值用,
+	连续的值用-
+	任何时间*
+	命令给出绝对路径
+	用户必须具有运行对应命令或程序的权限
+	
+	保存在/var/spool/cron
+	
+	检查crond进程是否开启
+	ps -le | grep crond
+	/etc/rc.d/init.d/crond start
+	有一个配置文件
+	/etc/crontab
+	定义了执行时的一些环境变量
+	最后四行，是一些系统的一些计划任务
+	01 * * * * root run-parts /etc/cron.hourly
+	02 4 * * * root run-parts /etc/cron.daily
+	22 4 * * 0 root run-parts /etc/cron.weekly
+	42 4 1 * * root run-parts /etc/cron.monthly
+	把脚本放在那四个目录中，只要有执行权限，就会被定时执行
+
+	限制哪些用户可以使有crontab
+	/etc/cron.assow
+	/etc/cron.deny
+----------------------------------------------------------------------------------------
+SSH
+----------------------------------------------------------------------------------------
+
+主要用以下三个功能组件
+	1.ssh 远程登录 Windows 下的SecureCRT、Putty
+	2.sftp 文件共享 类(FTP)  SSH Secure File Transfer Client
+	3.scp 文件共享 类(cp拷贝) 
+	
+
+准备环境
+	两台电脑
+	1.WebServer:192.168.88.88 这是一台在机房的服务器
+	2.MyPC:192.168.88.99 这是我们自己的工作电脑
+	
+
+Linux下远程登录
+	ssh 用户名@地址
+	不允许空密码，很多Linux禁止root远程SSH登录
+	
+	选项
+	-2 表示使用SSH版本号
+	-p 指定端口
+	ssh -2 用户名@地址(建议使用)
+	ssh -2 -p 端口号用户名@地址
+	
+	我们在使用Putty时，也可以在Connection中选择使用什么版本
+	配置文件:
+	vi /etc/ssh/sshd_config
+	Port 22   这是ssh的端口号，默认是注释掉的，去掉#号，就可以改了
+	PermitRootLogin no 这样就能禁止root远程登录
+	
+	重启服务
+	service sshd restart
+
+sftp文件共享
+	Linux下命令行：
+	sftp 用户名@主机地址
+	连上去后可执行ls  get  put help bye等
+	
+	很少用命令行，我们经常在Windows下用客户端软件:
+	WinSCP(同时支持SCP协议)
+	SSH Secure File Transfer Client (安装SSH.Secure.Shell.Client_3.2.9.exe)
+	
+
+
+scp 文件共享(推荐使用)
+
+	本机拷贝到远程主机用法：
+	scp 本地文件 用户名@ip地址:远程主机上的目录 
+	scp -r 本地目录 用户名@远程主机ip:远程主机上的目录
+	
+	scp --help查看帮助
+	
+	例 将inittab文件传到另一台主机的/root目录中:
+	scp /etc/inittab root@192.168.88.88:/root
+	
+	从远程主机拷贝到本地:
+	scp 用户名@远程主机地址:远程文件本地目录
+	scp -r 用户名@远程主机地址:远程目录本地目录
+	
+	常用选项
+	-p 保持原有文件属性(建议加上)
+	-r 复制目录
+	-P 指定端口
+
+对称密钥加密钥
+	加密解密使用同一密码
+	速度快
+	密钥本身需要交换(这就不安全了)
+
+非对称密钥加密
+	也称公开密钥加密，会同时生成两个密钥
+	一个公开出去(公钥)，一个私人持有(私钥)
+	用其中一个密钥加密的数据，只有用另一个密钥才能解密
+	
+	公钥加密->私钥解密(加密文件时使用)  参见“openssl命令行进行RSA加密解密.txt”
+	私钥加密->公钥解密(验证身份，数字签名) 让服务器信任后，使用SSH时，就不用验证密码了
+	
+	非对称密钥加密特点:
+	安全性好
+	速度慢
+	
+scp是需要输入密码的，如何建立信任关系?
+	测试环境：
+	远程服务器ip为192.168.88.88，用户为webadmin
+	本地电脑用户为root
+	目的：本机root登录后，可以直接以webadmin身份操作远程服务器，不需要验证密码
+	
+	原理：让对方(远程服务器)信任我的公钥
+	
+	本机建立密钥对:(例如当前登录用户为root)
+	ssh-keygen -t rsa  全部回车即可RSA公钥加密算法是1977年由美国麻省理工学院开发的
+	会提示生成的公钥id_rsa.pub 已生成,即是该用户默认的RSA 身份认证公钥(SSH-2)
+	想办法将这个公钥文件拷贝到远程主机上
+	scp /root/.ssh/id_rsa.pub webadmin@192.168.88.88:/home/webadmin
+	此时还是需要验证密码的，webadmin是远程主机192.168.88.88上的普通用户
+	
+	到远程主机WebServer上，用webadmin用户登录，找到刚才上传的公钥，设为信任
+	ssh -2 webadmin@192.168.88.88
+	cd ~   来到用户宿主目录
+	ls -a  如果没有.ssh目录，则创建
+	mkdir .ssh
+	cat id_rsa.pub >> .ssh/authorized_keys #加入到认证信息，用的是追加，可以保存多个信任用户
+	chmod 700 .ssh #新版本的ssh要求这个目录的权限必须是700
+	chmod 600 .ssh/authorized_keys #新版本的ssh要求这个文件的权限必须是600
+	
+	回到MyPC本机中，测试
+	ssh webadmin@192.168.88.88    不需要密码，直接登录成功
+	那么通过scp拷贝文件，也不需要密码了
+	
+	注意:
+	在本机中，由于是root用户下生成的公钥，所以，只要在本机上，用root用户，以webadmin身份操作远程主机，才是信任的
+	如果本机不是root用户，或不指定以webadmin用户操作远程主机，则还是要密码的
+	例ssh root@192.168.88.88 ，尝试以root身份登录远程主机，还是要输入密码
+	
+rsync数据镜像备份工具 (remote sync 远程同步) 推荐使用
+
+	WebServer和MyPC上都要安装rsync，其中WebServer服务器上是以服务器模式运行rsync，
+	MyPC上则以客户端方式运行rsync。这样在web服务器上运行rsync守护进程，
+	在MyPC上定时运行客户程序来备份WebServer服务器上需要备份的内容到MyPC。
+	
+	方便的增量备份实现
+	可镜像保存整个目录树和文件系统
+	保存文件权限、时间、软硬链接等
+	文件传输效率高(可压缩传输)
+	可以使用ssh加密通道
+	
+	WebServer:
+	
+	服务是xinetd进程托管方式
+	默认都已安装，检查是否已安装
+	rpm -q rsync
+	
+	启动服务默认不启用
+	ls /etc/xinetd.d
+	vi /etc/xinetd.d/rsync
+	修改为disable = no  保存退出编辑器
+	service xinetd restart 重启xinetd托管服务
+	若提示xinetd: 未被识别的服务，则说明/etc/rc.d/init.d下无xinetd包
+	yum -y install xinetd*#安装xinetd
+	ps -le |grep xinetd #查看是否启动成功
+	
+MyPC:
+
+在MyPC中，想要同步服务器上的一个目录到本机测试一下
+rsync -arHz --progress --delete webadmin@192.168.88.88:/website /backup
+注意：webadmin是服务器上的用户，请确定webadmin有访问服务器/website目录的权限
+	本机MyPC登录用户，要有操作/backup的权限
+如果重复执行，只会操作有改变的文件，如新加的文件或删除的文件，备份目录同步操作
+
+参数说明
+-a 保持文件属性
+-r 子目录递归处理
+-H 保持文件硬链接如果要备份的文件中没有硬链接，也可以不加-H
+-z 备份文件传输时压缩处理
+-e ssh 使用ssh加密隧道传输
+--progress 在传输时显示传输过程可以不加
+--delete 删除目标备份没有的文件
+
+实例：
+定期将服务器上的/website目录备份到本机
+	每周日02:00   完全备份，以日期作为目录
+	周一到周六02:00  做一次增量备份
+	为什么即要做增量备份，还要做完全备份?
+	这里的增量备份，指的是目录同步，跳过相同的文件，如果有文件被删除，则也会删除备份目录中的,所以，需要定期做完全备份
+
+	crontab -e
+	0  2  *  *  0     /usr/bin/scp -rp webadmin@192.168.88.88:/website /backup/website_$(date +%Y%m%d)
+	0  2  *  *  1-6   /usr/bin/rsync -arHz --delete -e ssh webadmin@192.168.88.88:/website /backup/web
+	
+	取当前日期
+	echo $(date +%F)   可查看date --help
+	echo $(date +%Y%m%d)
+	给变量赋值:
+	# a=5; echo $a; 
+	# a=(`date +%F`)
+	# echo $a 
+------------------------------------------------------------------------------
+vsftpd
+-------------------------------------------------------------------------------
+常用FTP软件
+Wu-FTP:古老、配置复杂
+Proftp:功能强大
+vsftp:安全、高速、稳定
+
+
+ 查询
+rpm -q vsftpd
+安装
+yum -y install vsftpd
+或
+rpm -ivh vsftpd-2.0.1-5.i386.rpm
+启动
+service vsftpd start
+/etc/rc.d/init.d/vsftpd start
+默认启动后，即支持普通用户宿主目录访问及匿名访问
+匿名访问
+用户名:
+ftp 或anonymous
+密码为空或自己的电子邮箱
+
+FlashFXP
+文件存在哪里：
+/var/ftp#ftp伪用户宿主目录
+windows中连接
+ftp 192.168.88.88
+help查看帮助
+ls
+cd  切换FTP上的目录
+bin 切换到使用二进制传输方式
+lcd 指定下载到本机的哪个目录
+get  下载单个文件
+put上传
+prompt关闭交互模式
+mput 上传多个(先关闭交互模式，多个文件用空格分隔)
+mget  下载多个
+bye退出
+进入到提示行后:
+open ip地址
+user 输入用户名
+建议用客户端软件，自动化时，需要上面的命令行工具
+例：vi auto.ftp
+open 192.168.88.88
+user jack 123456
+bin
+prompt
+lcd /ftp.bak/
+mget *下载当前目录所有文件
+bye
+ftp -n <auto.ftp执行下载-n是关闭交互模式
+
+配置文件
+vi /etc/vsftpd/vsftpd.conf
+
+匿名用户
+anonymous_enable=YES是否允许匿名用户访问关闭：改为NO
+anon_upload_enable=YES  匿名用户允许上传,默认是注释了的
+anon_mkdir_write_enable=YES 匿名用户允许创建目录,默认是注释了的
+anon_max_rate=1000000匿名用户最大传输速率为100KB/s   (单位:bytes/sec)
+日志注意三个地方：尽量要生成日志
+xferlog_enable=YES是否使用日志
+xferlog_std_format=YES  日志使用标准的格式
+xferlog_file=/var/log/xferlog  日志文件存放的位置需要开启
+欢迎信息
+ftpd_banner=Welcome to blah FTP service.
+
+用户访问
+
+默认普通用户，直接可以登录访问宿主目录
+默认可以上传和下载
+local_enable=YES
+write_enable=YES
+local_umask=022      #创建的目录权限为755
+local_max_rate=200000   用户最大传输速率为200KB/s
+只要系统中的普通用户，默认都能登录FTP，这样有安全隐患
+限制指定用户不能访问，而其他用户可以访问，相关选项
+userlist_enable=YES
+userlist_deny=YES
+userlist_file=/etc/vsftpd/user_list
+例：限制指定用户能访问，其他用户不能访问建议设置此项
+userlist_enable=YES
+userlist_deny=NO
+userlist_file=/etc/vsftpd/user_list
+vi /etc/vsftpd.user_list      #一个用户一行
+用户默认可以切换到别的目录，只要有rx权限，都能切换过去
+例：ftp> cd /tmp
+250 Directory successfully changed.
+chroot  (change root) 让ftp用户把宿主目录当做根目录，这样，就不能切换到别的目录了
+配置文件中:
+chroot_local_user=YES
+
+还可以控制哪些用户不受此限制，允许切换到别的有权限的目录
+chroot_list_enable=YES
+chroot_list_file=/etc/vsftpd/chroot_list    #一个用户一行,列表中的用户，不受chroot限制
+其他设置选项
+idle_session_timeout=600空闲10分钟后被挂断
+max_clients=50服务器总并发连接数
+max_per_ip=3每个客户机最大连接数
+listen_port=10011指定一个非标准端口默认连接端口是21，数据传输是20
+nmap端口扫描工具
+需要安装yum -y install nmap
+nmap 192.168.88.88
+telnet 192.168.88.88 22   这样，可以得到ssh版本，利用漏洞
+nmap默认只扫描知名端口
+nmap -p1-65535 192.168.88.88    扫描全部端口(1到65535)
+-------------------------------------------------------------------------------
+Samba
+--------------------------------------------------------------------------------
+Windows文件共享
+	Windows主机之间使用SMB/CIFS网络协议实现文件和打印资源的共享
+	Windows无法与UNIX/Linux主机之间实现资源共享
+Samba服务器
+	Samba服务器在UNIX系统中实现了SMB/CIFS协议
+	通过Samba服务可以实现UNIX/Linux主机与Windows主机之间的资源互访
+
+查看是否安装了samba
+	rpm -q samba
+	查到samba-3.0.33-3.28.el5说明已安装
+
+默认安装了客户端:
+rpm -qa | grep samba
+	samba-client-3.0.33-3.28.el5
+	samba-common-3.0.33-3.28.el5
+
+安装
+yum -y install samba
+
+启动服务
+/etc/rc.d/init.d/smb start
+或
+service smb start
+
+两个进程:
+	smbd   ---> tcp 139  用户验证和文件共享
+	nmbd   --->udp 137  138  浏览共享和计算机名解析
+
+ps -le | grep smbd
+ps -le | grep nmbd
+
+用户管理
+首先必须是系统用户，添加Linux系统用户
+	useradd 用户名 #添加用户
+	passwd 用户名 #设置密码
+	
+2.然后设置samba的密码
+	smbpasswd -a 用户名#加用户
+	smbpasswd 用户名#改smb密码
+	
+	root可以使用管理命令
+	pdbedit -a username：新建Samba账户。
+	pdbedit -x username：删除Samba账户。
+	pdbedit -L：列出Samba用户列表，读取/etc/samba/passdb.tdb数据库文件。
+	pdbedit -Lv：列出Samba用户列表的详细信息。
+	
+	查看有哪些客户端连接
+	smbstatus
+	
+	查看日志
+	cat /var/log/samba
+	
+如果不能访问:
+防火墙
+	iptables -L查看
+	iptables -F清空防火墙规则，拆除防火墙
+	
+	即时生效，重启后复原
+	service iptables stop
+
+	永久性生效，重启后不会复原
+	chkconfig iptables off 
+	
+SELinux
+	允许访问
+	setsebool -P samba_enable_home_dirs on
+	或完全禁用SELinux：
+	vi /etc/selinux/config 改为SELINUX=disabled
+	
+如果查找配置文件在哪里
+rpm -ql samba-common | grep smb.conf
+
+编辑配置文件
+vi /etc/samba/smb.conf
+	
+[global]	全局环境选项
+	workgroup工作组或域
+	server string描述信息
+	security安全模式，有如下选项
+	share不验证权限，直接共享
+	user缺省，推荐，由Linux Samba服务器做验证
+	server第三方主机验证
+	domain第三方主机验证(必须是Windows 域控制器)
+	hosts allow哪些主机可以访问(如果没有配置，全部主机都可以)
+	如果是ip直接写上，如果是ip段只写网段部份，多个用空格分隔如: 192.168.1. 192.168.2.
+	哪些主机不允许访问，hosts deny 一般不和hosts allow同时使用
+	log file日志文件(最好启用日志)	
+	
+[homes] 只要有这个配置段，用户默认就可以通过自己的用户名，访问自己的宿主目录
+	comment		描述
+	browseable=no	无权限访问的目录，不显示出来
+	writable=yes可写
+	
+配置/software目录的共享,允许user1 user2两个用户完全访问
+创建目录
+	mkdir /software
+添加用户
+	useradd user1
+	passwd user1
+	useradd user2
+	passwd user2
+添加samba密码
+	pdbedit -a user1
+	pdbedit -a user2
+	
+如果开启了SELinux
+chcon -t samba_share_t /software
+
+编辑配置文件
+	vi /etc/samba/smb.conf
+	建议写在配置文件尾
+	[software]	共享名，不能有特殊符号，一般是字母或数字组成
+	path = /software	共享目录,只能是一个目录
+	valid users = user1 user2	多个用空格分开。如果没配置此项，所有用户都可以访问
+	writable = yes		写权限 yes  no
+	
+Samba服务器配置检测命令
+	testparm
+	如果配置文件写错，例valid users=user1 写成了valid user=user1 将提示
+	
+重启服务
+/etc/rc.d/init.d/smb restart
+
+设置目录权限
+
+	直接改为777，但这样不安全
+	chmod -R 777 /software
+	
+	创建一个用户组，改变目录所属组，对组授权，然后从新连接就可以了
+	groupadd softadmin
+	usermod -aG softadmin user1
+	usermod -aG softadmin user2
+	chgrp softadmin /software
+	chmod g+w /software
+
+	推荐用acl
+	setfacl -R  -m u:user1:rwx /software#让user1有rwx权限(已有目录或文件)
+	setfacl -R  -m d:u:user1:rwx /software#让以后新创建的文件或目录，user1也有rwx权限
+	setfacl -R  -m u:user2:rwx /software
+	setfacl -R  -m d:u:user2:rwx /software
+	
+windows 下，重新连接
+	net use * /del /y
+	net use \\192.168.88.88 "password" /user:your_user
+	
+提供一个共享目录，所有有户都能使用，却不能删除别人的文件
+[test]
+path = /test
+wrieable=yes
+然后，设置目录为chmod 1777 /test

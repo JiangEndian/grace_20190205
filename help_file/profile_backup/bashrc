@@ -1,0 +1,12 @@
+alias c=clear	
+
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)"'
+
+alias cman='man -M /usr/share/man/zh_CN'
+
+alias rm='rm -i'
+
+alias cp='cp -i'
+
+export PATH=$PATH:/home/ed/bin
+

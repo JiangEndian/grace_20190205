@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>All Htmls</title>
+</head>
+
+<body>
+    {% for html in htmls %}
+    <p><a href="static/htmls/{{ html }}"><h1>{{ html }}</h1></a></p>
+    {% endfor %}
+</body>
+</html>
