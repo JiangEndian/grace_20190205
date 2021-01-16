@@ -13,5 +13,4 @@ linux结论：不能分区，尤其是swap，会大伤。。。
 现在2020年08月10日Monday00:07:37在高神大学，今年得了个千年保存章
 some date about important things: dirtything_20201117, firefox_202011126, 
 Thu Nov 26 22:24:06 CST 2020, I deleted dirtything in github, so it's just a history now. 
-啊，今天啊
 
