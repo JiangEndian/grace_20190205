@@ -13,5 +13,5 @@ linux结论：不能分区，尤其是swap，会大伤。。。
 现在2020年08月10日Monday00:07:37在高神大学，今年得了个千年保存章
 some date about important things: dirtything_20201117, firefox_202011126, 
 Thu Nov 26 22:24:06 CST 2020, I deleted dirtything in github, so it's just a history now. 
-
+今天，2021年 01月 16日 星期六 20:13:11 KST，加了个移除所有历史的，然后，出了问题了。啊。。。搞半天没搞定，还是最后新clone了。然后有些要加的，还是得加上补上。唉。。。问题多多啊，问题多多啊。。。干嘛要这样搞啊。两个不一样了，都以自己为主，可不得出问题嘛。如果要删除，就得把一个完全删除掉。然后重新克隆，一样的才行。。。
 
