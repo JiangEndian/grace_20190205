@@ -2,32 +2,16 @@
 <html>
 <head>
 <meta charset="utf-8">
-<<<<<<< HEAD
-<title> קֹדֶשׁ לַיהוָה </title>
-</head>
-<body>
-=======
 <title> 엠마오선교회 </title>
 </head>
 <body>
 <font size="6">
 这是用于牧师讲道视频分享的网页<hr/>
 </font>
->>>>>>> 3225fbab04dcc8a0123ef3b2c9798e681a4f1a37
 
 <font size="5">
 
 {% for file_name in file_list %}
-<<<<<<< HEAD
-    <video width="320" height="240" controls>
-    <source src="/static/files/{{ file_name }}" type="video/mp4">
-    不支持视频。请换用浏览器器
-    </video><br/>
-    {{ file_name }}<br/>
-    <hr/>
-{% endfor %}
-
-=======
     <video controls="true" preload="yes" loop playsinline width="320" height="240" src="https://github.com/JiangEndian/grace_20190205/blob/master/apps/statics/files/{{ file_name }}?raw=true" type="video/mp4"></video><br/>
     <a href="https://github.com/JiangEndian/grace_20190205/blob/master/apps/statics/files/{{ file_name }}?raw=true" > {{ file_name }} </a><br/>
     <hr/>
@@ -35,6 +19,5 @@
 
 </font>
 
->>>>>>> 3225fbab04dcc8a0123ef3b2c9798e681a4f1a37
 </body>
 </html>
