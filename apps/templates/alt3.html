@@ -127,12 +127,13 @@
     <audio id="myAudio3" src="/static/grace_voice/{{ ext }}.mp3" />
     <script>
         var loop_times = 1
+        var loop_times_all = 2
         var aud1 = document.getElementById("myAudio1");
         var aud2 = document.getElementById("myAudio2");
         var aud3 = document.getElementById("myAudio3");
         aud1.onended = function() {
             ++loop_times
-            if (loop_times > 6){
+            if (loop_times > loop_times_all){
                 document.getElementById("form").submit();
                 //aud3.play()
             }
