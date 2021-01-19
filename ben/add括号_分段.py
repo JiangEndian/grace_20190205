@@ -14,6 +14,8 @@ char_num = 0
 Is2 = True
 
 file_name = sys.argv[1]
+
+all_character = 5000
 if not file_name:
     print('没有文件')
     exit()
@@ -36,8 +38,8 @@ with open(file_name, 'r') as f:
                 pass
                 #input()
         else: #提前判断这一行会不会超5000,超出的话提示之
-            if char_num + len(line) > 1000:
-                print('1000')
+            if char_num + len(line) > all_character:
+                print(all_character)
                 char_num = 0
             print(line)
             char_num += len(line)
