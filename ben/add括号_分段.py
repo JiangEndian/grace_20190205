@@ -28,7 +28,7 @@ with open(file_name, 'r') as f:
         #if re.match(han, line):
         if Is2:
             #new_line = '('+line+').'
-            new_line = '.'
+            new_line = ''
             print(new_line)
             char_num += len(new_line)
             char_num += 1

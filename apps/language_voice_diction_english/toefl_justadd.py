@@ -33,7 +33,7 @@ def addEveryWeek():
             if i % 2 != 0:
                 #print(i)
                 common.add(Ymd=getdaystime(i), Con=con, Other1=env, Other2=f_name)
-        #every_week.add(Day=day, Con=con, Other1=env, Other2=f_name)
+        every_week.add(Day=day, Con=con, Other1=env, Other2=f_name)
         #print(every_week.find('Con', con))
         #common.add(Ymd=getdaystime(0), Con=con, Other1=env, Other2=f_name)
         #common.add(Ymd=getdaystime(1), Con=con, Other1=env, Other2=f_name)
