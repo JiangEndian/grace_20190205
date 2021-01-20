@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect 
 from django.http import HttpResponse
+from django.http import JsonResponse
 from django.shortcuts import render
 import os
 
@@ -19,6 +20,18 @@ def video_view(request):
     file_dict = {'file_list':file_list}
     return render(request, 'video_view.html', file_dict)
 
+
+#试着返回JSON数据。为了以后如果扩展可以直接获取数据准备
+def video_name(request):
+    file_list = []
+    for file_one in os.listdir("statics/files"):
+        file_name_splited = os.path.splitext(file_one)
+        if len(file_name_splited) > 1:
+            if file_name_splited[1] == '.mp4':
+                file_list.append(file_one)
+    file_dict = {'file_list':file_list}
+    return JsonResponse(data=file_dict)
+    #return render(request, 'video_view.html', file_dict)
 
 def upload_file(request):
     if request.method == "POST":    # 请求方法为POST时，进行处理
