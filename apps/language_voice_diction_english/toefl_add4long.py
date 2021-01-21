@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 
 from tableDefine import *
+from sys import stdin
 
 global voice_number
 voice_number = 1001
 
 global dir_name
-dir_name = input('输入文件夹名：')
-file_name = input('输入文件名：')
-cvlc_play_mp3('~/grace_voice_file/%s/%s' % (dir_name, file_name), 1, '-', '=')
-if input('确认有声音？文件夹无误？YES?') != 'YES':
-    exit(0)
+#dir_name = input('输入文件夹名：')
+dir_name = 'TOEFL'
+#cvlc_play_mp3('~/grace_voice_file/%s' % dir_name, 1, '-', '=')
+#if input('确认有声音？文件夹无误？YES?') != 'YES':
+    #exit(0)
 
 def addEveryWeek():
     global every_week
@@ -19,35 +20,34 @@ def addEveryWeek():
     global dir_name
     #day = input('Day(%s):' % getnowtime('week')) or getnowtime('week')
     day = getnowtime('week')
-    all_con_list = []
-    con = input('Input All Ended by YES:')
-    while not con == 'YES':
-        all_con_list.append(con)
-        con = input()
-    if not input('Input YES to confirm it:') == 'YES':
-        exit(0)
-    con = '\n'.join(all_con_list)
+    con_file = input('inputConFile:')
+    if not con_file:
+        print('wordEmpty...')
+        exit()
+    con = readffile(con_file).replace('  ', '\n')
     print(con)
+    input('输入正确吗？')
     env = input('mean:') #[ɪnˈvaɪrənmənt]环境
+    file_name = input('file_name_without.mp3:')
+    cvlc_play_mp3('~/grace_voice_file/%s/%s.mp3' % (dir_name, file_name))
+    print(con)
+    if input('确认有声音?YES?') != 'YES':
+        exit(0)
     f_name = '%s/%s' % (dir_name, file_name)
-    voice_number += 1
     
     if True:
         toefl_days = (datetime(2021, 2, 20) - datetime.now()).days
         for i in range(toefl_days):
-            if i % 7 == 0:
+            if i % 7 == 1: 
                 print(i)
                 common.add(Ymd=getdaystime(i), Con=con, Other1=env, Other2=f_name)
-        #every_week.add(Day=day, Con=con, Other1=env, Other2=f_name)
         every_week.add(Day=day, Con=con, Other1=env, Other2=f_name)
         #print(every_week.find('Con', con))
         #common.add(Ymd=getdaystime(0), Con=con, Other1=env, Other2=f_name)
         #common.add(Ymd=getdaystime(1), Con=con, Other1=env, Other2=f_name)
         #common.add(Ymd=getdaystime(2), Con=con, Other1=env, Other2=f_name)
-        #common.add(Ymd=getdaystime(3), Con=con, Other1=env, Other2=f_name)
         #common.add(Ymd=getdaystime(4), Con=con, Other1=env, Other2=f_name)
         #common.add(Ymd=getdaystime(5), Con=con, Other1=env, Other2=f_name)
-        #common.add(Ymd=getdaystime(6), Con=con, Other1=env, Other2=f_name)
 
 def addEveryMonth():
     global every_month
@@ -144,7 +144,6 @@ try:
     #showOneDay()
     while True:
         addEveryWeek()
-        exit(0)
 
 finally:
     closedb(conn,cursor)
