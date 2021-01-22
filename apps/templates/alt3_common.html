@@ -16,9 +16,48 @@
 </p>
 
 {% ifequal every_info 'common' %}
+    <audio id="myAudio1"  autoplay src="/static/grace_voice/{{ ext }}.mp3" ></audio>
+    <audio id="myAudio2" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
+    <audio id="myAudio3" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
+    <audio id="myAudio4" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
+    <audio id="myAudio5" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
+    <audio id="myAudio6" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
+    <audio id="myAudio7" src="/static/grace_voice/{{ ext }}.mp3" ></audio><br/>
+<script>
+    var aud1 = document.getElementById("myAudio1");
+    var aud2 = document.getElementById("myAudio2");
+    var aud3 = document.getElementById("myAudio3");
+    var aud4 = document.getElementById("myAudio4");
+    var aud5 = document.getElementById("myAudio5");
+    var aud6 = document.getElementById("myAudio6");
+    var aud7 = document.getElementById("myAudio7");
+    aud1.onended = function() {
+        //document.getElementById("form").submit();
+        aud2.play()
+    }; 
+    aud2.onended = function() {
+        //document.getElementById("form").submit();
+        aud3.play()
+    }; 
+    aud3.onended = function() {
+        aud4.play()
+    }; 
+    aud4.onended = function() {
+        aud5.play()
+    }; 
+    aud5.onended = function() {
+        aud6.play()
+    }; 
+    aud6.onended = function() {
+        aud7.play()
+    }; 
+    aud7.onended = function() {
+        document.getElementById("form").submit();
+    }; 
+</script>
     <font size="7">
     <pre style="white-space: pre-wrap; word-wrap:break-word;">
-    {{ con }}
+        {{ con }}
     </pre>
     <hr>
     <font size="6">
@@ -27,45 +66,6 @@
     </div>
     <br>
     {{ next_con }}
-
-    <audio id="myAudio1" autoplay src="/static/grace_voice/{{ ext }}.mp3" />
-    <audio id="myAudio2" src="/static/grace_voice/{{ ext }}.mp3" />
-    <audio id="myAudio3" src="/static/grace_voice/{{ ext }}.mp3" />
-    <audio id="myAudio4" src="/static/grace_voice/{{ ext }}.mp3" />
-    <audio id="myAudio5" src="/static/grace_voice/{{ ext }}.mp3" />
-    <audio id="myAudio6" src="/static/grace_voice/{{ ext }}.mp3" />
-    <audio id="myAudio7" src="/static/grace_voice/{{ ext }}.mp3" />
-    <script>
-        var aud1 = document.getElementById("myAudio1");
-        var aud2 = document.getElementById("myAudio2");
-        var aud3 = document.getElementById("myAudio3");
-        var aud4 = document.getElementById("myAudio4");
-        var aud5 = document.getElementById("myAudio5");
-        var aud6 = document.getElementById("myAudio6");
-        var aud7 = document.getElementById("myAudio7");
-        aud1.onended = function() {
-            //document.getElementById("form").submit();
-            aud2.play()
-        }; 
-        aud2.onended = function() {
-            aud3.play()
-        }; 
-        aud3.onended = function() {
-            aud4.play()
-        }; 
-        aud4.onended = function() {
-            aud5.play()
-        }; 
-        aud5.onended = function() {
-            aud6.play()
-        }; 
-        aud6.onended = function() {
-            aud7.play()
-        }; 
-        aud7.onended = function() {
-            document.getElementById("form").submit();
-        }; 
-    </script>
 {% else %}
     <input type="button" style="width:960px;height:100px;" value="" onclick="display('lb')">
     <br>
