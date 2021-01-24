@@ -20,9 +20,6 @@ import signal #定时输入的，仅linux...
 #import eyed3 #获得mp3相关信息，包括长度的
 
 text = '''
-
-        #2. Are parents the best teachers?
-
         Obviously, in most cases the earliest teachers people have are their parents, and parents are generally most concerned about the development of their children. However, it is not completely true to say that parents are the best teachers.
 
         First of all, not all parents are good teachers. As normal individuals, some parents more or less have some bad habits. Even though parents almost instinctively devote themselves to cultivating their offspring, the outcome might turn out to be disappointment, for all children tend to unconsciously or subconsciously copy everything including bad ones from their parents. Another deficiency of parents as teachers is the fact that most parents are lack of common senses of education. All too often we observe some parents tend to pursue their cherished but failed dream by forcing their children to develop in a prearranged direction. Ironically, when their children do not follow the instructions, the children will be regarded as disobedient or allegedly rebellious. In fact, it is parents rather than their children that virtually disobey common senses.
@@ -80,9 +77,10 @@ def change_word_in_text(text):
             word_list.append(one_word_with_meaning)
     #print(word_list)
     for word_one in word_list: #2.把单词部分的单词提取出来，开头大写的，就只要后面部分
-        word_no_meaning = word_one.split(' ')[0].split('［')[0][1:]
+        #word_no_meaning = word_one.split(' ')[0].split('［')[0][1:]
+        word_no_meaning = word_one.split(' ')[0].split('［')[0]
         #input(word_no_meaning)
-        word_dict[word_no_meaning] = word_one[1:] #以单词和意义组成字典
+        word_dict[word_no_meaning] = '<<<'+word_one+'>>>' #以单词和意义组成字典
     #print(word_dict)
     for one_line in text_list: #3.再次遍历文章来替换
         if ' * ' in one_line: #单词部分不要再次替换，直接后缀到新文章列表中
