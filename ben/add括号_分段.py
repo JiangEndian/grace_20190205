@@ -23,7 +23,7 @@ if not file_name:
 with open(file_name, 'r') as f:
     for line in f.readlines(): 
         Is2 = not Is2
-        line = line.strip()
+        line = line.strip()+'. '
 
         #if re.match(han, line):
         if Is2:
