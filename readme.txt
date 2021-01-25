@@ -16,3 +16,5 @@ Thu Nov 26 22:24:06 CST 2020, I deleted dirtything in github, so it's just a his
 今天，2021年 01月 16日 星期六 20:13:11 KST，加了个移除所有历史的，然后，出了问题了。啊。。。搞半天没搞定，还是最后新clone了。然后有些要加的，还是得加上补上。唉。。。问题多多啊，问题多多啊。。。干嘛要这样搞啊。两个不一样了，都以自己为主，可不得出问题嘛。如果要删除，就得把一个完全删除掉。然后重新克隆，一样的才行。。。
 刚才又是因为服务器改动了点readme没提交，又出冲突了。啊啊啊。。。（再次测试下，今天是第三次了。啊啊啊。。。我为什么这么贱，要删除历史啊！！！）（再次来下。第四次。我个删除历史导致问题的人啊。垃圾。）
 No, I want to test this in server. A, Why I delete history??? it cause me very distress. make me confused. AH.....
+今天把alt3的网络更新的key从Con换成了Other2，就是ext，就是存储文件路径的地方。
+因为现在加录音嘛，所有的Con都是recordFile.2021年 01月 25日 星期一 22:52:26 KST

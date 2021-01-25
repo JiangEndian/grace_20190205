@@ -197,25 +197,25 @@ def accept_cmd_alt3(request):
     ############处理年的##############
     if every == 'year':
         if cmd == '8':
-            every_year.delete('Con',my_dict['con'])
+            every_year.delete('Other2',my_dict['ext'])
             every_month.add(Day=getnowtime('d'), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             common.add(Ymd=getdaystime(1), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
         elif cmd == '2':
-            every_year.delete('Con',my_dict['con'])
+            every_year.delete('Other2',my_dict['ext'])
         every_year_info.pop(0)
         dump2file('language_voice_diction_english/4web_restudy/every_year_info', every_year_info)
     ############处理月的##############
     elif every == 'month':
         if cmd == '8':
-            every_month.delete('Con', my_dict['con'])
+            every_month.delete('Other2', my_dict['ext'])
             every_week.add(Day=getnowtime('week'),Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             common.add(Ymd=getdaystime(1), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
         elif cmd == '2':
-            every_month.delete('Con', my_dict['con'])
+            every_month.delete('Other2', my_dict['ext'])
             every_year.add(MonthDay=getnowtime('md'),Con=my_dict['con'],  Other1=my_dict['env'], Other2=my_dict['ext'])
         every_month_info.pop(0)
         dump2file('language_voice_diction_english/4web_restudy/every_month_info', every_month_info)
@@ -226,7 +226,7 @@ def accept_cmd_alt3(request):
             common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
         elif cmd == '2':
-            every_week.delete('Con', my_dict['con'])
+            every_week.delete('Other2', my_dict['ext'])
             every_month.add(Day=getnowtime('d'), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
         every_week_info.pop(0)
         dump2file('language_voice_diction_english/4web_restudy/every_week_info', every_week_info)
