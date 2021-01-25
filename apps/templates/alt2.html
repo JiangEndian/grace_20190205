@@ -74,7 +74,8 @@
         var aud2 = document.getElementById("myAudio2");
         var aud3 = document.getElementById("myAudio3");
         aud1.onended = function() {
-            aud2.play()
+            //aud2.play()
+            document.getElementById("form").submit();
         }; 
         aud2.onended = function() {
             aud3.play()
