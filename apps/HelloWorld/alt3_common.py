@@ -135,7 +135,8 @@ def alt3_common(request):
     elif common_info:
         temp_info = list(common_info)
         for e_info in temp_info:
-            my_dict['con'] = change_word_in_text(e_info[2])
+            #my_dict['con'] = change_word_in_text(e_info[2])
+            my_dict['con'] = e_info[2]
             my_dict['env'] = e_info[3]
             my_dict['ext'] = e_info[4]
             my_dict['every_info'] = 'common'
