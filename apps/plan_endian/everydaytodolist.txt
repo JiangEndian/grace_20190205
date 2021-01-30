@@ -1,6 +1,3 @@
-<a href="/static/files/youtubeDl.bash">
-尝试在这里加个文件链接：
-</a>
 每天的先操练，先长壳子。。。
 
 20210128

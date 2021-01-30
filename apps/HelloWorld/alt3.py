@@ -173,7 +173,9 @@ def alt3(request):
         os.remove('language_voice_diction_english/4web_restudy/common_info')
         write2file('language_voice_diction_english/4web_restudy/已复习', '复习完成')
         return HttpResponseRedirect('/alt1234')
-
+    #测试直接把env置为video标签可行不
+    if len(my_dict['env']) < 3:
+        my_dict['env'] = '''<br/><video controls preload loop autoplay width="320" height="240" src="/static/grace_voice/TOEFL/2HoursWorship490x360.mp4" type="video/mp4"></video><br/>'''
     #context的'hello'对应模板html的变量{{ hello }}
     return render(request, 'alt3.html', my_dict)
     
