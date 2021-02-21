@@ -134,6 +134,8 @@ def alt3_common(request):
             break
     elif common_info:
         temp_info = list(common_info)
+        #temp_info1 = list(common_info)
+        #temp_info = temp_info1[::-1] #review from last one
         for e_info in temp_info:
             #my_dict['con'] = change_word_in_text(e_info[2])
             my_dict['con'] = e_info[2]
@@ -144,7 +146,7 @@ def alt3_common(request):
             next_info_index = temp_info.index(e_info)+1
             if len(temp_info) > 1:
                 next_info = temp_info[next_info_index]
-                my_dict['next_con'] = next_info[2]
+                my_dict['next_con'] = next_info[3]
             #20200302更新：添加获取下一条的预读
             break
 #3、直到，查完事，结束并删除dump文件，生成已复习

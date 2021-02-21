@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from tableDefine import *
+import sys
 
 def addEveryWeek():
     global every_week
@@ -72,8 +73,7 @@ try:
     every_week = EveryWeek()
     every_month = EveryMonth()
     every_year = EveryYear()
-
-    def showOneDay(daydelta=0): 
+    def showOneDaySimple(daydelta=0): 
         global common 
         global every_week 
         global every_month
@@ -112,13 +112,78 @@ try:
                 #print('Y:%s' % ey_info[2])
         return SUM
 
+    def showOneDay(daydelta=0): 
+        global common 
+        global every_week 
+        global every_month
+        global every_year
+
+        SUM = []
+        SUMOfSize = []
+
+        day = datetime.now() + timedelta(days=daydelta)
+        week_day = day.strftime('%w')
+        month_day = day.strftime('%d')
+        monthday = day.strftime('%m%d')
+        ymd = day.strftime('%Y%m%d')
+
+        #every_year_info = []
+        #every_month_info = []
+        #every_week_info = []
+        #common_info = []
+
+        common_info = common.find('Ymd', ymd)
+        #if common_info:
+            #for c_info in common_info:
+                #print(c_info[2])
+        
+        every_week_info = every_week.find('Day', week_day)
+        #if every_week_info:
+            #for ew_info in every_week_info:
+                #print('W:%s' % ew_info[2])
+        
+        every_month_info = every_month.find('Day', month_day)
+        #if every_month_info:
+            #for em_info in every_month_info:
+                #print('M:%s' % em_info[2])
+
+        every_year_info = every_year.find('MonthDay', monthday)
+        #if every_year_info:
+            #for ey_info in every_year_info:
+                #print('Y:%s' % ey_info[2])
+        SUM.append(len(every_year_info))
+        SUM.append(len(every_month_info))
+        SUM.append(len(every_week_info))
+        SUM.append(len(common_info))
+        SUMOfSize.append(sys.getsizeof(every_year_info))
+        SUMOfSize.append(sys.getsizeof(every_month_info))
+        SUMOfSize.append(sys.getsizeof(every_week_info))
+        SUMOfSize.append(sys.getsizeof(common_info))
+        AllString = ''
+        AllSum = 0
+        AllSumOfSize = 0
+        for iSUM, iSUMOfSize in zip(SUM, SUMOfSize):
+            AllSum += iSUM
+            AllSumOfSize += iSUMOfSize
+            AllString += str(iSUM) + '\t:' + str(iSUMOfSize) + ',\t'
+        print(AllString + 'All:\t' + str(AllSum) + ',\tAllSize:' + str(AllSumOfSize))
+        #return SUM
+        #exit()
+
     #yesterday(common) #删除昨天的    
     
     #################显示后7天的#############
     for i in range(8):
-        print('%s: %d' % (getdaystime(i), showOneDay(i)))
-        #print('___________________________\n')
+        print('%s: %s' % (getdaystime(i), showOneDaySimple(i)))
         #showOneDay(i)
+        #print('___________________________\n')
+        #print('___________________________')
+    print('___________________________')
+    print('Year\t\tMonth\t\tWeek\t\tCommon\t\tAll\t')
+    for i in range(8):
+        print('%s: %s---------------' % (getdaystime(i), showOneDaySimple(i)))
+        showOneDay(i)
+        #print('___________________________\n')
         #print('___________________________')
 
 finally:

@@ -46,7 +46,6 @@
             scroll(0, position)
         }
         //setTimeout("scroll(0,20000)", 2000)
-
 </script>
 
 
@@ -71,61 +70,33 @@
 
 <!-- <div onclick="page_down()"> --!>
 <div>
-<font size="7">
-{% ifequal every_info 'common' %}
-    <pre style="white-space: pre-wrap; word-wrap:break-word;">
-    {{ con }}
-    </pre>
-    </font>
-    <font size="6">
-    <div id="lb" style="visibility;">
-    {{ env }}
-    </div>
-    <hr>
-    {{ next_con }}
-    <hr>
-
-
-    <audio id="myAudio1" autoplay src="/static/grace_voice/{{ ext }}.mp3" />
-    <audio id="myAudio2" src="/static/grace_voice/{{ ext }}.mp3" />
-    <audio id="myAudio3" src="/static/grace_voice/{{ ext }}.mp3" />
-    <script>
-        var aud1 = document.getElementById("myAudio1");
-        var aud2 = document.getElementById("myAudio2");
-        var aud3 = document.getElementById("myAudio3");
-        aud1.onended = function() {
-            //按时间算重复两三遍或者不重复
-            //因为和python3注释不同导致错误过...
-            //document.getElementById("form").submit();
-            aud2.play()
-        }; 
-        aud2.onended = function() {
-            document.getElementById("form").submit();
-            //aud3.play()
-        }; 
-        aud3.onended = function() {
-            document.getElementById("form").submit();
-        }; 
-    </script>
-{% else %}
-    </font>
+{# {% ifequal every_info 'common' %} #}
+{% ifequal 'common' 'common' %}
+    {% if VideoEnv %}
+        <video controls preload loop autoplay width="" height="" src="/static/grace_voice/{{ VideoEnv }}" type="video/mp4"></video>
+        <hr>
+    {% endif %}
     <font size="7">
     <pre style="white-space: pre-wrap; word-wrap:break-word;">
-    {{ con }}
+        {{ con }}
+        {% if env %}
+            {{ env }}
+        {% endif %}
     </pre>
     </font>
     <font size="6">
     <div>
-    {{ env }}
-    </div>
-    <hr>
-    {{ next_con }}
     <hr>
     <u>{{ every_info }}</u>
+    </div>
     <hr>
-    <audio id="myAudio1" autoplay src="/static/grace_voice/{{ ext }}.mp3" />
-    <audio id="myAudio2" src="/static/grace_voice/{{ ext }}.mp3" />
-    <audio id="myAudio3" src="/static/grace_voice/{{ ext }}.mp3" />
+    {% if next_con %}
+        {{ next_con }}
+        <hr>
+    {% endif %}
+    <audio id="myAudio1" autoplay src="/static/grace_voice/{{ ext }}.mp3" ></audio>
+    <audio id="myAudio2" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
+    <audio id="myAudio3" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     <script>
         var loop_times = 1
         var loop_times_all = 2
@@ -154,16 +125,11 @@
 </div>
 <br>
 
+<button onclick='back2top(event)' style="width:680px;height:60px"> back2top </button>
 <p align="right">
-<button onclick='back2top(event)' style="width:180px;height:60px"> back2top </button>
 {{ showinfo }} 
-<br>
-
-<a href=/alt3> alt3 </a>
 </p>
 
-<p>{{ every }} {{ cmd }}</p>
 </font>
-
 {% endblock %}
 

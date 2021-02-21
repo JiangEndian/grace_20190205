@@ -18,3 +18,4 @@ Thu Nov 26 22:24:06 CST 2020, I deleted dirtything in github, so it's just a his
 No, I want to test this in server. A, Why I delete history??? it cause me very distress. make me confused. AH.....
 今天把alt3的网络更新的key从Con换成了Other2，就是ext，就是存储文件路径的地方。
 因为现在加录音嘛，所有的Con都是recordFile.2021年 01月 25日 星期一 22:52:26 KST
+今天2021年 01月 31日 星期日 09:28:06 KST，把服务器停了。只在本地生活。

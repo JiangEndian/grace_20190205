@@ -28,7 +28,7 @@
                var timer = setTimeout("scroller()",70);  
            }
         }
-        setTimeout("scroller()", 12000);
+        //setTimeout("scroller()", 12000);
 
         function back2top(event){
             event = event
@@ -40,6 +40,7 @@
         //function simulator_pagedown(){
         //document.onclick = function (){
         function page_down(){
+            return;
             position = get_scroll_position()
             position += 200;
             scroll(0, position)
@@ -55,13 +56,12 @@
 <font size="6">
 {{ con }}
 <hr>
-
-{% if env  %}
+{% if env %}
 {{ env }}
 <hr>
 {% endif %}
 
-{% if ext  %}
+{% if ext %}
 {{ ext }}
 <hr>
 {% endif %}
@@ -70,8 +70,8 @@
 </div>
 <form id="form" action="/accept-cmd-alt1" method="get">
     <input type="hidden" name="every" value={{ every_info }}>
-    {% ifequal every_info 'common' %}
-        {% include "input_cmd_one_alt1.html" %}
+    {% ifequal every_info 'year' %}
+        {% include "input_cmd_alt1ForYear.html" %}
     {% else %}
         {% include "input_cmd_alt1.html" %}
     {% endifequal %}

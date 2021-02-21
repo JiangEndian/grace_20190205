@@ -16,7 +16,7 @@
 </p>
 
 {% ifequal every_info 'common' %}
-    <audio id="myAudio1" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
+    <audio id="myAudio1" autoplay src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     <audio id="myAudio2" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     <audio id="myAudio3" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     <audio id="myAudio4" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
@@ -33,11 +33,11 @@
     var aud7 = document.getElementById("myAudio7");
     aud1.onended = function() {
         //document.getElementById("form").submit();
-        //aud2.play()
+        aud2.play()
     }; 
     aud2.onended = function() {
-        //document.getElementById("form").submit();
-        aud3.play()
+        document.getElementById("form").submit();
+        //aud3.play()
     }; 
     aud3.onended = function() {
         aud4.play()

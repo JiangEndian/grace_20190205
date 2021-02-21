@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect 
 from django.shortcuts import render
-
+from django.utils.safestring import mark_safe #for tranfer html code
 from tableDefine import * #导入自定义的东西
 
 ##现在的任务是：
@@ -153,6 +153,8 @@ def alt3(request):
             break
     elif common_info:
         temp_info = list(common_info)
+        #temp_info1 = list(common_info)
+        #temp_info = temp_info1[::-1] #review from last one
         for e_info in temp_info:
             my_dict['con'] = e_info[2]
             my_dict['env'] = e_info[3]
@@ -174,8 +176,10 @@ def alt3(request):
         write2file('language_voice_diction_english/4web_restudy/已复习', '复习完成')
         return HttpResponseRedirect('/alt1234')
     #测试直接把env置为video标签可行不
-    if len(my_dict['env']) < 3:
-        my_dict['env'] = '''<br/><video controls preload loop autoplay width="320" height="240" src="/static/grace_voice/TOEFL/2HoursWorship490x360.mp4" type="video/mp4"></video><br/>'''
+    my_dict['VideoEnv'] = '' #初始化，防止没有了还带着上次的内容
+    if my_dict['env'] == 'NotAudioButVideo':
+        #my_dict['VideoEnv'] = mark_safe('''<br/><video controls preload loop autoplay width="320" height="240" src="/static/grace_voice/TOEFL/%s" type="video/mp4"></video><br/>''' % my_dict['ext'])
+        my_dict['VideoEnv'] = my_dict['ext']
     #context的'hello'对应模板html的变量{{ hello }}
     return render(request, 'alt3.html', my_dict)
     
@@ -235,6 +239,7 @@ def accept_cmd_alt3(request):
     ############处理Common的##############
     elif every == 'common':
         common_info.pop(0)
+        #common_info.pop() #because review from last one, so remove last one
         dump2file('language_voice_diction_english/4web_restudy/common_info', common_info)
     #处理完后，关闭数据库
     close_database_link()

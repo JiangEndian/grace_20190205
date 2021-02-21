@@ -112,7 +112,11 @@ try:
     this_year_by_AA = 3969 + int(this_year_by_AD[0:4])
     life_days = -(datetime.datetime(1994, 9, 7) - datetime.datetime.now()).days
     remain_days = 13630 - life_days
-    print('%s' % this_year_by_AD + ' / AA' + str(this_year_by_AA) + ' 距6000年:-%s(已活:%s)' % (str(remain_days), str(life_days)))
+    life_days_second = str(13630*24*60*60-(-(datetime.datetime(1994, 9, 7, 12, 12, 12) - datetime.datetime.now()).total_seconds())).split('.')[0]
+    #print(life_days_second)
+    #exit()
+    #print('%s' % this_year_by_AD + ' / AA' + str(this_year_by_AA) + ' 距6000年:-%s(已活:%s)' % (str(remain_days), str(life_days)))
+    print('%s' % this_year_by_AD + ' / AA' + str(this_year_by_AA) + ' 距6000年:-%s秒(已活:%s)' % (str(life_days_second), str(life_days)))
     print('___________________________\n')
     #添加实践T的任务，每天
     #print('%s实践T_ NEW(一句/每法)' % getdaystime(1))

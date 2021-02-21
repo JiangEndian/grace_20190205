@@ -173,7 +173,7 @@ def alt1_common(request):
     
     #context的'hello'对应模板html的变量{{ hello }}
     #all_alt1_string = '。\n\n下一条。\n\n'.join(all_alt1_list) #ForEdge
-    all_alt1_string = '。下一条。'.join(all_alt1_list) #For海豚有声
+    all_alt1_string = '。\n下一条。\n\n'.join(all_alt1_list) #For海豚有声
     my_dict['con'] = all_alt1_string
     return render(request, 'alt1_common.html', my_dict)
     
