@@ -6,7 +6,7 @@ from tableDefine import * #导入自定义的东西
 
 def accept_text(request):
     #text = request.GET['text'] 
-    text = request.GET['TextArea'] 
+    text = request.POST.get('TextArea', '')
     #runsyscmd('echo %s >> from_net' % text)
 
     #在覆盖写入之前，把之前的文件复制到主文件夹的back4from_net里去

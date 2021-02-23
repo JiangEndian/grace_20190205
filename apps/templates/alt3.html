@@ -79,10 +79,11 @@
     <font size="7">
     <pre style="white-space: pre-wrap; word-wrap:break-word;">
         {{ con }}
-        {% if env %}
-            {{ env }}
-        {% endif %}
     </pre>
+    <font size="6">
+    {% if env %}
+        {{ env }}
+    {% endif %}
     </font>
     <font size="6">
     <div>
@@ -99,7 +100,7 @@
     <audio id="myAudio3" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     <script>
         var loop_times = 1
-        var loop_times_all = 3
+        var loop_times_all = 1
         var aud1 = document.getElementById("myAudio1");
         var aud2 = document.getElementById("myAudio2");
         var aud3 = document.getElementById("myAudio3");
