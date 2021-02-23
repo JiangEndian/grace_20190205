@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^favicon.ico',RedirectView.as_view(url=r'/static/favicon.ico')),
     url(r'^$', download.download),
     url(r'^alt$', download.download),
+    url(r'^deleteFile$', download.deleteFile),
     url(r'^video_view$', download.video_view),
     url(r'^video_name$', download.video_name),
     url(r'^upload_file$', download.upload_file),

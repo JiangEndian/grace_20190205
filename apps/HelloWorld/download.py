@@ -3,12 +3,20 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from django.shortcuts import render
 import os
+from MyPython3 import *
 
 def download(request):
     file_list = os.listdir("statics/files")
     file_dict = {'file_list':file_list}
+
+    file_dict['TextArea'] = readffile('from_net')
     return render(request, 'download.html', file_dict)
 
+def deleteFile(request):
+    runsyscmd('mv statics/files/%s /home/ed/DeletedFiles/' % request.GET.get('FileName'))
+    file_list = os.listdir("statics/files")
+    file_dict = {'file_list':file_list}
+    return render(request, 'download.html', file_dict)
 
 def video_view(request):
     file_list = []

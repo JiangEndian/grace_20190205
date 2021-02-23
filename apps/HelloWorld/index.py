@@ -13,6 +13,8 @@ def index(request):
     restudy_info = {}
     tasks_part1 = 20
     tasks_all = 20
+    #给textarea显示的文本文件,以及,提交也是向这个文件
+    restudy_info['TextArea'] = readffile('from_net')
 
     if int(getnowtime('week')) % 2 == 0: #02456
         show_exercise = 'YES'
