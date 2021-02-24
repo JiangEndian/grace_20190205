@@ -1,0 +1,18 @@
+#!/bin/bash
+
+while read -p "ContinueWithEnterOrCtrlC" && [[ $REPLY != 'exit' ]];do
+
+    read -p "InputVideoUrl:" VideoUrl
+    youtube-dl -F $VideoUrl
+
+    read -p "InputVideoFormatNumber:" NumberOfVideoFormat
+    youtube-dl -f $NumberOfVideoFormat $VideoUrl
+
+    #read -p "InputVideoFormatNumber:" NumberOfVideoFormat
+    #youtube-dl -f $NumberOfVideoFormat $VideoUrl
+done
+#-f best/worst/bestvideo/worstvideo/bestaudio/worstaudio
+
+#youtube-dl --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" <url to playlist>
+#downloading in mp3 and downloading a playlist
+
