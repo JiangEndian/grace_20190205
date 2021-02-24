@@ -1,9 +1,88 @@
-test.  尝试追求数据。  不能回车吗？
-这个呢？    尝试刚刚的回车
-
-  这次应该加上了。
-  效果很好。满意。。。
-现在尝试追加音频，就是直接上传之后，和原来的，压缩在一起。参考下，嗯，all_alt3的。。。  
-可以，合并文本和音频都行了。但，只能上传当天的。因为合并音频的时候，用到了当天的Monthday.所以必须得是当天的才行。否则，会合并到另一天的。或别的什么奇怪的问题。这是个Bug，或者，这是个这样的设计，我需要给自己个律法，让我这样去按着规矩来，不然，不知道会有什么问题。。。  
-发现了个问题。压缩的，第一次成zip改Mp3后，后来的，就不行了。好像文件末尾是zip的信息了。。。还是换成ffmpeg吧。  
-OK, 用了mp3wrap来合并的。这样，文本能合并，音频也能合并。就可以一天也能多个了。OK.  
+27-1 <pb/>This is the number of the people of Israel, the heads of fathers' houses, the commanders of thousands and hundreds, and their officers who served the king in all matters concerning the divisions that came and went, month after month throughout the year, each division numbering 24,000:
+27-2 <pb/><f>ⓐ</f> Jashobeam the son of Zabdiel was in charge of the first division in the first month; in his division were 24,000.
+27-3 He was a <f>ⓑ</f>descendant of Perez and was chief of all the commanders. He served for the first month.
+27-4 <f>ⓒ</f> Dodai the Ahohite <f>[1]</f> was in charge of the division of the second month; in his division were 24,000.
+27-5 The third commander, for the third month, was <f>ⓓ</f>Benaiah, the son of Jehoiada the chief priest; in his division were 24,000.
+27-6 This is the Benaiah <f>ⓔ</f>who was a mighty man of the thirty and in command of the thirty; Ammizabad his son was in charge of his division. <f>[2]</f>
+27-7 <f>ⓕ</f> Asahel the brother of Joab was fourth, for the fourth month, and his son Zebadiah after him; in his division were 24,000.
+27-8 The fifth commander, for the fifth month, was <f>ⓖ</f>Shamhuth the Izrahite; in his division were 24,000.
+27-9 Sixth, for the sixth month, was <f>ⓗ</f>Ira, the son of Ikkesh the Tekoite; in his division were 24,000.
+27-10 Seventh, for the seventh month, was <f>ⓘ</f>Helez the Pelonite, of the sons of Ephraim; in his division were 24,000.
+27-11 Eighth, for the eighth month, was <f>ⓙ</f>Sibbecai the Hushathite, of the Zerahites; in his division were 24,000.
+27-12 Ninth, for the ninth month, was <f>ⓚ</f>Abiezer of Anathoth, a Benjaminite; in his division were 24,000.
+27-13 Tenth, for the tenth month, was <f>ⓛ</f>Maharai of Netophah, of the Zerahites; in his division were 24,000.
+27-14 Eleventh, for the eleventh month, was <f>ⓜ</f>Benaiah of Pirathon, of the sons of Ephraim; in his division were 24,000.
+27-15 Twelfth, for the twelfth month, was <f>ⓝ</f>Heldai the Netophathite, of <f>ⓞ</f>Othniel; in his division were 24,000.
+27-16 <pb/>Over the tribes of Israel, for the Reubenites, Eliezer the son of Zichri was chief officer; for the Simeonites, Shephatiah the son of Maacah;
+27-17 for Levi, <f>ⓟ</f>Hashabiah the son of Kemuel; for Aaron, <f>ⓠ</f>Zadok;
+27-18 for Judah, Elihu, one of David's brothers; for Issachar, Omri the son of Michael;
+27-19 for Zebulun, Ishmaiah the son of Obadiah; for Naphtali, Jeremoth the son of Azriel;
+27-20 for the Ephraimites, Hoshea the son of Azaziah; for the half-tribe of Manasseh, Joel the son of Pedaiah;
+27-21 for the half-tribe of Manasseh in Gilead, Iddo the son of Zechariah; for Benjamin, Jaasiel the son of Abner;
+27-22 for Dan, Azarel the son of Jeroham. These were the <f>ⓡ</f>leaders of the tribes of Israel.
+27-23 David did not count those below twenty years of age, for the <f>ⓢ</f>LORD had promised to make Israel as many as the stars of heaven.
+27-24 Joab the son of Zeruiah began to count, but <f>ⓣ</f>did not finish. Yet <f>ⓤ</f>wrath came upon Israel for this, and the number was not entered in the chronicles of King David.
+27-25 <pb/>Over the king's treasuries was <f>ⓥ</f>Azmaveth the son of Adiel; and over the treasuries in the country, in the cities, in the villages, and in the towers, was Jonathan the son of Uzziah;
+27-26 and over those who did the work of the field for tilling the soil was Ezri the son of Chelub;
+27-27 and over the vineyards was Shimei the Ramathite; and over the produce of the vineyards for the wine cellars was Zabdi the Shiphmite.
+27-28 Over the olive and <f>ⓦ</f>sycamore trees in the Shephelah was Baal-hanan the Gederite; and over the stores of oil was Joash.
+27-29 Over the herds that pastured in <f>ⓧ</f>Sharon was Shitrai the Sharonite; over the herds in the valleys was Shaphat the son of Adlai.
+27-30 Over the camels was Obil the Ishmaelite; and over the donkeys was Jehdeiah the Meronothite. Over the flocks was Jaziz the <f>ⓨ</f>Hagrite.
+27-31 All these were stewards of King David's property.
+27-32 <pb/>Jonathan, David's uncle, was a counselor, being a man of understanding and a scribe. He and Jehiel the son of Hachmoni attended the king's sons.
+27-33 <f>ⓩ</f> Ahithophel was the <f>ⓐ</f>king's counselor, and Hushai the Archite was the king's friend.
+27-34 Ahithophel was succeeded by Jehoiada the son of <f>ⓑ</f>Benaiah, and <f>ⓒ</f>Abiathar. Joab was <f>ⓓ</f>commander of the king's army.
+51-1 <pb/><t><f>ⓐ</f> “Listen to me, you who pursue righteousness, </t><t>you who seek the LORD: </t><t>look to the rock from which you were hewn, </t><t>and to the quarry from which you were dug.</t>
+51-2 <t>Look to Abraham your father </t><t>and to Sarah who bore you; </t><t>for <f>ⓑ</f>he was but one when I called him, </t><t>that I might bless him and multiply him.</t>
+51-3 <t>For the LORD <f>ⓒ</f>comforts Zion; </t><t>he comforts all her waste places </t><t>and makes her wilderness like <f>ⓓ</f>Eden, </t><t>her desert like <f>ⓔ</f>the garden of the LORD; </t><t><f>ⓕ</f>joy and gladness will be found in her, </t><t>thanksgiving and the voice of song. </t>
+51-4 <pb/><t><f>ⓖ</f> “Give attention to me, my people, </t><t>and give ear to me, my nation; </t><t><f>ⓗ</f>for a law <f>[1]</f> will go out from me, </t><t>and I will set my justice for a light to the peoples.</t>
+51-5 <t><f>ⓘ</f> My righteousness draws near, </t><t>my salvation has gone out, </t><t>and my arms will judge the peoples; </t><t><f>ⓙ</f>the coastlands hope for me, </t><t>and for my arm they wait.</t>
+51-6 <t><f>ⓚ</f> Lift up your eyes to the heavens, </t><t>and look at the earth beneath; </t><t><f>ⓛ</f>for the heavens vanish like smoke, </t><t>the earth will wear out like a garment, </t><t>and they who dwell in it will die in like manner; <f>[2]</f> </t><t><f>ⓜ</f>but my salvation will be forever, </t><t>and my righteousness will never be dismayed. </t>
+51-7 <pb/><t><f>ⓝ</f> “Listen to me, you who know righteousness, </t><t>the people <f>ⓞ</f>in whose heart is my law; </t><t><f>ⓟ</f>fear not the reproach of man, </t><t>nor be dismayed at their revilings.</t>
+51-8 <t><f>ⓠ</f> For the moth will eat them up like a garment, </t><t>and the worm will eat them like wool, </t><t><f>ⓡ</f>but my righteousness will be forever, </t><t>and my salvation to all generations.” </t>
+51-9 <pb/><t><f>ⓢ</f> Awake, awake, <f>ⓣ</f>put on strength, </t><t>O <f>ⓤ</f>arm of the LORD; </t><t>awake, <f>ⓥ</f>as in days of old, </t><t>the generations of long ago. </t><t>Was it not you who cut <f>ⓦ</f>Rahab in pieces, </t><t>who pierced <f>ⓧ</f>the dragon?</t>
+51-10 <t><f>ⓨ</f> Was it not you who dried up the sea, </t><t>the waters of the great deep, </t><t>who made the depths of the sea a way </t><t>for the redeemed to pass over?</t>
+51-11 <t><f>ⓩ</f> And the ransomed of the LORD shall return </t><t>and come to Zion with singing; </t><t>everlasting joy shall be upon their heads; </t><t>they shall obtain gladness and joy, </t><t>and sorrow and sighing shall flee away. </t>
+51-12 <pb/><t>“I, I am he <f>ⓐ</f>who comforts you; </t><t>who are you that you are afraid of <f>ⓑ</f>man who dies, </t><t>of the son of man who is made <f>ⓒ</f>like grass,</t>
+51-13 <t>and have forgotten the LORD, your Maker, </t><t><f>ⓓ</f>who stretched out the heavens </t><t>and <f>ⓔ</f>laid the foundations of the earth, </t><t>and you fear continually all the day </t><t>because of the wrath of <f>ⓕ</f>the oppressor, </t><t>when he sets himself to destroy? </t><t>And where is the wrath of <f>ⓖ</f>the oppressor?</t>
+51-14 <t><f>ⓗ</f> He who is bowed down shall speedily be released; </t><t>he shall not die and go down <f>ⓘ</f>to the pit, </t><t>neither shall his bread be lacking.</t>
+51-15 <t>I am the LORD your God, </t><t><f>ⓙ</f>who stirs up the sea so that its waves roar — </t><t>the LORD of hosts is his name.</t>
+51-16 <t><f>ⓚ</f> And I have put my words in your mouth </t><t><f>ⓛ</f>and covered you in the shadow of my hand, </t><t><f>ⓜ</f>establishing <f>[3]</f> the heavens </t><t>and <f>ⓝ</f>laying the foundations of the earth, </t><t>and saying to Zion, ‘You are my people.’” </t>
+51-17 <pb/><t><f>ⓞ</f> Wake yourself, wake yourself, </t><t>stand up, O Jerusalem, </t><t><f>ⓟ</f>you who have drunk from the hand of the LORD </t><t>the cup of his wrath, </t><t>who have drunk to the dregs </t><t>the bowl, <f>ⓠ</f>the cup of staggering.</t>
+51-18 <t><f>ⓡ</f> There is none to guide her </t><t>among all the sons she has borne; </t><t>there is none to take her by the hand </t><t>among all the sons she has brought up.</t>
+51-19 <t><f>ⓢ</f> These two things have happened to you — </t><t>who will console you? — </t><t>devastation and destruction, famine and sword; </t><t>who will comfort you? <f>[4]</f></t>
+51-20 <t><f>ⓣ</f> Your sons have fainted; </t><t>they lie at the head of every street </t><t>like an <f>ⓤ</f>antelope <f>ⓥ</f>in a net; </t><t>they are full of the wrath of the LORD, </t><t>the rebuke of your God. </t>
+51-21 <pb/><t><f>ⓦ</f> Therefore hear this, you who are afflicted, </t><t>who are drunk, but not with wine:</t>
+51-22 <t>Thus says your Lord, the LORD, </t><t>your God <f>ⓧ</f>who pleads the cause of his people: </t><t>“Behold, I have taken from your hand <f>ⓨ</f>the cup of staggering; </t><t>the bowl of my wrath you shall drink no more;</t>
+51-23 <t><f>ⓩ</f> and I will put it into the hand of your tormentors, </t><t><f>ⓐ</f>who have said to you, </t><t>‘Bow down, that we may pass over’; </t><t>and <f>ⓑ</f>you have made your back like the ground </t><t>and like the street for them to pass over.” </t>
+4-1 <pb/>I mean that the heir, as long as he is a child, is no different from a slave, <f>[1]</f> though he is the owner of everything,
+4-2 but he is under guardians and managers until the date set by his father.
+4-3 In the same way we also, when we were children, <f>ⓐ</f>were enslaved to the elementary principles <f>[2]</f> of the world.
+4-4 But <f>ⓑ</f>when the fullness of time had come, God sent forth his Son, <f>ⓒ</f>born <f>ⓓ</f>of woman, born <f>ⓔ</f>under the law,
+4-5 <f>ⓕ</f> to redeem those who were under the law, so that we might receive <f>ⓖ</f>adoption as sons.
+4-6 And because you are sons, God has sent <f>ⓗ</f>the Spirit of his Son into our hearts, crying, “Abba! Father!”
+4-7 So you are no longer a slave, but a son, and if a son, then <f>ⓘ</f>an heir through God.
+4-8 <pb/>Formerly, when you <f>ⓙ</f>did not know God, you <f>ⓚ</f>were enslaved to those that by nature <f>ⓛ</f>are not gods.
+4-9 But now that you have come to know God, or rather <f>ⓜ</f>to be known by God, <f>ⓝ</f>how can you turn back again to <f>ⓞ</f>the weak and worthless elementary principles of the world, whose slaves you want to be once more?
+4-10 <f>ⓟ</f> You observe days and months and seasons and years!
+4-11 I am afraid <f>ⓠ</f>I may have labored over you in vain.
+4-12 <pb/>Brothers, <f>[3]</f> <f>ⓡ</f>I entreat you, become as I am, for I also have become as you are. <f>ⓢ</f>You did me no wrong.
+4-13 You know it was <f>ⓣ</f>because of a bodily ailment that I preached the gospel to you <f>ⓤ</f>at first,
+4-14 and though my condition was a trial to you, you did not scorn or despise me, but received me <f>ⓥ</f>as an angel of God, <f>ⓦ</f>as Christ Jesus.
+4-15 What then has become of your blessedness? For I testify to you that, if possible, you would have gouged out your eyes and given them to me.
+4-16 Have I then become your enemy by <f>ⓧ</f>telling you the truth? <f>[4]</f>
+4-17 They make much of you, but for no good purpose. They want to shut you out, that you may make much of them.
+4-18 It is always good to be made much of for a good purpose, and <f>ⓨ</f>not only when I am present with you,
+4-19 <f>ⓩ</f> my little children, <f>ⓐ</f>for whom I am again in the anguish of childbirth until Christ <f>ⓑ</f>is formed in you!
+4-20 I wish I could be present with you now and change my tone, for I am perplexed about you.
+4-21 <pb/>Tell me, you who desire to be under the law, do you not listen to the law?
+4-22 For it is written that Abraham had two sons, <f>ⓒ</f>one by a slave woman and <f>ⓓ</f>one by a free woman.
+4-23 But <f>ⓔ</f>the son of the slave was born according to the flesh, while <f>ⓕ</f>the son of the free woman was born through promise.
+4-24 Now this may be interpreted allegorically: these women are two <f>ⓖ</f>covenants. <f>ⓗ</f>One is from Mount Sinai, bearing children for slavery; she is Hagar.
+4-25 Now Hagar is Mount Sinai in Arabia; <f>[5]</f> she corresponds to the present Jerusalem, for she is in slavery with her children.
+4-26 But <f>ⓘ</f>the Jerusalem above is free, and she is our mother.
+4-27 For it is written, <pb/><t><f>ⓙ</f>“Rejoice, O barren one who does not bear; </t><t>break forth and cry aloud, you who are not in labor! </t><t>For the children of the desolate one will be more </t><t>than those of the one who has a husband.” </t>
+4-28 <pb/>Now you, <f>[6]</f> brothers, <f>ⓚ</f>like Isaac, <f>ⓛ</f>are children of promise.
+4-29 But just as at that time he who was born according to the flesh <f>ⓜ</f>persecuted him who was born according to the Spirit, <f>ⓝ</f>so also it is now.
+4-30 But what does the Scripture say? <f>ⓞ</f>“Cast out the slave woman and her son, for the son of the slave woman shall not inherit with the son of the free woman.”
+4-31 So, brothers, we are not children of the slave but <f>ⓟ</f>of the free woman.
