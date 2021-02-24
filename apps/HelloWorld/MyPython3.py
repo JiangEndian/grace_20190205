@@ -324,8 +324,11 @@ def write2file(filename, stext):
     with open(filename, 'w') as f:
         f.write(stext)
 def readffile(filename):
-    with open(filename, 'r') as f:
-        return f.read()
+    if os.path.exists(filename):
+        with open(filename, 'r') as f:
+            return f.read()
+    else:
+        return 'No such file'
 ######################文件直接写入，读取(text)####################################
 
 

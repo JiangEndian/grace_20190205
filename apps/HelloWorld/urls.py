@@ -2,7 +2,7 @@ from django.conf.urls import url
 from django.views.generic.base import RedirectView #重定向到给定的URL
 #from django.contrib import admin
 
-from . import alt3, alt3_common, alt2, alt2_common, alt4, alt4_common, alt1, alt1_common, index, all_rm, sleep_pc, download, for_text, grace_calculator, world_emulator
+from . import alt3, alt3_common, alt2, alt2_common, alt4, alt4_common, alt1, alt1_common, index, all_rm, sleep_pc, download, for_text, grace_calculator, world_emulator, worshipAndBible
 
 #pattern模范，典范，模型，模式
 urlpatterns = [
@@ -24,6 +24,10 @@ urlpatterns = [
     url(r'^reset_world_emulator$', world_emulator.reset_world_emulator),
     url(r'^family_calculator$', world_emulator.family_calculator),
     url(r'^family_calculator$', world_emulator.reset_family_calculator),
+
+    url(r'^worshipAndBible$', worshipAndBible.worshipAndBible),
+    url(r'^uploadAudio$', worshipAndBible.uploadAudio),
+    url(r'^submitTranscript$', worshipAndBible.submitTranscript),
 
     url(r'^alt1$', alt1.alt1),
     url(r'^alt1-common$', alt1_common.alt1_common),

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<hr>
+<pre style="white-space: pre-wrap; word-wrap:break-word;">
+{{ TranscriptOfAudio }}
+</pre>
+
+<hr>
+<audio id="MyAudio" autoplay controls src="/static/grace_voice/{{ FileOfAudio }}" ></audio>
+
+<hr>
+<form enctype="multipart/form-data" action="/uploadAudio" method="post">
+       <input type="file" name="myfiles" multiple accept=".mp3" style="width:900px;height:80px;font-size:40px"/>
+       <input type="submit" value="upload ONE Mp3(MonthDay)"style="width:900px;height:80px;font-size:40px"/>
+</form>
+
+<hr>
+<form action="/submitTranscript" method="post" id="usrform">
+    <input name="cmd" value="submitDateAndTranscript" type="submit" style="width:900px;height:80px;font-size:40px" >
+    <input name="MonthDay" placeholder="MonthDay" value="" style="width:900px;height:40px;font-size:20px" >
+</form>
+<textarea name="Transcript" form="usrform" style="width:900px;height:180px;font-size:20px">  </textarea>
+
+<hr>
+{% endblock %}
