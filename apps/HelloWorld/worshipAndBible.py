@@ -33,7 +33,7 @@ def uploadAudio(request):
                     destination.write(chunk)
                 destination.close()
                 #现在不用compress了，改mp3wrap了，09:16
-                SysCmdForCompressManyMp3ToOne = 'cd ~/grace_voice_file/WorshipAndBible/ && mp3wrap new.mp3 %s %sNeedToBeCompressed && rm %s && rm %sNeedToBeCompressed && mv new*.mp3 %s' % (oneFile.name, oneFile.name, oneFile.name, oneFile.name, oneFile.name, )
+                SysCmdForCompressManyMp3ToOne = 'cd ~/grace_voice_file/WorshipAndBible/ && mp3wrap new.mp3 %s %sNeedToBeCompressed && rm %s && rm %sNeedToBeCompressed && mv new*.mp3 %s && mp3val %s -f-nb' % (oneFile.name, oneFile.name, oneFile.name, oneFile.name, oneFile.name, oneFile.name)
                 runsyscmd(SysCmdForCompressManyMp3ToOne, 'no')
             else:
                 destination = open("./statics/grace_voice/WorshipAndBible/" + oneFile.name, 'wb+')    # 打开特定的文件进行二进制的写操作

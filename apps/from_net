@@ -1,4 +1,4 @@
- Her: "I am vegan, genderfluid and a feminist. I support Black lives matter, Antifa and Communism." Me: *trying to impress her* "I am also useless piece of shit." 
+  Her: "I am vegan, genderfluid and a feminist. I support Black lives matter, Antifa and Communism." Me: *trying to impress her* "I am also useless piece of shit." 
 vegan严格的素食主义者医】 绝对素食者fluid流动的, 可改变的Communism共产主义
 Antifa is a left-wing anti-fascist and anti-racist political movement in the United States.
 fascist法西斯主义者, 法西斯党员racist种族主义者
@@ -6,5 +6,6 @@ Sometimes, no amount of hotness is worth wallowing in an unflushed toilet.
 hotness暑热, 热烈, 热心wallow打滚, 沉迷, 颠簸
 
 原来,用mp3wrap之后的啊,多次wrap的有问题...就是用vlc点击进度条能播放,但正常顺序播放不了.而且点击进度条也只是缓解几秒,又不能正常放了.就worshipAndBible的音频,多次wrap的... 然后搜索,原来有个mp3val可以修复任何 stream 错误,用了下,真好用.甚至能在网页手动播放进度条...20210225,00:16...
-这样的话一年运行一次就够了.嗯.甚至,对现在就做,直接加入那个文件夹里成为一个工具...(OK. for i in *.mp3; do mp3val $i -f -nb; done)
+这样的话一年运行一次就够了.嗯.甚至,对现在就做,直接加入那个文件夹里成为一个工具...(OK. for i in *.mp3; do mp3val $i -f -nb; done)（刚刚想想，还是直接加到了每次上传之后的代码里。上传合并完就修复。啊。。。不然我估计睡不着。。。太急了。不找新事了赶紧睡觉。。。）
 
+ 
