@@ -1,14 +1,72 @@
 {% extends "base.html" %}
 {% block content %}
 
+<script type="text/javascript">
+
+      //获取滚动条位置
+       function get_scroll_position(){
+           return document.documentElement.scrollTop
+       }
+
+       //自动滚动，且对鼠标滚动支持
+       function scroller()  
+       {  
+           if(true)  
+           {   
+               position = get_scroll_position()
+               position += 1;  
+               scroll(0,position);  
+               clearTimeout(timer);  
+               var timer = setTimeout("scroller()",120);  
+           }
+        }
+        setTimeout("scroller()", 12000);
+
+        function back2top(event){
+            event = event
+            event.stopPropagation()
+            scroll(0,0);
+        }
+        
+        function page_down(){
+            position = get_scroll_position()
+            position += 400;
+            scroll(0, position)
+        }
+</script>
+
+
 <hr>
+
+<!-- <div onclick="page_down()"> -->
+<div>
+<font size=6>
 <pre style="white-space: pre-wrap; word-wrap:break-word;">
 {{ TranscriptOfAudio }}
 </pre>
-
+</font>
+</div>
 <hr>
+
+<button onclick='back2top(event)' style="width:680px;height:60px"> back2top </button>
+
+
+<br>
+<br>
+<br>
+<br>
 <audio id="MyAudio" autoplay controls src="/static/grace_voice/{{ FileOfAudio }}" ></audio>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <hr>
 <form enctype="multipart/form-data" action="/uploadAudio" method="post">
        <input type="file" name="myfiles" multiple accept=".mp3" style="width:900px;height:80px;font-size:40px"/>

@@ -4,13 +4,17 @@ from django.http import JsonResponse
 from django.shortcuts import render
 import os
 from MyPython3 import *
+import re
 
 def worshipAndBible(request):
     TextAndAudio = {}
     MonthDay = getnowtime('md')
     FileNameOfAudioAndText = 'WorshipAndBible/'+MonthDay
 
-    TextAndAudio['TranscriptOfAudio'] = readffile(FileNameOfAudioAndText)
+    ReplaceInfo = re.compile('<.*?>')
+    ReplaceInfoNumber = re.compile('\[.*?\]')
+    ReplaceInfoSpecial = re.compile('[ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ]')
+    TextAndAudio['TranscriptOfAudio'] = ReplaceInfoNumber.sub('', ReplaceInfoSpecial.sub('', ReplaceInfo.sub('', readffile(FileNameOfAudioAndText)))).replace('\n', '\n\n') #把一些<>控制的格式去掉，又把单回车换成双回车
     TextAndAudio['FileOfAudio'] = FileNameOfAudioAndText + '.mp3'
 
 
