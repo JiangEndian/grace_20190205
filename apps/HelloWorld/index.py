@@ -56,13 +56,19 @@ def index(request):
     #这是一开始的alt1234的进度相关的
     restudy_info['alt1'] = '进度中alt1'
     restudy_info['alt1_common'] = 'alt1_common'
+
     restudy_info['alt2'] = '进度中alt2'
     restudy_info['alt2_common'] = 'alt2_common'
+
     restudy_info['alt3'] = '进度中alt3'
     restudy_info['alt3_common'] = 'alt3_common'
     restudy_info['alt3_all'] = 'alt3_all'
+
+    restudy_info['worshipAndBible'] = '...'
+
     restudy_info['alt4'] = '进度中alt4'
     restudy_info['alt4_common'] = 'alt4_common'
+
     runsyscmd('/home/ed/grace_20190205/apps/plan_endian/cat_tomorrow2plan_info.bash')
     restudy_info['plan_endian'] = readffile('plan_endian/plan_info')
 
@@ -97,6 +103,11 @@ def index(request):
 
         restudy_info['alt3_common'] = ''
         restudy_info['alt3_all'] = ''
+    
+    if os.path.exists('WorshipAndBible/4web_restudy/已复习') and not os.path.exists('WorshipAndBible/4web_restudy/common_info'):
+        restudy_info['worshipAndBible'] = '!!!'
+    elif not os.path.exists('WorshipAndBible/4web_restudy/common_info'):
+        restudy_info['worshipAndBible'] = '???'
 
     if os.path.exists('language_voice_diction_hebrew/4web_restudy/已复习') and not os.path.exists('language_voice_diction_hebrew/4web_restudy/common_info'):
         restudy_info['alt4'] = 'alt4已复习'

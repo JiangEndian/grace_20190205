@@ -25,10 +25,6 @@ urlpatterns = [
     url(r'^family_calculator$', world_emulator.family_calculator),
     url(r'^family_calculator$', world_emulator.reset_family_calculator),
 
-    url(r'^worshipAndBible$', worshipAndBible.worshipAndBible),
-    url(r'^uploadAudio$', worshipAndBible.uploadAudio),
-    url(r'^submitTranscript$', worshipAndBible.submitTranscript),
-
     url(r'^alt1$', alt1.alt1),
     url(r'^alt1-common$', alt1_common.alt1_common),
     url(r'^accept-cmd-alt1$', alt1.accept_cmd_alt1),
@@ -44,6 +40,9 @@ urlpatterns = [
     url(r'^accept-cmd-alt3$', alt3.accept_cmd_alt3),
     url(r'^accept-cmd-alt3-common$', alt3_common.accept_cmd_alt3),
     url(r'^alt3_all_mp3$', alt3.alt3_all_mp3),
+
+    url(r'^worshipAndBible$', worshipAndBible.worshipAndBible),
+    url(r'^acceptCmdWorshipAndBible$', worshipAndBible.acceptCmdWorshipAndBible),
 
     url(r'^alt4$', alt4.alt4),
     url(r'^alt4-common$', alt4_common.alt4_common),
