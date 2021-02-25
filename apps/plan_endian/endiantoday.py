@@ -79,7 +79,7 @@ try:
         global every_month
         global every_year
 
-        day = datetime.now() + timedelta(days=daydelta)
+        day = datetime.datetime.now() + datetime.timedelta(days=daydelta)
         week_day = day.strftime('%w')
         month_day = day.strftime('%d')
         monthday = day.strftime('%m%d')

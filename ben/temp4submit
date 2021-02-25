@@ -1,352 +1,139 @@
-原来,用mp3wrap之后的啊,多次wrap的有问题...就是用vlc点击进度条能播放,但正常顺序播放不了.而且点击进度条也只是缓解几秒,又不能正常放了.就worshipAndBible的音频,多次wrap的... 然后搜索,原来有个mp3val可以修复任何 stream 错误,用了下,真好用.甚至能在网页手动播放进度条...20210225,00:16...
-这样的话一年运行一次就够了.嗯.甚至,对现在就做,直接加入那个文件夹里成为一个工具...(OK. for i in *.mp3; do mp3val $i -f -nb; done)（刚刚想想，还是直接加到了每次上传之后的代码里。上传合并完就修复。啊。。。不然我估计睡不着。。。太急了。不找新事了赶紧睡觉。。。）
-worshipAndBible,换套路。原来是直接md来显示的。今天换换。因为，合并mp3实在不行。。。有个所有文件列表。加入时，加入文件列表。弄个函数，每两行的读，算了，直接复制alt3感觉更合适点。唉呀。上帝不使我顺利啊。。。算了，拉倒了，直接alt3了，再见了您哪。。。不过想想，完全可以从文本里录出来内容，然后，找对应的mp3文件嘛。。。对啊对啊。。。看看：（先吃个早饭）
-神不是不想成就我的事，而是，那个方法，可能不好吧。。。Thu 25 Feb 2021 08:36:10 AM KST ，弄饭时想到了直接复制alt3的好处，每个都能先多重复几遍。。。而那样的顺序一遍的，并没有这个过程，这个可能会使我明明不熟悉还骄傲。。。其实alt3是有好处的。之前设计的时候，不就是参考了人类的记忆特性嘛。。。啊。。。神给我的恩典，我不用，干啥呢。明明可用。。。
-贵雄的手机不是为贵雄服务的，而是贵雄是为了他的手机服务的。2021年02月23日12:48:32，拿室友做的食物和贵雄一块吃，想着吃完一起去检查，他说手机充一半不能走。。。
-
-저 이제 오늘까지 일하고 내일부터는 사무실에 없어요 :(저는 여러분들을 사랑으로 섬기기 위해 정말 노력 많이 했어요. 쌤한테 상처받은 학생이 있다면 너무 미안해요ㅠㅠ
-그리고 이제는 친한 오빠/친구/동생/형으로 저를 불러줘도 됩니다 ㅋㅋ 저는 영도에 있을거니까 배고프거나 놀러가고 싶을 때 언제든지 저한테 연락주세요. 마지막으로 여러분 정말 많이 사랑합니다♥ 샬롬 ♪
-我拉黑了前任，分了以后挺决绝的，她每次加我我都拉黑，可是再发现，她的账号都注销了，为什么忽然很难受？
-我仔细看了你的描述，你女朋友跟我一样一样一样一样的性格。我再次确认你不是我前男友，之一。伤害一个爱你的人，犯罪成本很低。你以各种理由揪出她的问题，并且在某个时间点，坚定你的信念与决定。但究竟这个人好不好，适不适合你，时间会来解答。你应该是她第一/第二男朋友，随着她遇到的男朋友越来越多，纠缠的时间也越来越短。
-我也有个女儿，在幼儿园也被男孩子欺负过，公立幼儿园一个班十几个二十几个孩子，两个老师也没可能完全顾的过来。我女儿被一个外来务工人员的孩子打过，小男孩父母都是服装市场卖童装的，出生之后就混在市场里，别指望有什么家教，父母只忙生意，经常找市场里其他人帮忙接送孩子。
-注意我的身份。农民的儿子。嗯。不过有个新背景。就是可能来的有点晚？但早了她的骄傲还是冲天的，看上我？啊。一切都是，嗯，最不坏的了。
-那回到本案，可以说，当事班主任是绝对失职的。我甚至感觉到了刁难的成分，就是你小女孩的家长不塞几张购物卡，我这事就给你拖着。差不多就这么个意思，这情况挺常见的。
-
-我老公没房没车 无父无母 但是长的帅 人品好 娶我的时候就三万块钱 一万给我买个镯子 一万领我去海边玩了一个星期 我们就领证了 现在依然买不起房 但是首付也差不多了 差了几万 我同学说要借我 我老公不让我借 觉得不好意思 买完房又要装修 又要还贷款 怕长时间还不上影响我和同学感情 钱虽然一直都不够花 但是我们感情好 他对我也好 长的又帅 我们在一起十年了我和我老公说过 我不是愿意过穷日子 我也不是只配过穷日子 但是我愿意和你过日子 什么日子都行
-所以说 谁都不傻 没房没车不是找不到老婆的原因 但是人世间的美好你得占一样 要么有钱 要么帅 要么能吃苦 毕竟谁也不是历劫来着 垃圾谁都想离远点
-现在，很多老师傅、老员工都不愿意带徒弟，一方面是费心费力，一方面是担心教会徒弟饿死师傅，还有一方面容易带出白眼狼来。以上的故事告诉我们四个道理：
-一是教会徒弟饿死师傅，这是千百年来的人性。企业要搞好传帮带，一定要防止出现这样情况，建立合理的师带徒机制。二是有些老板宁愿高薪招新人，也不给老员工加工资，其实寒了很多老员工的心，要注意薪酬机制的公平合理性。三是老员工带新员工，一定要长个心眼，人品好的多教一点，人品不好的就要防着点，防止教出白眼狼。四是作为企业管理者，一定要树立“厂有一老，如有一宝”的理念，不要总想着过河拆桥，建立良好的机制，注重发挥老师傅的作用，对企业有百利而无一害。
-你换个思路，你被人强吻了，你男朋友嫌弃你，还说你脏，说恨你，你什么感受
-我反正肯定觉得如坠冰窟，我觉得这个男的不能要了，作为伴侣不能在我遇到麻烦的时候帮助我，作为异性不能在我受到骚扰的时候保护我，作为成年人毫无逻辑地把我的这些遭遇怪到我头上来，在我本来就很脆弱的时候再来伤害我，我会觉得平常他对我的好都变得那么虚假，我会直接分手。
-错，货币的价值在于流通，比特币天然通缩性质注定它不能做为货币，只能做为一种资产炒，如果行，那黄金比比特币公信力强的多，可黄金也退出货币属性，科技时代黄金的产量都跟不上人类生产力，比特币也不行
-黄金永远不会退出货币体系，只是被暂时人为压制，有人要玩纸币的把戏而已。因为任何情况下你拿黄金去换需要的东西都会有人愿意给你。而纸币做不到。
-所以意思是这帮富人想搞一个富人货币，将传统的美元人民币欧元等降格为穷人货币？以后各种穷人货币的升降几乎都与富人货币无关。富人圈子仅流通富人货币，但是可以兑换为穷人货币--即与世俗流通。妙啊
-对，就这个意思。但是比特币从投机品变成富人货币还需要信用背书，即不通过穷人货币可以直接购买商品。小马就在干这个事，苹果推特也要干这个事，还会有更多企业加进来为比特币站台。
-2020年12月24日上午9点，福州中院开庭审理此案。吴谢宇以涉嫌故意杀人罪、诈骗罪、买卖身份证件罪，站上被告席。
-2016年2月14日，吴谢宇舅舅连同警方，踹开了大门背后的罪恶。吴谢宇母亲的惨况。案发现场的诡异。吴谢宇3年的离奇逃亡。围绕着吴谢宇一家的谜团，成了许多人茶余饭后的谈资。吴谢宇为何要弑母？还是以一种极其残忍的方式。
-2010年，父亲因肝癌去世。杀机就在那一刻，潜伏在吴谢宇脑里。“爸爸不在就不是一个完整的家。”肝癌除了带走父亲，还抽空了母亲的魂、吴谢宇的快乐。这个家原本就很沉默。父亲因工作经常不在家，母亲又极度克制，吴谢宇从小就很擅长伪装。他是「完美小孩」。做的每一件事，都围绕着同一个主题： 让别人舒心。
-父亲离世后，他同样如此。不曾表露过内心的痛苦，也没让母亲担心。这对母子，都在假装若无其事。
-这是真话吗？犯罪心理学专家武伯欣并不认可。他认为，吴谢宇不过是在合理化自己的犯罪行为。
-一个真正被戳穿的人，行为表现应该是慌张、悔恨，乃至痛哭下跪。但吴谢宇太镇定了。这种不合常理的状态，背后表达的可能是得意。因为谁也猜不透他。
-逃亡后，吴谢宇过上了新生活。与一般逃犯不同，他在四处躲藏外，还开启了放浪形骸的模式。
-他在酒吧、夜总会上班。与很多女性关系混乱。此前骗来的钱，几乎都花在彩票和嫖娼上。相关知情人曾透露，吴谢宇性欲极强，愿意为嫖娼花巨款，有时甚至一次叫两名性工作者。
-而吴谢宇也透露过，他知道自己存在性瘾问题。第一次看黄色电影后，他的性意识苏醒。他开始自慰。这原本是很正常的生理探索行为。但因为从小接受克己复礼的教育，他内心充满着负罪感。“觉得自己很脏。”
-他开始频繁浏览各种“戒色”相关的贴吧、论坛，试图摆脱自慰。 却发现越是恐惧，自慰频率越高。渐渐地，自慰成了他宣泄生活压力的方式。最终演变成性瘾。
-吴谢宇的演技炉火纯青。大学期间，他把和母亲通话当作一份作业。他每天收集有意思的段子，铭记自己的生活细节，只为了应付母亲的来电。
-这个习惯甚至延伸到了，他的两性关系中。对待异国的前任，他如法炮制。每天固定在美国时间早上8点给她短信，汇报行程，并且在末尾加上“我想你，日复一日”。
-吴谢宇前任曾表示，吴谢宇是她遇过最温柔的男生。从不会发脾气。无论什么时候都非常柔和。
-吴谢宇的八面玲珑简直众所周知。所有和他有过接触的人，都会对他印象非常好。
-他铭记每个同学的生日。掐点送上祝福。就连各种节日，他都不会过放过。最过分的是，这些信息都不是群发，而是独一无二的。
-学神。暖男。他活成了每个人的理想型。但人又不是机器，怎么可能做到去情绪、去个性化呢？
-真相是，吴谢宇从来都在演戏。案件发生后，吴谢宇的音乐社交账号被扒了出来。里面全都是重金属音乐。他最喜欢的一支乐队，曾用名“炼狱”。
-他的歌单里，收纳了大量“上帝羔羊”乐队的歌曲。这支乐队的logo，寓意是：拯救无可救药的灵魂。
-吴谢宇究竟为何弑母？我也许永远无法知晓真相。但我唯一能确定的是，这个看似完美的男孩，在前21年的人生，一直过着空壳生活。他从小没有话语权。只能按照，母亲的刻板教育为人处世。
-父亲是他生活的一扇窗。但2010年，这扇窗关闭了，夹在他与母亲之间的缓解墙坍塌。这对隐藏心事的母子，隔阂越来越厚。悲剧一夜发生。
-父亲绝不能缺席。父亲，天父，您绝不能缺席。父亲，您不能缺席。真好，也不会缺席。父亲一直在看着，知道着，拦阻着，保守着，等候着。不得已打击着，任凭我承受羞辱，用爱，用杖，希望我回转。尊敬父亲。正常生活。
-远离火烧的地狱，安居光明的天堂。耶稣，神的话语，真光。
-其实这也是基督教在中国传播并不值得很担心的原因。。。因为中国人永远无法成为真正的基督徒，中国人可以接受自己有罪，可以接受自己造过孽，可以接受自己上辈子造过孽，但一定无法理解为啥自己仅仅是生出来做人就有罪。。。按这个思路，上帝他老人家在中国的最终地位也就是一个新的洋许愿机，跟千百年来诞生在这片土地上的各种各样的用来许愿的神仙没多大不同，无非是你跟这边许了就不能跟别人许了。哦，这位还比其他神仙方便，因为这位接受你承认错误。我身边晚上诚心忏悔白天继续缺斤少两的商贩大有人在。。。
-用王德峰教授的话说，一个中国老太太虔诚祈祷时，想的不是“上帝啊，有一个罪孽深重的灵魂渴望您拯救”，而是“上帝啊，我儿子今年要高考了”。
-如果是 真* 野外生存 最好不要吃肠道。 野生动物的肠道里面有多种微生物，可能动物是无症状携带人吃了就倒。 如果食物处理的不好，或者没有煮熟（野外生存很正常），也许就拉稀拉死了。
-而且野生动物肠道寄生虫也比较多。。。
-野外求生应该是不吃内脏的，没条件处理干净，万一吃出毛病得不偿失
-其实肝肾脾淋巴这种代谢及免疫器官都不建议吃。饲养场所达标则没什么问题，但是一些“农家”牲畜根本就不能确定它们去过什么奇怪的地方，而上述提及的器官很容易富集重金属和其他毒素。
-结论：事实上处于缸脑中的人，不能有意义地说出“我是缸中之脑”这句话，因为在缸脑语“我是缸中之脑”中，“缸中之脑”并不指称一个物理的缸中之脑，而指称一串缸脑信号（不妨称为abracadabra）。换言之，在现实世界中“我是缸中之脑”这句话的语义是：
-我（自我主体）＝ 缸中之脑（一种现实的机械—生物装置中的大脑）  而在缸脑语中，“我是缸中之脑”这句话的语义是：  我（自我主体）＝ abracadabra（一串缸脑信号）  但是显然我本身并不是一串虚拟信号，而且这句话的意思显然不是现实世界中“我是缸中之脑”这句话想要表达的意思。
-总结：缸中之脑的思想实验并不是一个认识论思想实验，而是一个语义学思想实验。普特南利用这个思想实验探讨了某种语义学和指称理论在假想状态下的表现，并且论证了，在特定的语义学理论下，如果我们真的是缸中之脑，那么我们不可能有意义地讨论这一点，我们的语言甚至不能表述它。
-缸中之脑的前提就是，即使没有物体，只要有合适的电信号刺激，缸脑就会以为有一个物体。如果整个机制仅仅是将现实世界中真实的物体的信号传递给缸脑，那广义地讲，我们的神经系统就是这么一套机制。如果要说，即使没有物体A，我也可以把物体A的信号传给缸脑，那么问题就变成：既然这串信号不是来自于物体A，那么凭什么说这串信号是代表物体A的信号？如果回答“因为这串信号和来自物体A的信号相同（相似）”，那么问题是一样的：结构上的相似是指称相同的充分条件吗？
-他如果不合作了，求之不得啊。嗯。什么人和我不合作了我会害怕呢？答案就是，我在关系之中占尽便宜的合作。。。我占尽了人的便宜。无论是金钱上，是劳动上，都占对方便宜。。。Thu 25 Feb 2021 05:02:20 PM KST ，想着和houl兄合作吃饭。他如果有不满的话，能退合作，唉呀，那还真是，省钱了更好呢。因为吧，吃的味道好点，对我来说，没有也行的。反而我觉得是训练我享受没味的生活。多巴胺受体变多，那才真是美味呢。。。
-但妈妈呢？是生活上为我劳作，金钱上也是单向供应我。啊。。。我能给予什么呢？唉呀。。。想到了强制下款的人了。我爸妈和院长就是这种人，给你了，先不讲明，然后，还高利贷让你。。。直接不理了。再见。。。既然不是强制下款的人，那么，创造主要的是什么呢？嗯。我给予我电脑，付出劳动，又给钱提升，嗯，他正常的运行即可。陪我就行。啊。是我的，就是，和我一边的，和我一心的，嗯，和我为一的。。。嗯。。。这样就好，就好。。。我哪是给你啊，是给我自己的。嗯。毕竟，这个电脑是我的，不是别人的。嗯。心啊，太重要了。
-我是基督徒闪婚，被家暴。男方也是基督徒，他想要离婚，却逼我提出来。因为基督教规定，谁提出离婚罪归谁？
-神都跟你承诺了你顺服着就能达到人生巅峰的结果了，怎么你要寻求现世的舒适？ 不是死后上天堂的荣耀么？不要了？按照基督教的说法，“你的丈夫并不是虐待你，而是爱你。特别爱你。不爱你的人不打你。而且他打你是给你提供上天堂的助力。”（哈哈哈哈。真理，总是在属世的逻辑里这么搞笑。。。确实是的。受害者，忍耐，甚至，殉道，是极其荣耀的。享受与苦难，明显，苦难是更加有分量的。加害者，受害者，享受者，明显，加害者有罪该死，享受者无价值不必要，受害者当受怜悯。但，大家都想当享受者，或者，强大的加害者。。。啊。。。其实我也不愿意受害。直接一脚踹开欺负我的人，滚！！！）哥林多前书 1-21 世人凭自己的智慧，既不认识　神，　神就乐意用人所当作愚拙的道理拯救那些信的人，这就是　神的智慧了。    （自古以来，神的真理，在我们人所看来，都是愚拙的道理。。。）
-怎么这会不提“基督徒的婚姻不可以离婚，是给女人满满的安全感”了呢？现在大概是安全感多到炸裂了吧？这会怎么不提“信基督的男人都是好男人，都是最值得嫁的人”了呢？？ 值得嫁怎么要离呢？这会怎么不提“基督徒的婚姻有耶稣做中保，是最美满的婚姻”了呢？？中保人休息还是放长假了？
-（呃。。。我们使基督有了臭名。。。啊。。。主啊主啊的人们哪，使主蒙受羞辱的人，不 fear 天父照着父的心去行的人，和那些羞辱主名的人，是一起的。）
-我是基督徒，男方也是基督徒。我们是闪婚，现在领证快5个月，分居三个月。被男方家暴。男方，蓄谋已久想悔婚，却迟迟不提离婚，用语言和暴力来刺激我提出离婚。因为基督徒教有明文规定，谁提出来离婚，罪归谁，我该怎么办？
-一边说着全知全能，一边钻着漏洞。一边说自己虔诚，一边把神明主宰当傻子。我不是很懂这种教徒。（一开始我也想这样作恶的。不对，我是直接说明了要和她分手。但明显，上帝不想使我成为加害者，利用我的软弱，还是使我成了被怜悯的受伤害的一方。。。）（不想把上帝当瞎子。不要把上帝当傻子。太过分了。 Fear the Lord. )
-Jeremiah 北京，基督徒，路德宗，欢迎面谈，讨论请引用圣经。Thu 25 Feb 2021 05:28:22 PM KST ，看到这个问题有个人这样的签名。想说不讨论的。因为自己想说什么总能找到引用。甚至连魔鬼都能说出“经上记着说”这样的话。但是想想，耶稣也不是没和魔鬼讨论啊，而是，也是经上记着说。但明显，最终是看权柄的。耶稣有权柄。
-哥林多前书 4-20 因为　神的国不在乎言语，乃在乎权能。 (Power，这里的power，δυνάμει, 是指什么呢？神的能力？嗯。。。不懂了。。。啊。。。感谢神，又一次让我认识到自己的无知。。。我是无知的。。。）
-   律法的作用，是尊重造物主的秩序。不然，就比较乱七八糟。Feb 25, 2021 12:43:26 AM，做的worshipAndBible，上传的没有限制为md名字。上传别的必然有些乱七八糟的现象产生。文本也是。标题名这那或者不写，都可以。但，会造成各种乱七八糟。。。啊。。。按着用法用好不？各自的角色，作用，规定好了。按着规定来。尊重下造物主的心意。
-我已经知道造物主的心意了，不要轻贱了他显示给我的恩典。我要因他给我恩典，特意的侮辱他吗？我的神，这么的，信任我啊给我如此展示他的心意。我知道了，爱惜着。尊重着。我的神爱我，给我他的心意。我不能轻贱我的神。我要爱我的神。敬畏，fear. 
-提摩太伺候扫罗，是在福音的事工上了。Feb 25, 2021 1:05:03 AM，听着。想到了牧师在做些宣教的工作。服侍着他，也就同参与了吧。
-
-我天天在家呆的给他们煩的不得了。还好听说火车站开了，就要立刻出去看看有没有车票。Feb 25, 2021 5:40:23 AM，梦到。。。
-
-连门徒们都是过后才能明白当初耶稣的话。Feb 25, 2021 6:22:51 AM，想到人的无奈。不懂的太多了。能懂的太少了。都得过后，才能明白。啊。众人皆醉。。。独醒者是寂寞的。只能寻找相信他的人了。。。毕竟，理解明白他的人是不存在的。。。
-
-梦中，抱着天羽姐姐的胳膊睡了一觉。。。老幸福了。。。但原型应该是，嗯，激素。。。欺骗才是最美的啊。真实怎样，都不满意。。。然后还和之前和梦接上了在思维上。我妈要让我去哪里我说已经说了今天要走了。。。Feb 25, 2021 7:39:52 AM，梦。。
-话说，梦本来就是假的啊。。。啊。。。最幸福的，就是最假的。。
-我弟弟曾在我扫地的时候说:"姐,我帮你"于是我把扫帚放一边准备看他扫地的飒爽英姿(刚满七岁,很少干活),
-他看见我不动了对我说:"你也扫我也扫,这才叫我帮你"。
-君不见中国有非常政治正确的古话叫做闷声发大财，自认为聪明的商人把产品的参数和细节拿出来还被人骂，而其他聪明的商人正在大把大把的收着钞票。
-
-梦见喜欢的人，不知道谁，给了我些头发。我老幸福了。。。啊。梦里，欺骗，幸福～Feb 25, 2021 3:13:04 PM，想到。。。话说，梦里还回忆到了之前和人一台电脑两玩家呢。梦里还想到为什么最近要离开，是因为金光亮要来，我当然得和她一起过。。。
-梦里我都不清楚是谁都那么幸福。。。直接证明了爱情的幸福感，本质上是激素。。。话说，还能是什么啊。。。尴尬。。。
-其实结果已经出来了，慌啥呢。。。Feb 25, 2021 8:09:42 PM，想着托福成绩，今天没查到，可能明天后天能看到。有点慌。怕考不好。然后想想，不对，已经考过了。。。结果也应该已经出来了。。。只是没公布现在。。。啊。主啊，求你保守我，考前是好好的准备训练的。。。
-已经过了啊。。。就像人生。不对，人生还没完，还在准备训练中。主啊，求你保守我，好好的准备着训练着，直到，您的天国。
-
-
-
-
-
-Her: "I am vegan, genderfluid and a feminist. I support Black lives matter, Antifa and Communism." Me: *trying to impress her* "I am also useless piece of shit." 
-vegan严格的素食主义者医】 绝对素食者fluid流动的, 可改变的Communism共产主义
-Antifa is a left-wing anti-fascist and anti-racist political movement in the United States.
-fascist法西斯主义者, 法西斯党员racist种族主义者
-Sometimes, no amount of hotness is worth wallowing in an unflushed toilet.
-hotness暑热, 热烈, 热心wallow打滚, 沉迷, 颠簸
-Stop saying everyone is beautiful. There is a chance that even if you’re not beautiful like the above people, someone finds you attractive. Yes, I find some really odd- looking guys attractive. I’ll admit this. I’ve had four of five people in my lifetime squint at me long and hard and say “you’re really attractive”. But I know that I’m not the kind of pretty that everyone finds pretty.
-odd-looking样子古怪的,怪的squint斜着眼；眼睛斜视 眯着眼看 
-Stop telling young girls and boys that they are beautiful to give them some sort of shallow self-esteem boosts, but instead teach them that it doesn't really matter. Teach them to treat everyone equally.
-shallow肤浅的；浅薄的 boost推动，促进 增长，提高 matter要紧，有重要性 
-Teach them to not let someone’s appearance be the sole factor in their judgement, that good looks can never replace good manners, and that good looks don’t ensure you happiness, peace of mind, or a sense of fulfillment. Groom kids to be kind and to find beauty in everything, but also strong enough to bear it when someone doesn't find them beautiful.
-looks仪容 Groom使（某人）整洁；打扮 
-I'm working until today, and I'm out of the office from tomorrow. I worked really hard to serve you with love. I'm so sorry if there's a student who's hurt by me. And now you can call me as a close brother/friend/brother. I'll be in Yeongdo, so feel free to contact me whenever you're hungry or want to hang out. Lastly, I love you so much ♥ Shalom ♪
-
-Which are the most inoffensive and friendliest animals on Earth? Probably this dude……We call it the Capybara. The pics shown below will definitely prove my point.
-dude男人，家伙 Capybara水豚
-Who can he not make friends with? I’d like to award him a badge for being the master of socialising.
-socialise参加社交活动, 发生社交往来
-Do not put a lot of money into Bitcoin if you haven’t been in crypto for longer than a year and if you’re not familiar with stop losses!
-crypto“隐匿的,秘密的” 秘密成员, 秘密赞同者 stop loss【经】 扭亏 免损限度
-I used to think that crocodilians were just large reptiles that ambush their prey when it approaches the water and eat it. When you dig a little however, you find a highly complex and advanced animal.
-crocodilian鳄鱼ambush埋伏；伏击 
-They can't just die out of hunger, because they will slow their metabolism and endure for months. Additionally, they have been observed using branches as tools, in order to lure birds. This behaviour is deliberately done, as it is only observed during spring, when the need for the construction of the nest arises.
-metabolism新陈代谢deliberately有意的，故意的 
-They can't just die when they lose a limb because their body prevents the spread of possible diseases and infections and completely heals.
-limb肢，肢体；
-They can't just freeze to death, even though they're ectothermic, because they will stick out their nostrils and continue living frozen, for even a week, by adjusting the flow of oxygen in their bodies. It's called torpor. (only alligators however)
-ectothermic[ˈɛktəʊθə:m]外温动物，冷血动物，变温动物。torpor麻痹，麻木，呆滞，懒散 alligator短吻鳄，鼍 
-They can't just get sick by bacteria found in the environment and food because their immune system is unparalleled. So much so, that scientists want to use it to prolong our lives. It has been observed that the immune system of crocodilians is extremely advanced. During an experiment, when human blood was exposed to 23 strains of bacteria, it managed to exterminate 8 of them, while crocodile blood easily annihilated all 23 strains!
-unparalleled独特的；无比的 parallel平行的 并存的；类似的；相对应的 strain系，品系；品种，种类 exterminate根绝；灭绝；消灭 annihilate毁灭;摧毁 
-They can't just miss their prey frequently because they have sensory organs (ISOs) that detect pressure changes in the water.
-sensory感觉的；感官的 
-They can't just die out of dehydration because they have glands that control the absorption of salt. (most big crocodiles but mainly Saltwater crocodile)
-dehydration脱水 absorption（被）吸收；（被）合并 
-They can't just drown when they attempt to swallow their prey because they have evolved an organ (palatal valve) which seals their esophagus and trachea/windpipe to prevent flow of water.
-palatal(技)（与）腭（有关）的 valve阀，活门，气门 esophagus同 oesophagus.食道，食管trachea气管 windpipe气管
-As you can see, I tossed in an alligator fact. It was too cool to pass.
-toss轻轻地（或随意地）扔，抛，掷 (toss in)alligator短吻鳄，鼍 
-When it comes to such a marvel of nature, one can only have awe and admire this evolutionary champion.
-marvel令人惊奇的人（或事物）；奇迹 
-Note: Thank you everyone for reading and upvoting this answer. In less than a week, it climbed up to 10,000 upvotes and previously I didn't even imagine my answers surpassing 1,000 upvotes. I am very satisfied with the great responses, they make me believe that many have changed their opinions about this amazing predator and now admire it more.
-
-In fact it’s described as ‘king of beasts’ in scripture: “There is nothing like it on the earth, A creature made to have no fear. It glares at everything that is haughty. It is king over all the majestic wild beasts.”
-glare怒目而视；瞪眼看 haughty傲慢的，盛气凌人的 majestic雄伟的，壮丽的；庄严的，庄重的 
-Hello! I gave you the national health insurance information before. The National Health Insurance is personally notified of the insurance notice and has to be paid personally. However, private insurance coverage is also necessary for the safety of our international students. Therefore, I would like to proceed with private insurance collectively for students' convenience. Private insurance is about 55,000 won ($50) per year and 4,500 won per month. The part where the national health insurance is not guaranteed can be guaranteed. The reasons why private insurance is needed separately include death due to injury or illness, domestic hospitalization costs, and any possible MRI(magnetic resonance imaging) examination costs. And most of all, if you cause damage to other people's bodies or property, you can apply. So the international exchange team thought that private insurance was also necessary for our international students. We want to maintain the private insurance that we have signed up for at a low cost of 4,500 won a month, so please be aware of it. We will guide students who need to be renewed later.If you have any questions, please contact me personally.Good evening. Thank you.
-collectively集体完成（或进行）的，集体的 MRI magnetic resonance imaging磁共振成像exchange交谈；争论 交换；互换 renew更换 重新开始，继续进行 
-My cat was abandoned by his feral mother at just four weeks of age. She rejected him, and I found him alone after a rainstorm one night, crying and tangled up in a bunch of overgrown vines. I took him in, warmed him up and got him some kitten formula.
-feral（尤指动物）野（生）的；未驯服的 tangle缠结 纠结 bunch一束，一捆，一串 vine藤本植物；葡萄 藤， 蔓kitten幼猫 formula配方 制剂 婴儿配方奶粉
-Our story begins as many stories do, with a certain magnificent king.
-magnificent壮丽的，华丽的；豪华的；宏伟的 
-Now Frederick was a great many things. A writer, artist, bureaucrat, pseudo-German nationalist and possible homosexual. But what he was first and foremost was a military genius. Frederick very early in life acquired a knack for leading men. It helped that he inherited a huge military and an extremely militaristic culture. Frederick quickly turned the Prussian army into one of the most formidable forces in Europe. Unfortunately, Frederick was still human and he did make one very big mistake. He started the Seven Years War.
-Frederick腓特烈 德意志国王、神圣罗马帝国皇帝bureaucrat官僚，官僚主义者pseudo伪的，假的；冒充的；仿真的 虚伪的；不真诚的 nationalist民族自决主义者 爱国者（尤指认为自己国家更为优越的人）knack诀窍；技能   Prussian普鲁士formidable大得令人生畏的，可怕的；令人惊叹的；令人钦佩的 
-
-
-
-
 주제: 공동체 생활 중에서 깨닫게 된 것.
-
 
 우리 엄마, 안녕하세요. 
 
-
 잘 지내셨어요? 날씨가 점점 차가워져서 몸을 조심하세요. 
-
-
 
 저 요새 베트남 학생들과 같이 살게 되었어요. 제가 형이라서 그래서 같이 사는데에 돈을 조금 많이 들었어요. 이렇게 같이 지내보면서 불만이 점점 생겼어요. 
 
 같이 생활하는데에 당연히 많이 주는 사람도 있고 적게 주는 사람도 있어요. 똑같이 줄 수 실상은 없어요. 게다가 똑같이 줄 수 있어도 똑같이 먹고 마실 수 없어요. 아마 이래서 우리 이시대의 사람들은 각자 자기만 혼자 생활하는 것을 선택해요. 
 
-
-
 이렇게 생각해서 엄마와 같이 생활하는 것이 생각났어요. 우리 같이 살았을때 제가 주는 것은 하나도 없어요. 모든 것, 돈부터 시간까지 다 엄마께서 주셨어요. 아, 엄마께서 왜 이렇게 할 수 있어요? 엄마께서 계산하는 것 못하셔나 봐요. 
-
-
 
 그 다음에 하나님의 생각이 떠올랐어요. 하나님이 우리한테서 아무것도 받지 못해요. 그저 주실 수 밖에 없어요. 왜 하나님이 이렇게 하세요? 왜 하나님이 불만이 없어요? 
 
 제가 또다시 제가 불만이 생긴 것을 생각하게 되었어요. 제가 왜 불만해요? 제가 주면 적어져서 없어졌어요. 그래서 없어진 것에 대신에 불만으로 채워졌어요. 바울의 말처럼 우리 주님의 은혜가 지극히 풍성해요. 우리에게 생명까지 주셔도 불만이 없는 것은 그가 버릴 권세도 있고 다시 얻을 권세도 있어요. 능력은 그분께 있어요. 
 
-
-
 우리 엄마는 나와 같은 능력이 없는 인간이라서 제게 주시면 자기것이 적어져서 없어질거에요. 이래서 엄마에 대해 엄청 미안하고 감사해요. 엄마 같은 사람은 만나 본 적이 없어요. 그리고 엄마를 만나봐도 이해하지 못해요. 
-
-
 
 하나님이 우리를 만들어 주시고 생명을 주셔서 그가 원하는 것 무엇이에요? 우리랑 같이 영원히 사는 것이에요. 그분이 사랑하시고 우리가 순종하는 방식으로 영원히 같이 살아요. 우리는 바로 그의 것이에요. 
 
 그의 것이 되고 그의 양으로 그를 따라가는 것은 그가 원하신 것이고 우리의 행복이에요. 
 
-
-
 이렇게 보고 제가 엄마를 떠나가는 것은 잘못했어요. 엄마랑 매일매일 같이 있어야 되는데 제가 왜 떠나가요. 엄마의 것이 다 내것인데, 내것이 엄마의 것이 되지 못해서, 아니, 내가 엄마의 것이 되지 못해서 미안해요. 
 
 이게 하나님 아버지와 아들의 관계에 대해 말하는 것이에요. 
-
-
 
 아무튼 엄마께서 오시면, 아니면 제가 엄마께 가게 되면 좋겠어요. 
 
 하지만 염려가 있어요. 이 세상은 저주 받는 세상이라서 제가 엄마랑 같이 사는 것은 목적이 되지 못해요, 그저 저 하늘에서 하나님이랑 같이 사는 것을 알게 해 주는 모형이에요. 
 
-
-
 세상의 모든 것은 다 목적이 되지 못해요. 심지오 메시야께서 이 세상에 오셔도 이 세상을 목적으로 하는 것이 아니에요. 
 
 진짜 헛된 세상이군요. 
-
-
 
 다행이, 제가 선택할 수 없어서 선택하는 고민이 없어요. 이게 다 엄마의 손안에 있는 것이에요. 말하자면, 엄마의 말씀 같이, 하나님 아버지께서 하신일에 순종할 수 밖에 없어요. 
 
 다행이, 하나님 아버지께서 하신 일이 선하신 일이에요. 이래도 선하고 저래도 선해요. 일이 어떻게 된지에 상관없어 하나님은 선하신 분이세요. 우리는 그 분의 것이에요. 선하신 그분. 
 
-
+YES
+332?
 
 주제: 오전에 교수님과 사모님에게 설교를 했다.
 
 우리 엄마, 잘 지내셨습니까? 
 
-
 오늘 부산 날씨가 아주 화창해요. 좀 춥기는 했지만 햇빛이 있어요. 
-
-
 
 몇일 전에 우리 김영산 교수님이 제게 이번 주일의 설교를 하라고 했어서 설교를 준비했어 오늘 오전에 설교를 했어요. 하지만 모이는 사람은 교수님하고 사모님, 저 세명밖에 없어요. 
 
-
-
 제가 오전에 모이는 장소에 들어가자 교수님이랑 사모님만 있는 것을 보고 오늘 다들 안 오는 것을 알게 되었어요. 지난 주 그들이 토픽 시험때문에 안 와서 그래서 이번주 당연히 안 오는 것을 더 쉽게 할 수 있어요. 이게 마지막 세대의 특징이에요. 
-
-
 
 예배 끝난 후 우리 같이 점심을 주문하여 먹었어요. 사모님이 음식이 이렇게 맛있는데 다들 안 와서 아쉽다고 했어요. 또 설교에 대해 좋다고 하고 다들 안 들었어 아쉽다고 했어요. 
 
 하지만 제 생각은 달라요. 제가 그들이 안 오는 것에 대해 엄청 감사해요. 왜냐하면 좋은 사람이 안 와서야 저 같은 못된 사람이 올 수 있어요. 
 
-
-
 우리 예수님의 비유를 봅시다. 잔치를 베풀고 많은 사람을 청하는 사람이 있는데, 하지만 초청장을 받은 사람들이 밭을 사고 소를 사며 장가 들었어서 안 왔어요. 이래서 그 사람이 노하여 종에게 이르되 "가난한 자들과 몸 불편한 자들과 맹인들과 저는 자들을 데려오라" 했어요. 
 
 저 같은 사람은 아주 못된 사람이에요. 가난하고 몸이 약하며 볼 눈이 없고 다리 힘이 없어요. 그들이 만약에 주인의 잔치에 가기를 원하면 주인의 잔치에 제가 어떻게 들어갈 수 있어요. 자격이 없어요. 그리고 엄마의 아들로 하는 데에도 자격이 없어요. 하지만 자격이 있는 사람이 원치 않았어서 이래서 은혜가 자격이 없는 제 머리위에 임하셨어요. 그 잔치에 들어가게 해 주시고 주 예수 그리스도를 입게 해 주셨어요. 행복해요. 
-
-
 
 감사해요. 은혜를 주신 하나님께, 은혜를 거절하는 자격이 있는 자들에게. 
 
 하지만 그 사모님이 다들 안 오는 것에 대해 아쉽다고 생각했는데, 하나님이 안 오는 좋은 사람들에 대해 아쉽다는 느낌이 있어요? 우리 엄마께서 엄마의 아들이 되지 않는 좋은 사람에 대해 아쉽다는 생각이 있어요?
 
-
-
 몰라. 아무튼 일이 이렇게 되었어요. 이미 우리에게 예수 그리스도를 입게 해 주셔서 그가 어떻게 예수님을 무시하고 우리를 내쫓을 수 있어요. 
 
 때론 엄마가 나를 안 사랑할까 봐 걱정 있을 때 엄마께서 주신 은혜를 세어보고, 응, 김광량:795040min, 김광량:175447rmb, 아, 걱정할 필요 없어, 엄마께서 나를 사랑하지 안해도 그가 자기가 준 돈과 시간을 무시할 수 없어요. 그래서 걱정 할 필요 없다. 안심이다. 
-
-
 
 안심이다. 제가 받은 은혜때문에 제가 부족해도 안심해요. 은혜를 주신 엄마께 감사해요. 
 
 그리고 최종적으로, 모든 신령한 복을 하늘에서 내려주신 하나님께 감사해요. 영광이 그분께 있습니다. 아멘. 
 
 
+YES
+638
+
 
 주제: 예수님이 돈을 주냐는 질문에 대해
 
 우리 엄마, 안녕하세요. 
 
-
-
 오늘 편지 두편을 썼어요. 말하고 싶은 것이 있어서 그래서 엄마께서 귀찮아도 말씀드리고 싶어요. 
 
-
-
 실상은 이 편지를 썼는데에 내 생각을 정리하기도 해요. 
-
-
 
 아까 저녁을 자우(요리해 주신 사람)라는 베트남 친구하고 같이 먹었는데 그가 갑자기 예수님이 형님에게 돈을 주냐고 물어봤어요. 좀 어색해요. 예수님이 돈을 안줘눈데 따라가는 이유를 어떻게 말해요? 예수님이 돈을 안 준다, 하지만 예수님이 음식을 준다, 예수님이 돈이 없다고 생각하면서 말했어요. 또 학교가 돈을 주냐고 물어봤어요. 안 준다고 대답했어요. 
 
 이 친구가 몇주전에 5층 허우라는 형님이랑 같이 교회 다니기 시작했어요. 그의 말에 의하면 교회는 교회라는 단어아니고 예수님이요. 그래서 예수님이 돈을 주냐는 질문은 아마 교회가 돈을 주냐는 것 같아요. 
 
-
-
 교회가 그 친구를 교회까지 데려가는 5층 형님에게 학교를 통하여 돈을 줘요. 
 
 아마 이래서 그 친구가 저에게 그렇게 질문했어요. 저도 예수님을 믿고 교회 다니는 사람이니까요. 
 
-
-
 조금 이따가 그 친구가 내일부터 밥을 같이 안먹고 오전부터 공장에 가서 일하겠다고 말했어요. 공부를 포기하는 것 같아요. 또 그 친구가 돈을 부모님께 준다고 말했어요. 베트남에서 돈 조금, 한국에서 돈을 많이 준다고 해서 저도 어쩔수 없이 맞다고 했어요. 
-
-
 
 생각은 진짜 많아요. 먼저 우리 조직신학 교수님의 "교회 목사님이 부자라면 신자들에게 위로가 되지 못하다"는 말씀이 생각났어요. 
 
 예수님의 가난, 낮음 같은 고난은 항상 우리 그를 믿는 자들에게 위안이 돼요. 제가 자기가 가난하다고 하면서 계속 계속 예수님을 믿을 수 있는 것은 예수님이 나보다 더 가난하기 때문이에요. 제가 제일 가난한 날에도 나보다 더 가난한 예수님이 위로가 돼서 가난해도 예수님을 믿을 수 있어요. 
 
-
-
 제가 학력이 부족해도 학력이 없는 예수님이 위로가 돼요. 바울은 로마인이라서 때론 바울에게서 상처를 받아요. 만약에 바울은 성공한 인생을 살 수 있다면 제가 진짜 신약성서 읽기 어려울 거에요. 지금까지 제가 아가서를 읽을 때 긍정적인 생각보다 부정적은 생각이 더 많아요. 그리고 아가서의 호화스럽고 사랑 받는 솔로몬과 가난하고 천시받는 예수님을 대조하여 설교를 해본 적이 있어요. 
 
 저 같은 사람에게는 아가서에서 위로를 받을 수 없어요. 그저 아가서의 솔로몬을 비교하여 아가서의 솔로몬과 정반대되는 예수님에게서 위로를 받을 수 있어요. 솔로몬은 나를 이 세상에서 절망하게 만든 사람이에요. 아마 세상에 대해 절망하는 것은 저에게 준 아가서의 은혜에요. 그리고 아가서의 솔로문을 떠나가고 예수님께 돌아가게 만들어 줬어요. 
-
-
 
 근데 예수님이 부자인 솔로몬 보다 줄 돈이 없어서 왜 예수님을 주목하나요? 제 답은 예수님이 말씀이라서 돈보다 천배 더 좋아요. 
 
 여기서 또다시 위로를 받았어요. 저도 돈이 없는데 왜 살아요? 제가 예수님을 전해서 그 귀한 말씀때문에 저도 돈보다 백배나 더 좋아요. 
 
-
-
 돈이 없으면 벌어야 된다는 소리가 많아요. 그 친구가 이렇게 했어요. 예수님이 돈을 벌수 없어요? 아니요. 하나님과 재물을 겸하여 섬기지 못하다고 예수님이 이렇게 말씀하셨어요. 
 
 겸하여 섬길 수 있다는 소리가 많아요. 심지어 돈이 있어야 하나님께 드릴 수 있다는 소리가 있어요. 이 말이 이치에 맞아요. 우리 심목사님도 이렇게 말씀하신 적이 있어요... 아마 이말이 바로 그분께서 들은 것 같아요... 
-
-
 
 아무튼 예수님이 돈이 없고 다른사람에게 줄 돈도 없어요. 그의 제자들도 그와 같이 돈이 없어요. 무엇을 얻을까 하는 생각에 은과 금은 내게 없다는 소리와 같이 기적이 일어났어요. 
 
 그래서 오늘날에도 제가 은과 금은 내게 없다고 하고 예수님의 이름을 전하겠어요. 기적은, 아, 제가 역시 돈 많아요. 최소한 말해도 기적을 할 수 있는 예수님과 제자들보다 돈 엄청 많아요... 
 
-
-
 아이구, 제가 돈이 있구나... 아마 이래서 그 친구가 저에게서 위로를 받지 못해요. 오히려 열등감이 생겼어 상처를 받았나 봐요. 
 
 욥기를 읽어서 우리가 위로를 받은 부분은 어디에요? 처음과 끝의 풍성한 소유물인가요? 아니요. 중간에 있는 욥의 고난이에요. 
-
-
 
 처음 제가 박사를 얻겠다는 소리는 실상은 속았어서 그렇게 말했어요. 박사, 석사누나를 만나서 그래서 그런 좋은 학력을 받고 싶게 되었어요. 하지만 그들과 같이 2년 동안 지내서 진짜로 그들과 아무 말도 하기 싫어요. 진짜로 학력은 아무것도 아니요. 아니, 모르는 사람에게 아주 중요한 평가 기준이에요. 처음에 저도 이렇게 좋은 평가를 해서 그들처럼 좋은 학력을 받고 싶었어요. 
 
 제가 하는 이말에 아마 "니가 학력이 없어서 그래서 이렇게 말하다"는 말이 있어요. 하지만 돈이 없는 예수님이 그렇게 말씀하실 수 있으면 학력이 없는 제가 이렇게 말해도 괜찮은 것 같아요. 
 
-
-
 지금 제가 어제 생각하는 것을 엄마에게 말해줄게요. 제가 이 학업을 중지하고 복음을 전하고 싶어요. 더 높은 학력을 추구하는 것을 포기하고 싶어요. 제가 그 높은 학력이 신자들에게 위로가 되지 못하고 오히려 지장이 될 수 있다고 생각해요. 
 
 하지만 이 세상에서 신자들도 학력을 보고 따라가는 것을 좋아해요. 아마 그 친구처럼, 예수님이 돈을 주냐? 예수님이 학력이 높냐?는 질문이 있어요. 
-
-
 
 이래서 예수님을 믿지 않는 자들이 생겼어요. 돈을 보고, 학력을 보고, 지위를 봐서 예수님을 믿지 못하는 사람이 많아요. 
 
 니가 십자가에서 내려오면 우리가 믿겠다는 소리가 있어요. 예수님이 복음을 전하고 싶으면 당연히 그들을 믿게 해야 되지만 예수님이 그렇게 하지 않았어요. 
 
-
-
 믿지 않는 자들이 있어야 돼요. 그리고 믿는 자들이 적다고 하면 믿지 않는 자들이 많아야 돼요. 이렇게 보면 제가 학력이 없어서 학력을 보기 좋아하는 신자들에게 부딪칠 돌이 되면 제 잘못이 아니요. 돈이 없고 지위가 없는 예수님이 부딪칠 돌이 되는 것은 예수님의 잘못이라고 말할 수 없어요. 
 
 그래서 제가 이 학업을 포기하고 싶은 것일뿐만 아니라 제가 심지어 얻은 대학교 졸업장도 버리고 싶어요. 기회가 되면 할게요. 
 
-
-
 예수님은 걸림돌과 거치는 바위가 됐어 그를 믿는 자는 부끄러움을 당하지 아니하리라는 기록이 있어요. 이 세상에서 돈과 지위없어서 천시당하고 멸시당하며 심지어 죽임을 당하여도 부끄러움을 당하지 아니하리라. 
 
 영광이 부활하신 예수님께 있습니다. 
-
-
-
-
-
 
 

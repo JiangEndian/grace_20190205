@@ -1,5 +1,7 @@
 每天的先操练，先长壳子。。。
 
+每天需要加上明天要看的圣经，和歌曲。圣经可直接加一个删除一个文本。歌曲呢，就弄个单文件吧，一天查两个歌词。先歌曲。
+
 20210128
 
 Note class by English use keyboard, check it by Gmail, and save it in my database. 

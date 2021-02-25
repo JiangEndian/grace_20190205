@@ -178,8 +178,8 @@ try:
         #showOneDay(i)
         #print('___________________________\n')
         #print('___________________________')
-    print('___________________________')
-    print('Year\t\tMonth\t\tWeek\t\tCommon\t\tAll\t')
+    #print('___________________________')
+    #print('Year\t\tMonth\t\tWeek\t\tCommon\t\tAll\t')
     #for i in range(8):
         #print('%s: %s---------------' % (getdaystime(i), showOneDaySimple(i)))
         #showOneDay(i)
