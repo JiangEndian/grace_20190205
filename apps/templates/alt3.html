@@ -56,11 +56,11 @@
     {% endifequal %}
     
     {% ifequal every_info 'week' %}
-        {% include "input_cmd_default2.html" %}
+        {% include "input_cmd_default8.html" %}
     {% endifequal %}
 
     {% ifequal every_info 'month' %}
-        {% include "input_cmd_default2.html" %}
+        {% include "input_cmd_default8.html" %}
     {% endifequal %}
 
     {% ifequal every_info 'year' %}
@@ -80,15 +80,15 @@
     <pre style="white-space: pre-wrap; word-wrap:break-word;">
         {{ con }}
     </pre>
+    </font>
     <font size="5">
     {% if env %}
         {{ env }}
     {% endif %}
-    </font>
-    <font size="5">
     <div>
     <hr>
     <u>{{ every_info }}</u>
+    </font>
     </div>
     <hr>
     {% if next_con %}
@@ -98,13 +98,24 @@
     <audio id="myAudio1" autoplay src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     <audio id="myAudio2" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     <audio id="myAudio3" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
-    <script>
+    <script type="text/javascript">
         var loop_times = 1
-        var loop_times_all = 2
+        var loop_times_all = 7
         var aud1 = document.getElementById("myAudio1");
+        function sleep(ms) {
+            var date = new Date();
+            var curDate = null;
+            do { curDate = new Date();}
+            while(curDate-date < ms);
+        }
+
         var aud2 = document.getElementById("myAudio2");
         var aud3 = document.getElementById("myAudio3");
+        //console.log('hi')
         aud1.onended = function() {
+            DurationMs = aud1.duration * 1000;
+            sleep(DurationMs)
+            console.log(DurationMs)
             ++loop_times
             if (loop_times > loop_times_all){
                 document.getElementById("form").submit();

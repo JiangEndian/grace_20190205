@@ -2,6 +2,16 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.safestring import mark_safe #for tranfer html code
 from tableDefine import * #导入自定义的东西
+import re
+def replaceOthers(Text):
+    replaceInfo1 = re.compile('\[.*?\]')
+    replaceInfo2 = re.compile('<.*?>')
+    replaceInfo3 = re.compile('[ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ]')
+    Text = replaceInfo1.sub('', Text)
+    Text = replaceInfo2.sub('', Text)
+    Text = replaceInfo3.sub('', Text)
+
+    return Text.replace('\n', '\n\n').replace('  ', ' ')
 
 ##现在的任务是：
 global my_dict
@@ -181,6 +191,8 @@ def worshipAndBible(request):
         #my_dict['VideoEnv'] = mark_safe('''<br/><video controls preload loop autoplay width="320" height="240" src="/static/grace_voice/TOEFL/%s" type="video/mp4"></video><br/>''' % my_dict['ext'])
         my_dict['VideoEnv'] = my_dict['ext']
     #context的'hello'对应模板html的变量{{ hello }}
+    my_dict['con'] = replaceOthers(my_dict['con'])
+    my_dict['env'] = replaceOthers(my_dict['env'])
     return render(request, 'worshipAndBible.html', my_dict)
     
 

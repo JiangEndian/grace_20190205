@@ -115,6 +115,11 @@ def alt3(request):
             my_dict['con'] = e_info[2]
             my_dict['env'] = e_info[3]
             my_dict['ext'] = e_info[4]
+            
+            #添加补充内容，可以直接生词记录进去
+            my_dict['NewWord'] = e_info[5]
+            #添加补充内容，可以直接生词记录进去
+            
             my_dict['every_info'] = 'year'
             #20200302更新：添加获取下一条的预读
             next_info_index = temp_info.index(e_info)+1
@@ -129,6 +134,11 @@ def alt3(request):
             my_dict['con'] = e_info[2]
             my_dict['env'] = e_info[3]
             my_dict['ext'] = e_info[4]
+            
+            #添加补充内容，可以直接生词记录进去
+            my_dict['NewWord'] = e_info[5]
+            #添加补充内容，可以直接生词记录进去
+            
             my_dict['every_info'] = 'month'
             #20200302更新：添加获取下一条的预读
             next_info_index = temp_info.index(e_info)+1
@@ -143,6 +153,11 @@ def alt3(request):
             my_dict['con'] = e_info[2]
             my_dict['env'] = e_info[3]
             my_dict['ext'] = e_info[4]
+            
+            #添加补充内容，可以直接生词记录进去
+            my_dict['NewWord'] = e_info[5]
+            #添加补充内容，可以直接生词记录进去
+            
             my_dict['every_info'] = 'week'
             #20200302更新：添加获取下一条的预读
             next_info_index = temp_info.index(e_info)+1
@@ -159,6 +174,11 @@ def alt3(request):
             my_dict['con'] = e_info[2]
             my_dict['env'] = e_info[3]
             my_dict['ext'] = e_info[4]
+            
+            #添加补充内容，可以直接生词记录进去
+            my_dict['NewWord'] = e_info[5]
+            #添加补充内容，可以直接生词记录进去
+            
             my_dict['every_info'] = 'common'
             #20200302更新：添加获取下一条的预读
             next_info_index = temp_info.index(e_info)+1
@@ -197,17 +217,22 @@ def accept_cmd_alt3(request):
     request.encoding='utf-8'
     every = request.GET['every']
     cmd = request.GET['cmd']
-    print('every:%s, cmd:%s' % (every, cmd))
+    if request.GET['NewWord']:
+        if my_dict['NewWord']:
+            my_dict['NewWord'] = my_dict['NewWord']+'\n'+request.GET['NewWord']
+        else:
+            my_dict['NewWord'] = request.GET['NewWord']
+    #print('every:%s, cmd:%s' % (every, cmd))
     #处理前打开数据库连接
     create_database_link()
     ############处理年的##############
     if every == 'year':
         if cmd == '8':
             every_year.delete('Other2',my_dict['ext'])
-            every_month.add(Day=getnowtime('d'), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
-            common.add(Ymd=getdaystime(1), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
-            common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
-            common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
+            every_month.add(Day=getnowtime('d'), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
+            common.add(Ymd=getdaystime(1), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
+            common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
+            common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
         elif cmd == '2':
             every_year.delete('Other2',my_dict['ext'])
         every_year_info.pop(0)
@@ -216,24 +241,24 @@ def accept_cmd_alt3(request):
     elif every == 'month':
         if cmd == '8':
             every_month.delete('Other2', my_dict['ext'])
-            every_week.add(Day=getnowtime('week'),Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
-            common.add(Ymd=getdaystime(1), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
-            common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
-            common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
+            every_week.add(Day=getnowtime('week'),Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
+            common.add(Ymd=getdaystime(1), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
+            common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
+            common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
         elif cmd == '2':
             every_month.delete('Other2', my_dict['ext'])
-            every_year.add(MonthDay=getnowtime('md'),Con=my_dict['con'],  Other1=my_dict['env'], Other2=my_dict['ext'])
+            every_year.add(MonthDay=getnowtime('md'),Con=my_dict['con'],  Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
         every_month_info.pop(0)
         dump2file('language_voice_diction_english/4web_restudy/every_month_info', every_month_info)
     ############处理周的##############
     elif every == 'week':
         if cmd == '8':
-            common.add(Ymd=getdaystime(1), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
-            common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
-            common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
+            common.add(Ymd=getdaystime(1), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
+            common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
+            common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
         elif cmd == '2':
             every_week.delete('Other2', my_dict['ext'])
-            every_month.add(Day=getnowtime('d'), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
+            every_month.add(Day=getnowtime('d'), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
         every_week_info.pop(0)
         dump2file('language_voice_diction_english/4web_restudy/every_week_info', every_week_info)
     ############处理Common的##############
