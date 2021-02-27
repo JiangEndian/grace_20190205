@@ -28,8 +28,9 @@ def addEveryWeek():
     #if not input('Input YES to confirm it:') == 'YES':
         #exit(0)
     con = '\n'.join(all_con_list)
-    print(con)
-    env = input('mean:') #[ɪnˈvaɪrənmənt]环境
+    #print(con)
+    env = ''
+    #env = input('mean:') #[ɪnˈvaɪrənmənt]环境
     f_name = '%s/wavFile%s' % (dir_name, str(voice_number))
     voice_number += 1
     
@@ -139,7 +140,7 @@ try:
     #showOneDay()
     while True:
         addEveryWeek()
-        exit(0)
+        #exit(0)
 
 finally:
     closedb(conn,cursor)

@@ -26,7 +26,7 @@ f.readinto(buf)
 
 listTemp = []
 oneFlag = False
-spaceLength = 25000 #44100每1s停顿, 分割大空白的*0.n左右,小空白的1.m左右
+spaceLength = 25000 #44100(可能要*2)每1s停顿, 分割大空白的*0.n左右,小空白的1.m左右
 #这个,大空白*0.n = 小空白*1.m,则大空白*0.n/小空白=1.m,大空白/小空白=1.m/0.n
 #nm从1.1-9.9,则大空白是小空白的,(10+m)/n, Maximum m and Minimum n 为18倍的分割空白
 #Maximum n and Minimum m 为1.12倍的分割空白.那谷哥翻译的,直接把要分割的地方,弄成两倍其他空白即可
