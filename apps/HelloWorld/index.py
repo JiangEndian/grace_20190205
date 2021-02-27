@@ -68,9 +68,22 @@ def index(request):
 
     restudy_info['alt4'] = '进度中alt4'
     restudy_info['alt4_common'] = 'alt4_common'
-
+    
+    #获取plan_endian，并永久保存请求者的IP在文本statics/files/IPList里
     runsyscmd('/home/ed/grace_20190205/apps/plan_endian/cat_tomorrow2plan_info.bash')
-    restudy_info['plan_endian'] = readffile('plan_endian/plan_info')
+    #获取IP
+    #ip = '00000000'
+    #x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    #if x_forwarded_for:
+        #ip = x_forwarded_for.split(',')[0]  # 使用代理获取真实的ip
+    #else:
+        #ip = request.META.get('REMOTE_ADDR')  # 未使用代理获取IP
+    #获取IP
+    #写入IP并读取之
+    #write2fileAppend('statics/files/IPList', ip)
+    restudy_info['plan_endian'] = readffile('plan_endian/plan_info') 
+    #restudy_info['plan_endian'] = readffile('plan_endian/plan_info') + '\n' + readffile('statics/files/IPList')
+    #获取plan_endian，并永久保存请求者的IP在文本statics/files/IPList里
 
     if os.path.exists('new_gs/4web_restudy/已复习') and not os.path.exists('new_gs/4web_restudy/common_info'):
         restudy_info['alt1'] = 'alt1已复习'

@@ -72,8 +72,18 @@
     <input type="hidden" name="every" value={{ every_info }}>
     {% ifequal every_info 'year' %}
         {% include "input_cmd_alt1ForYear.html" %}
-    {% else %}
+    {% endifequal %}
+    
+    {% ifequal every_info 'month' %}
         {% include "input_cmd_alt1.html" %}
+    {% endifequal %}
+    
+    {% ifequal every_info 'week' %}
+        {% include "input_cmd_alt1.html" %}
+    {% endifequal %}
+    
+    {% ifequal every_info 'common' %}
+        {% include "input_cmd_one_alt1.html" %}
     {% endifequal %}
 </form>
 <br>
