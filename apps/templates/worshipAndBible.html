@@ -74,13 +74,14 @@
 {% ifequal 'common' 'common' %}
     {% if VideoEnv %}
         <video controls preload loop autoplay width="" height="" src="/static/grace_voice/{{ VideoEnv }}" type="video/mp4"></video>
-        <hr>
+    {% else %}
+        <audio id="myAudio1" autoplay controls src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     {% endif %}
-    <font size="7">
+    <hr>
+    <font size="6">
     <pre style="white-space: pre-wrap; word-wrap:break-word;">
         {{ con }}
     </pre>
-    <font size="6">
     {% if env %}
         {{ env }}
     {% endif %}
@@ -95,7 +96,6 @@
         {{ next_con }}
         <hr>
     {% endif %}
-    <audio id="myAudio1" autoplay src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     <audio id="myAudio2" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     <audio id="myAudio3" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     <script>

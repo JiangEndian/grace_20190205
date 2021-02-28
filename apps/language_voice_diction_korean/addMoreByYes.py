@@ -31,7 +31,7 @@ def addEveryWeek():
     #print(con)
     env = ''
     #env = input('mean:') #[ɪnˈvaɪrənmənt]环境
-    f_name = '%s/wavFile%s' % (dir_name, str(voice_number))
+    f_name = '%s/wavFile%s.wav' % (dir_name, str(voice_number))
     voice_number += 1
     
     if True:

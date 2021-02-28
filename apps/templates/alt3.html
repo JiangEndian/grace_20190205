@@ -25,10 +25,10 @@
                position += 1;  
                scroll(0,position);  
                clearTimeout(timer);  
-               var timer = setTimeout("scroller()",120);  
+               var timer = setTimeout("scroller()",500);  
            }
         }
-        //setTimeout("scroller()", 12000);
+        setTimeout("scroller()", 12000);
 
         function back2top(event){
             event = event
@@ -51,15 +51,15 @@
 <form id="form" action="/accept-cmd-alt3" method="get">
     <input type="hidden" name="every" value={{ every_info }}>
     {% ifequal every_info 'common' %}
-        {% include "input_cmd_one.html" %}
+        {% include "input_cmd_default2.html" %}
     {% endifequal %}
     
     {% ifequal every_info 'week' %}
-        {% include "input_cmd_default8.html" %}
+        {% include "input_cmd_default2.html" %}
     {% endifequal %}
 
     {% ifequal every_info 'month' %}
-        {% include "input_cmd_default8.html" %}
+        {% include "input_cmd_default2.html" %}
     {% endifequal %}
 
     {% ifequal every_info 'year' %}
@@ -67,10 +67,11 @@
     {% endifequal %}
 </form>
 
+<!-- 
 <form id="form2" action="/accept-cmd-alt3" method="get">
     <input type="hidden" name="every" value={{ every_info }}>
     {% ifequal every_info 'common' %}
-        {% include "input_cmd_one.html" %}
+        {% include "input_cmd_default2.html" %}
     {% endifequal %}
     
     {% ifequal every_info 'week' %}
@@ -85,6 +86,7 @@
         {% include "input_cmd_default2.html" %}
     {% endifequal %}
 </form>
+-->
 
 <!-- <div onclick="page_down()"> --!>
 <div>
@@ -92,8 +94,10 @@
 {% ifequal 'common' 'common' %}
     {% if VideoEnv %}
         <video controls preload loop autoplay width="" height="" src="/static/grace_voice/{{ VideoEnv }}" type="video/mp4"></video>
-        <hr>
+    {% else %}
+        <audio id="myAudio1" autoplay controls src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     {% endif %}
+    <hr>
     <font size="6">
     <pre style="white-space: pre-wrap; word-wrap:break-word;">
         {{ con }}
@@ -114,9 +118,8 @@
         <hr>
     {% endif %}
 
-    <input id="PracticeInput" placeholder="Practice" value="" type="text" spellcheck="true" style="width:1400px;height:140px;font-size:70px;position:fixed;bottom:0;" >
+    <input id="PracticeInput" placeholder="Practice..." value="" type="text" spellcheck="true" style="width:1400px;height:140px;font-size:70px;position:fixed;bottom:0;" >
     
-    <audio id="myAudio1" autoplay src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     <audio id="myAudio2" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     <audio id="myAudio3" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     <script type="text/javascript">
@@ -124,6 +127,7 @@
         document.getElementById("PracticeInput").focus();
 
         //绑定全局按键
+        /*
         $(document).keypress(function(e) {
             var eCode = e.keyCode ? e.keyCode : e.which ? e.which : e.charCode;
             if (eCode == 13){  //13为回车
@@ -131,17 +135,14 @@
                 document.getElementById("form2").submit();
             }
         });
-        
+        */
+
         //播放次数并自动提交
         var loop_times = 1
-        var loop_times_all = 7
+        var loop_times_all = 1
         var aud1 = document.getElementById("myAudio1");
-        //function sleep(ms) {
-            //var date = new Date();
-            //var curDate = null;
-            //do { curDate = new Date();}
-            //while(curDate-date < ms);  
-        //}
+        
+        //异步方法里的睡眠
         function sleep(ms){
             return new Promise(resolve => setTimeout(resolve, ms));
         } //需要在async function里, 配合 await
@@ -150,16 +151,21 @@
         var aud3 = document.getElementById("myAudio3");
         //console.log('hi')
         aud1.onended = async function() {
-            //DurationMs = aud1.duration * 1000;
-            DurationMs = aud1.duration * 1000 * 2; //我复述的太慢了,得时间加倍...
-            await sleep(DurationMs)
-            console.log(DurationMs)
             ++loop_times
             if (loop_times > loop_times_all){
+                await sleep(3000) //给我3秒钟缓冲,我大脑没电脑快...
                 document.getElementById("form").submit();
+                //console.log("It's the time to copy new word...")
                 //aud3.play()
             }
             else {
+                scroll(0,0);
+                //现在改为播放下一次前等我复核
+                //DurationMs = aud1.duration * 1000;
+                DurationMs = aud1.duration * 1000 * 2; //我复述的太慢了,得时间加倍...
+                console.log(DurationMs)
+                await sleep(DurationMs)
+                scroll(0,0);
                 aud1.play()
             }
         }; 
