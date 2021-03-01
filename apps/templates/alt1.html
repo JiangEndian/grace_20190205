@@ -9,8 +9,7 @@
         }else{
             traget.style.visibility="hidden";
       }
-   }
-      
+    }
         //获取滚动条位置
        function get_scroll_position(){
            return document.documentElement.scrollTop
@@ -47,8 +46,6 @@
         }
 
         //document.addEventListener("click", alert("hi"))
-        
-
 </script>
 
 
@@ -56,6 +53,7 @@
 <font size="6">
 {{ con }}
 <hr>
+
 {% if env %}
 {{ env }}
 <hr>
@@ -65,6 +63,12 @@
 {{ ext }}
 <hr>
 {% endif %}
+
+{% if img %}
+<img src="/static/images/{{ img }}">
+<hr>
+{% endif %}
+
 </font>
 <u><h1>{{ every_info }}</h1></u>
 </div>

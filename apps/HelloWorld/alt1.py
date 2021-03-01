@@ -112,6 +112,11 @@ def alt1(request):
             my_dict['ext'] = e_info[4]
             my_dict['every_info'] = 'year'
             my_dict['file_name'] = e_info[5]
+
+            #针对图片进行调整
+            if my_dict['con'] == 'ThisIsImage':
+                my_dict['img'] = my_dict['env']
+
             break
     elif every_month_info:
         temp_info = list(every_month_info)
@@ -121,6 +126,11 @@ def alt1(request):
             my_dict['ext'] = e_info[4]
             my_dict['every_info'] = 'month'
             my_dict['file_name'] = e_info[5]
+
+            #针对图片进行调整
+            if my_dict['con'] == 'ThisIsImage':
+                my_dict['img'] = my_dict['env']
+
             break
     elif every_week_info:
         temp_info = list(every_week_info)
@@ -130,6 +140,11 @@ def alt1(request):
             my_dict['ext'] = e_info[4]
             my_dict['every_info'] = 'week'
             my_dict['file_name'] = e_info[5]
+
+            #针对图片进行调整
+            if my_dict['con'] == 'ThisIsImage':
+                my_dict['img'] = my_dict['env']
+
             break
     elif common_info:
         temp_info = list(common_info)
@@ -139,6 +154,11 @@ def alt1(request):
             my_dict['ext'] = e_info[4]
             my_dict['every_info'] = 'common'
             my_dict['file_name'] = e_info[5]
+
+            #针对图片进行调整
+            if my_dict['con'] == 'ThisIsImage':
+                my_dict['img'] = my_dict['env']
+
             break
 #3、直到，查完事，结束并删除dump文件，生成已复习
     else:

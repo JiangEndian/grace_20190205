@@ -118,14 +118,9 @@
         <hr>
     {% endif %}
 
-    <input id="PracticeInput" placeholder="Practice..." value="" type="text" spellcheck="true" style="width:1400px;height:140px;font-size:70px;position:fixed;bottom:0;" >
-    
     <audio id="myAudio2" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     <audio id="myAudio3" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     <script type="text/javascript">
-        //给Input焦点
-        document.getElementById("PracticeInput").focus();
-
         //绑定全局按键
         /*
         $(document).keypress(function(e) {
@@ -153,7 +148,9 @@
         aud1.onended = async function() {
             ++loop_times
             if (loop_times > loop_times_all){
-                await sleep(3000) //给我3秒钟缓冲,我大脑没电脑快...
+                DurationMs = aud1.duration * 1000 * 2; //我复述的太慢了,得时间加倍...
+                console.log(DurationMs)
+                await sleep(DurationMs)
                 document.getElementById("form").submit();
                 //console.log("It's the time to copy new word...")
                 //aud3.play()

@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <title> קֹדֶשׁ לַיהוָה </title>
-<script src="/static/jquery.js"></script>
+<script src="/static/jquery.js">
+</script>
 </head>
 <body>
 <font size=6>
-<a href=/worshipAndBible target="_blank" style="position:fixed;top:0;left:0;"> worshipAndBible{{ worshipAndBible }} </a><br>
+<a href=/worshipAndBible style="position:fixed;top:0;left:0;"> worshipAndBible{{ worshipAndBible }} </a><br>
 <a href=/alt1234 style="position:fixed;top:0;right:0;"> alt1234 </a>
 </font>
 
@@ -26,6 +27,10 @@
 <br>
 <br>
 <br>
-
+<input id="PracticeInput" placeholder="Practice..." value="" type="text" spellcheck="true" style="width:1200px;height:90px;font-size:70px;position:fixed;bottom:0;" >
+<script>
+    //给Input焦点
+    document.getElementById("PracticeInput").focus();
+</script>
 </body>
 </html>
