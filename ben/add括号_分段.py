@@ -27,8 +27,8 @@ with open(file_name, 'r') as f:
         line = line.strip()
 
         #为了应对新形式的文本，是有大量空行的，直接过滤掉
-        if line = '':
-            continue
+        #if line == '':
+            #continue
 
         #if re.match(han, line):
         if Is2:
