@@ -134,7 +134,7 @@
 
         //播放次数并自动提交
         var loop_times = 1
-        var loop_times_all = 1
+        var loop_times_all = {{ RepeatTimes }}
         var aud1 = document.getElementById("myAudio1");
         
         //异步方法里的睡眠
@@ -148,11 +148,7 @@
         aud1.onended = async function() {
             ++loop_times
             if (loop_times > loop_times_all){
-                DurationMs = aud1.duration * 1000 * 2; //我复述的太慢了,得时间加倍...
-                console.log(DurationMs)
-                await sleep(DurationMs)
                 document.getElementById("form").submit();
-                //console.log("It's the time to copy new word...")
                 //aud3.play()
             }
             else {

@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.safestring import mark_safe #for tranfer html code
 from tableDefine import * #导入自定义的东西
+from configurations import *
 
 ##现在的任务是：
 global my_dict
@@ -40,7 +41,7 @@ def create_database_link():
 def close_database_link():
     global conn, cursor
     closedb(conn,cursor)
-    
+
 def alt3(request):
     global common_info
     global every_year_info
@@ -200,10 +201,29 @@ def alt3(request):
     if my_dict['env'] == 'NotAudioButVideo':
         #my_dict['VideoEnv'] = mark_safe('''<br/><video controls preload loop autoplay width="320" height="240" src="/static/grace_voice/TOEFL/%s" type="video/mp4"></video><br/>''' % my_dict['ext'])
         my_dict['VideoEnv'] = my_dict['ext']
+    
+    #尝试加个控制页面，设置重复次数。省得每次都得ssh来改。。。
+    Configurations = readConfigurations('Configurations')
+    my_dict['RepeatTimes']= Configurations['RepeatTimes']
     #context的'hello'对应模板html的变量{{ hello }}
     return render(request, 'alt3.html', my_dict)
-    
 
+def configurationsWeb(request):
+    MyConfigurations = {}
+    ConfigurationsList = []
+    Configurations = readConfigurations('Configurations')
+    for Key in Configurations:
+        ConfigurationsList.append(Key + ' : ' + Configurations[Key])
+    MyConfigurations['AllConfigurations'] = '\n'.join(ConfigurationsList)
+    return render(request, 'configurations.html', MyConfigurations)
+    
+def updateConfigurationsWeb(request):
+    Configurations = readConfigurations('Configurations')
+    request.encoding='utf-8'
+    RepeatTimes = request.GET['RepeatTimes']
+    updateConfigurations('Configurations', Configurations, {'RepeatTimes':RepeatTimes})
+    return HttpResponseRedirect('/configurationsWeb')
+    
 def accept_cmd_alt3(request):
     global my_dict
     global common
@@ -230,11 +250,10 @@ def accept_cmd_alt3(request):
         if cmd == '8':
             every_year.delete('Other2',my_dict['ext'])
             every_month.add(Day=getnowtime('d'), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
-            common.add(Ymd=getdaystime(1), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
-            common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
-            common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
+            common.add(Ymd=getdaystime(7), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
         elif cmd == '2':
             every_year.delete('Other2',my_dict['ext'])
+            common.add(Ymd=getdaystime(7), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
         every_year_info.pop(0)
         dump2file('language_voice_diction_english/4web_restudy/every_year_info', every_year_info)
     ############处理月的##############
@@ -244,10 +263,11 @@ def accept_cmd_alt3(request):
             every_week.add(Day=getnowtime('week'),Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
             common.add(Ymd=getdaystime(1), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
             common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
-            common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
         elif cmd == '2':
             every_month.delete('Other2', my_dict['ext'])
             every_year.add(MonthDay=getnowtime('md'),Con=my_dict['con'],  Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
+            common.add(Ymd=getdaystime(7), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
+            common.add(Ymd=getdaystime(49), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
         every_month_info.pop(0)
         dump2file('language_voice_diction_english/4web_restudy/every_month_info', every_month_info)
     ############处理周的##############
@@ -255,10 +275,10 @@ def accept_cmd_alt3(request):
         if cmd == '8':
             common.add(Ymd=getdaystime(1), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
             common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
-            common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
         elif cmd == '2':
             every_week.delete('Other2', my_dict['ext'])
             every_month.add(Day=getnowtime('d'), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
+            common.add(Ymd=getdaystime(7), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'], Other3=my_dict['NewWord'])
         every_week_info.pop(0)
         dump2file('language_voice_diction_english/4web_restudy/every_week_info', every_week_info)
     ############处理Common的##############
