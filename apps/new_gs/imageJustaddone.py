@@ -9,7 +9,7 @@ def addEveryWeek():
     day = getnowtime('week')
     file_name = getnowtime('ymdhms')+'.mp3'
     #con = input('Content:')
-    con = 'ThisIsImage'
+    con = 'ThisIsImage_' + file_name
     #if not con:
         #print('Content Empty...')
         #exit()

@@ -23,8 +23,8 @@ if not file_name:
 with open(file_name, 'r') as f:
     for line in f.readlines(): 
         Is2 = not Is2
-        #line = line.strip()+'. '
-        line = line.strip()
+        line = line.strip()+'. '
+        #line = line.strip()
 
         #为了应对新形式的文本，是有大量空行的，直接过滤掉
         #if line == '':

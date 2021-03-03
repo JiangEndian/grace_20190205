@@ -114,7 +114,7 @@ def alt1(request):
             my_dict['file_name'] = e_info[5]
 
             #针对图片进行调整
-            if my_dict['con'] == 'ThisIsImage':
+            if my_dict['con'].split('_')[0] == 'ThisIsImage':
                 my_dict['img'] = my_dict['env']
 
             break
