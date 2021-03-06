@@ -12,7 +12,18 @@
    }
 </script>
 
-
+<form action="/accept-cmd-alt4" method="get">
+    <input type="hidden" name="every" value={{ every_info }}>
+    {% ifequal every_info 'common' %}
+        {% include "input_cmd_one_alt4.html" %}
+    {% else %}
+        {% include "input_cmd.html" %}
+    {% endifequal %}
+</form>
+<audio controls="controls" autoplay="autoplay" src="/static/grace_voice/{{ ext }}.mp3" loop="loop"/>
+Your browser does not support the audio element.
+</audio>
+<hr>
 
 <font size="6">
 {% ifequal every_info 'common' %}
@@ -35,19 +46,6 @@
 
 <u><h1>{{ every_info }}</h1></u>
 <p>
-<p>
-<audio controls="controls" autoplay="autoplay" src="/static/grace_voice/{{ ext }}.mp3" loop="loop"/>
-Your browser does not support the audio element.
-</audio>
-<hr>
-<form action="/accept-cmd-alt4" method="get">
-    <input type="hidden" name="every" value={{ every_info }}>
-    {% ifequal every_info 'common' %}
-        {% include "input_cmd_one_alt4.html" %}
-    {% else %}
-        {% include "input_cmd.html" %}
-    {% endifequal %}
-</form>
 
 <p>{{ every }} {{ cmd }}</p>
 {{ showinfo }} <a href=/alt1234> 回到主页 </a>

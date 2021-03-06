@@ -10,3 +10,19 @@ alias cp='cp -i'
 
 export PATH=$PATH:/home/ed/bin
 
+#Language setting to supoort Chinese
+lang_input=en_US.UTF-8
+LANG=$lang_input
+LANGUAGE=`echo $LANG|awk -F. '{print $1}'`
+LC_CTYPE=$lang_input
+LC_NUMERIC=$lang_input
+LC_TIME=$lang_input
+LC_COLLATE="$lang_input"
+LC_MONETARY=$lang_input
+LC_MESSAGES="$lang_input"
+LC_PAPER=$lang_input
+LC_NAME=$lang_input
+LC_ADDRESS=$lang_input
+LC_TELEPHONE=$lang_input
+LC_MEASUREMENT=$lang_input
+LC_IDENTIFICATION=$lang_input

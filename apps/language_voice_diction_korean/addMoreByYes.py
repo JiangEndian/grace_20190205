@@ -39,7 +39,7 @@ def addEveryWeek():
         print(every_week.find('Con', con))
         common.add(Ymd=getdaystime(0), Con=con, Other1=env, Other2=f_name)
         common.add(Ymd=getdaystime(1), Con=con, Other1=env, Other2=f_name)
-        common.add(Ymd=getdaystime(2), Con=con, Other1=env, Other2=f_name)
+        #common.add(Ymd=getdaystime(2), Con=con, Other1=env, Other2=f_name)
         #common.add(Ymd=getdaystime(3), Con=con, Other1=env, Other2=f_name)
         common.add(Ymd=getdaystime(4), Con=con, Other1=env, Other2=f_name)
         #common.add(Ymd=getdaystime(5), Con=con, Other1=env, Other2=f_name)

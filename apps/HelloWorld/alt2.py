@@ -86,7 +86,8 @@ def alt2(request):
         ymd = day.strftime('%Y%m%d')
 
         #提前年的，所以，年的单独调出
-        y_day = datetime.now() + timedelta(days=111)
+        #y_day = datetime.now() + timedelta(days=111)
+        y_day = datetime.now() + timedelta(days=0)
         monthday = y_day.strftime('%m%d')
         #print('monthday='+monthday)
         
@@ -175,7 +176,6 @@ def accept_cmd_alt2(request):
             every_year.delete('Con',my_dict['con'])
             every_month.add(Day=getnowtime('d'), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             common.add(Ymd=getdaystime(1), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
-            common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             common.add(Ymd=getdaystime(9), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
         elif cmd == '2':
             every_year.delete('Con',my_dict['con'])
@@ -187,7 +187,7 @@ def accept_cmd_alt2(request):
             every_month.delete('Con', my_dict['con'])
             every_week.add(Day=getnowtime('week'),Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             common.add(Ymd=getdaystime(1), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
-            common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
+            #common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
         elif cmd == '2':
             every_month.delete('Con', my_dict['con'])
@@ -198,7 +198,7 @@ def accept_cmd_alt2(request):
     elif every == 'week':
         if cmd == '8':
             common.add(Ymd=getdaystime(1), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
-            common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
+            #common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
         elif cmd == '2':
             every_week.delete('Con', my_dict['con'])

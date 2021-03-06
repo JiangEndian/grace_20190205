@@ -33,7 +33,9 @@
 
 <font size="6">
 {% ifequal every_info 'common' %}
-    {{ con }}
+    <pre style="white-space: pre-wrap; word-wrap:break-word;">
+        {{ con }}
+    </pre>
     <hr>
     <div id="lb" style="visibility;">
     {{ env }}
@@ -58,7 +60,9 @@
         }; 
     </script>
 {% else %}
-    {{ con }}
+    <pre style="white-space: pre-wrap; word-wrap:break-word;">
+        {{ con }}
+    </pre>
     <hr>
     <div>
     {{ env }}

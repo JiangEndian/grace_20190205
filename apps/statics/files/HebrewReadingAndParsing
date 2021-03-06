@@ -1,52 +1,99 @@
 1. Introduction.
     Text, Exegesis Paper and Presentation, Attendance. (After finish this course, separate it and add to database. )
-Method: 1.Separation. 2.Meaning. 3.SpecialWord. 4.Translation.     
+Method: 1.Separation. 2.Meaning. 3.Special. 4.Translation.     
 
 2. Joshua 7 1-17. 
 Joshua 7-1 
 a וַיִּמְעֲל֧וּ בְנֵֽי־יִשְׂרָאֵ֛ל מַ֖עַל בַּחֵ֑רֶם 
-
+    but_they_committed(מָעַל, Consecutive Imperfect) 
+    the_sons_of_Israel(Construct Chain, definiteness) 
+    a_trespass
+    in_the(בְּ הָ)_accursedThing
 b וַיִּקַּח עָכָ֣ן בֶּן־כַּרְמִי֩ בֶן־זַבְדִּי בֶן־זֶ֜רַח 
-
+    and_he_took 
+    Achan, the_son_of_Carmi, the_son_of_Zabdi, the_son_of_Zarah, 
 c לְמַטֵּה יְהוּדָה֙ מִן־הַחֵ֔רֶם 
-
+    to_the_tribe_of_Judah from_the_accursedThing
 d וַיִּחַר־אַ֥ף יְהוָ֖ה בִּבְנֵ֥י יִשְׂרָאֵֽל׃
+    and_he_burned_the_anger_of_Yahweh
+    in_the_sons_of_Israel. 
 
-Joshua 7-1 But the children of Israel committed a trespass in the devoted things; for Achan, the son of Carmi, the son of Zabdi, the son of Zerah, of the tribe of Judah, took some of the devoted things. Therefore Yahweh’s anger burned against the children of Israel.
+Note: In this verse, the conjunction וְ is a consecutive imperfect form, so, even the word such as יִּקַח means a imperfect "he_will_take", we should translate this word as a perfect "and_he_took". 
+
+Translation: But the sons of Israel committed a trespass in the accursed things, and Achan, the son of Carmi, the son of Zabdi, the son of Zarah, of the tribe of Judah, took (some) from the accursed things, so he burned the anger of Yahweh in the sons of Israel. 
 
 
 Joshua 7-2 
 a וַיִּשְׁלַח֩ יְהוֹשֻׁעַ אֲנָשִׁים מִֽירִיח֗וֹ הָעַ֞י 
-
+    and_he_sent(שָׁלַח)
+    Joshua
+    men
+    from_Jericho
+    to_the_Ai
 b אֲשֶׁר עִם־בֵּית אָ֨וֶן֙ מִקֶּדֶם לְבֵֽית־אֵ֔ל 
-
+    which 
+    beside_Beth_Aven
+    in_the_east
+    to_Bethel 
 c וַיֹּאמֶר אֲלֵיהֶם֙ לֵאמֹ֔ר עֲל֖וּ וְרַגְּל֣וּ אֶת־הָאָ֑רֶץ 
-
+    and_he_spoke 
+    to_them(אֶל + הֵם)(8.3) 
+    to_say, saying, (same root with וַיׂאמֶר, אָמַר)(Infinitive, 20.12)
+    you_go_up!(imperative, 18.3)
+    and_you_spyOut! (רָגַל go, Piel, Imperative)
+    at_the_land 
 d וַֽיַּעֲלוּ֙ הָאֲנָשִׁים וַֽיְרַגְּל֖וּ אֶת־הָעָֽי׃
+    and_they_went_up(same root with עֲלוּ, עָלָה)
+    the_men(who were sent)
+    and_they_spied_out(רָגַל go, Piel)
+    at_the_Ai
+    
+Note: Joshua is the same name with Jesus in Hebrew, Jesus, יֵשׁוּעַ, short form of יְהוֹשֻׁעַ, the Prophet after Moses, יֵשׁוּעַ.
 
-Joshua 7-2 Joshua sent men from Jericho to Ai, which is beside Beth Aven, on the east side of Bethel, and spoke to them, saying, “Go up and spy out the land.” <CM> The men went up and spied out Ai.
+Translation: And Joshua sent men from Jericho to the Ai, which beside Beth Aven, in the east of of Bethel, and he spoke to them, saying, "You go up and spy out the land!" And the men went up and spied out the Ai. 
 
 
 Joshua 7-3 
 a וַיָּשֻׁבוּ אֶל־יְהוֹשֻׁעַ וַיֹּאמְר֣וּ אֵלָיו֮ 
-
+    and_they_returned (שׁוּב, turn back,)
+    to_Joshua 
+    and_they_said
+    to_him
 b אַל־יַ֣עַל כָּל־הָעָם֒ 
-
+    do_not_let_them_go_up(עָלָה, go up, Jussive, 18.14, )
+    all_the_people 
 c כְּאַלְפַּיִם אִ֗ישׁ א֚וֹ כִּשְׁלֹ֣שֶׁת אֲלָפִ֣ים אִ֔ישׁ יַעֲל֖וּ וְיַכּ֣וּ אֶת־הָעָ֑י 
-
+    like_two_thousand(אֶלֶף)_man
+    or_like_three_thousand_man(שְׁלֹשׁ, 11, construct chain)
+    they_will_go_up
+    and_attack(נָכָה, hit, attack, Hiphil, Conjunctive imperfect.)
+    at_the_Ai. 
 d אַל־תְּיַגַּע־שָׁמָּה֙ אֶת־כָּל־הָעָ֔ם 
-
+    do_not_weary(יָגַע, Piel, imperfect, )_to_there(Directional Ending, שָׁם+‫ה‬ ָ)(7.6)
+    at_all_the_people
 e כִּי מְעַ֖ט הֵֽמָּה׃
+    because
+    little/few
+    they(are)(הֵם, הֵםָה, 8.3)
 
-Joshua 7-3 They returned to Joshua, and said to him, “Don’t let all the people go up; but let about two or three thousand men go up and strike Ai. Don’t make all the people to toil there, for there are only a few of them.”
+Note: אִישׁ is a singular noun, in Chinese, "2000 man" / "2000 men" has no difference (2000人，3000人), but in English, it does different. From this point, maybe Chinese is more similar with Hebrew than English. 
+
+Translation: And they returned to Joshua and said to him, "Don't let all the people go up, but about 2000 or 3000 men, they will go up and attack the Ai. Don't weary all the people to there, because few are they." 
 
 
 Joshua 7-4 
 a וַיַּעֲל֤וּ מִן־הָעָם֙ שָׁמָּה כִּשְׁלֹ֥שֶׁת אֲלָפִ֖ים אִ֑ישׁ 
-
+    and_they_went_up(עָלָה)
+    from_the_people_there
+    about_3000 man
 b וַיָּנֻ֕סוּ לִפְנֵ֖י אַנְשֵׁי הָעָֽי׃
+    and_they_fled(נוּס)
+    before(independent preposition, 6.2)
+    the_men_the_Ai. 
+    
+Note: אַנְשֵׁי is the construct plural form of אִישׁ
 
-Joshua 7-4 So about three thousand men of the people went up there, and they fled before the men of Ai.
+Translation: So about 3000 men went up from the people there, and they fled before the men of Ai. 
 
 
 Joshua 7-5 
