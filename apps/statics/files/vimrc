@@ -1,36 +1,0 @@
-set nu
-
-"Enable folding
-set foldmethod=indent
-set foldlevel=99
-map <space> za
-
-"PEP8风格缩进。。。针对任何格式
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set autoindent
-
-"ctrl+d,input date.
-"ctrl+p,insert # in head
-map  :r! date
-map  I#
-
-"ctrl+h,move to right
-"ctrl+l,move to left
-map  h
-map  l
-
-"ctrl+T,insert ——
-map  i——
-
-"一键修改koreanAudio的text输入文件格式
-map  :%s/\ /_/g:%s/=/\ /g
-
-"一键变点为逗，除去双空格，变最后的逗空格为点空格
-"Control + v +m/n
-map  :%s/\./, /g:%s/\n/\. \r/g:%s/  / /g
-
-
-

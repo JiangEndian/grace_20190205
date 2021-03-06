@@ -27,3 +27,10 @@ map  i——
 
 "一键修改koreanAudio的text输入文件格式
 map  :%s/\ /_/g:%s/=/\ /g
+
+"一键变点为逗，除去双空格，变最后的逗空格为点空格
+"Control + v +m/n
+map  :%s/\./, /g:%s/\n/\. \r/g:%s/  / /g
+
+
+
