@@ -1,7 +1,9 @@
 from django.http import HttpResponseRedirect 
 from django.shortcuts import render
 
+from django.utils.safestring import mark_safe #for tranfer html code
 from tableDefine import * #导入自定义的东西
+from configurations import *
 
 ##现在的任务是：
 global my_dict
@@ -157,6 +159,17 @@ def alt3_common(request):
         #os.remove('language_voice_diction_english/4web_restudy/common_info')
         #write2file('language_voice_diction_english/4web_restudy/已复习', '复习完成')
         return HttpResponseRedirect('/alt1234')
+    #测试直接把env置为video标签可行不
+    my_dict['VideoEnv'] = '' #初始化，防止没有了还带着上次的内容
+    if my_dict['env'] == 'NotAudioButVideo':
+        my_dict['VideoEnv'] = my_dict['ext']
+
+    #尝试加个控制页面，设置重复次数。省得每次都得ssh来改。。。
+    Configurations = readConfigurations('Configurations')
+    my_dict['RepeatTimes']= Configurations['RepeatTimes']
+
+    #给con每两行加一行空格
+    my_dict['con'] = addLineEvery2Lines(my_dict['con'])
 
     #context的'hello'对应模板html的变量{{ hello }}
     return render(request, 'alt3_common.html', my_dict)

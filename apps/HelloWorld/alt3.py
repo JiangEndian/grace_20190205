@@ -205,6 +205,10 @@ def alt3(request):
     #尝试加个控制页面，设置重复次数。省得每次都得ssh来改。。。
     Configurations = readConfigurations('Configurations')
     my_dict['RepeatTimes']= Configurations['RepeatTimes']
+
+    #给con每两行加一行空格
+    my_dict['con'] = addLineEvery2Lines(my_dict['con'])
+
     #context的'hello'对应模板html的变量{{ hello }}
     return render(request, 'alt3.html', my_dict)
 
