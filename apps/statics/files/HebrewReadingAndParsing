@@ -5,12 +5,12 @@ Method: 1.Separation. 2.Meaning. 3.Special. 4.Translation.
 2. Joshua 7 1-17. 
 Joshua 7-1 
 a וַיִּמְעֲל֧וּ בְנֵֽי־יִשְׂרָאֵ֛ל מַ֖עַל בַּחֵ֑רֶם 
-    but_they_committed(מָעַל, Consecutive Imperfect) 
-    the_sons_of_Israel(Construct Chain, definiteness) 
-    a_trespass
-    in_the(בְּ הָ)_accursedThing
+    but_they_committed(מָעַל, Consecutive Imperfect) (Conj-w | V-Qal-ConsecImperf-3mp)
+    the_sons_of_Israel(Construct Chain, definiteness) ()
+    a_trespass(N-ms)
+    in_the(בְּ הָ)_accursedThing(Prep-b, Art | N-ms)
 b וַיִּקַּח עָכָ֣ן בֶּן־כַּרְמִי֩ בֶן־זַבְדִּי בֶן־זֶ֜רַח 
-    and_he_took 
+    and_he_took (Conj-w | V-Qal-ConsecImperf-3ms)
     Achan, the_son_of_Carmi, the_son_of_Zabdi, the_son_of_Zarah, 
 c לְמַטֵּה יְהוּדָה֙ מִן־הַחֵ֔רֶם 
     to_the_tribe_of_Judah from_the_accursedThing
@@ -25,11 +25,11 @@ Translation: But the sons of Israel committed a trespass in the accursed things,
 
 Joshua 7-2 
 a וַיִּשְׁלַח֩ יְהוֹשֻׁעַ אֲנָשִׁים מִֽירִיח֗וֹ הָעַ֞י 
-    and_he_sent(שָׁלַח)
-    Joshua
-    men
-    from_Jericho
-    to_the_Ai
+    and_he_sent(שָׁלַח)(Conj-w | V-Qal-ConsecImperf-3ms)
+    Joshua(N-proper-ms)
+    men(N-mp)
+    from_Jericho(Prep-m | N-proper-fs)
+    to_the_Ai(Art | N-proper-fs)
 b אֲשֶׁר עִם־בֵּית אָ֨וֶן֙ מִקֶּדֶם לְבֵֽית־אֵ֔ל 
     which 
     beside_Beth_Aven
@@ -55,7 +55,7 @@ Translation: And Joshua sent men from Jericho to the Ai, which beside Beth Aven,
 
 Joshua 7-3 
 a וַיָּשֻׁבוּ אֶל־יְהוֹשֻׁעַ וַיֹּאמְר֣וּ אֵלָיו֮ 
-    and_they_returned (שׁוּב, turn back,)
+    and_they_returned (שׁוּב, turn back,)(Conj-w | V-Qal-ConsecImperf-3mp)
     to_Joshua 
     and_they_said
     to_him
@@ -83,7 +83,7 @@ Translation: And they returned to Joshua and said to him, "Don't let all the peo
 
 Joshua 7-4 
 a וַיַּעֲל֤וּ מִן־הָעָם֙ שָׁמָּה כִּשְׁלֹ֥שֶׁת אֲלָפִ֖ים אִ֑ישׁ 
-    and_they_went_up(עָלָה)
+    and_they_went_up(עָלָה)(Conj-w | V-Qal-ConsecImperf-3mp)
     from_the_people_there
     about_3000 man
 b וַיָּנֻ֕סוּ לִפְנֵ֖י אַנְשֵׁי הָעָֽי׃
@@ -154,78 +154,6 @@ a וַיֹּאמֶר יְהוָ֛ה אֶל־יְהוֹשֻׁעַ קֻ֣ם לָ֑
 b לָ֣מָּה זֶּה אַתָּה נֹפֵ֥ל עַל־פָּנֶֽיךָ׃
 
 Joshua 7-10 Yahweh said to Joshua, “Get up! Why have you fallen on your face like that?
-
-
-Joshua 7-11
-a חָטָא֙ יִשְׂרָאֵ֔ל וְגַם֙ עָבְר֣וּ אֶת־בְּרִיתִ֔י אֲשֶׁר צִוִּיתִי אוֹתָ֑ם 
-
-b וְגַ֤ם לָֽקְחוּ֙ מִן־הַחֵ֔רֶם וְגַ֤ם גָּנְבוּ֙ וְגַ֣ם כִּחֲשׁ֔וּ וְגַ֖ם שָׂמוּ בִכְלֵיהֶֽם׃
-
-Joshua 7-11 Israel has sinned. Yes, they have even transgressed my covenant which I commanded them. Yes, they have even taken some of the devoted things, and have also stolen, and also deceived. They have even put it among their own stuff.
-
-
-Joshua 7-12
-a וְלֹ֨א יֻכְל֜וּ בְּנֵ֣י יִשְׂרָאֵ֗ל לָקוּם֙ לִפְנֵ֣י אֹיְבֵיהֶ֔ם 
-
-b עֹ֗רֶף יִפְנוּ֙ לִפְנֵ֣י אֹֽיְבֵיהֶ֔ם כִּי הָי֖וּ לְחֵ֑רֶם 
-
-c לֹ֤א אוֹסִיף֙ לִֽהְי֣וֹת עִמָּכֶ֔ם 
-
-d אִם־לֹ֥א תַשְׁמִ֛ידוּ הַחֵ֖רֶם מִֽקִּרְבְּכֶֽם׃
-
-Joshua 7-12 Therefore the children of Israel can’t stand before their enemies. They turn their backs before their enemies, because they have become devoted for destruction. I will not be with you any more, unless you destroy the devoted things from among you. <CM>
-
-
-Joshua 7-13
-a קֻ֚ם קַדֵּשׁ אֶת־הָעָ֔ם וְאָמַרְתָּ הִתְקַדְּשׁ֣וּ לְמָחָ֑ר 
-
-b כִּי כֹה֩ אָמַ֨ר יְהוָ֜ה אֱלֹהֵ֣י יִשְׂרָאֵ֗ל חֵ֤רֶם בְּקִרְבְּךָ֙ יִשְׂרָאֵ֔ל 
-
-c לֹ֣א תוּכַ֗ל לָקוּם֙ לִפְנֵ֣י אֹיְבֶ֔יךָ 
-
-d עַד־הֲסִירְכֶ֥ם הַחֵ֖רֶם מִֽקִּרְבְּכֶֽם׃
-
-Joshua 7-13 “Get up! Sanctify the people, and say, ‘Sanctify yourselves for tomorrow, for Yahweh, the God of Israel, says, “There is a devoted thing among you, Israel. You cannot stand before your enemies until you take away the devoted thing from among you.”<CM>
-
-
-Joshua 7-14
-a וְנִקְרַבְתֶּם בַּבֹּקֶר לְשִׁבְטֵיכֶ֑ם 
-
-b וְהָיָ֡ה הַשּׁבֶט֩ אֲשֶׁר־יִלְכְּדֶ֨נּוּ יְהוָ֜ה יִקְרַ֣ב לַמִּשְׁפָּח֗וֹת 
-
-c וְהַמִּשְׁפָּחָ֞ה אֲשֶׁר־יִלְכְּדֶ֤נָּה יְהוָה֙ תִּקְרַ֣ב לַבָּתִּים 
-
-d וְהַבַּיִת֙ אֲשֶׁר יִלְכְּדֶ֣נּוּ יְהוָ֔ה יִקְרַ֖ב לַגְּבָרִֽים׃
-
-Joshua 7-14 “‘In the morning therefore you shall be brought near by your tribes. It shall be that the tribe which Yahweh selects shall come near by families. The family which Yahweh selects shall come near by households. The household which Yahweh selects shall come near man by man.
-
-
-Joshua 7-15
-a וְהָיָה֙ הַנִּלְכָּד בַּחֵ֔רֶם יִשּׂרֵ֣ף בָּאֵ֔שׁ אֹת֖וֹ וְאֶת־כָּל־אֲשֶׁר־ל֑וֹ 
-
-b כִּי עָבַר֙ אֶת־בְּרִ֣ית יְהוָ֔ה וְכִֽי־עָשָׂה נְבָלָ֖ה בְּיִשְׂרָאֵֽל׃
-
-Joshua 7-15 It shall be, that he who is taken with the devoted thing shall be burned with fire, he and all that he has, because he has transgressed Yahweh’s covenant, and because he has done a disgraceful thing in Israel.’”<CM>
-
-
-Joshua 7-16
-a וַיַּשְׁכֵּם יְהוֹשֻׁעַ֙ בַּבֹּקֶר 
-
-b וַיַּקְרֵ֥ב אֶת־יִשְׂרָאֵ֖ל לִשְׁבָטָ֑יו 
-
-c וַיִּלָּכֵ֖ד שֵׁבֶט יְהוּדָֽה׃
-
-Joshua 7-16 So Joshua rose up early in the morning and brought Israel near by their tribes. The tribe of Judah was selected.
-
-
-Joshua 7-17
-a וַיַּקְרֵב֙ אֶת־מִשְׁפַּחַת יְהוּדָ֔ה 
-
-b וַיִּלְכֹּד אֵ֖ת מִשְׁפַּחַת הַזַּרְחִ֑י
-
-c וַיַּקְרֵ֞ב אֶת־מִשְׁפַּחַת הַזַּרְחִי֙ לַגְּבָרִ֔ים וַיִּלָּכֵ֖ד זַבְדִּי׃
-
-Joshua 7-17 He brought near the family of Judah; and he selected the family of the Zerahites. He brought near the family of the Zerahites man by man, and Zabdi was selected.
 
 
 

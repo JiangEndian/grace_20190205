@@ -113,9 +113,6 @@ def alt1(request):
             my_dict['every_info'] = 'year'
             my_dict['file_name'] = e_info[5]
 
-            #针对图片进行调整
-            if my_dict['con'].split('_')[0] == 'ThisIsImage':
-                my_dict['img'] = my_dict['env']
 
             break
     elif every_month_info:
@@ -127,9 +124,6 @@ def alt1(request):
             my_dict['every_info'] = 'month'
             my_dict['file_name'] = e_info[5]
 
-            #针对图片进行调整
-            if my_dict['con'] == 'ThisIsImage':
-                my_dict['img'] = my_dict['env']
 
             break
     elif every_week_info:
@@ -141,9 +135,6 @@ def alt1(request):
             my_dict['every_info'] = 'week'
             my_dict['file_name'] = e_info[5]
 
-            #针对图片进行调整
-            if my_dict['con'] == 'ThisIsImage':
-                my_dict['img'] = my_dict['env']
 
             break
     elif common_info:
@@ -155,9 +146,6 @@ def alt1(request):
             my_dict['every_info'] = 'common'
             my_dict['file_name'] = e_info[5]
 
-            #针对图片进行调整
-            if my_dict['con'] == 'ThisIsImage':
-                my_dict['img'] = my_dict['env']
 
             break
 #3、直到，查完事，结束并删除dump文件，生成已复习
@@ -169,6 +157,10 @@ def alt1(request):
         write2file('new_gs/4web_restudy/已复习', '复习完成')
         return HttpResponseRedirect('/alt1234')
 
+    #针对图片进行调整
+    my_dict['img'] = ''
+    if my_dict['con'].split('_')[0]  == 'ThisIsImage':
+        my_dict['img'] = my_dict['env']
     #context的'hello'对应模板html的变量{{ hello }}
     return render(request, 'alt1.html', my_dict)
     
