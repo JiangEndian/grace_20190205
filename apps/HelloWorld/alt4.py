@@ -86,7 +86,7 @@ def alt4(request):
         ymd = day.strftime('%Y%m%d')
 
         #提前年的，所以，年的单独调出
-        y_day = datetime.now() + timedelta(days=176)
+        y_day = datetime.now() + timedelta(days=0)
         monthday = y_day.strftime('%m%d')
         #print('monthday='+monthday)
         
@@ -174,10 +174,10 @@ def accept_cmd_alt4(request):
             every_year.delete('Con',my_dict['con'])
             every_month.add(Day=getnowtime('d'), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             common.add(Ymd=getdaystime(1), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
-            common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
         elif cmd == '2':
             every_year.delete('Con',my_dict['con'])
+            common.add(Ymd=getdaystime(30), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
         every_year_info.pop(0)
         dump2file('language_voice_diction_hebrew/4web_restudy/every_year_info', every_year_info)
     ############处理月的##############
@@ -186,9 +186,9 @@ def accept_cmd_alt4(request):
             every_month.delete('Con', my_dict['con'])
             every_week.add(Day=getnowtime('week'),Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             common.add(Ymd=getdaystime(1), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
-            common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
         elif cmd == '2':
+            common.add(Ymd=getdaystime(30), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             every_month.delete('Con', my_dict['con'])
             every_year.add(MonthDay=getnowtime('md'),Con=my_dict['con'],  Other1=my_dict['env'], Other2=my_dict['ext'])
         every_month_info.pop(0)
@@ -197,9 +197,9 @@ def accept_cmd_alt4(request):
     elif every == 'week':
         if cmd == '8':
             common.add(Ymd=getdaystime(1), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
-            common.add(Ymd=getdaystime(3), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             common.add(Ymd=getdaystime(5), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
         elif cmd == '2':
+            common.add(Ymd=getdaystime(10), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
             every_week.delete('Con', my_dict['con'])
             every_month.add(Day=getnowtime('d'), Con=my_dict['con'], Other1=my_dict['env'], Other2=my_dict['ext'])
         every_week_info.pop(0)

@@ -8,8 +8,14 @@
             traget.style.visibility="";
         }else{
             traget.style.visibility="hidden";
-      }
-   }
+      } 
+    }
+    function back2top(event){
+        event = event
+        event.stopPropagation()
+        scroll(0,0);
+    //    setTimeout(function(){ scroll(0, 0);},100)
+    }
 </script>
 
 <form action="/accept-cmd-alt4" method="get">
@@ -25,7 +31,7 @@ Your browser does not support the audio element.
 </audio>
 <hr>
 
-<font size="6">
+<font size="7">
 {% ifequal every_info 'common' %}
     <pre style="white-space: pre-wrap; word-wrap:break-word;">
         {{ con }}
@@ -50,6 +56,8 @@ Your browser does not support the audio element.
 
 <u><h1>{{ every_info }}</h1></u>
 <p>
+
+<button onclick='back2top(event)' style="width:680px;height:60px"> back2top </button>
 
 <p>{{ every }} {{ cmd }}</p>
 {{ showinfo }} <a href=/alt1234> 回到主页 </a>

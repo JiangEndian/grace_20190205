@@ -30,13 +30,20 @@ def addEveryYear():
 
 def addCommon(*days):
     global common
-    con = input('Content:')
+    #con = input('Content:')
+    all_con_list = []
+    con = input('Input All Text Ended by YES:')
+    while not con == 'YES':
+        all_con_list.append(con)
+        con = input()
+    con = '\n'.join(all_con_list)
     print('请确认(%s:%s).' % (','.join(days), con))
     if input('InputYES2Save:') == 'YES':
         for day in days:
             common.add(Ymd=day, Con=con)
+        print('Saved!')
     else:
-        print('NotSaved')
+        print('NotSaved!')
 
 def showAllTable():
     global common

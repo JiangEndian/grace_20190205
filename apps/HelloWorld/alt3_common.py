@@ -146,9 +146,13 @@ def alt3_common(request):
             my_dict['every_info'] = 'common'
             #20200302更新：添加获取下一条的预读
             next_info_index = temp_info.index(e_info)+1
-            if len(temp_info) > 1:
+            if len(temp_info) > 2:
                 next_info = temp_info[next_info_index]
-                my_dict['next_con'] = next_info[3]
+                third_info = temp_info[next_info_index+1]
+                my_dict['next_con'] = next_info[2] + '\n' + next_info[3] + '\n' + third_info[2] + '\n' + third_info[3]
+            elif len(temp_info) > 1:
+                next_info = temp_info[next_info_index]
+                my_dict['next_con'] = next_info[2] + '\n' + next_info[3]
             #20200302更新：添加获取下一条的预读
             break
 #3、直到，查完事，结束并删除dump文件，生成已复习
