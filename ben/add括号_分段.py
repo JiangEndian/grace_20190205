@@ -34,7 +34,7 @@ with open(file_name, 'r') as f:
         if Is2:
             #new_line = '('+line+').'
             new_line = ''
-            #print(new_line)
+            print(new_line)
             #char_num += len(new_line)
             char_num += 1
             if char_num > 4940:
