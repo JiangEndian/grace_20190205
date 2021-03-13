@@ -14,9 +14,11 @@ def download(request):
 
 def deleteFile(request):
     runsyscmd('mv statics/files/%s /home/ed/DeletedFiles/' % request.GET.get('FileName'))
-    file_list = os.listdir("statics/files")
-    file_dict = {'file_list':file_list}
-    return render(request, 'download.html', file_dict)
+    #file_list = os.listdir("statics/files")
+    #file_dict = {'file_list':file_list}
+    #return render(request, 'download.html', file_dict) 
+    #above one will keep the link with commands, 
+    return HttpResponseRedirect('/alt')
 
 def video_view(request):
     file_list = []
