@@ -33,7 +33,8 @@ def addEveryWeek():
         exit(0)
     con = '\n'.join(all_con_list)
     print(con)
-    env = input('mean:') #[ɪnˈvaɪrənmənt]环境
+    #env = input('mean:') #[ɪnˈvaɪrənmənt]环境
+    env = '' #[ɪnˈvaɪrənmənt]环境
     f_name = '%s/%s' % (dir_name, file_name)
     voice_number += 1
     
