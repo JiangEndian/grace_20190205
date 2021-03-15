@@ -7,24 +7,23 @@
 <hr>
 <a href=/grace_calculator >ChurchSystem</a> &nbsp;
 <a href=/alt  >download_upload</a> &nbsp;
-<a href=/life_code > NoRoutine{{ show_life_code }}</a> &nbsp;
+<a href=/life_code > {{ show_life_code }}</a> &nbsp;
 <hr>
 <a href=/world_emulator  > world_emulator </a>&nbsp;
 <a href=/configurationsWeb  > configurationsWeb </a>&nbsp;
 
-<!--
 {% ifequal show_exercise 'YES' %}
 <hr>
 <table border="1">
     <tr>
         <td>
-        <a href=/alt1234?file_name="exercise01" > {{ exercise01 }} 8点30敬虔后锻炼 </a>
+        <a href=/alt1234?file_name="exercise01" > {{ exercise01 }} 早敬虔后锻炼 </a>
         </td>
         <td>
-        <a href=/alt1234?file_name="exercise02" > {{ exercise02 }} 12点30敬虔后锻炼 </a>
+        <a href=/alt1234?file_name="exercise02" > {{ exercise02 }} 晚饭前的锻炼 </a>
         </td>
         <td>
-        <a href=/alt1234?file_name="exercise03" > {{ exercise03 }}  20点敬虔后锻炼 </a>
+        <a href=/alt1234?file_name="exercise03" > {{ exercise03 }} 洗澡前的锻炼 </a>
         </td>
     </tr>
 </table>
@@ -34,13 +33,13 @@
 <table border="1">
     <tr>
         <td>
-        <a href=/alt1234?file_name="exercise01" > {{ exercise01 }} notNapButWalk 1 </a>
+        <a href=/alt1234?file_name="exercise01" > {{ exercise01 }} 早敬虔后锻炼 </a>
         </td>
         <td>
-        <a href=/alt1234?file_name="exercise02" > {{ exercise02 }} walkOrMop  </a>
+        <a href=/alt1234?file_name="exercise02" > {{ exercise02 }} 晚饭前的锻炼 </a>
         </td>
         <td>
-        <a href=/alt1234?file_name="exercise03" > {{ exercise03 }}  notNapButWalk 2  </a>
+        <a href=/alt1234?file_name="exercise03" > {{ exercise03 }} 洗澡前的锻炼 </a>
         </td>
     </tr>
 </table>
@@ -50,67 +49,67 @@
 <table border="1">
 <tr>
 <td>
-<a href=/alt1234?file_name="wake_up" > {{ wake_up }} 6点30赞美读经 </a>
+<a href=/alt1234?file_name="wake_up" > {{ wake_up }} 6点敬虔 </a>
 </td>
 <td>
-<a href=/alt1234?file_name="breakfast" > {{ breakfast }} 7点50早饭 </a>
+<a href=/alt1234?file_name="breakfast" > {{ breakfast }} 7点吃1点 </a>
 </td>
 <td>
-<a href=/alt1234?file_name="morning_prayer" > {{ morning_prayer }}  8点30祷告赞美</a>
-</td>
-</tr>
-
-<tr>
-<td>
-<a href=/alt1234?file_name="alt23" >{{ alt23 }}  alt23</a>
-</td>
-<td>
-<a href=/alt1234?file_name="stand_service" >{{ stand_service }}  侍立服侍喂养</a>
-</td>
-<td>
-<a href=/alt1234?file_name="bible_read" > {{ bible_read }} 读经</a>
+<a href=/alt1234?file_name="morning_prayer" > {{ morning_prayer }} 7点半开刷 </a>
 </td>
 </tr>
 
 <tr>
 <td>
-<a href=/alt1234?file_name="meditation" >{{ meditation }}  默想</a>
+<a href=/alt1234?file_name="alt23" >{{ alt23 }} 上课1 </a>
 </td>
 <td>
-<a href=/alt1234?file_name="lunch" >{{ lunch }}  12点午饭</a>
+<a href=/alt1234?file_name="stand_service" >{{ stand_service }} 上课2 </a>
 </td>
 <td>
-<a href=/alt1234?file_name="midday_prayer" >{{ midday_prayer }}  12点30饭后休闲</a>
-</td>
-</tr>
-
-<tr>
-<td>
-<a href=/alt1234?file_name="arrangement" >{{ arrangement }}  整理承启</a>
-</td>
-<td>
-<a href=/alt1234?file_name="nap" >{{ nap }} 13点30午休 </a>
-</td>
-<td>
-<a href=/alt1234?file_name="wake_up_nap" >{{ wake_up_nap }}  15点起来</a>
+<a href=/alt1234?file_name="bible_read" > {{ bible_read }} 上课3 </a>
 </td>
 </tr>
 
 <tr>
 <td>
-<a href=/alt1234?file_name="add_new" >{{ add_new }}  加新节制</a>
+<a href=/alt1234?file_name="meditation" >{{ meditation }} 中午敬虔 </a>
 </td>
 <td>
-<a href=/alt1234?file_name="supper" >{{ supper }}  17点半晚饭</a>
+<a href=/alt1234?file_name="lunch" >{{ lunch }} 12点午饭 </a>
 </td>
 <td>
-<a href=/alt1234?file_name="evening_prayer" >{{ evening_prayer }}  20点祷告赞美</a>
+<a href=/alt1234?file_name="midday_prayer" >{{ midday_prayer }} 中午祷告 </a>
 </td>
 </tr>
 
 <tr>
 <td>
-<a href=/alt1234?file_name="alt14_submit" >{{ alt14_submit }}  alt14，提交</a>
+<a href=/alt1234?file_name="arrangement" >{{ arrangement }} 整理准备 </a>
+</td>
+<td>
+<a href=/alt1234?file_name="nap" >{{ nap }} 休息 </a>
+</td>
+<td>
+<a href=/alt1234?file_name="wake_up_nap" >{{ wake_up_nap }} 起来刷alt23 </a>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href=/alt1234?file_name="add_new" >{{ add_new }} 刷alt1 </a>
+</td>
+<td>
+<a href=/alt1234?file_name="supper" >{{ supper }} 运动晚饭 </a>
+</td>
+<td>
+<a href=/alt1234?file_name="evening_prayer" >{{ evening_prayer }} 晚上敬虔 </a>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href=/alt1234?file_name="alt14_submit" >{{ alt14_submit }} 加新提交 </a>
 </td>
 <td>
 <a href=/alt1234?file_name="night_sleep" >{{ night_sleep }} 22点30睡觉</a>
@@ -120,7 +119,6 @@
 </td>
 </tr>
 </table>
--->
 
 <hr>
 <a href=/alt1  ><button style="width:220px;height:100px;font-size:40px"> alt1  </button></a> &nbsp;

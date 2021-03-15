@@ -18,15 +18,7 @@
     }
 </script>
 
-<form action="/accept-cmd-alt4" method="get">
-    <input type="hidden" name="every" value={{ every_info }}>
-    {% ifequal every_info 'common' %}
-        {% include "input_cmd_one_alt4.html" %}
-    {% else %}
-        {% include "input_cmd.html" %}
-    {% endifequal %}
-</form>
-<audio controls="controls" autoplay="autoplay" src="/static/grace_voice/{{ ext }}.mp3" loop="loop"/>
+<audio autoplay="autoplay" src="/static/grace_voice/{{ ext }}.mp3" loop="loop"/>
 Your browser does not support the audio element.
 </audio>
 <hr>
@@ -41,8 +33,6 @@ Your browser does not support the audio element.
     {{ env }}
     </div>
 {% else %}
-    <input type="button" style="width:960px;height:100px;" value="" onclick="display('lb')">
-    <br>
     <pre style="white-space: pre-wrap; word-wrap:break-word;">
         {{ con }}
     </pre>
@@ -55,8 +45,16 @@ Your browser does not support the audio element.
 </font>
 
 <u><h1>{{ every_info }}</h1></u>
-<p>
+<hr>
 
+<form action="/accept-cmd-alt4" method="get">
+    <input type="hidden" name="every" value={{ every_info }}>
+    {% ifequal every_info 'common' %}
+        {% include "input_cmd_one_alt4.html" %}
+    {% else %}
+        {% include "input_cmd.html" %}
+    {% endifequal %}
+</form>
 <button onclick='back2top(event)' style="width:680px;height:60px"> back2top </button>
 
 <p>{{ every }} {{ cmd }}</p>

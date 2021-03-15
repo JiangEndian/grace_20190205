@@ -60,12 +60,33 @@ def worshipAndBible(request):
     
     #1、未复习且未有dump则查询好，并放到dict中dump
     #   此阶段生成四个info文件，准备用来查询及操作
-    if os.path.exists('WorshipAndBible/4web_restudy/已复习') and not os.path.exists('language_voice_diction_english/4web_restudy/common_info'):
+    if os.path.exists('WorshipAndBible/4web_restudy/已复习') and not os.path.exists('WorshipAndBible/4web_restudy/common_info'):
         my_dict['showinfo'] = '本日已复习'
         my_dict['con'] = 't1'
         my_dict['env'] = 't2'
         my_dict['ext'] = 't3'
-        return HttpResponseRedirect('/alt1234') #复习完的直接回主页
+        #return HttpResponseRedirect('/alt1234') #复习完的直接回主页
+
+        #复习完的再生成新的common
+        day = datetime.now() + timedelta(days=0)
+        ymd = day.strftime('%Y%m%d')
+        
+        create_database_link()
+        global common
+        
+        every_year_info = {}
+        every_month_info = {}
+        every_week_info = {}
+        dump2file('WorshipAndBible/4web_restudy/every_year_info', every_year_info)
+        dump2file('WorshipAndBible/4web_restudy/every_month_info', every_month_info)
+        dump2file('WorshipAndBible/4web_restudy/every_week_info', every_week_info)
+        
+        common_info = common.find('Ymd', ymd)
+        dump2file('WorshipAndBible/4web_restudy/common_info', common_info)
+        close_database_link()
+        all_restudy = len(every_year_info)+len(every_month_info)+len(every_week_info)+len(common_info)
+        my_dict['showinfo'] = '只是common的%s条复习，时间:%s' % (all_restudy, str(day))
+
         #return render(request, 'worshipAndBible.html', my_dict)
     elif os.path.exists('WorshipAndBible/4web_restudy/common_info'):
         every_year_info = loadffile('WorshipAndBible/4web_restudy/every_year_info')
@@ -76,7 +97,7 @@ def worshipAndBible(request):
         all_restudy_list = [len(every_year_info), len(every_month_info), len(every_week_info), len(common_info)]
         all_restudy = all_restudy_list[0] +all_restudy_list[1] + all_restudy_list[2] + all_restudy_list[3]
 
-        all_time = all_restudy*16
+        all_time = all_restudy*300
         all_time_m = int(all_time // 60)
         all_time_s = int(all_time % 60)
         if all_restudy_list[2] + all_restudy_list[1] + all_restudy_list[0]== 0:
@@ -97,7 +118,7 @@ def worshipAndBible(request):
         ymd = day.strftime('%Y%m%d')
         
         #提前年的，所以，年的单独调出。把这两句复制到py3里，就可以准确演算了
-        y_day = datetime.now() + timedelta(days=72)
+        y_day = datetime.now() + timedelta(days=0)
         monthday = y_day.strftime('%m%d')
         #print('monthday='+monthday)
 
