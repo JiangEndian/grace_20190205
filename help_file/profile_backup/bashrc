@@ -10,6 +10,7 @@ alias cp='cp -i'
 
 export PATH=$PATH:/home/ed/bin
 
+
 #Language setting to supoort Chinese
 lang_input=en_US.UTF-8
 LANG=$lang_input
@@ -26,3 +27,16 @@ LC_ADDRESS=$lang_input
 LC_TELEPHONE=$lang_input
 LC_MEASUREMENT=$lang_input
 LC_IDENTIFICATION=$lang_input
+
+
+#echo -e "\033[3xmsome things you want to print out.\033[0m"  
+#\033[3xm为ANSI控制码，表示要开始输出有颜色的字符了。
+#some things you want to print out.表示要输出的字符，和3xm紧挨着，如果中间有空格，输出的字符前面也会有空格。
+#3x为表示颜色的一组数字，x取值为0到7，分别代表的颜色如下：
+#30表示黑色。31表示红色。32表示绿色。33表示黄色。34表示蓝色。
+#35表示紫色。36表示浅蓝色。37表示灰色。033[0m为ANSI控制码，表示结束输出有颜色的字符。
+ps aux|grep ./manage
+echo
+echo -e "\033[31mPlease kill above listed processes to avoid merger errors. \033[0m"
+echo
+
