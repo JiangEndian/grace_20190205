@@ -8,6 +8,8 @@ def all_rm(request):
     runsyscmd('rm language_voice_diction_hebrew/4web_restudy/*')
     runsyscmd('rm language_voice_diction_korean/4web_restudy/*')
     runsyscmd('rm WorshipAndBible/4web_restudy/*')
+    
+    runsyscmd('rm language_voice_diction_mother/4web_restudy/*') #今天为妈妈做了个学英语的，每天给妈妈加一课新的
 
     runsyscmd('rm file_name_files/*') #加上删除所有已完成的记录,20201207,22:51
 

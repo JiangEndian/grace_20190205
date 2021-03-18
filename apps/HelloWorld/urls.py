@@ -2,7 +2,7 @@ from django.conf.urls import url
 from django.views.generic.base import RedirectView #重定向到给定的URL
 #from django.contrib import admin
 
-from . import alt3, alt3_common, alt2, alt2_common, alt4, alt4_common, alt1, alt1_common, index, all_rm, sleep_pc, download, for_text, grace_calculator, world_emulator, worshipAndBible
+from . import alt3, alt3_common, alt2, alt2_common, alt4, alt4_common, alt1, alt1_common, index, all_rm, sleep_pc, download, for_text, grace_calculator, world_emulator, worshipAndBible, mother_common
 
 #pattern模范，典范，模型，模式
 urlpatterns = [
@@ -37,6 +37,8 @@ urlpatterns = [
 
     url(r'^alt3$', alt3.alt3),
     url(r'^alt3-common$', alt3_common.alt3_common),
+    url(r'^mother_common$', mother_common.mother_common),
+    url(r'^accept_mother_common$', mother_common.accept_cmd_mother),
     url(r'^accept-cmd-alt3$', alt3.accept_cmd_alt3),
     url(r'^configurationsWeb$', alt3.configurationsWeb),
     url(r'^updateConfigurationsWeb$', alt3.updateConfigurationsWeb),
