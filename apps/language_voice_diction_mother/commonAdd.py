@@ -6,7 +6,8 @@ global voice_number
 voice_number = 1001
 
 global dir_name
-dir_name = input('输入文件夹名：')
+#dir_name = input('输入文件夹名：')
+dir_name = 'mother_english'
 file_name = input('输入文件名：')
 cvlc_play_mp3('~/grace_voice_file/%s/%s' % (dir_name, file_name), 1, '-', '=')
 if input('确认有声音？文件夹无误？YES?') != 'YES':
