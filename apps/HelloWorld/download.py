@@ -7,6 +7,7 @@ from MyPython3 import *
 
 def download(request):
     file_list = os.listdir("statics/files")
+    file_list.sort()
     file_dict = {'file_list':file_list}
 
     file_dict['TextArea'] = readffile('from_net')
