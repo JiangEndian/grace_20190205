@@ -194,7 +194,7 @@ def mother_common(request):
     my_dict['RepeatTimes']= 2
 
     #给con每两行加一行空格
-    my_dict['con'] = addLineEvery2Lines(my_dict['con'])
+    #my_dict['con'] = addLineEvery2Lines(my_dict['con'])
 
     #context的'hello'对应模板html的变量{{ hello }}
     return render(request, 'mother_common.html', my_dict)
