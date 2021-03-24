@@ -26,7 +26,7 @@ def addEveryWeek():
         exit()
     con = readffile('BibleText/' + con_file).replace('  ', '\n')
     print(con)
-    input('输入正确吗？')
+    #input('输入正确吗？')
     #env = input('mean:') #[ɪnˈvaɪrənmənt]环境
     env = '' #[ɪnˈvaɪrənmənt]环境
     file_name = input('file_name_without.mp3:')
