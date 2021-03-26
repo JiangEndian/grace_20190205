@@ -11,7 +11,7 @@ def replaceOthers(Text):
     Text = replaceInfo2.sub('', Text)
     Text = replaceInfo3.sub('', Text)
 
-    return Text.replace('\n', '\n\n').replace('  ', ' ')
+    return Text.replace('\n', '\n').replace('  ', ' ')
 
 ##现在的任务是：
 global my_dict
