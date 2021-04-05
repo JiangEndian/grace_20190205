@@ -5,10 +5,12 @@
 <hr>
 <script>
     var timeString = 0
+    var AllTime = 30
+    var BibiTime = 15
     function update(){
         ++timeString
         document.getElementById("time").innerHTML = timeString
-        if (timeString >= 60){
+        if (timeString >= AllTime){
             timeString = 0
         }
     }
@@ -30,7 +32,7 @@
     var bibi = document.getElementById("bibi");
     i=0
     setInterval( function (){
-    if (timeString <= 45){
+    if (timeString <= BibiTime){
     bibi.play()
     ++i
     }

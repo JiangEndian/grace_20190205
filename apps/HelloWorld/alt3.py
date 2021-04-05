@@ -223,7 +223,7 @@ def alt3(request):
     my_dict['RepeatTimes']= Configurations['RepeatTimes']
 
     #给con每两行加一行空格
-    my_dict['con'] = addLineEvery2Lines(my_dict['con'])
+    #my_dict['con'] = addLineEvery2Lines(my_dict['con'])
 
     #context的'hello'对应模板html的变量{{ hello }}
     return render(request, 'alt3.html', my_dict)
