@@ -23,10 +23,10 @@
            if(true)  
            {   
                position = get_scroll_position()
-               position += 1;  
+               position += 20;  
                scroll(0,position);  
                clearTimeout(timer);  
-               var timer = setTimeout("scroller()",70);  
+               var timer = setTimeout("scroller()",1000);  
            }
         }
         setTimeout("scroller()", 21000);
