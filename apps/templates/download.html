@@ -1,13 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
-<font size="5">
+<form enctype="multipart/form-data" action="/upload_file" method="post">
+       <input type="file" name="myfiles" multiple style="width:900px;height:80px;font-size:40px"/>
+       <input type="submit" value="upload"style="width:900px;height:80px;font-size:40px"/>
+</form>
+<br>
+
+<font size="6">
 <table border="1">
 {% for file_name in file_list %}
     <tr>
         <td nowrap>
         <a href="/static/files/{{ file_name }}">  {{ file_name }} </a>
         </td>
+        <!--
         <td nowrap>
         把删除的挤右边去。
         把删除的挤右边去。
@@ -21,15 +28,11 @@
         <td>
         <a href="/deleteFile?FileName={{ file_name }}"> X </a>
         </td>
+        -->
     </tr>
 {% endfor %}
 </table>
 
-<br>
-<form enctype="multipart/form-data" action="/upload_file" method="post">
-       <input type="file" name="myfiles" multiple style="width:900px;height:80px;font-size:40px"/>
-       <input type="submit" value="upload"style="width:900px;height:80px;font-size:40px"/>
-</form>
 
 <br>
 <form action="/accept-text" method="post" id="usrform">

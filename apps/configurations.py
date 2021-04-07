@@ -4,7 +4,7 @@ from MyPython3 import *
 
 
 def readConfigurations(FileName):
-    Configurations = {'InfoOfThisConfigurations':'This is a dictionsary to story configurations.'}
+    Configurations = {'InfoOfThisConfigurations':'This is a dictionary to story configurations.'}
     if os.path.exists(FileName):
         Configurations = loadffile(FileName)
     else:

@@ -11,8 +11,10 @@ def submitToGithub(request):
 
 def index(request):
     restudy_info = {}
-    tasks_part1 = 20
-    tasks_all = 20
+    #tasks_part1 = 20
+    #tasks_all = 20
+    tasks_part1 = 12
+    tasks_all = 12
     #给textarea显示的文本文件,以及,提交也是向这个文件
     restudy_info['TextArea'] = readffile('from_net')
 
@@ -91,7 +93,7 @@ def index(request):
     elif not os.path.exists('new_gs/4web_restudy/common_info'):
         #restudy_info['alt1'] = 'alt1'
         #初始显示信息改为显示锻炼
-        restudy_info['alt1'] = '小腿垂直床_腰腿一线3min*3'
+        restudy_info['alt1'] = '膝盖自由落体摆动3分钟. '
 
         restudy_info['alt1_common'] = ''
 
@@ -101,7 +103,7 @@ def index(request):
     elif not os.path.exists('language_voice_diction_korean/4web_restudy/common_info'):
         #restudy_info['alt2'] = 'alt2'
         #初始显示信息改为显示锻炼
-        restudy_info['alt2'] = '手肘支撑，抬起上半身，骨盆不离开床面_反复抬起上身趴下，15次每组，做三组'
+        restudy_info['alt2'] = '身体侧屈看同侧脚。15*3. '
 
         restudy_info['alt2_common'] = ''
 
@@ -112,7 +114,7 @@ def index(request):
     elif not os.path.exists('language_voice_diction_english/4web_restudy/common_info'):
         #restudy_info['alt3'] = 'alt3'
         #初始显示信息改为显示锻炼
-        restudy_info['alt3'] = '旋转训练：仰卧位，屈膝，膝盖左右自由摆动，自由落体轻松摆动3分钟'
+        restudy_info['alt3'] = '1.撑抬起上身趴下，15*3. 2.身体左右翻转感受脊柱一节节旋转，3-5分钟。'
 
         restudy_info['alt3_common'] = ''
         restudy_info['alt3_all'] = ''
@@ -128,7 +130,7 @@ def index(request):
     elif not os.path.exists('language_voice_diction_hebrew/4web_restudy/common_info'):
         #restudy_info['alt4'] = 'alt4'
         #初始显示信息改为显示锻炼
-        restudy_info['alt4'] = '仰卧位，屈膝，身体左右翻转，放松着，感受脊柱一节节旋转3-5分钟。跪姿位，身体侧屈看同侧脚。左右交替，15次一组，做3组'
+        restudy_info['alt4'] = '小腿垂直床_腰腿一线3min*3. '
         restudy_info['alt4_common'] = ''
     
     #restudy_info['alt1_common'] = ''
