@@ -4,11 +4,16 @@ from django.http import JsonResponse
 from django.shortcuts import render
 import os
 from MyPython3 import *
+from configurations import *
 
 def download(request):
     file_list = os.listdir("statics/files")
     file_list.sort()
     file_dict = {'file_list':file_list}
+
+    #尝试加个控制页面，设置显示删除与否
+    Configurations = readConfigurations('Configurations')
+    file_dict['Delete']= Configurations['Delete']
 
     file_dict['TextArea'] = readffile('from_net')
     return render(request, 'download.html', file_dict)

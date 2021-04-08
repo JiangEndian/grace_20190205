@@ -234,14 +234,19 @@ def configurationsWeb(request):
     Configurations = readConfigurations('Configurations')
     for Key in Configurations:
         ConfigurationsList.append(Key + ' : ' + Configurations[Key])
-    MyConfigurations['AllConfigurations'] = '\n'.join(ConfigurationsList)
+    MyConfigurations['AllConfigurations'] = '\n'.join(sorted(ConfigurationsList))
     return render(request, 'configurations.html', MyConfigurations)
     
 def updateConfigurationsWeb(request):
     Configurations = readConfigurations('Configurations')
     request.encoding='utf-8'
-    RepeatTimes = request.GET['RepeatTimes']
-    updateConfigurations('Configurations', Configurations, {'RepeatTimes':RepeatTimes})
+    ConfigurationsDict = {}
+    if 'RepeatTimes' in request.GET:
+        ConfigurationsDict['RepeatTimes'] = request.GET['RepeatTimes']
+    if 'Delete' in request.GET:
+        ConfigurationsDict['Delete'] = request.GET['Delete']
+    for (key, value) in ConfigurationsDict.items():
+        updateConfigurations('Configurations', Configurations, {key:value})
     return HttpResponseRedirect('/configurationsWeb')
     
 def accept_cmd_alt3(request):
