@@ -19,7 +19,7 @@ def addEveryWeek():
         every_week.add(Day=day, Con=con, Other1=env, Other3=file_name)
         #如果不是要立即复习的，像是课堂笔记之类的，不用加太多
         #不然太重，我会放弃明天的。太可怕了。。。
-        #common.add(Ymd=getdaystime(1), Con=con, Other1=env, Other3=file_name)
+        common.add(Ymd=getdaystime(1), Con=con, Other1=env, Other3=file_name)
         #common.add(Ymd=getdaystime(3), Con=con, Other1=env, Other3=file_name)
         #common.add(Ymd=getdaystime(5), Con=con, Other1=env, Other3=file_name)
         print(every_week.find(NAME='Con', value=con))
