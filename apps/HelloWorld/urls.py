@@ -37,8 +37,8 @@ urlpatterns = [
 
     url(r'^alt3$', alt3.alt3),
     url(r'^alt3-common$', alt3_common.alt3_common),
-    url(r'^mother_common$', mother_common.mother_common),
-    url(r'^accept_mother_common$', mother_common.accept_cmd_mother),
+    #url(r'^mother_common$', mother_common.mother_common),
+    #url(r'^accept_mother_common$', mother_common.accept_cmd_mother),
     url(r'^accept-cmd-alt3$', alt3.accept_cmd_alt3),
     url(r'^configurationsWeb$', alt3.configurationsWeb),
     url(r'^updateConfigurationsWeb$', alt3.updateConfigurationsWeb),
