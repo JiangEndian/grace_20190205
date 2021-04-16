@@ -6,10 +6,22 @@
 调整：(→ )
 <hr>
 
-<form enctype="multipart/form-data" action="/upload_file" method="post">
-       <input type="file" name="myfiles" multiple style="width:900px;height:80px;font-size:40px"/>
+<form id="uploadFiles" enctype="multipart/form-data" action="/upload_file" method="post">
+       <input type="file" name="myfiles" multiple style="width:900px;height:80px;font-size:40px" onkeydown='if(event.keyCode==13) document.getElementById("uploadFiles").submit(); return false;'/>
        <input type="submit" value="upload"style="width:900px;height:80px;font-size:40px"/>
 </form>
+<script>
+    //绑定全局按键
+    /*
+    $(document).keypress(function(e) {
+        var eCode = e.keyCode ? e.keyCode : e.which ? e.which : e.charCode;
+        if (eCode == 13){  //13为回车
+            //alert('您按了回车键')
+            document.getElementById("uploadFiles").submit();
+        }
+    });
+    */
+</script>
 <hr>
 
 <a href=/grace_calculator >ChurchSystem</a> &nbsp;

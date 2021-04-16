@@ -1,10 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form enctype="multipart/form-data" action="/upload_file" method="post">
-       <input type="file" name="myfiles" multiple style="width:900px;height:80px;font-size:40px"/>
+<form id="uploadFiles" enctype="multipart/form-data" action="/upload_file" method="post">
+       <input type="file" name="myfiles" multiple style="width:900px;height:80px;font-size:40px" onkeydown='if(event.keyCode==13) document.getElementById("uploadFiles").submit(); return false;'/>
        <input type="submit" value="upload"style="width:900px;height:80px;font-size:40px"/>
 </form>
+<script>
+    //绑定全局按键
+    /*
+    $(document).keypress(function(e) {
+        var eCode = e.keyCode ? e.keyCode : e.which ? e.which : e.charCode;
+        if (eCode == 13){  //13为回车
+            //alert('您按了回车键')
+            document.getElementById("uploadFiles").submit();
+        }
+    });
+    */
+    //绑定全局不返回还会被别的捕捉，或者先被别的捕捉？直接在回车的按键上绑定提交，然后返回false就可以只提交不再打开文件管理
+</script>
+
 <br>
 
 <font size="6">
@@ -14,18 +28,6 @@
         <td nowrap>
         <a href="/static/files/{{ file_name }}">  {{ file_name }} </a>
         </td>
-        <!--
-        <td nowrap>
-        把删除的挤右边去。
-        把删除的挤右边去。
-        把删除的挤右边去。
-        把删除的挤右边去。
-        把删除的挤右边去。
-        把删除的挤右边去。
-        把删除的挤右边去。
-        把删除的挤右边去。
-        </td>
-        -->
         <td>
         <a href="/deleteFile?FileName={{ file_name }}"> {{ Delete }} </a>
         </td>
