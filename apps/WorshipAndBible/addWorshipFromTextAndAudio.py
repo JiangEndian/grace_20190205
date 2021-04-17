@@ -8,7 +8,7 @@ voice_number = 1001
 global dir_name
 #dir_name = input('输入文件夹名：')
 dir_name = 'WorshipSongs'
-file_name = input('FileNameWithout_mp3：')
+file_name = input('file_name_with.mp3:').replace('.mp3', '')
 def forBashCMD(CMD):
     return CMD
     #return CMD.replace('(', '\(').replace(')', '\)').replace(' ', '\ ').replace('-', '\-')
