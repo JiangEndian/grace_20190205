@@ -60,7 +60,7 @@ urlpatterns = [
     
     url(r'^life_code$', all_rm.life_code),
 
-    url(r'^sleep$', sleep_pc.sleep),
+    #url(r'^sleep$', sleep_pc.sleep),
 
     url(r'^accept-text$', for_text.accept_text),
 ]
