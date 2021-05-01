@@ -21,6 +21,7 @@ def download(request):
 def deleteFile(request):
     SysCmd = 'mv statics/files/%s /home/ed/DeletedFiles/' % request.GET.get('FileName')
     runsyscmd('mv statics/files/%s /home/ed/DeletedFiles/' % request.GET.get('FileName').replace(' ', '\ '))
+    runsyscmd('date >> /home/ed/DeletedFiles/RecordsOfFileOperation; echo %s >> /home/ed/DeletedFiles/RecordsOfFileOperation; echo >> /home/ed/DeletedFiles/RecordsOfFileOperation' % request.GET.get('FileName').replace(' ', '\ '))
     #file_list = os.listdir("statics/files")
     #file_dict = {'file_list':file_list}
     #return render(request, 'download.html', file_dict) 
