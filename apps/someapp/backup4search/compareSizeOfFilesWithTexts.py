@@ -2,7 +2,7 @@
 
 import os
 
-foldername = input('Folder Name:')
+foldername = input('Folder Name: ')
 
 filenames = os.listdir(foldername)
 filenames.sort()
@@ -27,5 +27,6 @@ for linenumber in range(len(texts)):
     percentage = filesizes[linenumber] / len(texts[linenumber])
     print(filenames[linenumber] + ' ' + str(percentage))
 
+print(foldername)
 #print(filenames, filesizes, texts)
 
