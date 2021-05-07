@@ -95,6 +95,8 @@
 {% ifequal 'common' 'common' %}
     {% if VideoEnv %}
         <video controls preload loop autoplay width="" height="" src="/static/grace_voice/{{ VideoEnv }}" type="video/mp4"></video>&nbsp;
+    {% elif NoMp3File %}
+        <audio id="myAudio1" autoplay controls src="https://tts.readspeaker.com/a/speak?key=578c1f5eec54b74706c50321496e25a6&{{ settings }}&text={{ con }}" ></audio>&nbsp;
     {% else %}
         <audio id="myAudio1" autoplay controls src="/static/grace_voice/{{ ext }}.mp3" ></audio>&nbsp;
     {% endif %}

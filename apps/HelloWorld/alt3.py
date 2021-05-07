@@ -3,6 +3,8 @@ from django.shortcuts import render
 from django.utils.safestring import mark_safe #for tranfer html code
 from tableDefine import * #导入自定义的东西
 from configurations import *
+import random
+import os
 
 ##现在的任务是：
 global my_dict
@@ -217,6 +219,24 @@ def alt3(request):
     if my_dict['env'] == 'NotAudioButVideo':
         #my_dict['VideoEnv'] = mark_safe('''<br/><video controls preload loop autoplay width="320" height="240" src="/static/grace_voice/TOEFL/%s" type="video/mp4"></video><br/>''' % my_dict['ext'])
         my_dict['VideoEnv'] = my_dict['ext']
+    my_dict['NoMp3File'] = ''
+    #没有音频文件的用speechCloudApi
+    if not os.path.exists('/home/ed/grace_voice_file/'+my_dict['ext']+'.mp3'):
+        settingList = ['lang=en_au&voice=Jack', 
+                        'lang=en_au&voice=Mia', 
+                        'lang=en_uk&voice=Alice',
+                        'lang=en_uk&voice=Bridget',
+                        'lang=en_uk&voice=Hugh',
+                        'lang=en_us&voice=Ashley',
+                        'lang=en_us&voice=James',
+                        'lang=en_us&voice=Julie',
+                        'lang=en_us&voice=Kate',
+                        'lang=en_us&voice=Mark',
+                        'lang=en_us&voice=Paul',
+                        'lang=en_us&voice=Sophie']
+        my_dict['settings'] = settingList[random.randint(0,11)]
+        my_dict['NoMp3File'] = 'NoAudioFile'
+        my_dict['con'] = my_dict['con'].replace(',', ', ').replace('  ',' ')
     
     #尝试加个控制页面，设置重复次数。省得每次都得ssh来改。。。
     Configurations = readConfigurations('Configurations')

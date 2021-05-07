@@ -19,8 +19,7 @@ def download(request):
     return render(request, 'download.html', file_dict)
 
 def deleteFile(request):
-    SysCmd = 'mv statics/files/%s /home/ed/DeletedFiles/' % request.GET.get('FileName')
-    runsyscmd('mv statics/files/%s /home/ed/DeletedFiles/' % request.GET.get('FileName').replace(' ', '\ '))
+    #runsyscmd('mv statics/files/%s /home/ed/DeletedFiles/' % request.GET.get('FileName').replace(' ', '\ ')) #不知道为什么，我9点多起来，6点半左右删了好几个文件。。。
     runsyscmd('date >> /home/ed/DeletedFiles/RecordsOfFileOperation; echo %s >> /home/ed/DeletedFiles/RecordsOfFileOperation; echo >> /home/ed/DeletedFiles/RecordsOfFileOperation' % request.GET.get('FileName').replace(' ', '\ '))
     #file_list = os.listdir("statics/files")
     #file_dict = {'file_list':file_list}

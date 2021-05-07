@@ -57,7 +57,8 @@ def index(request):
 
     #这是一开始的alt1234的进度相关的
     restudy_info['alt1'] = '进度中alt1'
-    restudy_info['alt1_common'] = 'alt1_common'
+    #restudy_info['alt1_common'] = 'alt1_common'
+    restudy_info['alt1_common'] = 'alt1_all' #To show common -> to show all
 
     restudy_info['alt2'] = '进度中alt2'
     restudy_info['alt2_common'] = 'alt2_common'
@@ -65,6 +66,7 @@ def index(request):
     restudy_info['alt3'] = '进度中alt3'
     restudy_info['alt3_common'] = 'alt3_common'
     restudy_info['alt3_all'] = 'alt3_all'
+    restudy_info['alt3_browerReading'] = 'alt3_browerReading'
 
     restudy_info['worshipAndBible'] = '...'
 
