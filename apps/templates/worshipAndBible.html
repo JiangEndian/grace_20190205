@@ -23,10 +23,10 @@
            if(true)  
            {   
                position = get_scroll_position()
-               position += 10;  
+               position += 100;  
                scroll(0,position);  
                clearTimeout(timer);  
-               var timer = setTimeout("scroller()",1000);  
+               var timer = setTimeout("scroller()",5000);  
            }
         }
         setTimeout("scroller()", 21000);
@@ -41,6 +41,7 @@
         //function simulator_pagedown(){
         //document.onclick = function (){
         function page_down(){
+            return 0;
             position = get_scroll_position()
             position += 200;
             scroll(0, position)
@@ -68,8 +69,7 @@
     {% endifequal %}
 </form>
 
-<!-- <div onclick="page_down()"> --!>
-<div>
+<div onclick="page_down()">
 {# {% ifequal every_info 'common' %} #}
 {% ifequal 'common' 'common' %}
     {% if VideoEnv %}

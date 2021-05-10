@@ -4,7 +4,8 @@ from django.utils.safestring import mark_safe #for tranfer html code
 from tableDefine import * #导入自定义的东西
 from configurations import *
 import random
-import os
+import os, sys, uuid, requests, hashlib, time
+from imp import reload
 
 ##现在的任务是：
 global my_dict
@@ -216,28 +217,62 @@ def alt3(request):
         return HttpResponseRedirect('/alt1234')
     #测试直接把env置为video标签可行不
     my_dict['VideoEnv'] = '' #初始化，防止没有了还带着上次的内容
+    my_dict['NoMp3File'] = ''
+    pathMp3 = '/home/ed/grace_voice_file/'+my_dict['ext']+'.mp3'
     if my_dict['env'] == 'NotAudioButVideo':
         #my_dict['VideoEnv'] = mark_safe('''<br/><video controls preload loop autoplay width="320" height="240" src="/static/grace_voice/TOEFL/%s" type="video/mp4"></video><br/>''' % my_dict['ext'])
         my_dict['VideoEnv'] = my_dict['ext']
-    my_dict['NoMp3File'] = ''
-    #没有音频文件的用speechCloudApi
-    if not os.path.exists('/home/ed/grace_voice_file/'+my_dict['ext']+'.mp3'):
-        settingList = ['lang=en_au&voice=Jack', 
-                        'lang=en_au&voice=Mia', 
-                        'lang=en_uk&voice=Alice',
-                        'lang=en_uk&voice=Bridget',
-                        'lang=en_uk&voice=Hugh',
-                        'lang=en_us&voice=Ashley',
-                        'lang=en_us&voice=James',
-                        'lang=en_us&voice=Julie',
-                        'lang=en_us&voice=Kate',
-                        'lang=en_us&voice=Mark',
-                        'lang=en_us&voice=Paul',
-                        'lang=en_us&voice=Sophie']
-        my_dict['settings'] = settingList[random.randint(0,11)]
-        my_dict['NoMp3File'] = 'NoAudioFile'
-        my_dict['con'] = my_dict['con'].replace(',', ', ').replace('  ',' ')
-    
+    #没有音频文件的用ttsApi
+    elif not os.path.exists(pathMp3):
+        #my_dict['NoMp3File'] = 'NoAudioFile' #这里是新建，所以是有的了
+        pathDir = '/home/ed/grace_voice_file/' + my_dict['ext'].split('/')[0]
+        #print(pathDir)
+        print('mkdir %s' % pathDir)
+        runsyscmd('mkdir %s' % pathDir)
+        runsyscmd('echo %s  >> ~/YouDaoRecord.txt' % pathMp3)
+        my_dict['con'] = my_dict['con'].replace(',', ', ').replace('  ',' ').replace('. .', '. ').replace('.', '. ').replace('  ', ' ').replace('  ', ' ')
+
+        #YouDao
+        reload(sys)
+        YOUDAO_URL = 'https://openapi.youdao.com/ttsapi'
+        #APP_KEY = '67b52b614eff8da6'
+        #APP_SECRET = 'ocOYx11YDzkASF0TNAkGbIgYy54wk8TT'
+        APP_KEY = '47498cc1548ec803'
+        APP_SECRET = 'y6esBJHbDEUIMy4WJwm5Ed574LeCGfqo'
+
+        def encrypt(signStr):
+            hash_algorithm = hashlib.md5()
+            hash_algorithm.update(signStr.encode('utf-8'))
+            return hash_algorithm.hexdigest()
+        def truncate(q):
+            if q is None:
+                return None
+            size = len(q) #经测试，最大可65×15(975), ×16就200几的错误了
+            return q if size <= 900 else q[0:900] + str(size) + q[size - 900:size]
+        def do_request(data):
+            headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+            return requests.post(YOUDAO_URL, data=data, headers=headers)
+        def connect(q='text', salt='aB1!'):
+            data = {}
+            data['langType'] = 'en-USA'
+            salt = str(uuid.uuid1())
+            signStr = APP_KEY + q + salt + APP_SECRET
+            sign = encrypt(signStr)
+            data['appKey'] = APP_KEY
+            data['q'] = q
+            data['salt'] = salt
+            data['sign'] = sign
+            response = do_request(data)
+            contentType = response.headers['Content-Type']
+            if contentType == "audio/mp3":
+                filePath = pathMp3
+                fo = open(filePath, 'wb')
+                fo.write(response.content)
+                fo.close()
+            else:
+                print(response.content)
+        connect(q=my_dict['con'])
+
     #尝试加个控制页面，设置重复次数。省得每次都得ssh来改。。。
     Configurations = readConfigurations('Configurations')
     my_dict['RepeatTimes']= Configurations['RepeatTimes']

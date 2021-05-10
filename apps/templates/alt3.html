@@ -96,7 +96,9 @@
     {% if VideoEnv %}
         <video controls preload loop autoplay width="" height="" src="/static/grace_voice/{{ VideoEnv }}" type="video/mp4"></video>&nbsp;
     {% elif NoMp3File %}
-        <audio id="myAudio1" autoplay controls src="https://tts.readspeaker.com/a/speak?key=578c1f5eec54b74706c50321496e25a6&{{ settings }}&text={{ con }}" ></audio>&nbsp;
+        {% autoescape off %}
+        <audio id="myAudio1" autoplay controls src="https://tts.readspeaker.com/a/speak?key=578c1f5eec54b74706c50321496e25a6&{{ lang }}&{{ voice }}&text={{ con }}" ></audio>&nbsp;
+        {% endautoescape %}
     {% else %}
         <audio id="myAudio1" autoplay controls src="/static/grace_voice/{{ ext }}.mp3" ></audio>&nbsp;
     {% endif %}
@@ -124,8 +126,6 @@
     {% endif %}
     </font>
 
-    <audio id="myAudio2" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
-    <audio id="myAudio3" src="/static/grace_voice/{{ ext }}.mp3" ></audio>
     <script type="text/javascript">
         //绑定全局按键
         /*
@@ -148,8 +148,6 @@
             return new Promise(resolve => setTimeout(resolve, ms));
         } //需要在async function里, 配合 await
 
-        var aud2 = document.getElementById("myAudio2");
-        var aud3 = document.getElementById("myAudio3");
         //console.log('hi')
         aud1.onended = async function() {
             ++loop_times
@@ -162,19 +160,12 @@
                 //现在改为播放下一次前等我复核
                 //DurationMs = aud1.duration * 1000;
                 //DurationMs = aud1.duration * 1000 + 3000; //我复述的太慢了,得时间加倍...
-                DurationMs = 3000; //我复述的太慢了,得时间加倍...
+                DurationMs = 1000; //不复述了，主要听，太多了，单词不懂的
                 console.log(DurationMs)
                 await sleep(DurationMs)
                 scroll(0,0);
                 aud1.play()
             }
-        }; 
-        aud2.onended = function() {
-            //document.getElementById("form").submit();
-            aud3.play()
-        }; 
-        aud3.onended = function() {
-            document.getElementById("form").submit();
         }; 
     </script>
 {% endifequal %}
