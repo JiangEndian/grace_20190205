@@ -49,6 +49,9 @@ with open(file_name, 'r') as f:
             #if char_num + len(line) > all_character:
                 #print(all_character)
                 #char_num = 0
+            if re.match(han, line):
+                print('有汉字', line)
+                exit(0)
             if len(line) > 900:
                 print(line, str(len(line))+':太多了需要分割')
                 print()
