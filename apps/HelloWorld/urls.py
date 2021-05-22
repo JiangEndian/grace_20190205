@@ -59,6 +59,8 @@ urlpatterns = [
     url(r'^alt1234rm1602080439868326077$', all_rm.all_rm),
     
     url(r'^life_code$', all_rm.life_code),
+    url(r'^addTask$', all_rm.addTask),
+    url(r'^delTask$', all_rm.delTask),
 
     #url(r'^sleep$', sleep_pc.sleep),
 

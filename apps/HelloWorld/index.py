@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import os
 from MyPython3 import *
+from configurations import *
 
 def submitToGithub(request):
     dictOfInfo = {}
@@ -11,49 +12,16 @@ def submitToGithub(request):
 
 def index(request):
     restudy_info = {}
-    #tasks_part1 = 20
-    #tasks_all = 20
-    tasks_part1 = 12
-    tasks_all = 12
     #给textarea显示的文本文件,以及,提交也是向这个文件
     restudy_info['TextArea'] = readffile('from_net')
 
-    if int(getnowtime('week')) % 2 == 0: #02456
-        show_exercise = 'YES'
-        all_tasks = tasks_all
-    else:
-        show_exercise = 'NO' 
-        all_tasks = tasks_part1
-    restudy_info['show_exercise'] = show_exercise
-    restudy_info['all_tasks'] = all_tasks
-
-
-    #新加生成file_name参数的文件名
+    #生成file_name参数的文件名
     def touch_file(file_name):
         runsyscmd('touch file_name_files/%s' % file_name)
 
-    if request.GET.get('file_name'):
-        touch_file(request.GET.get('file_name'))
-        if 'exercise' in request.GET.get('file_name'):
-            return HttpResponseRedirect('static/exercise.html')
-    
-    #获取file_name_files文件夹内的文件们
-    file_name_list = os.listdir("file_name_files")
-    finished = len(file_name_list)
-    if finished >= tasks_part1 and show_exercise == 'NO':
-        restudy_info['finished_all'] = '√'
-        restudy_info['show_life_code'] = 'lifecode'
-    elif finished >= tasks_all:
-        restudy_info['finished_all'] = '√'
-        restudy_info['show_life_code'] = 'lifecode'
-
-    for file_name_one in file_name_list:
-        restudy_info[str(file_name_one)] = '√'
-
-    
-
-    #再在返回的字典里附加上已复习的条数
-    restudy_info['finished'] = str(finished)
+    #显示Tasks
+    Tasks = readConfigurations('Con4Task')['Tasks']
+    restudy_info['Tasks'] = Tasks
 
     #这是一开始的alt1234的进度相关的
     restudy_info['alt1'] = '进度中alt1'

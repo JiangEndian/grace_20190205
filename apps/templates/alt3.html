@@ -93,6 +93,10 @@
 <div>
 {# {% ifequal every_info 'common' %} #}
 {% ifequal 'common' 'common' %}
+    {% if NewWord %}
+        {{ NewWord }}
+    {% endif %}
+
     {% if VideoEnv %}
         <video controls preload loop autoplay width="" height="" src="/static/grace_voice/{{ VideoEnv }}" type="video/mp4"></video>&nbsp;
     {% elif NoMp3File %}
@@ -102,13 +106,16 @@
     {% else %}
         <audio id="myAudio1" autoplay controls src="/static/grace_voice/{{ ext }}.mp3" ></audio>&nbsp;
     {% endif %}
-    <a href=/configurationsWeb  > configurationsWeb  </a>&nbsp;{{ ext }}&nbsp;
+
+    <a href=/configurationsWeb  > configurationsWeb  </a>&nbsp;{{ ext }}&nbsp;{{ errorInfo }}&nbsp;
     <hr>
+
     <font size="6">
     <pre style="white-space: pre-wrap; word-wrap:break-word;">
         {{ con }}
     </pre>
     </font>
+
     <font size="5">
     {% if env %}
         {{ env }}
@@ -149,6 +156,7 @@
         } //需要在async function里, 配合 await
 
         //console.log('hi')
+        {% ifnotequal every_info 'year' %} //年的不自动，否则自动
         aud1.onended = async function() {
             ++loop_times
             if (loop_times > loop_times_all){
@@ -167,6 +175,7 @@
                 aud1.play()
             }
         }; 
+        {% endifnotequal %}
     </script>
 {% endifequal %}
 </div>

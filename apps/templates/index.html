@@ -2,14 +2,13 @@
 {% block content %}
 
 <font size="6">
-程序要有，目的不变，实际调整，每天训练。<br>
-调整：(→ )
-<hr>
 
 <form id="uploadFiles" enctype="multipart/form-data" action="/upload_file" method="post">
-       <input type="file" name="myfiles" multiple style="width:900px;height:80px;font-size:40px" onkeydown='if(event.keyCode==13) document.getElementById("uploadFiles").submit(); return false;'/>
-       <input type="submit" value="upload"style="width:900px;height:80px;font-size:40px"/>
+       <input type="file" name="myfiles" multiple style="width:400px;height:60px;font-size:40px" onkeydown='if(event.keyCode==13) document.getElementById("uploadFiles").submit(); return false;'/>
+       <input type="submit" value="upload"style="width:200px;height:50px;font-size:40px"/>
 </form>
+<hr>
+
 <script>
     //绑定全局按键
     /*
@@ -22,123 +21,29 @@
     });
     */
 </script>
+
+<form id="delTask" action="/delTask" method="post">
+    {% for Task in Tasks %}
+        <input type="checkbox" name="TaskName" value="{{ Task }}" style="width:30px;height:30px;">{{ Task }}<br>
+    {% endfor %}
+    <br>
+    <input type="submit" value='del' style="width:900px;height:60px;font-size:30px" >
+</form>
+<hr>
+
+<form id="addTask" action="/addTask" method="get">
+    <input name="TaskName" placeholder="TaskName" value="" style="width:600px;height:45px;font-size:40px" >
+    <input type="submit" value='add' style="width:200px;height:60px;font-size:30px" >
+</form>
 <hr>
 
 <a href=/grace_calculator >ChurchSystem</a> &nbsp;
 <a href=/alt  >download_upload</a> &nbsp;
-<a href=/life_code > {{ show_life_code }}</a> &nbsp;
+<a href=/life_code > life_code </a> &nbsp;
 <hr>
 <a href=/world_emulator  > world_emulator </a>&nbsp;
 <a href=/configurationsWeb  > configurationsWeb </a>&nbsp;
 <!-- <a href=/mother_common target="_blank" > mother_common </a>&nbsp; -->
-
-{% ifequal show_exercise 'YES' %}
-<hr>
-<table border="1">
-    <tr>
-        <td>
-        <a href=/alt1234?file_name="exercise01" > {{ exercise01 }} 早敬虔后拉伸1234 </a>
-        </td>
-        <td>
-        <a href=/alt1234?file_name="exercise02" > {{ exercise02 }} 晚饭前的锻炼 </a>
-        </td>
-        <td>
-        <a href=/alt1234?file_name="exercise03" > {{ exercise03 }} 洗澡前的锻炼 </a>
-        </td>
-    </tr>
-</table>
-
-{% else %}
-<hr>
-<table border="1">
-    <tr>
-        <td>
-        <a href=/alt1234?file_name="exercise01" > {{ exercise01 }} 早敬虔后拉伸1234 </a>
-        </td>
-        <td>
-        <a href=/alt1234?file_name="exercise02" > {{ exercise02 }} 晚饭前的锻炼 </a>
-        </td>
-        <td>
-        <a href=/alt1234?file_name="exercise03" > {{ exercise03 }} 洗澡前的锻炼 </a>
-        </td>
-    </tr>
-</table>
-
-{% endifequal %}
-
-<table border="1">
-<tr>
-<td>
-<a href=/alt1234?file_name="wake_up" > {{ wake_up }} 7点敬虔 </a>
-</td>
-<td>
-<a href=/alt1234?file_name="breakfast" > {{ breakfast }} 牛奶 </a>
-</td>
-<td>
-<a href=/alt1234?file_name="morning_prayer" > {{ morning_prayer }} 7点半开刷 </a>
-</td>
-</tr>
-
-<tr>
-<td>
-<a href=/alt1234?file_name="alt23" >{{ alt23 }} 上课1 </a>
-</td>
-<td>
-<a href=/alt1234?file_name="stand_service" >{{ stand_service }} 上课2 </a>
-</td>
-<td>
-<a href=/alt1234?file_name="bible_read" > {{ bible_read }} 上课3 </a>
-</td>
-</tr>
-
-<tr>
-<td>
-<a href=/alt1234?file_name="meditation" >{{ meditation }} 中午敬虔 </a>
-</td>
-<td>
-<a href=/alt1234?file_name="lunch" >{{ lunch }} 饭菜鸡蛋 </a>
-</td>
-<td>
-<a href=/alt1234?file_name="midday_prayer" >{{ midday_prayer }} 中午祷告 </a>
-</td>
-</tr>
-
-<tr>
-<td>
-<a href=/alt1234?file_name="arrangement" >{{ arrangement }} 一节EB/朗读 </a>
-</td>
-<td>
-<a href=/alt1234?file_name="nap" >{{ nap }} 休息 </a>
-</td>
-<td>
-<a href=/alt1234?file_name="wake_up_nap" >{{ wake_up_nap }} 起来刷alt23 </a>
-</td>
-</tr>
-
-<tr>
-<td>
-<a href=/alt1234?file_name="add_new" >{{ add_new }} 刷alt1 </a>
-</td>
-<td>
-<a href=/alt1234?file_name="supper" >{{ supper }} 萝卜饭菜 </a>
-</td>
-<td>
-<a href=/alt1234?file_name="evening_prayer" >{{ evening_prayer }} 晚上敬虔 </a>
-</td>
-</tr>
-
-<tr>
-<td>
-<a href=/alt1234?file_name="alt14_submit" >{{ alt14_submit }} 加新提交 </a>
-</td>
-<td>
-<a href=/alt1234?file_name="night_sleep" >{{ night_sleep }} 23点30睡觉</a>
-</td>
-<td>
-{{ finished_all }} 已完成条数：{{ finished }}/ {{ all_tasks }} 
-</td>
-</tr>
-</table>
 
 <hr>
 <a href=/alt1  ><button style="width:220px;height:100px;font-size:40px"> alt1  </button></a> &nbsp;

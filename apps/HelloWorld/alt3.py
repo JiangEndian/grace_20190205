@@ -6,6 +6,9 @@ from configurations import *
 import random
 import os, sys, uuid, requests, hashlib, time
 from imp import reload
+import http.client
+import urllib.parse
+import json
 
 ##现在的任务是：
 global my_dict
@@ -51,6 +54,7 @@ def alt3(request):
     global every_month_info
     global every_week_info
     global my_dict
+    my_dict['errorInfo'] = ''
     
     #1、未复习且未有dump则查询好，并放到dict中dump
     #   此阶段生成四个info文件，准备用来查询及操作
@@ -222,7 +226,8 @@ def alt3(request):
     if my_dict['env'] == 'NotAudioButVideo':
         #my_dict['VideoEnv'] = mark_safe('''<br/><video controls preload loop autoplay width="320" height="240" src="/static/grace_voice/TOEFL/%s" type="video/mp4"></video><br/>''' % my_dict['ext'])
         my_dict['VideoEnv'] = my_dict['ext']
-    #没有音频文件的用ttsApi
+
+    #没有音频文件的用ttsApi###############################
     elif not os.path.exists(pathMp3):
         #my_dict['NoMp3File'] = 'NoAudioFile' #这里是新建，所以是有的了
         pathDir = '/home/ed/grace_voice_file/' + my_dict['ext'].split('/')[0]
@@ -232,14 +237,11 @@ def alt3(request):
         runsyscmd('echo %s  >> ~/YouDaoRecord.txt' % pathMp3)
         my_dict['con'] = my_dict['con'].replace(',', ', ').replace('  ',' ').replace('. .', '. ').replace('.', '. ').replace('  ', ' ').replace('  ', ' ')
 
-        #YouDao
+        #TTS API of YouDao#####################
         reload(sys)
         YOUDAO_URL = 'https://openapi.youdao.com/ttsapi'
-        #APP_KEY = '67b52b614eff8da6'
-        #APP_SECRET = 'ocOYx11YDzkASF0TNAkGbIgYy54wk8TT'
-        APP_KEY = '47498cc1548ec803'
-        APP_SECRET = 'y6esBJHbDEUIMy4WJwm5Ed574LeCGfqo'
-
+        APP_KEY = '6da608e18a0e94a2'
+        APP_SECRET = 'B6maw0k4JBXYHcM8ZCrx9ExCbaiOasw1'
         def encrypt(signStr):
             hash_algorithm = hashlib.md5()
             hash_algorithm.update(signStr.encode('utf-8'))
@@ -254,7 +256,13 @@ def alt3(request):
             return requests.post(YOUDAO_URL, data=data, headers=headers)
         def connect(q='text', salt='aB1!'):
             data = {}
+            #data['langType'] = 'en-IND' #2.03, 10000
+            #data['langType'] = 'en-AUS'
+            #data['langType'] = 'en-GBR'
             data['langType'] = 'en-USA'
+            #data['voice'] = str(random.randint(0, 1)) #原来API和SDK文档不一样，原来用的4为通用英式。要0/1
+            #data['voice'] = 6 #也不行的01,看看6,词典美式，返回通用美式
+            #data['voice'] = 2 #再试试23一组的, OK，去用阿里的去，更好的
             salt = str(uuid.uuid1())
             signStr = APP_KEY + q + salt + APP_SECRET
             sign = encrypt(signStr)
@@ -269,9 +277,62 @@ def alt3(request):
                 fo = open(filePath, 'wb')
                 fo.write(response.content)
                 fo.close()
+                my_dict['errorInfo'] = '有道新生成'
             else:
                 print(response.content)
-        connect(q=my_dict['con'])
+                my_dict['errorInfo'] = response.content
+        #TTS API of YouDao#####################
+        
+        #TTS API of ALi########################
+        def processPOSTRequest(appKey, token, text, audioSaveFile, format, sampleRate, voice) :
+            host = 'nls-gateway.cn-shanghai.aliyuncs.com'
+            url = 'https://' + host + '/stream/v1/tts'
+            httpHeaders = {'Content-Type': 'application/json'}
+            body = {'appkey': appKey, 'token': token, 'text': text, 'format': format, 'sample_rate': sampleRate, 'voice': voice, 'volume': 70}
+            #如果超过290个了，就提示换用有道的先。
+            if len(text) > 290:
+                my_dict['errorInfo'] = '超过290字，换用有道的可以.' #手动防止不小心花冒了
+                return 1
+            body = json.dumps(body)
+            print('The POST request body content: ' + body)
+            conn = http.client.HTTPSConnection(host)
+            conn.request(method='POST', url=url, body=body, headers=httpHeaders)
+            response = conn.getresponse()
+            print('Response status and response reason:')
+            print(response.status ,response.reason)
+            contentType = response.getheader('Content-Type')
+            print(contentType)
+            body = response.read()
+            if 'audio/mpeg' == contentType :
+                with open(audioSaveFile, mode='wb') as f:
+                    f.write(body)
+                print('The POST request succeed!')
+                my_dict['errorInfo'] = 'Ali新生成'
+            else :
+                print('The POST request failed: ' + str(body))
+                my_dict['errorInfo'] = str(body)
+            conn.close()
+        def connectOfAli(text):
+            appKey = 'bOoOyjDbz0aJPFdb'
+            token = '46f089ee49124f58b2f16162a7e2a4d1'
+            textUrlencode = text
+            print('text: ' + textUrlencode)
+            audioSaveFile = pathMp3
+            format = 'mp3'
+            sampleRate = 16000
+            voiceList = ['Harry', 'Abby', 'Andy', 'Eric', 'Emily', 'Luna', 'Luca', 'Wendy', 'William', 'Olivia', 'Lydia', 'Annie'] #共12个
+            voice = voiceList[random.randint(0, 11)]
+            processPOSTRequest(appKey, token, textUrlencode, audioSaveFile, format, sampleRate, voice)
+        #TTS API of ALi########################
+
+        #算了，加个自动换的吧。
+        if len(my_dict['con']) > 290:
+            connect(q=my_dict['con'])
+        else:
+            connectOfAli(text=my_dict['con'])
+
+        #connect(q=my_dict['con'])
+        #connectOfAli(text=my_dict['con'])
 
     #尝试加个控制页面，设置重复次数。省得每次都得ssh来改。。。
     Configurations = readConfigurations('Configurations')
@@ -281,6 +342,7 @@ def alt3(request):
     #my_dict['con'] = addLineEvery2Lines(my_dict['con'])
     #dont show next con
     my_dict['next_con'] = ''
+    #my_dict['next_con'] = len(my_dict['con'])
 
     #context的'hello'对应模板html的变量{{ hello }}
     return render(request, 'alt3.html', my_dict)

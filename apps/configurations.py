@@ -9,12 +9,16 @@ def readConfigurations(FileName):
         Configurations = loadffile(FileName)
     else:
         dump2file(FileName, Configurations)
+    print('Configurations:', Configurations)
     return Configurations
 
-def updateConfigurations(FileName, Configurations, UpdateDictionsary):
+def updateConfigurations(FileName, Configurations, UpdateDictionary):
     Configurations = loadffile(FileName)
-    for Key in UpdateDictionsary:
-        Configurations[Key] = UpdateDictionsary[Key]
+    print('Configurations:', Configurations)
+    print('update:', UpdateDictionary)
+
+    for Key in UpdateDictionary:
+        Configurations[Key] = UpdateDictionary[Key]
     dump2file(FileName, Configurations)
 
 #每两行加一行空格方便阅读
