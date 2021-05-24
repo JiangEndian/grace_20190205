@@ -23,6 +23,8 @@ def addTask(request):
     request.encoding='utf-8'
     if 'TaskName' in request.GET:
         TaskName = request.GET['TaskName']
+        if TaskName == '':
+            return HttpResponseRedirect('/alt1234')
         print('NewTask:', TaskName)
         Conf = readConfigurations('Con4Task')
         if 'Tasks' in Conf:

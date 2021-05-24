@@ -60,6 +60,6 @@ def upload_file(request):
             for chunk in oneFile.chunks():      # 分块写入文件
                 destination.write(chunk)
             destination.close()
-        return HttpResponseRedirect('/alt')
+        return HttpResponseRedirect('/alt1234')
 
 

@@ -21,6 +21,7 @@ def index(request):
 
     #显示Tasks
     Tasks = readConfigurations('Con4Task')['Tasks']
+    Tasks.reverse()
     restudy_info['Tasks'] = Tasks
 
     #这是一开始的alt1234的进度相关的
@@ -90,9 +91,9 @@ def index(request):
         restudy_info['alt3_all'] = ''
     
     if os.path.exists('WorshipAndBible/4web_restudy/已复习') and not os.path.exists('WorshipAndBible/4web_restudy/common_info'):
-        restudy_info['worshipAndBible'] = '!!!'
-    elif not os.path.exists('WorshipAndBible/4web_restudy/common_info'):
         restudy_info['worshipAndBible'] = '???'
+    elif not os.path.exists('WorshipAndBible/4web_restudy/common_info'):
+        restudy_info['worshipAndBible'] = '!!!'
 
     if os.path.exists('language_voice_diction_hebrew/4web_restudy/已复习') and not os.path.exists('language_voice_diction_hebrew/4web_restudy/common_info'):
         restudy_info['alt4'] = 'alt4已复习'
