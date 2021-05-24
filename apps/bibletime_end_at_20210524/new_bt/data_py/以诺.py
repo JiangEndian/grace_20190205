@@ -1,0 +1,1 @@
+data_dict = {"name":"以诺", "start_time":623, "pass_time":365, "story":'''生玛土撒拉 与神同行300年 神将他取走'''}

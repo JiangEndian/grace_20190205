@@ -1,0 +1,1 @@
+data_dict = {"name":"地区性逼迫", "start_time":4037, "pass_time":93, "story":'''处死基督徒 教会开始腐化'''}

@@ -1,0 +1,1 @@
+data_dict = {"name":"被掳70年", "start_time":3384, "pass_time":70, "story":'''但以理在巴比伦 古列元年 神应验 激动王心 通告归回'''}

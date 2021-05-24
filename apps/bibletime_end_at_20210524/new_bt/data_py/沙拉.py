@@ -1,0 +1,1 @@
+data_dict = {"name":"沙拉", "start_time":1693, "pass_time":433, "story":'''生希伯'''}

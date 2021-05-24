@@ -1,0 +1,1 @@
+data_dict = {"name":"玛探雅", "start_time":3373, "pass_time":11, "story":'''BC586 西底家 南国灭 '''}

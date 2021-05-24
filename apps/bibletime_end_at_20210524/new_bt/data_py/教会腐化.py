@@ -1,0 +1,1 @@
+data_dict = {"name":"教会腐化", "start_time":4879, "pass_time":200, "story":'''威廉公爵 克吕尼 新修道院 禁欲生活 克吕尼运动 '''}

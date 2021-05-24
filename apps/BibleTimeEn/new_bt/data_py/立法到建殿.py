@@ -1,0 +1,1 @@
+data_dict = {"name":"立法到建殿", "start_time":2523, "pass_time":480, "story":'''480年'''}

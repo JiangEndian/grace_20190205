@@ -1,0 +1,1 @@
+data_dict = {"name":"西班牙", "start_time":5461, "pass_time":1, "story":'''西班牙 1492 十字架微号取代西班牙堡垒新月 '''}
