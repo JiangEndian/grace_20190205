@@ -36,8 +36,8 @@ def init(x):
     global bAA
     bAA = 1
     global bBC
-    #bBC = 3969
-    bBC = 3968 #看一些资料，改了一年
+    bBC = 3969
+    #bBC = 3968 #看一些资料，改了一年
     
     #画面X轴和Y轴的缩放系数
     global kx
@@ -304,17 +304,17 @@ if True:#刚开始时画标尺
         ix += bx4line
         cvs.create_line(ix*kx,(sy/4)*ky,ix*kx,sy*0.5*ky,fill='black')#上线标尺
         cvs.create_text(ix*kx,sy*0.85*ky,text='AA' + str(ix-bx4line),font=ft,fill='black')
-        if ix-bx4line<3969: #如果年份是小于3969（bx4line为了移动画而已），则用BC，0为3970，算了，看不懂了。。。
+        if ix-bx4line<3970: #如果年份是小于3969（bx4line为了移动画而已），则用BC，0为3970，算了，看不懂了。。。
         #主要是这个 bx4line 搞的吧。还有一开始没有注释。。。导致现在看不懂了。。。
-            cvs.create_text(ix*kx,sy*ky+sy/4,text='BC'+str(3969-ix+bx4line),font=ft,fill='black')
-        elif ix-bx4line>3969:
-            cvs.create_text(ix*kx,sy*ky+sy/4,text='AD'+str(ix-3968-bx4line),font=ft,fill='black')
+            cvs.create_text(ix*kx,sy*ky+sy/4,text='BC'+str(3970-ix+bx4line),font=ft,fill='black')
+        elif ix-bx4line>3970:
+            cvs.create_text(ix*kx,sy*ky+sy/4,text='AD'+str(ix-3969-bx4line),font=ft,fill='black')
         cvs.create_line(ix*kx,(by-sy/4)*ky,ix*kx,(by-sy*0.5)*ky,fill='black')#下线标尺
         cvs.create_text(ix*kx,(by-sy*0.9)*ky,text='AA' + str(ix-bx4line),font=ft,fill='black')
-        if ix-bx4line<3969:
-            cvs.create_text(ix*kx,(by-sy)*ky-sy/4,text='BC'+str(3969-ix+bx4line),font=ft,fill='black')
-        elif ix-bx4line>3969:
-            cvs.create_text(ix*kx,(by-sy)*ky-sy/4,text='AD'+str(ix-3968-bx4line),font=ft,fill='black')
+        if ix-bx4line<3970:
+            cvs.create_text(ix*kx,(by-sy)*ky-sy/4,text='BC'+str(3970-ix+bx4line),font=ft,fill='black')
+        elif ix-bx4line>3970:
+            cvs.create_text(ix*kx,(by-sy)*ky-sy/4,text='AD'+str(ix-3969-bx4line),font=ft,fill='black')
         #by = sy/2 + by#画完标尺，下移图画
 
 if restudy_year[0]>=1000 and restudy_year[1]<=1500:

@@ -5,7 +5,8 @@ import os, sys
 import importlib
 
 ######################年份制转换#####################
-def BCorAD2AA(abcd, year):
+def BCorAD2AA(abcd, year): #经常在AA0为3970BC/3969间纠结。。。但AA是直接加过来的
+    #算了，应该是关注于事件及主要再来的应许，而不是这些，无法测准的时间。。。
     if abcd == 'AD':
         return year+3969
     elif abcd == 'BC':

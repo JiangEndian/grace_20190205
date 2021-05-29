@@ -39,7 +39,7 @@
         //function simulator_pagedown(){
         //document.onclick = function (){
         function page_down(){
-            return;
+            //return;
             position = get_scroll_position()
             position += 200;
             scroll(0, position)
@@ -49,8 +49,7 @@
 </script>
 
 
-<div onclick="page_down()">
-
+<div onclick="page_down()" style="color:#000000;background-color:#00ff00;">
 
 <font size="6">
 {{ con }}
@@ -73,6 +72,7 @@
 {% endif %}
 
 </font>
+
 <u><h1>{{ every_info }}</h1></u>
 </div>
 <form id="form" action="/accept-cmd-alt1" method="get">

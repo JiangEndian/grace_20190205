@@ -291,7 +291,7 @@ def alt3(request):
             body = {'appkey': appKey, 'token': token, 'text': text, 'format': format, 'sample_rate': sampleRate, 'voice': voice, 'volume': 70}
             #如果超过290个了，就提示换用有道的先。
             if len(text) > 290:
-                my_dict['errorInfo'] = '超过290字，换用有道的可以.' #手动防止不小心花冒了
+                my_dict['errorInfo'] = '超过280字，换用有道的可以.' #手动防止不小心花冒了
                 return 1
             body = json.dumps(body)
             print('The POST request body content: ' + body)
@@ -314,7 +314,7 @@ def alt3(request):
             conn.close()
         def connectOfAli(text):
             appKey = 'bOoOyjDbz0aJPFdb'
-            token = '46f089ee49124f58b2f16162a7e2a4d1'
+            token = '56938a74931b42ab913af1ba68b88178'
             textUrlencode = text
             print('text: ' + textUrlencode)
             audioSaveFile = pathMp3

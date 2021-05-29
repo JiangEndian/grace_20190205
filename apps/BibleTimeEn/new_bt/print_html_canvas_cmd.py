@@ -12,10 +12,10 @@ by = 3*sy
 
 #######################年份制转换##################
 def AA2BCorAD(aa):
-    if aa <= 3968: #3968年都属于BC
-        return '%dBC' % (3969-aa)
+    if aa <= 3970: #3968年都属于BC
+        return '%dBC' % (3970-aa)
     else:
-        return 'AD%d' % (aa-3968)
+        return 'AD%d' % (aa-3969)
 #######################年份制转换##################
    
 
@@ -87,10 +87,10 @@ for data in data_list:
 ##########################画刻度线#####################
 #画上线
 print('cxt.moveTo(0,%s);' % str(2*sy))
-print('cxt.lineTo(7000,%s);' % str(2*sy))
+print('cxt.lineTo(7700,%s);' % str(2*sy))
 print('cxt.stroke();')
 #画上线标尺
-for ix in [i*100 for i in range(70)]:
+for ix in [i*100 for i in range(77)]:
     print('cxt.moveTo(%s, %s);' % (str(ix), str(2*sy)))
     print('cxt.lineTo(%s, %s);' % (str(ix), str(sy*2.5)))
     print('cxt.stroke();')
@@ -101,10 +101,10 @@ for ix in [i*100 for i in range(70)]:
 #画下线
 by += sy
 print('cxt.moveTo(0,%s);' % str(by))
-print('cxt.lineTo(7000,%s);' % str(by))
+print('cxt.lineTo(7700,%s);' % str(by))
 print('cxt.stroke();')
 #画下线标尺
-for ix in [i*100 for i in range(70)]:
+for ix in [i*100 for i in range(77)]:
     print('cxt.moveTo(%s, %s);' % (str(ix), str(by)))
     print('cxt.lineTo(%s, %s);' % (str(ix), str(by-sy/2)))
     print('cxt.stroke();')
@@ -118,7 +118,7 @@ by += sy #最后canvas的高度再调整下
 HTML_TEMP='''<!DOCTYPE HTML>
 <html>
 <body>
-<canvas id="myCanvas" width="7000" height="%d" style="border:1px solid #c3c3c3;">
+<canvas id="myCanvas" width="7700" height="%d" style="border:1px solid #c3c3c3;">
 Your browser does not support the canvas element.
 </canvas>
 <script type="text/javascript">
