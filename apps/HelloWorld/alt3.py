@@ -250,11 +250,12 @@ def alt3(request):
             if q is None:
                 return None
             size = len(q) #经测试，最大可65×15(975), ×16就200几的错误了
-            return q if size <= 900 else q[0:900] + str(size) + q[size - 900:size]
+            return q if size <= 900 else q[0:900] 
         def do_request(data):
             headers = {'Content-Type': 'application/x-www-form-urlencoded'}
             return requests.post(YOUDAO_URL, data=data, headers=headers)
         def connect(q='text', salt='aB1!'):
+            q = truncate(q)
             data = {}
             #data['langType'] = 'en-IND' #2.03, 10000
             #data['langType'] = 'en-AUS'
@@ -314,7 +315,7 @@ def alt3(request):
             conn.close()
         def connectOfAli(text):
             appKey = 'bOoOyjDbz0aJPFdb'
-            token = '56938a74931b42ab913af1ba68b88178'
+            token = '855a9ab88aee45fbbf9c9cea99fa1f74'
             textUrlencode = text
             print('text: ' + textUrlencode)
             audioSaveFile = pathMp3

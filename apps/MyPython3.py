@@ -19,85 +19,6 @@ import time #睡眠的。。。
 import signal #定时输入的，仅linux...
 #import eyed3 #获得mp3相关信息，包括长度的
 
-text = '''
-        Obviously, in most cases the earliest teachers people have are their parents, and parents are generally most concerned about the development of their children. However, it is not completely true to say that parents are the best teachers.
-
-        First of all, not all parents are good teachers. As normal individuals, some parents more or less have some bad habits. Even though parents almost instinctively devote themselves to cultivating their offspring, the outcome might turn out to be disappointment, for all children tend to unconsciously or subconsciously copy everything including bad ones from their parents. Another deficiency of parents as teachers is the fact that most parents are lack of common senses of education. All too often we observe some parents tend to pursue their cherished but failed dream by forcing their children to develop in a prearranged direction. Ironically, when their children do not follow the instructions, the children will be regarded as disobedient or allegedly rebellious. In fact, it is parents rather than their children that virtually disobey common senses.
-
-        Moreover, some parents are qualified as good teachers, but not all of them are the best ones. When children are in the preliminary school, it is not surprising that parents are perhaps capable of teaching their children almost every subject even better than professional teachers in the school. But the situation will not last long. We live in a world where knowledge is accumulated by multiplying and at the same time becomes more and more specialized. Therefore, to be a professional in a certain field today takes much longer time than has ever been before. No parent is able to be professional in all fields, though they might be experts in one or more fields. Wise parents often release rather than charge their children as early as possible. They are aware of the possibility outside the family.
-
-        Parents may, nevertheless, help their children much more than do good teachers. Most parts of children education are virtually beyond teachers' reaches. It is parents that supplement. Psychology studies have shown us that parents' love sometimes has astonishingly magic power to their children. Albert Einstein' s mother and that of Forest Gump are both good examples. On the other hand, parents might do their children harm more than do bad teachers as well. The natures of those children whose parents have divorced are often severely distorted. In a word, it is rather superficial to simply say that parents are the best teachers.
-
-        ![](images/TOEFL-iBT-High-Score-Essays-002.jpg)
-
-        > ### 译文
-
-        > **2. 父母是最好的老师吗？**
-
-        > 显而易见，很多时候人们最早的老师是他们的父母，父母通常是最关心孩子的发展的。然而，说父母是最好的老师并不完全正确。
-
-        > 首先，并不是所有的父母都是好老师。作为常人，有些父母或多或少会有些坏习惯。甚至尽管父母本能地献身于子女的教育，结果也可能是让人失望的。因为所有的孩子都会无意识地或下意识地从父母身上模仿一切，其中也包括坏习惯。父母作为教师的另一个缺陷就是大多数父母缺乏教育的常识。我们经常会看到父母通过让孩子按照预先安排好的方向发展来实现自己怀有却未能实现的梦想。讽刺的是，当他们的孩子不遵守他们的指令时，孩子就会被认为是不听话或所谓的反叛。实际上，是父母而不是他们的孩子违背了常识。
-
-        > 此外，有些父母有资格作为好老师，但并不是他们中的所有人都是最好的。当孩子们上初级学校的时候，家长可能会在所有科目上比学校里的专业教师教得都要好，这毫不令人感到惊讶。但这种情况不会持续很久。我们生活在一个知识以几何速度增加并在同时变得更加专业化的世界里。所以今天想在某一领域成为专业人员要比以前花费更长的时间。没有家长能在所有领域都成为专业人员，尽管他们可能在一个或更多的领域是专家。明智的父母常常是尽早地释放而不是控制他们的孩子。他们知道家庭之外空间广阔。
-
-        > 然而，家长可能会比好老师更多地帮助孩子。实际上教育孩子的大多部分都超出了教师的能力范围。家长就是补充。心理学研究告诉我们，有时父母的爱会对孩子产生令人惊讶的魔力。阿尔伯特·爱因斯坦的妈妈和阿甘的妈妈都是很好的例子。另一方面，家长可能会给孩子带来比坏老师更多的坏处。那些父母离异的孩子的天性常常是严重扭曲的。用一句话说，简单地认为父母是最好的老师是相当肤浅的。
-
-        ### Word List
-
-         * instinctively ［inˈstiŋktivli］ adv. 本能地
-          * deficiency ［diˈfiʃənsi］ n. 缺陷
-           * devote to 献身于
-            * cherished ［ˈtʃeriʃt］ adj. 怀有的，珍爱的
-             * cultivate ［ˈkʌltəˌveit］ vt. 培养；耕作
-              * disobedient［ ˌdisəˈbi:diənt］ adj.不服从的
-               * offspring ［ˈɔ:fˌspriŋ］ n. 子女，后代
-                * common sense 常识
-                 * subconsciously ［sʌbˈka:nʃəsli］adv. 下意识地
-                  * virtually ［ˈvə:tʃuəli］ adv. 实际上
-                   * psychology ［saiˈka:lədʒi］ n. 心理学
-
-                       
-                       002
-
-                       待复习25条(6.40)，将load继续 回到主页
-
-                       回到主页
-
-'''
-##########################处理单词把单词解释替换进文章
-def change_word_in_text(text):
-    text_list = text.split('\n')
-    new_text_list = []
-    word_list = []
-    word_dict = {}
-    for one_line in text_list: #1.提取出*号的单词部分
-        #input(one_line)
-        if ' * ' in one_line:
-            one_word_with_meaning = one_line.split('* ')[1]
-            word_list.append(one_word_with_meaning)
-    #print(word_list)
-    for word_one in word_list: #2.把单词部分的单词提取出来，开头大写的，就只要后面部分
-        #word_no_meaning = word_one.split(' ')[0].split('［')[0][1:]
-        word_no_meaning = word_one.split(' ')[0].split('［')[0]
-        #input(word_no_meaning)
-        word_dict[word_no_meaning] = '<<<'+word_one+'>>>' #以单词和意义组成字典
-    #print(word_dict)
-    for one_line in text_list: #3.再次遍历文章来替换
-        if ' * ' in one_line: #单词部分不要再次替换，直接后缀到新文章列表中
-            new_text_list.append(one_line)
-            continue
-        for word in word_dict: #非单词部分，遍历字典，如果字典有字在其中，替换之
-            if word in one_line:
-                new_one_line = one_line.replace(word, word_dict[word])
-                one_line = new_one_line #可能多个单词在其中，因此继续替换
-                #input(one_line)
-        new_text_list.append(one_line) #把替换后的或没有过的或者多次替换过的，后缀到文章列表
-    return '\n'.join(new_text_list) #返回新的文章
-
-#print(change_word_in_text(text))
-
-##########################处理单词把单词解释替换进文章
-
 ##########################为求正确显示希伯来语#######
 hebrew_辅音集 = 'ק ר א ט ו ן ם פ ש ד ג כ ע י ח ל ך ף ז ס ב ה נ מ צ ת ץ ! ( ) / ? ？\\'
 def is_FuYin(char):
@@ -195,7 +116,7 @@ def time_input(show_message='input:', time4input=3):
 def play_enter(voice_file, time4input=1, times=2):
     while True:
         cvlc_play_mp3(voice_file, times, '-', '=')
-        CMD = time_input('', time4input=time4input)
+        CMD = time_input(':', time4input=time4input)
         if CMD != 'time_out':
             return CMD
 ###################################################
@@ -321,16 +242,9 @@ def getdaystime( day ):
 def write2file(filename, stext):
     with open(filename, 'w') as f:
         f.write(stext)
-def write2fileAppend(filename, stext):
-    with open(filename, 'a') as f:
-        f.write(stext + '\n')
 def readffile(filename):
-    if os.path.exists(filename):
-        with open(filename, 'r') as f:
-            return f.read()
-    else:
-        return 'No such file'
-######################文件直接写入，读取(text)####################################
+    with open(filename, 'r') as f:
+        return f.read()
 ######################文件直接写入，读取(text)####################################
 
 
@@ -341,8 +255,6 @@ def dump2file(filename, obj):
     with open(filename, 'wb') as f:
         pickle.dump(obj, f)
 def loadffile(filename):
-    if not os.path.exists(filename):
-        return None
     with open(filename, 'rb') as f:
         return pickle.load(f)
 ######################pickle来进行对象序列化（持久化对象)#####################
@@ -381,12 +293,11 @@ def getfont(fontnumber=6, fontsize=150):
 ######################运行系统命令##########################################
 def runsyscmd(cmd='clear', print_yes='yes'):
     output = os.popen(cmd)
-    output_text = output.read()
     if print_yes == 'yes':
-        output.close()
-        return output_text
+        print(output.read())
     else:
-        output.close()
+        output.read()
+    output.close()
 ######################运行系统命令##########################################
 
 
