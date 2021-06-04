@@ -62,4 +62,6 @@ def upload_file(request):
             destination.close()
         return HttpResponseRedirect('/alt1234')
 
-
+def bibletimeDownload(request):
+    runsyscmd('bash bibletimeCompress.bash', 'no')
+    return HttpResponseRedirect('/static/grace_voice/bibletime.zip')
