@@ -65,3 +65,21 @@ def upload_file(request):
 def bibletimeDownload(request):
     runsyscmd('bash bibletimeCompress.bash', 'no')
     return HttpResponseRedirect('/static/grace_voice/bibletime.zip')
+
+def age2days(request):
+    info_dict = {}
+    request.encoding='utf-8'
+    if "name" in request.GET:
+        name = request.GET['name']
+    else:
+        name = '耶稣复活'
+    if "birthday" in request.GET:
+        birthday = request.GET['birthday']
+    else:
+        birthday = '0032-03-02'
+    info_dict['name'] = name
+    info_dict['birthday'] = birthday
+
+    return render(request, 'age2days.html', info_dict)
+
+

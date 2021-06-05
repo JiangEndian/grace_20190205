@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^video_name$', download.video_name),
     url(r'^upload_file$', download.upload_file),
     url(r'^bibletimeDownload$', download.bibletimeDownload),
+    url(r'^age2days$', download.age2days),
     #url('admin/', admin.site.urls),
     #url(r'^$', view.hello) #任意url用此函数
     #url(r'^hello$', view.hello), #此url用此函数
