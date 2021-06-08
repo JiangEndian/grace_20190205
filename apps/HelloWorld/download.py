@@ -73,12 +73,20 @@ def age2days(request):
         name = request.GET['name']
     else:
         name = '耶稣复活'
+
     if "birthday" in request.GET:
         birthday = request.GET['birthday']
     else:
         birthday = '0032-03-02'
+
+    if "longevity" in request.GET:
+        longevity = request.GET['longevity']
+    else:
+        longevity = '80'
+
     info_dict['name'] = name
     info_dict['birthday'] = birthday
+    info_dict['longevity'] = longevity
 
     return render(request, 'age2days.html', info_dict)
 
