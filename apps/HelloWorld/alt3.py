@@ -315,7 +315,8 @@ def alt3(request):
             conn.close()
         def connectOfAli(text):
             appKey = 'bOoOyjDbz0aJPFdb'
-            token = '9ceef1d2256a432da2e05c1999cf1820'
+            token = getAliyunToken()
+            #token = '9ceef1d2256a432da2e05c1999cf1820'
             textUrlencode = text
             print('text: ' + textUrlencode)
             audioSaveFile = pathMp3

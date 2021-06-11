@@ -1,3 +1,6 @@
+#cd grace_20190205/apps
+cd grace_20190205/
+
 alias c=clear	
 
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)"'
@@ -39,4 +42,7 @@ ps aux|grep ./manage
 echo
 echo -e "\033[31mPlease kill above listed processes to avoid merger errors. \033[0m"
 echo
+
+w
+
 

@@ -21,4 +21,5 @@ No, I want to test this in server. Ah, Why I delete history??? it cause me very 
 今天2021年 01月 31日 星期日 09:28:06 KST，把服务器停了。只在本地生活。
 Today is 20210527, if I have a new PC, before dependency broken, install those things first:
     mysql5.7, apache2, php7.4, adb, 
+Aliyun ECS IP: 47.244.31.34, 8.142.71.24
 
