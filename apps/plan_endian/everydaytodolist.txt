@@ -3,21 +3,26 @@
 
 20210522
 
+PR用法训练：
+1. new project. 
+2. import sources. 
+3. new sequence(the output video). 
+4. cut and insert source as we need. 
+5. cut sequence as we need(C and V)
+6. change the play speed by key R or right click. 
+7. add effects(such as video transition of cross dissolve)
+8. add text
+9. export video(Ctrl+M)(H.264 for many devices)
+10. search others as you need. 
+ 
 
 Long term PLAN:
-
-个人的阿里云5年的OSS放视频及文件
-宣教士的腾讯云放wordpress的网站文本
 
 沟通不止，Bug不死。重要的是要沟通，这是全部。
 教会开拓地方：1老家纪王场利辛2阜阳3六安4北京5东北6青岛7淄博
 联系人的话，回中国后新办卡有联系方式了再说
-新买服务器腾讯系的。毕竟要用微信了之类的。继续用妈妈的应该可以。
-买个三年的腾讯系的对象存储，用那个静态网站，导到ip地址的网站上，就不用买域名了。
-然后对象存储呢，先看看，因为无论阿里的还是腾讯的，都能在微信上看好像。
-但服务器是得换腾讯的。看看阿里剩多少，然后换宣教士的，以此有个联系。
-
-传道/牧会，听从纳谏
+然后先去六安，租个房，上午写，下午讲，晚上传道，讲道并录屏上传
+传道方式要实地考察下，不要引起大众注意的，引起小数人注意的，耶稣
 
 回去后，1申请号码后请我父亲联系召人周一或周2345的上午一起开个会，2祷告，3赞美，4讲道，5报告自己的2016-2021行程经历，6拥有了理论和资格证，但没有经验，一起祷告，7一起讨论，轮流发表：
 a去哪里开始（福音未至的地方/三年换？听下别人的，愿神带领）

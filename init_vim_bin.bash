@@ -1,11 +1,11 @@
 #!/bin/bash
 
-cp ~/grace/profile_backup/vimrc ~/.vimrc && echo "init_vim_SUCCESS"
+cp help_file/profile_backup/vimrc ~/.vimrc && echo "init_vim_SUCCESS"
 
-#cp ~/grace/profile_backup/bashrc ~/.bashrc && echo "init_bash_SUCCESS"
+cat help_file/profile_backup/bashrc >> ~/.bashrc && echo "init_bash_SUCCESS"
 
 mkdir ~/bin
-cd ~/grace/_home_ed_bin && ./sync.bash && echo "init_home_ed_bin_SUCCESS"
+cd _home_ed_bin && ./sync.bash && echo "init_home_ed_bin_SUCCESS"
 
 #cd ~/grace && git config --global user.email "c_cstudy@126.com" && git config --global user.name "JiangEndian"
 
