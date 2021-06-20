@@ -45,10 +45,14 @@ def grace_calculator_data():
         name_money = {}
         name_time = {}
         #遍历数据库，按名字合并为名字：金钱，名字：时间字典
+        allMoney = 0
+        allTime = 0
         for one_info in grace_info:
             name = one_info[1]
             money = int(one_info[2])
+            allMoney += money
             time = int(one_info[4])
+            allTime += time
             if name in name_list:
                 name_money[name] += money
                 name_time[name] += time
@@ -77,6 +81,9 @@ def grace_calculator_data():
         my_dict['name_time'] = '\n'.join(name_time_string_list)
         my_dict['name_money'] = '\n'.join(name_money_string_list)
         my_dict['other3'] = str(getnowtime()) + '周' + str(getnowtime('week'))
+        my_dict['allMoney'] = allMoney
+        my_dict['allTime'] = allTime
+
         
     return my_dict
 
@@ -148,6 +155,7 @@ def grace_calculator(request):
 
 def grace_calculator_viewer(request):
     my_dict = grace_calculator_data_all()
+    #my_dict = grace_calculator_data() #This one is enough #they are a little difference, one shows no amounts. 
     return render(request, 'grace_calculator_viewer.html', my_dict)
 
 
