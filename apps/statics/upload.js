@@ -1,11 +1,11 @@
 
 console.log('hi')
 
-access_key_id2 = 'xht4zDrtdVCs';
-access_key_id1 = 'LTAI5tPaaXJY';
+access_key_id2 = 'EZ33JpGvHcmN';
+access_key_id1 = 'LTAI5tF244AK';
 
 accessid= access_key_id1 + access_key_id2;
-accesskey= 'yXdwELpRhnuulnS2QNeSz1EsS66aTj';
+accesskey= 'CFVFZD15582qycrvW8l74YsrDkoVh2';
 
 host = 'http://historyofsalvation.oss-cn-hongkong.aliyuncs.com';
 

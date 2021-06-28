@@ -91,10 +91,10 @@ class AccessToken:
         print(response.text)
         return None, None
 def getAliyunToken():
-    access_key_id2 = 'xht4zDrtdVCs'
-    access_key_id1 = str('LTAI5tPaaXJY')
+    access_key_id2 = 'EZ33JpGvHcmN'
+    access_key_id1 = str('LTAI5tF244AK')
     access_key_id = access_key_id1 + access_key_id2
-    access_key_secret = str('yXdwELpRhnuuln') + 'S2QNeSz1EsS66aTj'
+    access_key_secret = str('CFVFZD15582qycr') + 'vW8l74YsrDkoVh2'
     token, expire_time = AccessToken.create_token(access_key_id, access_key_secret)
     print('token: %s, expire time(s): %s' % (token, expire_time))
     return token
