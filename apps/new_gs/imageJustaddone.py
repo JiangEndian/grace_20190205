@@ -17,6 +17,9 @@ def addEveryWeek():
     if not env:
         print('NoFile...')
         exit()
+    runsyscmd('ls -lh ../statics/images/%s' % env)
+    if input('Is this your image?') != 'YES':
+        exit()
     #print('请确认:%s\n%s\n%s' % (day, env, con))
     #if input('InputYES2Save:') == 'YES':
     if True:
