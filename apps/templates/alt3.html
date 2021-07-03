@@ -48,6 +48,18 @@
         //setTimeout("scroll(0,20000)", 2000)
 </script>
 
+    <font size="6">
+    <pre style="white-space: pre-wrap; word-wrap:break-word;">
+        {{ con }}
+    </pre>
+    </font>
+
+    <font size="5">
+    {% if env %}
+        {{ env }}
+    {% endif %}
+    <div>
+    <hr>
 
 <form id="form" action="/accept-cmd-alt3" method="get">
     <input type="hidden" name="every" value={{ every_info }}>
