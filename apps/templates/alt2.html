@@ -27,7 +27,7 @@
     {% endifequal %}
 
     {% ifequal every_info 'year' %}
-        {% include "input_cmd.html" %}
+        {% include "input_cmd_default8.html" %}
     {% endifequal %}
 </form>
 
@@ -74,6 +74,7 @@
     <audio id="myAudio2" src="/static/grace_voice/{{ ext }}.mp3" />
     <audio id="myAudio3" src="/static/grace_voice/{{ ext }}.mp3" />
     <script>
+        {% ifnotequal every_info 'year' %} //年的不自动，否则自动
         var aud1 = document.getElementById("myAudio1");
         var aud2 = document.getElementById("myAudio2");
         var aud3 = document.getElementById("myAudio3");
@@ -88,6 +89,7 @@
         aud3.onended = function() {
             document.getElementById("form").submit();
         }; 
+        {% endifnotequal %}
     </script>
 {% endifequal %}
 </font>

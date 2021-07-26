@@ -2,7 +2,7 @@ from django.conf.urls import url
 from django.views.generic.base import RedirectView #重定向到给定的URL
 #from django.contrib import admin
 
-from . import alt3, alt3_common, alt2, alt2_common, alt4, alt4_common, alt1, alt1_common, index, all_rm, sleep_pc, download, for_text, grace_calculator, world_emulator, worshipAndBible, mother_common, churchSystem
+from . import alt3, alt3_common, alt2, alt2_common, alt4, alt4_common, alt1, alt1_common, index, all_rm, sleep_pc, download, for_text, grace_calculator, world_emulator, worshipAndBible, mother_common, churchSystem, videosDeal
 
 #pattern模范，典范，模型，模式
 urlpatterns = [
@@ -15,6 +15,13 @@ urlpatterns = [
     url(r'^upload_file$', download.upload_file),
     url(r'^bibletimeDownload$', download.bibletimeDownload),
     url(r'^age2days$', download.age2days),
+
+    #处理视频用
+    url(r'^videos$', videosDeal.download),
+    url(r'^deleteVideo$', videosDeal.deleteVideo),
+    url(r'^upload_video$', videosDeal.upload_video),
+    url(r'^reverseVideos$', videosDeal.reverseVideos),
+    url(r'^deleteVideos$', videosDeal.deleteVideos),
     #url('admin/', admin.site.urls),
     #url(r'^$', view.hello) #任意url用此函数
     #url(r'^hello$', view.hello), #此url用此函数
