@@ -1,24 +1,34 @@
-Hello, Dave. I'm very glad that you can admit there are many differences between us because of our different culture and experiences. 
+How does Linux identify file types without extensions? And why can't Windows do so?
+Originally Answered: How do linux identity file types without extentions? And why can't windows do so?
+In Linux, they do it with magic.
 
-Your word about Chinese churches is right, there is a recognised church and underground church, both of them are oppressed by the government. But if you read the book of Peter, you will find what you should say to those people who were persecuted. 
+(Sorry, I can't help it. It's my favorite answer to this question.)
 
-"1 Peter 2-13 Therefore subject yourselves to every ordinance of man for the Lord’s sake: whether to the king, as supreme; 1 Peter 2-14 or to governors, as sent by him for vengeance on evildoers and for praise to those who do well."
-subject服从的；受支配的 ordinance权威性命令；训令 supreme最高的 vengeance报仇，复仇，报复
-ministers are subject to the laws of the land.
-部长受国法管辖。subject服从的；受支配的 
-Why do you try to let the believers attack the government? Do you think those believers have such power? Or do you want to kill them with the hand of the government? Your words give the government a pretext to attack those believers in China, but you are not in China, they cannot attack you right? Please be merciful to those believers who are under the power of government. Please read the letter of Peter, learn what you should say to the people in China. 
+Before I expand, I'd like to quote a famous line from Romeo and Juliet:
 
-I agree with you that the first Christians practiced a communism life, and I  think that form can not succeed on the earth, we can not build a heavenly kingdom on the earth. But, the first Christian tried it, so I think we should try it again. Not to build such a heavenly kingdom on earth, but to receive the heavenly kingdom from above. 
+What's in a name? That which we call a rose
+By any other name would smell as sweet.
+- Romeo and Juliet, Shakespeare
 
-Capitalism serves the money, but communism can succeed only in the true heavenly kingdom. We have no hope on earth, our hope is the heavenly kingdom, which comes from heaven. 
+Judging a file type by its extension is the same as judging the book by its cover. It's logical to determine file type by analyzing the content of the file, and this is what *nix systems (including Linux) do: by using the file command. This command uses several sets of tests, namely filesystem test, magic test, and language test. For a more detailed explanation on what each test does, please open the link that I gave you.
 
-Here is my daily plan, so you can be patient if sometimes I cannot reply to you immediately. Morning: reading, thinking, writing a sermon about the word of God. Afternoon: preach that sermon, edit video and upload it. Evening: sometimes free, sometimes meeting. 
+So I wasn't lying; Linux indeed uses magic.
 
-If I have some free time, I prefer to go out to preach the name of Jesus.  The word of God makes me very content. I love Him. Have a nice day. Sincerely, JiangFei
-
-
+I always find it weird on Windows that a file cannot be opened because I accidentally changed its extension. I mean, it's only a name. My computer is smart; it should know what file it is by any name, shouldn't it?
 
 
+
+
+
+Isn't it slower (uses more cpu cycles) to analyze the content of the files for type instead just picking it up by extension? It's only faster and smarter to use extrusions for file types, and also for representation purposes. And new flavors of Linux are adopting extensions for the same reasons.
+
+There are strengths and weaknesses in both approaches. On Windows the file extension indicates which file is most likely to open the file, not the only program that can open the file, as others have correctly observed.
+
+Sometimes it is convenient to change that association. For example I may have a program that generates ‘.log’ files that I often analyse in Excel. Changing the extension from ‘.log’ to ‘.tsv’ (tab-separated variables) causes Excel to become the default application for opening those files. In practice ‘.log’ and ‘.tsv’ files are really ‘.txt’ files but with different default applications.
+
+If the file type is embedded in the file then it is much more difficult to change that association.
+
+You should also consider what should happen if the file does not yet exist. For example Unix uses essentially the same convention as Windows within Makefiles because it may be necessary to refer to an intermediate file that the Makefile itself creates. I can refer to a non-existent object file, example.o, and the extension indicates its type. However the magic test is useless here because there is not yet a file to examine,
 
 
 
