@@ -2,6 +2,8 @@
 
 from tableDefine import *
 
+finishedYear = 2083
+
 def addEveryWeek():
     global every_week
     day = input('Day(%s):' % getnowtime('week')) or getnowtime('week')
@@ -116,10 +118,12 @@ try:
     #print(life_days_second)
     #exit()
     #print('%s' % this_year_by_AD + ' / AA' + str(this_year_by_AA) + ' 距6000年:-%s(已活:%s)' % (str(remain_days), str(life_days)))
-    print('%s' % this_year_by_AD + ' / AA' + str(this_year_by_AA) + ' 距6000年:-%s秒(已活:%s)' % (str(life_days_second), str(life_days)))
+    #print('%s' % this_year_by_AD + ' / AA' + str(this_year_by_AA) + ' 距6000年:-%s秒(神已养活:%s)' % (str(life_days_second), str(life_days)))
+    print('%s' % this_year_by_AD + ' / AA' + str(this_year_by_AA) + '(神已养活:%s)' % (str(life_days)))
     print('___________________________\n')
     #添加耶稣今年来的概率
     probability = (1-(1999/2000)**(this_year_by_AA-4000))*100
+    #print('%s年耶稣有 %.2f%% 的可能会来，方舟进度:%.2f%%' % (this_year_by_AD[0:4], probability, (finishedYear/7000*100)))
     print('%s年耶稣有 %.2f%% 的可能会来' % (this_year_by_AD[0:4], probability))
     #添加实践T的任务，每天
     #print('%s实践T_ NEW(一句/每法)' % getdaystime(1))
