@@ -168,7 +168,7 @@
         } //需要在async function里, 配合 await
 
         //console.log('hi')
-        {% ifnotequal every_info 'year' %} //年的不自动，否则自动
+        {% ifnotequal 'every_info' 'year' %} //年的不自动，否则自动
         aud1.onended = async function() {
             ++loop_times
             if (loop_times > loop_times_all){
