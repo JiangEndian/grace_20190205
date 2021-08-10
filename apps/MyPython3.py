@@ -294,10 +294,12 @@ def getfont(fontnumber=6, fontsize=150):
 def runsyscmd(cmd='clear', print_yes='yes'):
     output = os.popen(cmd)
     if print_yes == 'yes':
-        print(output.read())
+        #print(output.read())
+        msg = output.read()
     else:
         output.read()
     output.close()
+    return msg
 ######################运行系统命令##########################################
 
 

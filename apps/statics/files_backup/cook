@@ -1,0 +1,34 @@
+How does Linux identify file types without extensions? And why can't Windows do so?
+Originally Answered: How do linux identity file types without extentions? And why can't windows do so?
+In Linux, they do it with magic.
+
+(Sorry, I can't help it. It's my favorite answer to this question.)
+
+Before I expand, I'd like to quote a famous line from Romeo and Juliet:
+
+What's in a name? That which we call a rose
+By any other name would smell as sweet.
+- Romeo and Juliet, Shakespeare
+
+Judging a file type by its extension is the same as judging the book by its cover. It's logical to determine file type by analyzing the content of the file, and this is what *nix systems (including Linux) do: by using the file command. This command uses several sets of tests, namely filesystem test, magic test, and language test. For a more detailed explanation on what each test does, please open the link that I gave you.
+
+So I wasn't lying; Linux indeed uses magic.
+
+I always find it weird on Windows that a file cannot be opened because I accidentally changed its extension. I mean, it's only a name. My computer is smart; it should know what file it is by any name, shouldn't it?
+
+
+
+
+
+Isn't it slower (uses more cpu cycles) to analyze the content of the files for type instead just picking it up by extension? It's only faster and smarter to use extrusions for file types, and also for representation purposes. And new flavors of Linux are adopting extensions for the same reasons.
+
+There are strengths and weaknesses in both approaches. On Windows the file extension indicates which file is most likely to open the file, not the only program that can open the file, as others have correctly observed.
+
+Sometimes it is convenient to change that association. For example I may have a program that generates ‘.log’ files that I often analyse in Excel. Changing the extension from ‘.log’ to ‘.tsv’ (tab-separated variables) causes Excel to become the default application for opening those files. In practice ‘.log’ and ‘.tsv’ files are really ‘.txt’ files but with different default applications.
+
+If the file type is embedded in the file then it is much more difficult to change that association.
+
+You should also consider what should happen if the file does not yet exist. For example Unix uses essentially the same convention as Windows within Makefiles because it may be necessary to refer to an intermediate file that the Makefile itself creates. I can refer to a non-existent object file, example.o, and the extension indicates its type. However the magic test is useless here because there is not yet a file to examine,
+
+
+
