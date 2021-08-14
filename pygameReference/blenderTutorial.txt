@@ -1,0 +1,61 @@
+建模阶段
+「shift+A 」新建物体，左下角会有一个物体的详细设置
+「鼠标中键滚动」缩放视角
+「鼠标中键拖动」旋转视角
+「shift+鼠标中键按住拖动」平移视角
+「Alt+鼠标中键按住拖动」快速切换各个正交视图
+每切换一次，需要按住放开鼠标中键一次
+「~ 」快速切换视角菜单
+「G（+X、Y、Z）」物体平移
+「R（+X、Y、Z）」物体旋转
+「S（+X、Y、Z）」物体缩放
+如果你想进一步规范地调整物体，你还可以在按下 G、R、S 之后，直接按数字，物体就会根据数字来严格变换。
+「A」全选所有物体
+「X」删除物体
+「Shift+D（+X、Y、Z）」快速复制物体
+选中文本之后，我们可以用下面的快捷键来快速进入编辑模式。
+「Tab」进入编辑模式，再按一次返回上一个模式。
+文本物体的物体数据属性面板上。
+属性编辑器，就是打开 Blender 后，右下角的这一块面版。
+我们在新建一个球体之后，可以通过右键—平滑着色来让它看上去变圆滑。
+但是如果是一个柱体，这个时候「物体数据属性」可以登场了。在勾选这个法向下的「自动光滑」之后，柱体的平滑着色就会变得合理~
+修改器Modifier也是一个庞大的可玩性极高的功能，而且绝大部分修改器，都是保证不改变原物体形状的前提下来产生效果，非常实用。
+阵列Array可以依据某个物体，按某个特定偏移距离批量创建物体副本。
+例如，你可以叠加两个阵列修改器来生成矩阵：
+倒角Bevel可以给物体生成圆润的边缘
+线框Wireframe可以让物体变成线框：
+
+
+动画阶段
+在打关键帧的时候，可以根据自己的需要，选择插入关键帧还是单项关键帧。
+Moving and Rotating
+Physics Properties: 「物理属性」是「属性编辑器」下的一个功能，可以在 Blender 里模拟物理效果。
+Collision and Cloth: tab -> subdivide -> collide -> space
+
+
+材质阶段 Material Properties: Change the material. 
+因为材质阶段要经常看渲染效果，在界面的右上角，点击下图的第四个「○」，可以进入渲染预览视图。
+1.Wireframe. 2.Solid. 3.MaterialPreview. 4.Rendered. 
+Render渲染Engine, Eevee. And settings. 
+Material: BSDF
+Material: Emission, then turn on Bloom in Engine). 
+
+渲染阶段(light and camera)
+Add a camera, and then operate it like others. 
+Camera view, you can lock camera and change it by mouse and keyboard. 
+Output properties: settings of output. Then render it... 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

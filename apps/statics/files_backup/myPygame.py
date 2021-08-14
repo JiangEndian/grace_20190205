@@ -16,6 +16,10 @@ GREEN = (0,255,0)
 RED = (255,0,0)
 YELLOW = (255,255,0)
 BLACK = (0,0,0)
+clock = pygame.time.Clock()
+allSprites = pygame.sprite.Group()
+moneySprites = pygame.sprite.Group() #在这里定义的Group不能用在导入的文件里的
+running = True
 ###2.一些常数################################
 
 ###3.必要用的函数和类########################
@@ -79,6 +83,15 @@ def scaleImgs(imgs, width, height):
     for img in imgs:
         new_imgs.append(pygame.transform.scale(img, (width, height)))
     return new_imgs
+def scaleImg4Animation(img, width, height, numbers):
+    scaleImgs = []
+    onceScaleWidth = int(width / numbers)
+    onceScaleHeight = int(height / numbers)
+    for once in range(numbers):
+        scaleImgs.append(pygame.transform.scale(img, (width, height)))
+        width -= onceScaleWidth
+        height -= onceScaleHeight
+    return scaleImgs
 #画文字，画矩形，画开始
 
 #检测事件
@@ -90,54 +103,58 @@ def checkEvent():
     return True
 
 #sprite类，需要图，rect位置，然后是update，自己加入allSprites，在这里测试
-class Heart(pygame.sprite.Sprite):
+class Heart(pygame.sprite.Sprite): #玩家操作的
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.add(allSprites)
+        self.add(allSprites) #这些没有传进来就直接引用的变量，需要在一个文件里
     
         self.images = loadImgs('hearts', 101, 'heart.png')
         self.imageNumber = 0
         self.image = self.images[self.imageNumber]
         self.rect = self.image.get_rect()
-        self.radius = self.rect.width * 0.85 / 2
+        self.radius = self.rect.width * 0.5 / 2
         #pygame.draw.circle(self.image, RED, self.rect.center, self.radius)
     
-        self.rect.centerx = width/2
+        self.rect.centerx = width/2 #这里的不能用上面的
         self.rect.centery = height/2
+            
+        self.speedx = 7
+        self.speedy = 7
         
     def update(self):
         self.image = self.images[self.imageNumber]
 
         keyPressed = pygame.key.get_pressed()
         if keyPressed[pygame.K_LEFT]:
-            self.rect.x -= 3
+            self.rect.x -= self.speedx
         if keyPressed[pygame.K_RIGHT]:
-            self.rect.x += 3
+            self.rect.x += self.speedx
         if keyPressed[pygame.K_UP]:
-            self.rect.y -= 3
+            self.rect.y -= self.speedy
         if keyPressed[pygame.K_DOWN]:
-            self.rect.y += 3
+            self.rect.y += self.speedy
             
     
     def blacken(self):
         self.imageNumber += 1
         if self.imageNumber > 100:
             self.imageNumber = 100
-        
 
-class Money(pygame.sprite.Sprite):
+class Money(pygame.sprite.Sprite): #自己行动的
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.add(allSprites)
-        self.add(moneySprites)
+        self.add(moneySprites) #在别的文件里定义的，这里用不了，限定在一个文件内
     
         self.image = pygame.transform.scale(loadImg('hearts', 'money.png'), (100, 100))
         self.rect = self.image.get_rect()
-        self.radius = self.rect.width * 0.85 / 2
+        self.radius = self.rect.width * 0.65 / 2
         #pygame.draw.circle(self.image, RED, self.rect.center, self.radius)
     
-        self.rect.x = random.randrange(1, width-self.rect.width-1)
-        self.rect.y = random.randrange(1, height-self.rect.height+1)
+        #self.rect.x = random.randrange(1, width-self.rect.width-1)
+        #self.rect.y = random.randrange(1, height-self.rect.height+1)
+        self.rect.x = 1 #改为都从左上角出来
+        self.rect.y = 1
 
         self.speedx = random.randrange(-3, 3)
         self.speedy = random.randrange(2, 10)
@@ -156,26 +173,54 @@ class Money(pygame.sprite.Sprite):
         if self.rect.top < 0:
             self.speedy = -self.speedy
     
+class MoneyAbsorb(pygame.sprite.Sprite): #动画效果的
+    def __init__(self, center):
+        pygame.sprite.Sprite.__init__(self)
+        self.add(allSprites)
+        
+        self.imageOri = pygame.transform.scale(loadImg('hearts', 'money.png'), (200, 200))
+        self.images = scaleImg4Animation(self.imageOri, 200, 200, 20)
+        self.image = self.images[0]
+        self.rect = self.image.get_rect()
+        self.rect.center = center
+        self.frame = 0
+        self.lastUpdate = pygame.time.get_ticks()
+        self.frame_rate = 30
+        
+    def update(self):
+        now = pygame.time.get_ticks()
+        if now - self.lastUpdate > self.frame_rate:
+            self.lastUpdate = now
+            self.frame += 1
+            if self.frame > (len(self.images)-1):
+                self.kill()
+            else:
+                self.image = self.images[self.frame]
+                center = self.rect.center
+                self.rect = self.image.get_rect()
+                self.rect.center = center
 ###3.必要用的函数和类########################
-running = True
+
+
+###4.开始游戏设定与循环########################
 width = 1200
 height = 800
 screen = startPygame(width, height)
-allSprites = pygame.sprite.Group()
-moneySprites = pygame.sprite.Group()
+heart = Heart() #三个类都在myPygame里，别的用的时候，需要重新定义
+for i in range(10): 
+    Money()
 
-heart = Heart()
-Money()
-clock = pygame.time.Clock()
 while running:
     #大世界交互规则
     running = checkEvent()
     
-    hits = pygame.sprite.spritecollide(heart, moneySprites, True)
+    hits = pygame.sprite.spritecollide(heart, moneySprites, True, pygame.sprite.collide_circle)
     for hit in hits:
+        absorbAnim = MoneyAbsorb(heart.rect.center) 
+        #判断动画结束为absorbAnim.alive()
         Money()
         Money()
-        heart.blacken()
+        heart.blacken() 
     #大世界交互规则
 
     #更新显示画面
@@ -186,5 +231,4 @@ while running:
     pygame.display.update()
 
 pygame.quit()
-
-
+###4.开始游戏设定与循环########################

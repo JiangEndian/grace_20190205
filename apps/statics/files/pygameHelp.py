@@ -71,9 +71,19 @@ class Player(pygame.sprite.Sprite): #继承自精灵
         pygame.sprite.Sprite.__init__(self) #必须有的
         self.add(allSprites) #必须加入总组来一起更新
         self.add(playerSprites) #加入特属组来供大世界判断碰撞
+        self.remove(aliveSprites) #也可移除
+        group.empty() #可以移除一个sprite，还可以直接清空group
 
         self.image = pygame.Surface((50, 40)) #必有的属性，可以这样来个面
         self.image.fill(GREEN) #上面的面的填充色
+
+        self.font = pygame.font.SysFont('Arial', 20) #用字做图
+        self.textSurf = self.font.render('text', 1, BLACK)
+        self.image = pygame.Surface(50, 40)
+        wText = self.textSurf.get_width()
+        hText = self.textSurf.get_height()
+        self.image.blit(self.textSurf, [50/2 - wText/2, 40/2 -  hText/2]) #中
+
 
         self.image = pygame.transform.scale(player_img, (50, 38)) #可以用图片
         self.image.set_colorkey(BLACK) #把黑色透明
@@ -84,6 +94,8 @@ class Player(pygame.sprite.Sprite): #继承自精灵
     
         self.rect.centerx/y, x/y, top/bottom, left/right, width/height
         #通过重新设置这些位置能更新小精灵的位置，直接调用为得到数据
+        self.rect.collidepoint(event.pos) 
+        #当event为pygame.MOUSEBUTTONDOWN时能判断是不是撞到鼠标了
         
         self.type = random.choice(['shield', 'gun']) #还可以这样随机选择
         
@@ -162,6 +174,8 @@ while running: #游戏开始循环了
     
     
     ###判断输入，退出，或是别的一次按键的事件来放技能，也可以放到精灵里
+    #这只能在一个循环中用一次，之后就不行了
+    #更新精灵中也只有第一个精灵能获得
     for event in pygame.event.get(): #来判断运行中，有没有退出的事件
         if event.type == pygame.QUIT: 
             running = False

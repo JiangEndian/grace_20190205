@@ -11,7 +11,7 @@
 Long term PLAN:
 
 沟通不止，Bug不死。重要的是要沟通，这是全部。
-教会开拓地方：1六安2老家纪王场利辛3阜阳4北京5东北6青岛7淄博
+传道地方：1六安2老家纪王场利辛3阜阳4北京5东北6青岛7淄博
 联系人的话，回中国后新办卡有联系方式了再说
 先去六安，租个房，上午写，下午讲，晚上传道，讲道并录屏上传
 传道方式要实地考察下，不要引起大众注意的，引起小数人注意的，耶稣
@@ -54,5 +54,10 @@ I can do nothing graceful unless with God's Irresistible Grace. 
 6神的恩典时刻的保守我，使我在他天堂只有保守，圣洁在他面前。
 7他不可抗拒的怜悯恩典。
 
+
+backupLists:
+grace_20190205, local, aliyun...
+kiwix, local, ussd...
+operateSystem, ussd, ventory
 
 
