@@ -10,6 +10,40 @@ import numpy as np
 import cv2
 ###1.导入语言包##############################
 
+'''
+###附：常用重要函数##########################
+bin(8) #0b1000，转为2进行
+oct(8) #0o10，转为8进制
+hex(16) #0x10，转为16进制
+divmod(7, 3) #(2, 1) #商和余数的元组
+round(10.2222, 2) #10.22，返回浮点数的四舍五入值
+pow(x, y) #x**y
+sum() #对可迭代对象求和
+min() #返回所有参数的最小值
+max() #最大值
+list() #创建或把序列转为列表
+tuple() #转为元组
+dict(a='a', b='b', t='t') #{'a': 'a', 'b': 'b', 't': 't'}
+dict(zip(['one', 'two', 'three'], [1, 2, 3])) #{'three': 3, 'two': 2, 'one': 1} 
+dict([('one', 1), ('two', 2), ('three', 3)]) #{'three': 3, 'two': 2, 'one': 
+set() #生成个不重复的元素集，删除重复的。还可以计算交集、差集、并集
+ord('A') #65，查看某个ascii对应的十进制数
+chr(65) #'A'，反向ord
+ascii('中国') #"'\\u4e2d\\u56fd'" 返回任何对象的可读版本。
+sorted(iterable, key=None, reverse=False) #排序，
+sorted(L, key=lambda x:x[1]) #每个输入的x的x[1]
+#sort 是应用在list 的方法，无返回
+#sorted可以对所有可迭代的对象进行排序操作，返回个新的list
+reversed(seq) #返回一个反转的迭代器
+slice(start, stop[, step]) #a[slice(0,5,2)] #等价于a[0:5:2]
+all() #如果迭代器(元组或列表)的所有元素都为真，那么返回True，否则返回False
+any() #如果迭代器里有一个元素为真，那么返回True，否则返回False
+map(function, iterable) #会根据提供的函数对指定序列做映射。返回一个将 function 应用于 iterable 中每一项并输出其结果的迭代器
+exec() #执行储存在字符串或文件中的Python语句，更复杂
+hash() #返回该对象的哈希值
+###附：常用重要函数##########################
+'''
+
 ###2.一些常数################################
 WHITE = (255,255,255)
 GREEN = (0,255,0)
@@ -90,12 +124,6 @@ def loadFont(fontName = 'arial'):
 defaultFont = loadFont()
 def textImg(text, imgW=50, imgH=40, textSize=20, font=defaultFont, color=WHITE, colorKey=BLACK):
     textSurf = pygame.font.Font(font, textSize).render(text, True, color)
-    #居中方法1
-    #img = pygame.Surface((imgW, imgH))
-    #textW = textSurf.get_width()
-    #textH = textSurf.get_height()
-    #img.blit(textSurf, [imgW/2-textW/2, imgH/2-textH/2]) #以左上角来居中
-    #居中方法2
     img = pygame.Surface((imgW, imgH))
     text_rect = textSurf.get_rect()
     text_rect.centerx = imgW/2
@@ -103,14 +131,10 @@ def textImg(text, imgW=50, imgH=40, textSize=20, font=defaultFont, color=WHITE, 
     img.blit(textSurf, text_rect) #虽一样还多一行，但于我而言更容易理解。。。
     img.set_colorkey(colorKey)
     return img
-def text2Img(text, textSize=20, font=defaultFont, color=WHITE, colorKey=BLACK):
-    textSurf = pygame.font.Font(font, textSize).render(text, True, color)
-    #居中方法1
-    #img = pygame.Surface((imgW, imgH))
-    #textW = textSurf.get_width()
-    #textH = textSurf.get_height()
-    #img.blit(textSurf, [imgW/2-textW/2, imgH/2-textH/2]) #以左上角来居中
-    #居中方法2
+def text2Img(text, textSize=20, font=defaultFont, bold=False, color=WHITE, colorKey=BLACK):
+    textObj = pygame.font.Font(font, textSize)
+    textObj.set_bold(bold)
+    textSurf = textObj.render(text, True, color)
     text_rect = textSurf.get_rect()
     imgW = text_rect.width #此时还未设置rect位置，就在左上角呢x/y/top/bottom/center
     imgH = text_rect.height
@@ -181,7 +205,7 @@ class Heart(pygame.sprite.Sprite): #玩家操作的
 
         #self.textImg = textImg('♥', 200, 200, 180, color=RED)
         self.imgNums = 255
-        self.images = textImgsWHITE2BLACK('♥', 200, 200, 180, self.imgNums)
+        self.images = textImgsWHITE2BLACK('♥', 180, self.imgNums)
     
         #self.images = loadImgs('hearts', 101, 'heart.png')
         self.imageNumber = 0
@@ -255,7 +279,6 @@ class AutoHeart(pygame.sprite.Sprite): #自动的
         
         self.speedx_range = 7
         self.speedy_range = 5
-        
         self.speedx = 0
         self.speedy = 0
         #保持方向时除以自身的绝对值，但不能为0
@@ -302,13 +325,13 @@ class AutoHeart(pygame.sprite.Sprite): #自动的
     
             keyPressed = pygame.key.get_pressed()
             if keyPressed[pygame.K_LEFT]:
-                self.rect.x -= self.speedx
+                self.rect.x -= abs(self.speedx*2)
             if keyPressed[pygame.K_RIGHT]:
-                self.rect.x += self.speedx
+                self.rect.x += abs(self.speedx*2)
             if keyPressed[pygame.K_UP]:
-                self.rect.y -= self.speedy
+                self.rect.y -= abs(self.speedy*2)
             if keyPressed[pygame.K_DOWN]:
-                self.rect.y += self.speedy
+                self.rect.y += abs(self.speedy*2)
         #else: #本来是死亡判断的，但死后不断的换一个图片没必要。就尸体一个即可
     
     def blacken(self):
@@ -345,7 +368,7 @@ class Money(pygame.sprite.Sprite): #自己行动的
         #但能直接引用函数。然后函数能直接用外面的，但不能直接操作外面的
         global allMoneys #直接全球操作吧
         allMoneys += 1
-        self.textImg = textImg('$', 30, 30, 30, color=GOLD)
+        self.textImg = text2Img('$', 30, color=GOLD)
         #self.images = textImgs(self.textImg, 100)
         self.image = self.textImg
 
@@ -355,7 +378,7 @@ class Money(pygame.sprite.Sprite): #自己行动的
         #pygame.draw.circle(self.image, RED, self.rect.center, self.radius)
     
         self.rect.x = random.randrange(1, width-self.rect.width-1)
-        self.rect.y = random.randrange(1, height-self.rect.height+1)
+        self.rect.y = random.randrange(1, height-self.rect.height-1)
         #self.rect.x = 1 #改为都从左上角出来
         #self.rect.y = 1
 
@@ -366,7 +389,7 @@ class Money(pygame.sprite.Sprite): #自己行动的
         self.speedy = 0
 
         
-    def update_notuse(self):
+    def update(self): 
         self.rect.x += self.speedx
         self.rect.y += self.speedy
         #判断返回
@@ -386,19 +409,17 @@ class MoneyAbsorb(pygame.sprite.Sprite): #动画效果，跟随的
         self.add(allSprites)
         self.followedSprite = followedSprite
         
-        self.imgW = 40
-        self.imgH = 40
         self.fontS = 40
-        self.textImg = textImg('$', self.imgW, self.imgH, self.fontS, color=GOLD)
+        self.textImg = text2Img('$', self.fontS, color=GOLD)
         #self.images = textImgs(self.textImg, 20)
         self.imageOri = self.textImg
-        
-        #self.imageOri = pygame.transform.scale(loadImg('hearts', 'money.png'), (200, 200))
-        self.images = scaleImg4Animation(self.imageOri, self.imgW, self.imgH, 40)
-        self.image = self.images[0]
+        self.image = self.imageOri
         self.rect = self.image.get_rect()
         #self.rect.center = center
         self.rect.center = self.followedSprite.rect.center
+        
+        self.images = scaleImg4Animation(self.imageOri, self.rect.width, self.rect.height, 10)
+
         self.frame = 0
         self.lastUpdate = pygame.time.get_ticks()
         self.frame_rate = 30
@@ -448,20 +469,21 @@ while running:
 
     #hits = pygame.sprite.spritecollide(heart, moneySprites, True, pygame.sprite.collide_circle)
     hits = pygame.sprite.groupcollide(heartSprites, moneySprites, False, True, pygame.sprite.collide_circle)
-    for heart in hits: #[{heart:money}, ]
+    for heart in hits: #[{heart:[money,]}, ]
         #absorbAnim = MoneyAbsorb(heart.rect.center) 
         absorbAnim = MoneyAbsorb(heart) 
         #判断动画结束为absorbAnim.alive()
         #Money() #把碰撞生成钱的精灵里，就是blacken里       
         for money in hits[heart]:
             heart.blacken() #其实这个碰撞的结果是一个字典的列表，遍历列表是heart的字典，遍历那字典才是碰到的money的列表
+    
     hits = pygame.sprite.groupcollide(aliveSprites, deathSprites, False, False, pygame.sprite.collide_circle)
-    for hit in hits:
+    for hit in hits: #[{alive:[death,]},]
     #if len(hits) >= 2: #不是和自己一组的撞了，有一个就是撞了现在
         hit.rect.x -= heart.speedx 
         hit.rect.y -= heart.speedy
-        hit.speedx *= -1
-        hit.speedy *= -1
+        hit.speedx *= -3
+        hit.speedy *= -3
         
     
     #大世界交互规则

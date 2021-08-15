@@ -34,6 +34,7 @@ pygame.mixer.music.play(-1)
 ###5.必要用的函数和小精灵们，从了小精灵类####################
 def draw_text(screen, text, size, x, y): #把文字写在画面上
     font = pygame.font.Font(font_arial, size) #字体及大小
+    fontObj = pygame.font.SysFont('systemFontName', size=10, bold=True, italic=True) #字体及大小
     text_surface = font.render(text, True, WHITE) #以字体设置渲染文字并开启抗锯齿
     text_rect = text_surface.get_rect() #获得这个surface的rect准备设定位置
     text_rect.centerx = x #这样好居中，不管多长
@@ -186,7 +187,7 @@ while running: #游戏开始循环了
     
     ###大世界交互规则#################################
     hits = pygame.sprite.groupcollide(rocks, bullets, True, True, pygame.sprite.collide_circle) #两个组碰撞，删除撞到的精灵True or False，圆形碰撞,radius
-    #两个组的精灵碰撞，被删除收集为字典{rock1, [bullets]}，
+    #两个组的精灵碰撞，被删除收集为字典[{rock1, [bullets]}，***]
     #第一组碰撞到精灵构成的字典key，其碰撞到的第二组精灵列表们，比较rect判断
 
     hits = pygame.sprite.spritecollide(player, rocks, True, pygame.sprite.collide_circle) #sprite和组碰撞，默认矩形碰撞要主动改, 把石头删掉，之后要重新生成
