@@ -19,6 +19,14 @@ BLACK = (0,0,0)
 GOLD = (255, 215, 0)
 SKYBLUE = (135, 206, 235)
 GRAY = '#808080'
+GOLD1 = '#D4AF37' #head
+SILVER = '#C0C0C0' #breast and arms
+BRONZE = '#CD7F32' #belly and thighs
+IRON = '#a19d94' #legs
+CLAY = '#b66a50' #feet part of Iron, part of clay
+STONE = '#888c8d' #small, biggest one. 
+
+
 clock = pygame.time.Clock()
 allSprites = pygame.sprite.Group()
 moneySprites = pygame.sprite.Group() #在这里定义的Group不能用在导入的文件里的
