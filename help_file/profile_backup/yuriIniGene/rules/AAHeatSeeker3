@@ -1,0 +1,14 @@
+[AAHeatSeeker3]
+Arm=2
+Shadow=no
+Proximity=yes
+Ranged=yes
+AA=yes
+AG=yes
+Image=DRAGON
+ROT=16
+SubjectToCliffs=no
+SubjectToElevation=no
+SubjectToWalls=yes
+
+

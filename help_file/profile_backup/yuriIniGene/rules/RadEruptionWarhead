@@ -1,0 +1,9 @@
+[RadEruptionWarhead]
+Verses=100%,100%,100%,20%,10%,10%,0%,0%,0%,100%,100%
+InfDeath=7
+Radiation=yes
+CellSpread=10
+CellInset=3  
+
+
+

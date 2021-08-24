@@ -1,0 +1,12 @@
+[VirusgunE]
+Damage=125
+ROF=80
+Range=16
+Projectile=InvisibleLow
+Speed=100
+Report=VirusAttack
+Warhead=Virus
+RevealOnFire=no 
+OpenToppedAnim=GUNFIRE
+
+

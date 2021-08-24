@@ -1,0 +1,10 @@
+[TIRE]
+Name=Flying Tire
+Elasticity=0.8
+MinAngularVelocity=12.0
+MaxAngularVelocity=24.0
+MinZVel=28.0
+MaxZVel=32.0
+MaxXYVel=10.0
+Duration=150
+

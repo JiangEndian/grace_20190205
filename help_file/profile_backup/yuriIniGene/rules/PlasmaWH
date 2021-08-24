@@ -1,0 +1,10 @@
+[PlasmaWH]
+Verses=100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%
+InfDeath=5
+Wall=yes
+Bright=yes
+Tiberium=yes
+ProneDamage=350%
+AnimList=EXPLOMED,EXPLOLRG
+Sparky=no
+

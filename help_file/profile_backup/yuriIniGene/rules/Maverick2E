@@ -1,0 +1,10 @@
+[Maverick2E]
+Damage=400
+ROF=10
+Range=9
+Projectile=AirToGroundMissile 
+Speed=70
+Warhead=ORCAAP
+Report=BlackEagleAttack
+Burst=1
+

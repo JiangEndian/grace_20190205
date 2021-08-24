@@ -1,0 +1,9 @@
+[LUNRK5]
+LegalTarget=false
+Name=Lunar Rock #5
+Land=Rock
+RadarColor=64,64,64
+NoUseTileLandType=true
+DrawFlat=false
+IsARock=true 
+

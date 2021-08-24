@@ -1,0 +1,12 @@
+[CRMP5] 
+Damage=125
+ROF=10
+Range=7
+Projectile=InvisibleLow
+Speed=100
+Warhead=HollowPoint3
+Report=SealAttack
+AssaultAnim=UCBLOOD
+
+
+

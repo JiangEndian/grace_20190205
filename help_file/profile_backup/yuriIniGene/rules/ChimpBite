@@ -1,0 +1,10 @@
+[ChimpBite] 
+Range=1.5
+CellRangefinding=yes
+Projectile=InvisibleLow
+Speed=100
+Damage=30
+ROF=30
+Warhead=HollowPoint
+Report=ChimpAttack
+

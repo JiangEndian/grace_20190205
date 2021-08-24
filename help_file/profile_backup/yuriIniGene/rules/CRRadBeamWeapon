@@ -1,0 +1,10 @@
+[CRRadBeamWeapon]
+Damage=175
+ROF=30
+Range=7
+Speed=100
+Projectile=InvisibleLow
+Warhead=RadBeamWarhead
+IsRadBeam=yes
+Report=DesolatorAttack
+

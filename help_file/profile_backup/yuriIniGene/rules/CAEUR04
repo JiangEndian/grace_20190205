@@ -1,0 +1,27 @@
+[CAEUR04]
+UIName=Name:CAEUR04
+Name=Euro Building 04
+TechLevel=-1
+Strength=400
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=steel
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=15
+MinDebris=5
+DebrisAnim=Dbris2sm,Dbris2lg,Dbris4sm,Dbris9sm,Dbris3sm,Dbris3lg,Dbris4lg,Dbris9lg,Dbris10lg
+
+
+BaseNormal=no 
+Sight=6 
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+
+CanOccupyFire=yes
+
+LeaveRubble=Yes
+
+

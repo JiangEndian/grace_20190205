@@ -1,0 +1,19 @@
+[ChronoSphereSpecial]
+UIName=Name:Chrono
+Name=Chrono Sphere
+IsPowered=true
+RechargeVoice=00-I156
+ChargingVoice=
+ImpatientVoice=
+SuspendVoice=
+RechargeTime=7
+Type=ChronoSphere
+Action=ChronoSphere
+SidebarImage=CHROICON
+PreClick=yes
+ShowTimer=yes
+DisableableFromShell=yes 
+Range=1.4
+LineMultiplier=3
+
+

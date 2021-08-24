@@ -1,0 +1,14 @@
+[LtRail]
+Damage=0			
+AmbientDamage=150	
+ROF=60		
+Range=6
+Projectile=InvisibleLow
+Speed=100
+Warhead=RailShot2
+Anim=GUNFIRE
+IsRailgun=true
+AttachedParticleSystem=SmallRailgunSys
+Report=BIGGGUN1
+
+

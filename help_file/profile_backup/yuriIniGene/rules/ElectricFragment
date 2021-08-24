@@ -1,0 +1,12 @@
+[ElectricFragment]
+Damage=50
+ROF=40
+Range=5
+Speed=100
+Warhead=Shock
+Report=TeslaTroopAttack
+Projectile=Invisiblelow
+IsElectricBolt=true
+AssaultAnim=UCELEC
+
+

@@ -1,0 +1,8 @@
+[BRIDGE1]
+Image=BRIDGE
+Name = Bridge 1
+LegalTarget=true
+RadarColor=115,115,115
+Overrides=yes
+NoUseTileLandType=false
+

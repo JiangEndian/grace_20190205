@@ -1,0 +1,12 @@
+[UltraAP]
+
+
+Wall=yes
+Wood=yes
+Verses=2%,2%,2%,100%,40%,100%,2%,2%,2%,2%,100% 
+Conventional=yes
+InfDeath=3
+AnimList=S_CLSN30
+ProneDamage=50%
+
+

@@ -1,0 +1,12 @@
+[WeldingSpark]
+BehavesLike=Spark
+MaxEC=500
+XVelocity=16
+YVelocity=16
+MinZVelocity=40
+ZVelocityRange=15
+ColorList=(0,128,255),(255,255,255),(200,200,150),(80,80,80),(0,0,0)
+StartColor1=80,255,255
+StartColor2=255,255,100
+ColorSpeed=.13
+

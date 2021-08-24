@@ -1,0 +1,36 @@
+[GACNST]
+UIName=Name:GACNST
+Name=Allied Construction Yard
+ConstructionYard=yes
+Strength=1000
+Armor=concrete
+TechLevel=-1
+Adjacent=2
+Factory=BuildingType
+UndeploysInto=AMCV
+Sight=8
+Owner=British,French,Germans,Americans,Alliance
+Cost=3000
+Points=80
+Power=0
+Capturable=true
+Crewed=yes
+
+Radar=yes
+SpySat=yes
+
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+DebrisAnims=DBRIS1LG,DBRIS1SM,DBRIS2LG,DBRIS4LG,DBRIS4SM,DBRIS5LG,DBRIS5SM,DBRIS6LG,DBRIS6SM,DBRIS7LG
+MaxDebris=15
+MinDebris=7
+ThreatPosed=0	
+
+DamageSmokeOffset=1470, 1060, 1078
+AIBuildThis=yes
+TogglePower=no
+ProtectWithWall=yes
+EligibileForAllyBuilding=yes 
+ImmuneToPsionics=no 
+
+
+

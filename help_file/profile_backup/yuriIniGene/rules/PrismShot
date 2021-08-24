@@ -1,0 +1,15 @@
+[PrismShot]
+Damage=120
+ROF=45 
+Range=8
+Speed=100
+Projectile=InvisibleHigh
+Warhead=PrismWarhead
+
+
+LaserOuterSpread= 0,0,0
+LaserDuration = 15
+IsLaser=true	
+IsHouseColor=true
+Report=PrismTowerAttack
+

@@ -1,0 +1,13 @@
+[ChemMissile]
+Arm=2
+VeryHigh=yes
+Cluster=8
+
+Proximity=yes
+Ranged=yes
+AA=no
+Image=MISLCHEM
+ROT=4
+Color=DarkGreen
+IgnoresFirestorm=yes
+

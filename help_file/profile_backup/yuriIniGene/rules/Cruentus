@@ -1,0 +1,13 @@
+[Cruentus]
+Name=Tiberium Cruentus
+Image=2
+Value=50
+Growth=10000
+GrowthPercentage=0
+Spread=10000
+SpreadPercentage=0
+Power=0 
+Color=NeonBlue			
+Debris=CRYSTAL1,CRYSTAL2,CRYSTAL3,CRYSTAL4
+
+

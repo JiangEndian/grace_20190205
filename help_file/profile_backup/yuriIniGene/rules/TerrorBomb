@@ -1,0 +1,11 @@
+[TerrorBomb]
+Projectile=Invisible
+Damage=225
+Warhead=TerrorBombWH
+Anim=RING1
+Range=1.5
+ROF=10
+Suicide=yes
+FireInTransport=no
+
+

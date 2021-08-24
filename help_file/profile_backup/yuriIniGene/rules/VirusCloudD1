@@ -1,0 +1,15 @@
+[VirusCloudD1]
+Image=TXGASG
+MaxDC=60
+MaxEC=50
+Damage=5
+Warhead=VirusGas
+StartFrame=0
+EndStateAI=20
+
+WindEffect=0
+BehavesLike=Gas
+StateAIAdvance=4
+DeleteOnStateLimit=yes
+
+

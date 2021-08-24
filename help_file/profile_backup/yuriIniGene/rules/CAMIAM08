@@ -1,0 +1,22 @@
+[CAMIAM08]
+UIName=Name:CAMIAM08
+Name=Arizona Memorial
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=steel
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=7
+MinDebris=5
+DebrisAnim=Dbris3sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris10sm,Dbris9lg
+
+
+BaseNormal=no 
+Sight=6 
+ClickRepairable=no
+CanBeOccupied=no
+LeaveRubble=yes
+

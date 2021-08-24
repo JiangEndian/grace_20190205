@@ -1,0 +1,13 @@
+[BlimpBombEffect]
+Damage=250
+Burst=1
+ROF=50
+Range=1.5
+CellRangefinding=yes
+Projectile=BlimpBombP
+Speed=20
+Warhead=BlimpHEEffect
+Report=KirovAttack
+OmniFire=yes 
+
+

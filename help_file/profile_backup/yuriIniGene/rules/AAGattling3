@@ -1,0 +1,14 @@
+[AAGattling3]
+Damage=40
+ROF=4
+Range=8
+Projectile=Invisible4 
+Speed=100
+Warhead=GattWH
+Report=GattlingGunAttackLoop3
+
+Anim=VTMUZZLE
+Burst = 2
+
+
+

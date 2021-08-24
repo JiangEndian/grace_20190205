@@ -1,0 +1,10 @@
+[Special]
+UIName=Name:Special
+Name=JP
+Suffix=JP
+Prefix=J
+Color=Grey
+Side=Mutant
+SmartAI=yes
+MultiplayPassive=true
+

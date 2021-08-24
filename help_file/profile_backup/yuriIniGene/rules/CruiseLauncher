@@ -1,0 +1,14 @@
+[CruiseLauncher]
+Damage=25  
+ROF=50
+Burst=2
+Range=20
+MinimumRange=8
+Spawner=yes
+Projectile=InvisibleHigh
+Speed=15
+Warhead=Special
+OmniFire=yes
+Report=BoomerAttack1
+
+

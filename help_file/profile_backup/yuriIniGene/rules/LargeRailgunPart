@@ -1,0 +1,7 @@
+[LargeRailgunPart]
+BehavesLike=Railgun
+MaxEC=70
+ColorList=(25,70,205),(150,150,150)
+ColorSpeed=.009
+Velocity=.3
+

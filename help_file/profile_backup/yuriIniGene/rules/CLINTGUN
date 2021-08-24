@@ -1,0 +1,11 @@
+[CLINTGUN]
+Damage=125
+ROF=10
+Range=6
+Projectile=InvisibleLow
+Speed=100
+Warhead=HollowPoint
+Report=ClintAttack
+AssaultAnim=UCBLOOD
+
+

@@ -1,0 +1,7 @@
+[TRACKTUNNEL02]
+Name=Train Tracks
+Image=TRTUNN02
+Land=Railroad
+LegalTarget=false
+RadarColor=92,92,92
+

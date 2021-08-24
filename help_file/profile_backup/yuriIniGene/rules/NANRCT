@@ -1,0 +1,33 @@
+[NANRCT]
+UIName=Name:NANRCT
+Name=Soviet Nuclear Reactor
+BuildCat=Power
+Strength=1000
+Armor=concrete
+TechLevel=9
+Prerequisite=NATECH,NACNST
+Adjacent=2
+Sight=5
+Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs,YuriCountry
+AIBasePlanningSide=1 
+Cost=1000
+Points=30
+Power=2000
+Crewed=yes
+Capturable=true
+DamageSmokeOffset=410, 100, 165
+MaxDebris=15
+MinDebris=5
+DebrisAnims=DBRIS1LG,DBRIS1SM,DBRIS4LG,DBRIS4SM,DBRIS5LG,DBRIS5SM
+DamageParticleSystems=SmallGreySSys,BigGreySmokeSys
+Powered=no
+IsImmuneToRadiation=yes
+Explodes=yes
+DeathWeapon=NukePayload 
+DeathWeaponDamageModifier=0.5
+Spyable=yes
+ImmuneToPsionics=no 
+Drainable=yes
+PoweredSpecial=yes
+
+

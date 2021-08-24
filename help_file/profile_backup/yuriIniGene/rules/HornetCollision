@@ -1,0 +1,10 @@
+[HornetCollision] 
+Damage=100
+ROF=20
+Range=3
+Projectile=AAHeatSeeker2 
+Speed=30
+Warhead=AP
+Report=HornetCollision
+Bright=yes
+

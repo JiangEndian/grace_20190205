@@ -1,0 +1,10 @@
+[20mmRapid]
+Damage=30
+ROF=20
+Range=5.5
+Projectile=InvisibleLow
+Speed=100
+Warhead=HARVWH
+Report=WarMinerAttack
+Anim=GUNFIRE
+

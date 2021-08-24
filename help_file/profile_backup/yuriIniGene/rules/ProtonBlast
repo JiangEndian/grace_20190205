@@ -1,0 +1,9 @@
+[ProtonBlast]
+Shadow=no
+Proximity=yes
+Ranged=yes
+Image=TORPEDO
+ROT=1
+IgnoresFirestorm=yes
+
+

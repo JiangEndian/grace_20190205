@@ -1,0 +1,8 @@
+[BlimpBombP]
+Image=ZBOMB
+Arm=10
+Shadow=no
+Acceleration=1
+Vertical=yes 
+DetonationAltitude=20000 
+

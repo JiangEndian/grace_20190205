@@ -1,0 +1,24 @@
+[CAAIRP]
+UIName=Name:CAAIRP
+Name=Tech Airport
+TechLevel=-1
+Strength=800
+Insignificant=yes
+Nominal=yes
+Sight=6
+Points=5
+Armor=concrete
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=15
+MinDebris=5
+DebrisAnim=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
+DamageParticleSystems=SmallGreySSys,BigGreySmokeSys
+Capturable=yes
+CaptureEvaEvent= EVA_AirfieldCaptured  
+NeedsEngineer=yes
+Unsellable=yes
+Ammo=5
+SuperWeapon=ParaDropSpecial
+LeaveRubble=yes
+RadarVisible=yes
+

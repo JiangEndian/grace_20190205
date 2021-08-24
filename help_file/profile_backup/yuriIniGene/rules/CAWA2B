@@ -1,0 +1,27 @@
+[CAWA2B]
+UIName=Name:CAWA2A
+Name=Wash Pent B
+TechLevel=-1
+Strength=600
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=concrete
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=15
+MinDebris=5
+DebrisAnim=Dbris1sm,Dbris1lg,Dbris4sm,Dbris3sm,Dbris9lg,Dbris8lg,Dbris8sm,Dbris3lg,Dbris2sm,Dbris10lg
+
+
+BaseNormal=no 
+Sight=6 
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+
+CanOccupyFire=yes
+
+LeaveRubble=yes
+
+

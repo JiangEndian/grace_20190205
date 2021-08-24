@@ -1,0 +1,12 @@
+[AssaultBolt]
+Damage=10
+ROF=25
+Range=1.83
+Speed=100
+Warhead=ElectricAssault
+Report=TeslaTroopRechargeCoil
+Projectile=InvisibleLow
+IsElectricBolt=true
+IsAlternateColor=true
+
+

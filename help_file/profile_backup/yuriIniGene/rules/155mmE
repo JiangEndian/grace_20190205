@@ -1,0 +1,14 @@
+[155mmE]
+Damage=60
+ROF=110
+Range=8
+MinimumRange=0
+Projectile=Ballistic
+Speed=10
+Warhead=ARTYHE
+Report=DestroyerAttack
+Anim=GUNFIRE
+Lobber=no
+Burst=2
+
+

@@ -1,0 +1,11 @@
+[Water]
+Foot=0%
+Track=0%
+Wheel=0%
+Hover=100%
+Float=100%
+FloatBeach=100%
+Amphibious=100%
+Buildable=no
+
+

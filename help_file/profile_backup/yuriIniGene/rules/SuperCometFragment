@@ -1,0 +1,16 @@
+[SuperCometFragment]
+Damage=50
+ROF=100
+Range=5
+Projectile=SuperSmallCometP
+Speed=10
+Report=
+Warhead=CometWH
+Bright=yes
+
+
+IsHouseColor=true
+LaserOuterSpread= 0,0,0
+LaserDuration = 15
+IsLaser=true	
+

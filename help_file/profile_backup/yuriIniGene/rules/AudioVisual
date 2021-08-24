@@ -1,0 +1,187 @@
+[AudioVisual]
+DetailMinFrameRateNormal=15     
+DetailMinFrameRateMovie=20      
+DetailBufferZoneWidth=5         
+
+LineTrailColorOverride=0,0,0          
+ChronoBeamColor=128,200,255            
+MagnaBeamColor=255,200,255            
+OreTwinkleChance=30                   
+CreateInfantrySound=	
+CreateUnitSound=				
+CreateAircraftSound=		
+
+SpySatActivationSound= SpyUplinkOn 
+SpySatDeactivationSound= SpyUplinkOff 
+
+UpgradeVeteranSound=UpgradeVeteran
+UpgradeEliteSound=UpgradeElite
+BaseUnderAttackSound=BaseUnderAttackSiren
+BuildingGarrisonedSound=BuildingGarrisoned
+BuildingRepairedSound=BuildingRepaired
+CheerSound=Cheer
+PlaceBeaconSound=BeaconPlaced
+
+
+DirectRockingCoefficient=1.5
+FallBackCoefficient=0.1	
+
+
+
+LaserTargetColor=4
+IronCurtainColor=0
+BerserkColor=4
+ForceShieldColor=6
+
+StartPlanningModeSound=PlanningModeStart
+EndPlanningModeSound=PlanningModeEnd
+AddPlanningModeCommandSound=PlanningModeAdd
+ExecutePlanSound=
+
+CratePromoteSound=CratePromoted
+CrateMoneySound=CrateMoney
+CrateRevealSound=CrateReveal
+CrateFireSound=CrateFirePower
+CrateArmourSound=CrateArmor
+CrateSpeedSound=CrateSpeed
+CrateUnitSound=CrateFreeUnit
+
+GUIMainButtonSound=MenuClick
+GUIBuildSound=MenuClick
+GUITabSound=MenuTab
+GUIOpenSound=MenuACBOpen
+GUICloseSound=MenuACBClose
+GUIMoveOutSound=MenuSlideOut
+GUIMoveInSound=MenuSlideIn
+GUIComboOpenSound=MenuACBOpen
+GUIComboCloseSound=MenuACBClose
+GUICheckboxSound=MenuClick
+
+ScoreAnimSound=ScoreEmblemSoundLoop
+
+SinkingSound=GenLargeWaterDie
+ImpactWaterSound=ExplosionWaterLarge
+ImpactLandSound=
+BombTickingSound=CrazyIvanBombTick
+ChronoInSound=ChronoMinerTeleport
+ChronoOutSound=ChronoMinerTeleport
+BombAttachSound=CrazyIvanAttack
+YuriMindControlSound=YuriMindControl
+
+
+
+PoseDir=2               
+DeployDir=2				
+
+WaypointAnimationSpeed=10	
+
+DigSound=NukeSiren		
+
+
+GateUp=Dummy          
+GateDown=Dummy       
+ShroudGrow=no           
+ScrollMultiplier=.07     
+ShakeScreen=400         
+CloakSound=NavalUnitEmerge       
+SellSound=SellBuilding      
+GameClosed=GameClosed   
+IncomingMessage=MessageText  
+MessageCharTyped=TextBleep    
+SystemError=GenericBeep        
+OptionsChanged=OptionsChanged   
+GameForming=NewGame    
+
+PlayerJoined=PlayerJoined     
+Construction=Dummy     
+CreditTicks=CreditUp,CreditDown 
+BuildingDieSound=BuildingGenericDie    
+BuildingSlam=PlaceBuilding     
+RadarOn=RadarOn         
+RadarOff=RadarOff       
+MovieOn=MovieOn         
+MovieOff=MovieOff       
+ScoldSound=MenuScold       
+TeslaCharge=TeslaCoilPowerUp    
+TeslaZap=       
+BuildingDamageSound=BuildingDamaged    
+ChuteSound=ParachuteDrop         
+GenericClick=MenuClick    
+GenericBeep=GenericBeep      
+BuildingDrop=PlaceBuilding     
+StopSound=CommandBar		
+GuardSound=CommandBar		
+ScatterSound=CommandBar		
+DeploySound=		
+StormSound=WeatherIntro		
+LightningSounds=WeatherStrike 
+ShellButtonSlideSound= 
+
+
+VoiceIFVRepair= IFVMove 
+SlavesFreeSound= SlaveWorkerLiberated	
+SlaveMinerDeploySound= SlaveMinerDeploy
+SlaveMinerUndeploySound= SlaveMinerDeploy
+BunkerWallsUpSound= TankBunkerUp
+BunkerWallsDownSound= TankBunkerDown
+RepairBridgeSound= BridgeRepaired
+PsychicDominatorActivateSound=PsychicDominatorActivate
+GeneticMutatorActivateSound=GeneticMutatorActivate
+PsychicRevealActivateSound=PsychicRevealActivate
+MasterMindOverloadDeathSound= MasterMindOverloadVoice
+MindClearedSound=	MindCleared
+EnterGrinderSound= GrinderGrinding	
+LeaveGrinderSound=	
+EnterBioReactorSound= BioReactorEnter	
+LeaveBioReactorSound= BioReactorEnter	
+ActivateSound=	
+DeactivateSound=	
+AirstrikeAbortSound=MIGMissionAborted 
+AirstrikeAttackVoice=MIGMove
+SpyPlaneCamera=SpyPlaneSnapshot
+SpyPlaneCameraFrames=16
+DiskLaserChargeUp= FloatingDiscChargeUp 
+LetsDoTheTimeWarpOutAgain = ChronoScreenSound
+LetsDoTheTimeWarpInAgain = ChronoScreenSoundAgain
+
+Smoke=xxxx           
+
+
+
+
+
+EliteFlashTimer=150	
+
+
+
+AllyReveal=yes          
+ConditionRed=25%        
+ConditionYellow=50%     
+DropZoneRadius=4        
+EnemyHealth=yes         
+Gravity=6               
+IdleActionFrequency=.15 
+MessageDelay=.6         
+MovieTime=.06           
+NamedCivilians=no       
+SavourDelay=.1          
+ShroudRate=4            
+FogRate=.01
+IceGrowthRate=1.5
+IceSolidifyFrameTime=1000 
+IceCrackSounds=
+AmbientChangeRate=.2    
+AmbientChangeStep=.2    
+
+SpeakDelay=2            
+TimerWarning=2          
+ExtraUnitLight=.2	
+ExtraInfantryLight=.2	
+ExtraAircraftLight=.2	
+
+LocalRadarColor=0,255,0		
+							
+							
+
+
+

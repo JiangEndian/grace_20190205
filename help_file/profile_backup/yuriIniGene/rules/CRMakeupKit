@@ -1,0 +1,12 @@
+[CRMakeupKit] 
+Damage=1
+ROF=100
+Range=-2 
+Projectile=InvisibleAll
+Speed=100
+FireOnce=yes 
+Warhead=TankSnapshot
+RevealOnFire=no 
+Report=MirageTankDisguise
+
+

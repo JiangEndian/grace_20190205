@@ -1,0 +1,9 @@
+[QuadShell]
+Inviso=yes
+Image=none
+AA=yes 
+AG=yes
+SubjectToElevation=no
+SubjectToCliffs=no
+SubjectToWalls=no
+

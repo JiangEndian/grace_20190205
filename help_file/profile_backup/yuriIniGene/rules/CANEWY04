@@ -1,0 +1,25 @@
+[CANEWY04]
+UIName=Name:CANEWY04
+Name=Statue of Liberty
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=concrete
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+DestroyAnim=CANY04DM
+MaxDebris=0
+CrateBeneath=true
+CrateBeneathIsMoney=true
+
+
+BaseNormal=no 
+Sight=4 
+ClickRepairable=no
+CanBeOccupied=no
+LeaveRubble=yes
+DieSound=MonumentCrumble
+
+

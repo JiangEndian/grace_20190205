@@ -1,0 +1,33 @@
+[NAPSYB]
+UIName=Name:NAPSYB
+Name=Psychic Beacon
+BuildCat=Tech
+Prerequisite=NATECH
+Strength=750
+Armor=wood
+TechLevel=-1
+Adjacent=2
+Sight=10
+
+Owner=Russians,Confederation,Africans,Arabs,YuriCountry
+Cost=1000
+Points=50
+Power=-100
+Powered=true
+Capturable=true
+Crewed=yes
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+DebrisAnim=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
+MaxDebris=15
+MinDebris=5
+ThreatPosed=0 
+DamageParticleSystems=SparkSys,SmallGreySSys,BigGreySmokeSys
+DamageSmokeOffset=220, 390, 150
+AIBuildThis=no 
+HasRadialIndicator=true
+DetectDisguise=yes
+BaseNormal=yes
+AmbientSound=PsychicAmplifierLoop
+DieSound=PsychicAmplifierDie
+
+

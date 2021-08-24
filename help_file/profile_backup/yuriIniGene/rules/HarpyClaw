@@ -1,0 +1,10 @@
+[HarpyClaw]
+Damage=60
+ROF=36
+Range=5
+Projectile=Invisible2
+Speed=100
+Warhead=SA
+Report=CYGUN1
+
+

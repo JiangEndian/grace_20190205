@@ -1,0 +1,12 @@
+[HowitzerGun]
+Damage=75
+ROF=100
+Range=12
+MinimumRange=2
+Projectile=Ballistic
+Speed=100
+Warhead=HowitzerWH
+Report=ApocalypseAttackGround
+Anim=GUNFIRE
+Bright=yes
+

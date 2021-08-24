@@ -1,0 +1,11 @@
+[DredMissile]
+Arm=2
+Shadow=no
+Proximity=yes
+Ranged=yes
+AG=yes
+Image=DREDMISS
+ROT=16
+FirersPalette=yes 
+
+

@@ -1,0 +1,14 @@
+[GASTANK]
+Name=Flying Gas Tank
+Elasticity=0.0
+MinAngularVelocity=9.0
+MaxAngularVelocity=15.0
+MinZVel=30.0
+MaxZVel=35.0
+MaxXYVel=8.0
+Duration=100
+ExpireAnim=TWLT036
+Damage=20
+DamageRadius=100
+Warhead=TankOGas
+

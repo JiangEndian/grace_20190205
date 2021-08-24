@@ -1,0 +1,23 @@
+[CAWASH14]
+UIName=Name:CAWSH14
+Name=Jefferson Memorial
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=concrete
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+DestroyAnim=CAWA14DM
+MaxDebris=0
+CrateBeneath=true
+CrateBeneathIsMoney=true
+
+
+BaseNormal=no 
+CanBeOccupied=no
+LeaveRubble=true
+DieSound=MonumentCrumble
+
+

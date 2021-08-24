@@ -1,0 +1,16 @@
+[TankOGas]
+
+CellSpread=.5
+PercentAtMax=.9
+Wall=yes
+Wood=yes
+Tiberium=yes
+Sparky=no
+Rocker=no
+AnimList=TWLT026,TWLT036,TWLT050,TWLT070,TWLT100
+Verses=90%,90%,90%,80%,60%,25%,100%,50%,10%,90%,100%
+
+Fire=yes
+InfDeath=4
+ProneDamage=50%
+

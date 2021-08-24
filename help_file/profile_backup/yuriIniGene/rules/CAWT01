@@ -1,0 +1,25 @@
+[CAWT01]
+UIName=Name:CAWT01
+Name=Water Tower
+TechLevel=-1
+Strength=400
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=steel
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=15
+MinDebris=5
+DebrisAnim=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbris10lg
+
+
+BaseNormal=no 
+Sight=6 
+ClickRepairable=no
+CanBeOccupied=no
+MaxNumberOccupants=0
+DistributedFire=no
+DamageSound=BuildingMetalDamaged
+
+

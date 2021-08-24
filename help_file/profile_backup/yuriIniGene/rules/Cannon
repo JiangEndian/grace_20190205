@@ -1,0 +1,8 @@
+[Cannon]
+Image=120MM
+Arcing=true
+SubjectToCliffs=yes
+SubjectToElevation=yes
+SubjectToWalls=yes
+
+

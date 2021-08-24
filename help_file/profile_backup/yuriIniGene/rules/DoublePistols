@@ -1,0 +1,10 @@
+[DoublePistols]
+Damage=125
+ROF=5
+Range=6
+Projectile=InvisibleLow
+Speed=100
+Warhead=HollowPoint2
+Report=TanyaAttack
+AssaultAnim=UCBLOOD
+

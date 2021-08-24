@@ -1,0 +1,11 @@
+[20mmRapidE]
+Damage=50
+ROF=50
+Range=5.75
+Projectile=Cannon
+Speed=40
+Warhead=HowitzerWH
+Report=RhinoTankAttack
+Anim=GUNFIRE
+Bright=yes
+

@@ -1,0 +1,12 @@
+[Demobomb]
+Damage=300 
+ROF=80
+Range=1
+Projectile=InvisibleLow
+Speed=35
+RadLevel=100
+Warhead=DemobombWH
+Report=DemoTruckDie
+Suicide=yes
+
+

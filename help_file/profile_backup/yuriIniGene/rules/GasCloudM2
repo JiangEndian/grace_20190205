@@ -1,0 +1,17 @@
+[GasCloudM2]
+Image=gaslrgmk
+MaxDC=60
+MaxEC=448
+Damage=0
+Warhead=Gas
+StartFrame=0
+EndStateAI=11
+Translucency=50
+WindEffect=0
+BehavesLike=Gas
+StateAIAdvance=3
+NextParticle=GasCloud2
+DeleteOnStateLimit=yes
+NextParticleOffset=0,0,150
+
+

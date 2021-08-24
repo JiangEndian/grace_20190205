@@ -1,0 +1,12 @@
+[MissileLauncherE]
+Damage=50
+ROF=20
+Range=8
+Burst=1
+Projectile=AAHeatSeeker2	
+Speed=40
+Warhead=GUARDWH
+Report=GuardianGIDeployedAttack
+MinimumRange=1
+
+

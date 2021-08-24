@@ -1,0 +1,9 @@
+[GiantNukeUp]
+Arm=2
+Shadow=no
+Image=NKMSLUP
+Acceleration=1
+Vertical=yes 
+DetonationAltitude=20000
+FirersPalette=yes
+

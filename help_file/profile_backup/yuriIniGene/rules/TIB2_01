@@ -1,0 +1,9 @@
+[TIB2_01]
+Image=TIB01
+Name=Tiberium (Blue)
+Tiberium=yes
+LegalTarget=false
+RadarInvisible=false
+ChainReaction=no
+RadarColor=220,200,0
+

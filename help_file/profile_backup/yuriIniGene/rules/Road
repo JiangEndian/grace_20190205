@@ -1,0 +1,11 @@
+[Road]
+Foot=100%
+Track=100%
+Wheel=100%
+Hover=75%
+Float=0%
+FloatBeach=0%
+Amphibious=100%
+Buildable=yes
+
+

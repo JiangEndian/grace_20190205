@@ -1,0 +1,9 @@
+[VirtualScanner]
+Damage=1
+Range=5
+NeverUse=yes
+Projectile=InvisibleAll
+Warhead=SA
+Speed=100
+
+

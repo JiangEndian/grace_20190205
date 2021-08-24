@@ -1,0 +1,10 @@
+[FlakGuyAAGun]	
+Damage=20
+ROF=25
+Range=8
+Projectile=FlakProj	
+Speed=100
+Report=FlakTrackAttackAir
+Warhead=FlakGuyWH
+Anim=GUNFIRE
+

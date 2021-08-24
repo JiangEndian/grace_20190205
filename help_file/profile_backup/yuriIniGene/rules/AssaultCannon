@@ -1,0 +1,10 @@
+[AssaultCannon]
+Damage=40
+ROF=50
+Range=5
+Projectile=InvisibleLow
+Speed=100
+Warhead=SA
+Report=GIAttackDeployed
+
+

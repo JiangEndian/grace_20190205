@@ -1,0 +1,17 @@
+[CRYSTAL01]
+Name=TiberiumCrystal01
+ShareTurretData=yes
+ShareSource=SONIC
+Elasticity=0.0
+MinAngularVelocity=12.0
+MaxAngularVelocity=24.0
+MinZVel=28.0
+MaxZVel=32.0
+MaxXYVel=10.0
+Duration=150
+ExpireAnim=TWLT050
+Damage=40
+DamageRadius=100
+Warhead=TankOGas
+IsTiberium=true
+

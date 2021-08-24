@@ -1,0 +1,11 @@
+[V3Launcher]
+Damage=1
+ROF=150
+Range=18
+MinimumRange=5
+Spawner=yes
+Projectile=InvisibleHigh
+Speed=10
+Warhead=Special
+
+

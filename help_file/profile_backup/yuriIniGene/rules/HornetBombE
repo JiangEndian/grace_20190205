@@ -1,0 +1,10 @@
+[HornetBombE]
+Damage=80
+ROF=3
+Range=5
+Projectile=NormalBomb
+Speed=30
+Warhead=ARTYHE
+Report=HornetAttack
+
+

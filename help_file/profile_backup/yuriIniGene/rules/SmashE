@@ -1,0 +1,13 @@
+[SmashE]
+Damage=100
+ROF=60
+Range=1.1
+Speed=100
+Warhead=Smashing
+Report=BruteSmashAttack
+Projectile=InvisibleLow
+
+
+FireInTransport=no
+
+

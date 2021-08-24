@@ -1,0 +1,10 @@
+[MaverickE]
+Damage=300
+ROF=10
+Range=9
+Projectile=AirToGroundMissile 
+Speed=70
+Warhead=ORCAAP
+Report=IntruderAttack
+Burst=1
+

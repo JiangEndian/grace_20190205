@@ -1,0 +1,11 @@
+[CRNuke]
+Damage=200 
+ROF=80
+Range=1
+Projectile=InvisibleLow
+Speed=35  
+RadLevel=500
+Warhead=CRNUKEWH
+Report=NukeExplosion
+Suicide=yes
+

@@ -1,0 +1,26 @@
+[NAWALL]
+UIName=Name:NAWALL
+Name=Soviet Wall
+BuildCat=Combat
+Strength=300
+Prerequisite=NAHAND
+Armor=concrete
+TechLevel=1
+Adjacent=8
+Wall=yes
+Sight=1
+Selectable=no
+Insignificant=yes
+Nominal=yes
+Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs,YuriCountry
+AIBasePlanningSide=1 
+Cost=100 
+Points=5
+Repairable=false
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+ThreatPosed=0	
+
+BaseNormal=no 
+GuardRange=5
+
+

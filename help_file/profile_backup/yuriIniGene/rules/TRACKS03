@@ -1,0 +1,7 @@
+[TRACKS03]
+Name=Track NS
+Land=Railroad
+LegalTarget=false
+RadarColor=92,92,92
+RadarInvisible = false
+

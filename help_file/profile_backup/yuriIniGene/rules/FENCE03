@@ -1,0 +1,9 @@
+[FENCE03]
+LegalTarget=true
+Name=Fence03 DEMO HACK
+Land=Rock
+RadarColor=64,64,64
+NoUseTileLandType=true
+DrawFlat=false
+
+

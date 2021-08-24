@@ -1,0 +1,12 @@
+[120mm]
+Damage=90
+ROF=65
+Range=5.75
+Projectile=Cannon
+Speed=40
+Warhead=AP
+Report=RhinoTankAttack
+Anim=GUNFIRE
+Bright=yes
+
+

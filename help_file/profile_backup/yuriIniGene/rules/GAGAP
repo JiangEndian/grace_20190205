@@ -1,0 +1,34 @@
+[GAGAP]
+UIName=Name:GAGAP
+Name=Allied Gap Generator
+BuildCat=Combat
+Prerequisite=GATECH,GACNST
+GapGenerator=yes
+GapRadiusInCells=10
+SuperGapRadiusInCells=10
+TechLevel=7
+Adjacent=2
+HasRadialIndicator=true
+Strength=600
+Armor=wood
+Sight=5
+Points=30
+Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs,YuriCountry
+AIBasePlanningSide=0 
+Cost=1000
+Power=-100
+ExtraPower=-9000
+Powered=true
+Capturable=false
+Crewed=no
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+DebrisAnims=DBRIS1LG,DBRIS1SM,DBRIS4LG,DBRIS4SM,DBRIS5LG,DBRIS5SM
+MaxDebris=4
+MinDebris=2
+ThreatPosed=0	
+
+DamageSmokeOffset=450, 200, 150
+AIBuildThis=yes 
+ImmuneToPsionics=no 
+
+

@@ -1,0 +1,24 @@
+[CAMACH]
+UIName=Name:CAMACH
+Name=Tech Machine Shop
+
+TechLevel=-1
+Strength=800
+Insignificant=yes
+Nominal=yes
+Sight=6
+Points=5
+Armor=concrete
+
+MaxDebris=8
+MinDebris=4
+Capturable=yes
+CaptureEvaEvent=  EVA_MachineShopCaptured 
+NeedsEngineer=yes
+Unsellable=yes
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+DamageParticleSystems=SmallGreySSys,BigGreySmokeSys
+LeaveRubble=yes
+UnitsGainSelfHeal=1 
+RadarVisible=yes
+

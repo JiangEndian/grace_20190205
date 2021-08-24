@@ -1,0 +1,17 @@
+[PsychicDominatorSpecial]
+UIName=Name:YAPPET
+Name=Lightning Storm
+IsPowered=true
+RechargeVoice=00-I156
+ChargingVoice=
+ImpatientVoice=
+SuspendVoice=
+RechargeTime=10
+Type=PsychicDominator
+Action=PsychicDominator
+SidebarImage=PDOMICON
+ShowTimer=yes
+DisableableFromShell=yes 
+Range=1.4
+LineMultiplier=3
+

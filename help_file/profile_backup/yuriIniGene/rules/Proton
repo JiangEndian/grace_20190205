@@ -1,0 +1,9 @@
+[Proton]
+Damage=30
+ROF=3
+Range=5
+Projectile=ProtonTorpedo
+Speed=30
+Warhead=HE
+Report=scrin5b
+

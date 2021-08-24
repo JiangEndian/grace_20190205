@@ -1,0 +1,8 @@
+[FlakGuyWH]	
+CellSpread=1.0
+PercentAtMax=.2
+
+Verses=150%,100%,50%,80%,80%,20%,0%,0%,0%,100%,100%	
+AnimList=SMKPUFF
+InfDeath=3
+

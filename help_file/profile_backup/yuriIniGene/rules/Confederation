@@ -1,0 +1,12 @@
+[Confederation]
+UIName=Name:Confederation
+Name=Latin Confederation
+Suffix=Soviet
+Prefix=B
+Color=DarkRed
+Multiplay=yes
+Side=Nod
+SmartAI=yes
+
+
+

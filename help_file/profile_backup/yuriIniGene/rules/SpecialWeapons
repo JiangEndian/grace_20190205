@@ -1,0 +1,13 @@
+[SpecialWeapons]
+
+NukeWarhead=Nuke        
+NukeDown=NukeDown       
+NukeProjectile=NukeUp   
+EMPulseWarhead=EMPuls   
+EMPulseProjectile=PulsPr 
+MutateWarhead=Mutate
+MutateExplosionWarhead=MutateExplosion
+
+
+
+

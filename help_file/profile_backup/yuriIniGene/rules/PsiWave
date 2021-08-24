@@ -1,0 +1,12 @@
+[PsiWave]
+Damage=250
+Range=1
+ROF=50 
+Projectile=Psychic
+Speed=1
+Warhead=PsiPulse
+AreaFire=yes 
+FireOnce=yes 
+Report=YuriDeploy
+Anim=RING1
+

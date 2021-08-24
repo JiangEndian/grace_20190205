@@ -1,0 +1,27 @@
+[CAEUR1]
+UIName=Name:CAEUR1
+Name=Euro Cottage A
+TechLevel=-1
+Strength=300
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+DebrisAnims=DBRIS1LG,DBRIS1SM,DBRIS2SM,DBRIS3LG,DBRIS5SM,DBRS10LG
+MaxDebris=8
+MinDebris=4
+
+
+BaseNormal=no 
+Sight=6 
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=3
+
+CanOccupyFire=yes
+
+LeaveRubble=Yes
+
+

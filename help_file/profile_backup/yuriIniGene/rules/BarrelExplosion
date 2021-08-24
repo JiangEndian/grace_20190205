@@ -1,0 +1,6 @@
+[BarrelExplosion]
+Projectile=Invisible
+Damage=200
+Warhead=OilExplosionWH
+Anim=RING1
+

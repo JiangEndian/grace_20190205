@@ -1,0 +1,11 @@
+[Vulcan]
+Damage=50
+ROF=26
+Range=5.5
+Projectile=InvisibleLow
+Speed=100
+Warhead=SA
+Report=SentryGunAttack
+Anim=MGUN-N,MGUN-NE,MGUN-E,MGUN-SE,MGUN-S,MGUN-SW,MGUN-W,MGUN-NW
+
+

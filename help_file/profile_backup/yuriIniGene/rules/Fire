@@ -1,0 +1,12 @@
+[Fire]
+CellSpread=.5
+PercentAtMax=.5
+Wood=yes
+Verses=600%,500%,200%,60%,30%,5%,150%,100%,2%,200%,100%
+
+InfDeath=4
+Sparky=no
+Fire=no
+ProneDamage=600%
+
+

@@ -1,0 +1,15 @@
+[VirusCloud2]
+Image=LGRYSMK1
+MaxDC=30
+MaxEC=1000
+Damage=10
+Warhead=VirusGas
+StartFrame=0
+EndStateAI=20
+
+WindEffect=0
+BehavesLike=Gas
+StateAIAdvance=4
+NextParticle=VirusCloudD2
+
+

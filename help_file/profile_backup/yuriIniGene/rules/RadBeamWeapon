@@ -1,0 +1,11 @@
+[RadBeamWeapon]
+Damage=125
+ROF=50
+Range=6
+Speed=100
+Projectile=InvisibleLow
+Warhead=RadBeamWarhead
+IsRadBeam=yes
+Report=DesolatorAttack
+
+

@@ -1,0 +1,22 @@
+[CAMSC12A]
+UIName=Name:CAMISC12
+Name=Bullseye 2
+Image=CAMSC12
+TechLevel=-1
+Strength=100
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=0
+Selectable=no
+
+BaseNormal=no 
+CanBeOccupied=no
+Primary=none
+Secondary=none
+Cost=600
+
+

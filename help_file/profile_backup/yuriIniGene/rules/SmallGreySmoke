@@ -1,0 +1,12 @@
+[SmallGreySmoke]
+Image=SGRYSMK1
+MaxEC=80
+Translucency=50
+Velocity=9.0
+Deacc=.05
+WindEffect=0
+BehavesLike=Smoke
+DeleteOnStateLimit=yes
+EndStateAI=20
+StateAIAdvance=4
+

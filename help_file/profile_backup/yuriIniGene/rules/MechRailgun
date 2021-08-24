@@ -1,0 +1,14 @@
+[MechRailgun]
+AmbientDamage=200	
+Damage=0			
+ROF=60		
+Range=8
+Projectile=InvisibleLow
+Speed=100
+Warhead=RailShot
+Report=RAILUSE5
+Anim=GUNFIRE
+
+AttachedParticleSystem=LargeRailgunSys
+
+

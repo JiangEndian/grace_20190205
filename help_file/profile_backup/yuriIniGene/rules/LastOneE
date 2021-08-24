@@ -1,0 +1,10 @@
+[LastOneE]
+Damage=2500
+ROF=5
+Range=250
+Projectile=Invisible3
+Speed=100
+Warhead=SSA
+Report=RocketeerAttack
+
+

@@ -1,0 +1,8 @@
+[BRIDGEB1]
+Image=BRIDGB
+Name = Wood Bridge 1
+LegalTarget=true
+RadarColor=115,115,115
+Overrides=yes
+NoUseTileLandType=false
+

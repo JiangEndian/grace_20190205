@@ -1,0 +1,27 @@
+[CANEWY10]
+UIName=Name:CANEWY10
+Name=NY Building 10
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=steel
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=15
+MinDebris=5
+DebrisAnim=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris10sm,Dbris9lg
+
+
+BaseNormal=no 
+Sight=6 
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+
+CanOccupyFire=yes
+
+LeaveRubble=yes
+
+

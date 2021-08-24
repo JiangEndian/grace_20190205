@@ -1,0 +1,10 @@
+[UCEliteM1Carbine]
+Damage=30
+ROF=20
+Range=6 
+Projectile=InvisibleHigh
+Speed=100
+Warhead=SSAB
+Report=SovietOccupiedAttack
+OccupantAnim=UCCONS
+

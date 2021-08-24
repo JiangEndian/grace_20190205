@@ -1,0 +1,12 @@
+[CRElectricBolt]
+Damage=60
+ROF=45
+Range=6
+Speed=100
+Warhead=Shock
+Report=TeslaTankAttack
+Projectile=InvisibleLow
+IsElectricBolt=true
+AssaultAnim=UCELEC
+
+

@@ -1,0 +1,27 @@
+[CASANF09]
+Name=San Fran Golden Bridge 01
+
+UIName=Name:CASANF04
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=wood
+Naval=yes 
+WaterBound=yes 
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+
+
+BaseNormal=no 
+Sight=6 
+ClickRepairable=no
+CanBeOccupied=no
+
+DieSound=MonumentCrumble
+

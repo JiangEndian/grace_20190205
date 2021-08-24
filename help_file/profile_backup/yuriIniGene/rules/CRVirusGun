@@ -1,0 +1,10 @@
+[CRVirusGun]
+Damage=125
+ROF=80
+Range=12
+Projectile=InvisibleLow
+Speed=100
+Report=VirusAttack
+Warhead=Virus
+RevealOnFire=no 
+

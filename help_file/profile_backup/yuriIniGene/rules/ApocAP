@@ -1,0 +1,11 @@
+[ApocAP]
+CellSpread=.3
+PercentAtMax=.5
+Wall=yes
+Wood=yes
+Verses=25%,25%,25%,75%,100%,100%,100%,100%,70%,60%,100%
+Conventional=yes
+InfDeath=3
+AnimList=APOCEXP
+ProneDamage=50%
+

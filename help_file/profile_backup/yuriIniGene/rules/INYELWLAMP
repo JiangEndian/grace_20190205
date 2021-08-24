@@ -1,0 +1,26 @@
+[INYELWLAMP]
+Name=Invisible Yellow Light Post
+Image=GALITE
+Insignificant=yes
+Selectable=no
+InvisibleInGame=yes
+Strength=6000
+Armor=wood
+TechLevel=-1
+Nominal=yes
+Sight=0
+Points=30
+Power=0
+Crewed=yes
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=1
+LightVisibility=4000
+LightIntensity=.01
+LightRedTint=1.5
+LightGreenTint=1.5
+LightBlueTint=0.01
+ThreatPosed=0	
+DamageParticleSystems=SparkSys,LGSparkSys
+Powered=true
+
+

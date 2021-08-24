@@ -1,0 +1,14 @@
+[Sapper]
+Damage=2500 
+ROF=100
+Range=1.5
+CellRangefinding=yes
+Projectile=Invisible
+
+
+
+Warhead=Mechanical
+Report=SealPlaceBomb
+SabotageCursor=yes 
+
+

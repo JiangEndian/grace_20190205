@@ -1,0 +1,12 @@
+[DefuseKit]
+Damage=1
+ROF=20
+Range=1.5
+CellRangefinding=yes
+Projectile=InvisibleAll
+Speed=100
+Report=DefuseKit
+Warhead=BombDisarm
+FireOnce=yes
+FireInTransport=no
+

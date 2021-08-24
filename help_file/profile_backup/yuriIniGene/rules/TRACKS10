@@ -1,0 +1,7 @@
+[TRACKS10]
+Name=Train Tracks
+Land=Railroad
+LegalTarget=false
+RadarColor=92,92,92
+RadarInvisible = false
+

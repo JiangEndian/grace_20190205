@@ -1,0 +1,18 @@
+[CAMISC05]
+UIName=Name:CAMISC05
+Name=Construction Pipes
+TechLevel=-1
+Strength=10
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=concrete
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=0
+Selectable=no
+
+BaseNormal=no 
+DamageSound=BuildingMetalDamaged
+DieSound=BuildingMetalDamaged
+

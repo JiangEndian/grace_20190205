@@ -1,0 +1,22 @@
+[PsychicRevealSpecial]
+UIName=Name:PsyReveal
+Name=Psychic Reveal
+IsPowered=false
+RechargeVoice=
+ChargingVoice=
+ImpatientVoice=                                  
+SuspendVoice=
+RechargeTime=4
+Type=PsychicReveal
+Action=PsychicReveal
+SidebarImage=PSYRICON
+ShowTimer=no
+DisableableFromShell=no 
+FlashSidebarTabFrames=120
+
+
+
+
+
+
+

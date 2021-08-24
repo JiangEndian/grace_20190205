@@ -1,0 +1,10 @@
+[AWPE]
+Damage=125
+ROF=60
+Range=14
+Projectile=InvisibleLow
+Speed=100
+Report=SniperAttack
+Warhead=HollowPoint
+RevealOnFire=no 
+

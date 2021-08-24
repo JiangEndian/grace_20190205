@@ -1,0 +1,16 @@
+[MayanPrism]
+Damage=1000
+ROF=20
+Range=12
+Speed=25
+Projectile=InvisibleHigh
+Warhead=PrismWarhead
+
+
+LaserOuterSpread= 0,0,0
+LaserDuration = 15
+IsLaser=true	
+IsHouseColor=true
+Report=PrismTowerAttack
+
+

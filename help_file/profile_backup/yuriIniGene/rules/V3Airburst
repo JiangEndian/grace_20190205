@@ -1,0 +1,6 @@
+[V3Airburst]
+Damage=25 
+Range=.55
+Projectile=V3AirburstP
+Warhead=V3HE
+

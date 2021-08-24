@@ -1,0 +1,7 @@
+[LOBRDGE2]
+Image=LOBRDGE2
+Name=Low Bridge End 2
+Land=Road
+NoUseTileLandType=true
+RadarColor=92,92,92
+

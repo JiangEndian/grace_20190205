@@ -1,0 +1,10 @@
+[RUBBLE_OVERLAY]
+LegalTarget=false
+Name=SYSTEM OVERLAY !! DO NOT USE
+Image=SROCK01
+
+RadarColor=64,64,64
+NoUseTileLandType=true
+DrawFlat=true
+IsRubble=yes
+

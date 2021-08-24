@@ -1,0 +1,9 @@
+[CRPsychicJab]
+Damage=25
+ROF=15
+Range=6.5
+Projectile=InvisibleLow
+Speed=100
+Warhead=SAFlame
+Report=InitiateAttack
+

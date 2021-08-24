@@ -1,0 +1,10 @@
+[GDI]
+UIName=Name:GDI
+Name=GDI
+Suffix=Allied
+Prefix=G
+Color=Gold
+MultiplayPassive=true
+Side=GDI
+SmartAI=yes
+

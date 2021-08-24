@@ -1,0 +1,11 @@
+[Hellfire]
+Damage=30 
+ROF=50
+Range=6
+Projectile=AAHeatSeeker2 
+Speed=30
+Warhead=ORCAAP
+Report=ORCAMIS1
+Burst=2
+
+

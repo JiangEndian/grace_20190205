@@ -1,0 +1,12 @@
+[Gattling]
+Damage=30
+ROF=10
+Range=7
+Projectile=Invisible3 
+Speed=100
+Warhead=GattWH
+Report=SentryGunAttack
+Anim=GUNFIRE
+
+
+

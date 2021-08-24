@@ -1,0 +1,13 @@
+[MindControlE]
+Damage=10
+ROF=200
+Range=14
+Projectile=PsychicControl
+Speed=100
+Warhead=Controller
+
+Anim=YURICNTL
+FireOnce=yes
+
+
+

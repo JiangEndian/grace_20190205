@@ -1,0 +1,12 @@
+[HeatSeeker]
+Arm=2
+Shadow=no
+Proximity=yes
+Ranged=yes
+Image=DRAGON
+ROT=8
+SubjectToCliffs=no
+SubjectToElevation=no
+SubjectToWalls=no
+
+

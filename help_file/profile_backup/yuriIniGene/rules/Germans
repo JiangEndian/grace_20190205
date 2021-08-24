@@ -1,0 +1,11 @@
+[Germans]
+UIName=Name:Germans
+Name=Germany
+Suffix=Allied
+Prefix=G
+Color=Gold
+Multiplay=yes
+Side=GDI
+SmartAI=yes
+
+

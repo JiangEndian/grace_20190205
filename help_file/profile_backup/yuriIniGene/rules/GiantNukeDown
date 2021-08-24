@@ -1,0 +1,10 @@
+[GiantNukeDown]
+Arm=2
+Shadow=no
+Image=NKMSLDN
+Acceleration=1
+Vertical=yes 
+DetonationAltitude=30000
+FirersPalette=yes
+
+

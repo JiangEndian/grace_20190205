@@ -1,0 +1,10 @@
+[BAZOOKA]
+Damage=25
+ROF=60
+Range=6
+Projectile=AAHeatSeeker2
+Speed=25
+Warhead=AP
+Report=FlakCannonAttack
+
+

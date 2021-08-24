@@ -1,0 +1,13 @@
+[PunchE]
+Damage=100
+ROF=60
+Range=1.4
+Speed=100
+Warhead=Battering
+Report=BruteSmashAttack
+Projectile=InvisibleLow
+
+
+FireInTransport=no
+
+

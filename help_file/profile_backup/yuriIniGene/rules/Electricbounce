@@ -1,0 +1,9 @@
+[Electricbounce]
+ShrapnelWeapon=TeslaFragment
+ShrapnelCount=2
+Inviso=yes
+Image=none
+SubjectToCliffs=yes
+SubjectToElevation=no
+SubjectToWalls=no
+

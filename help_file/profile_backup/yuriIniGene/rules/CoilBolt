@@ -1,0 +1,13 @@
+[CoilBolt]
+Damage=200
+ROF=80 
+Range=7
+Speed=100
+Warhead=Electric
+Report=TeslaCoilAttack
+
+Projectile=Invisible
+IsElectricBolt=true
+
+
+

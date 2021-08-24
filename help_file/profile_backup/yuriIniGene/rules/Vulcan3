@@ -1,0 +1,12 @@
+[Vulcan3]
+Damage=10
+ROF=30
+Burst=3
+Range=4
+Projectile=InvisibleLow
+Speed=100
+Warhead=SA
+Report=CYGUN1
+
+
+

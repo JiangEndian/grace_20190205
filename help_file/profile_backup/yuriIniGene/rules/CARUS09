@@ -1,0 +1,24 @@
+[CARUS09]
+Name=Russian Gum Middle
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=steel
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=10
+MinDebris=5
+DebrisAnim=Dbris1sm,Dbris1lg,Dbris4sm,Dbris3sm,Dbris9lg,Dbris2lg,Dbris8sm,Dbris3lg
+BaseNormal=no
+Sight=6 
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=5
+
+CanOccupyFire=yes
+
+LeaveRubble=Yes
+
+

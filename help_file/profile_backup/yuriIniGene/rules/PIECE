@@ -1,0 +1,14 @@
+[PIECE]
+Name=Scrap Metal Debris
+Elasticity=0
+MinAngularVelocity=5.0
+MaxAngularVelocity=9.0
+MinZVel=24.0
+MaxZVel=28.0
+MaxXYVel=15.0
+Duration=75
+Damage=5
+ExpireAnim=TWLT036
+DamageRadius=100
+Warhead=TankOGas
+

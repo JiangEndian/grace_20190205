@@ -1,0 +1,32 @@
+[NARADR]
+UIName=Name:NARADR
+Name=Soviet Radar Tower
+BuildCat=Tech
+Prerequisite=NAREFN,NACNST
+Strength=1000
+Radar=yes
+Armor=wood
+TechLevel=3
+Adjacent=2
+Sight=10
+Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs,YuriCountry
+AIBasePlanningSide=1 
+Cost=1000
+Points=60
+Power=-50
+Powered=true
+Capturable=true
+Crewed=yes
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+DebrisAnim=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbris10lg,Dbris10sm
+MaxDebris=15
+MinDebris=5
+ThreatPosed=0 
+DamageParticleSystems=SparkSys,SmallGreySSys,BigGreySmokeSys
+DamageSmokeOffset=220, 390, 150
+AIBuildThis=yes
+Spyable=yes 
+ImmuneToPsionics=no 
+SuperWeapon=SpyPlaneSpecial
+
+

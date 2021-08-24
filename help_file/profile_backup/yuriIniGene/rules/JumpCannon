@@ -1,0 +1,11 @@
+[JumpCannon]
+Damage=15 
+Burst=2
+ROF=40
+Range=5  
+Projectile=Invisible3
+Speed=100
+Warhead=SA
+Report=JUMPJET1
+
+

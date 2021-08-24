@@ -1,0 +1,19 @@
+[CABHUT]
+UIName=Name:CABHUT
+Name=Bridge repair hut
+Strength=2000
+Immune=yes
+LegalTarget=yes
+Nominal=yes
+TechLevel=-1
+
+Repairable=true
+Selectable=yes
+Insignificant=yes
+BridgeRepairHut=yes
+Adjacent=0
+BaseNormal=no
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+ThreatPosed=0	
+
+

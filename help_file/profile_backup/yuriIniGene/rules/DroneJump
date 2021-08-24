@@ -1,0 +1,14 @@
+[DroneJump]
+Damage=50
+ROF=60
+Range=1.83
+Projectile=JUMP
+Speed=30
+Warhead=Parasite
+LimboLaunch=yes 
+Report=TerrorDroneAttack
+PenetratesBunker=yes
+
+FireInTransport=no
+
+

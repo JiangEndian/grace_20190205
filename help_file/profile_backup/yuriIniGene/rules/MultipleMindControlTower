@@ -1,0 +1,11 @@
+[MultipleMindControlTower]
+Damage=3
+ROF=100
+Range=7
+Projectile=PsychicControl
+Speed=100
+Warhead=Controller
+
+Anim=YURICNTL
+FireOnce=yes
+

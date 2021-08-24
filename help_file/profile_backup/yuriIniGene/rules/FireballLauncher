@@ -1,0 +1,14 @@
+[FireballLauncher]
+Damage=0
+AmbientDamage=2
+ROF=50
+Range=4.25
+Projectile=Invisible
+Speed=1
+Warhead=Fire
+Report=FLAMTNK1
+UseFireParticles=yes
+AttachedParticleSystem=FireStreamSys
+Burst=2
+
+

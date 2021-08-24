@@ -1,0 +1,12 @@
+[ElectricBolt]
+Damage=50
+ROF=60
+Range=3
+Speed=100
+Warhead=Shock
+Report=TeslaTroopAttack
+Projectile=InvisibleLow
+IsElectricBolt=true
+AssaultAnim=UCELEC
+
+

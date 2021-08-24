@@ -1,0 +1,26 @@
+[CAEAST01]
+Name=Easter Island Statue
+UIName=Name:CAEAST01
+TechLevel=-1
+Strength=3000
+Insignificant=no
+Nominal=yes
+RadarInvisible=no
+Points=5
+Armor=steel
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=15
+MinDebris=5
+DebrisAnim=Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg
+
+
+BaseNormal=no 
+Primary=PrismShot
+Power=-100
+Powered=Yes
+Overpowerable=true
+DestroyAnim=CAEAST01DM
+LeaveRubble=yes
+Capturable=true
+DieSound=MonumentCrumble
+

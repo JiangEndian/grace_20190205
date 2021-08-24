@@ -1,0 +1,11 @@
+[AKME]
+Damage=90
+ROF=20
+Range=9
+Projectile=InvisibleLow
+Speed=100
+Warhead=BORISWH
+Report=BorisAttack
+AssaultAnim=UCBLOOD
+
+

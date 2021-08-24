@@ -1,0 +1,11 @@
+[RHINAPE]
+CellSpread=.3
+PercentAtMax=.5
+Wall=yes
+Wood=yes
+Verses=100%,100%,100%,100%,100%,100%,65%,45%,60%,60%,100%
+Conventional=yes
+InfDeath=3
+AnimList=VTEXPLOD
+ProneDamage=50%
+

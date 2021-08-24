@@ -1,0 +1,27 @@
+[CAMEX03]
+UIName=Name:MAYANRUINS
+Name=Mayan Minor Temple
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=concrete
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+DebrisAnims=DBRIS1LG,DBRIS1SM,DBRIS2LG,DBRIS4LG,DBRIS4SM,DBRIS5LG,DBRIS5SM,DBRIS6LG,DBRIS6SM,DBRIS7LG,DBRS10LG
+MaxDebris=15
+MinDebris=7
+
+
+BaseNormal=no 
+Sight=6 
+ClickRepairable=no
+CanBeOccupied=no
+
+
+
+
+LeaveRubble=yes
+
+

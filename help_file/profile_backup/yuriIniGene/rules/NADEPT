@@ -1,0 +1,32 @@
+[NADEPT]
+UIName=Name:NADEPT
+Name=Soviet Service Depot
+BuildCat=Tech
+Prerequisite=NAWEAP,NACNST
+Strength=1200
+Armor=wood
+TechLevel=6
+Adjacent=2
+Sight=5
+UnitRepair=yes
+Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs,YuriCountry
+AIBasePlanningSide=1 
+Cost=800
+Points=80
+Power=-20
+Capturable=true
+Crewed=yes
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+DebrisAnim=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
+MaxDebris=15
+MinDebris=5
+ThreatPosed=0 
+DamageParticleSystems=SparkSys,SmallGreySSys,BigGreySmokeSys
+DamageSmokeOffset=270, 580, 260
+AIBuildThis=no 
+NumberOfDocks=1
+HasStupidGuardMode=false
+NumberImpassableRows=1 
+ImmuneToPsionics=no 
+
+

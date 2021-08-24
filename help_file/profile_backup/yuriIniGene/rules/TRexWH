@@ -1,0 +1,14 @@
+[TRexWH]
+CellSpread=.5
+PercentAtMax=.5
+Wall=yes
+Wood=yes
+Verses=0%,0%,0%,60%,40%,40%,50%,40%,25%,80%,100%
+Conventional=yes
+InfDeath=10
+
+ProneDamage=50%
+Rocker=yes
+MinDebris=1
+MaxDebris=3
+

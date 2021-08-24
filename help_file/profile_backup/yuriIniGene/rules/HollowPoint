@@ -1,0 +1,8 @@
+[HollowPoint]
+Verses=200%,100%,100%,1%,1%,1%,1%,1%,1%,1%,100% 
+InfDeath=1
+AnimList=PIFF
+ProneDamage=100%
+Bullets=yes
+
+

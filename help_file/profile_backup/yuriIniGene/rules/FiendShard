@@ -1,0 +1,10 @@
+[FiendShard]
+Damage=35
+ROF=30
+Burst=3
+Range=5
+Projectile=DogShard
+Speed=25
+Warhead=Shard
+Report=
+

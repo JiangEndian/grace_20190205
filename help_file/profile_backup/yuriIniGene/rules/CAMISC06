@@ -1,0 +1,22 @@
+[CAMISC06]
+UIName=Name:CAMISC06
+Name=V3 Rack
+TechLevel=-1
+Strength=10
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=concrete
+Explosion=MININUKE
+MaxDebris=0
+Selectable=no
+
+BaseNormal=no 
+CanBeOccupied=no
+Primary=none
+Secondary=none
+CanC4=no 
+DamageSound=BuildingMetalDamaged
+
+

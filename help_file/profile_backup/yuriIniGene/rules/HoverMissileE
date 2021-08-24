@@ -1,0 +1,11 @@
+[HoverMissileE]
+Damage=80
+ROF=50
+Range=6
+Burst=4
+Projectile=AAHeatSeeker2
+Speed=40
+Warhead=HE
+Report=SeawolfAttack
+MinimumRange=1
+

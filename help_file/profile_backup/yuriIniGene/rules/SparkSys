@@ -1,0 +1,8 @@
+[SparkSys]
+HoldsWhat=Spark
+BehavesLike=Spark
+ParticleCap=6
+SparkSpawnFrames=1
+LightSize=15	
+SpawnSparkPercentage=1
+

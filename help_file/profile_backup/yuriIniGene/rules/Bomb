@@ -1,0 +1,9 @@
+[Bomb]
+Damage=160
+ROF=10  
+Range=5
+Projectile=Cannon2
+Speed=0
+Warhead=ORCAHE
+Floater=yes
+

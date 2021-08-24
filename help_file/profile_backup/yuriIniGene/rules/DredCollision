@@ -1,0 +1,11 @@
+[DredCollision] 
+Damage=200
+ROF=20
+Range=1.75
+Projectile=DredMissile
+Speed=30
+Warhead=AP
+
+Bright=yes
+CellRangefinding=yes
+

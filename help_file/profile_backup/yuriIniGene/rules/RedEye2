@@ -1,0 +1,11 @@
+[RedEye2]
+Damage=75
+ROF=55
+Range=12
+Projectile=AAHeatSeeker
+Speed=100
+Warhead=SAMWH
+Report=PatriotAttack
+TurboBoost=yes
+
+

@@ -1,0 +1,23 @@
+[CAPOFGL]
+UIName=Name:POLISHFLAG
+Name=Flag Poland Left
+TechLevel=-1
+Strength=20
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=steel
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=0
+
+
+BaseNormal=no 
+Sight=6 
+ClickRepairable=no
+CanBeOccupied=no
+MaxNumberOccupants=0
+DistributedFire=no
+DamageSound=BuildingMetalDamaged
+DieSound=BuildingMetalDamaged
+

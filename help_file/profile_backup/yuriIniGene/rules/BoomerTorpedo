@@ -1,0 +1,12 @@
+[BoomerTorpedo]
+Damage=60
+ROF=120
+Range=7
+Projectile=Torpedo
+Speed=25 
+Report=BoomerAttack2
+Warhead=APSplash2
+DecloakToFire=no
+Burst=2
+
+

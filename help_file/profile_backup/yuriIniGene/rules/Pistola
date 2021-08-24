@@ -1,0 +1,9 @@
+[Pistola]
+Damage=2
+ROF=20
+Range=3
+Projectile=InvisibleLow
+Speed=100
+Warhead=SA
+Report=CivAttack
+

@@ -1,0 +1,12 @@
+[MedusaE]
+Damage=100
+ROF=5
+Range=14
+Speed=150
+Projectile=MedusaProjectile
+Warhead=SAMWH
+Report=AegisAttack
+TurboBoost=yes
+OmniFire=yes
+Burst=2
+

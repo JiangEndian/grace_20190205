@@ -1,0 +1,12 @@
+[Easy]
+Groundspeed=1.0
+Airspeed=1.0
+BuildTime=.8
+Armor=1.2
+ROF=.8
+Cost=1.0
+RepairDelay=.02
+BuildDelay=.03
+DestroyWalls=no
+ContentScan=yes
+

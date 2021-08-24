@@ -1,0 +1,11 @@
+[RaiderCannon]
+Damage=40
+ROF=55
+Range=4
+Projectile=InvisibleLow
+Speed=100
+Warhead=SA
+Report=PillboxAttack
+Anim=MGUN-N,MGUN-NE,MGUN-E,MGUN-SE,MGUN-S,MGUN-SW,MGUN-W,MGUN-NW
+
+

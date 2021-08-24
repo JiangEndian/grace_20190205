@@ -1,0 +1,12 @@
+[90mm]
+Damage=75
+ROF=30
+Range=5.75
+Projectile=Cannon
+Speed=40
+Warhead=AP
+Report=LightTankAttack
+Anim=GUNFIRE
+Bright=yes
+
+

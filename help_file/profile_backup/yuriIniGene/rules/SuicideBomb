@@ -1,0 +1,11 @@
+[SuicideBomb]
+Damage=11000
+ROF=1
+Range=.5
+Projectile=Invisible
+Speed=0
+Warhead=HE
+Bright=yes
+Report=HUNTER2
+
+

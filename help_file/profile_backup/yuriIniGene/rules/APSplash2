@@ -1,0 +1,12 @@
+[APSplash2]
+CellSpread=.5
+PercentAtMax=.8
+Wall=yes
+Wood=yes
+Verses=100%,100%,100%,75%,100%,100%,65%,65%,60%,25%,100%
+Conventional=yes
+InfDeath=3
+AnimList=S_CLSN16,S_CLSN22,S_CLSN30,S_CLSN42,S_CLSN58
+ProneDamage=50%
+
+

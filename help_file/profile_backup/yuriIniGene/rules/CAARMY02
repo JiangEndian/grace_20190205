@@ -1,0 +1,26 @@
+[CAARMY02]
+UIName=Name:CAARMY01
+Name=Army Tent
+TechLevel=-1
+Strength=200
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=0
+
+
+BaseNormal=no 
+Sight=6 
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=4
+
+CanOccupyFire=yes
+
+DamageSound=Dummy
+DieSound=Dummy
+
+

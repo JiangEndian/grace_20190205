@@ -1,0 +1,7 @@
+[LT_GEN01]
+Name=lightpost generic 1
+IsFlammable=no
+RadarColor=0,192,0
+TemperateOccupationBits=4
+SnowOccupationBits=7
+

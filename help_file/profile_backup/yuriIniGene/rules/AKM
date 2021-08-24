@@ -1,0 +1,10 @@
+[AKM]
+Damage=65
+ROF=20
+Range=7
+Projectile=InvisibleLow
+Speed=100
+Warhead=BORISWH
+Report=BorisAttack
+AssaultAnim=UCBLOOD
+

@@ -1,0 +1,15 @@
+[IonCannonWH]
+CellSpread=2
+PercentAtMax=.5
+Verses=100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%
+InfDeath=5
+Wood=yes
+Wall=yes
+Fire=yes
+Deform=100%
+Sparky=no
+ShakeXlo=10
+ShakeXhi=10
+ShakeYlo=10
+ShakeYhi=20
+

@@ -1,0 +1,14 @@
+[MirageGun]
+Damage=100
+ROF=70
+Range=7
+Projectile=InvisibleLow
+Speed=100
+Warhead=MirageWH
+DisguiseFireOnly=no	
+Report=MirageTankAttack
+Bright=yes
+Anim=VTMUZZLE
+DisguiseFakeBlinkTime=15 
+RevealOnFire=no 
+

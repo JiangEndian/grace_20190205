@@ -1,0 +1,25 @@
+[GADUMY]
+UIName=Name:GADUMY
+Name=Dummy ChronoSphere
+BuildCat=Tech
+Image=NTIRON
+Prerequisite=GATECH
+TechLevel=-1
+Strength=1000
+Powered=true
+Adjacent=2
+Armor=wood
+Sight=5
+Owner=British,French,Germans,Americans,Alliance
+Cost=2800
+Points=30
+Power=-150
+Crewed=yes
+Capturable=no
+RevealToAll=yes
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+SuperWeapon=ChronoWarpSpecial
+ThreatPosed=1	
+AIBuildThis=no
+Spyable=yes
+

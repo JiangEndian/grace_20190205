@@ -1,0 +1,20 @@
+[ForceShieldSpecial]
+UIName=Name:ForceShield
+Name=Force Shield
+IsPowered=true
+RechargeVoice=00-I156
+ChargingVoice=
+ImpatientVoice=
+SuspendVoice=
+RechargeTime=5
+Type=ForceShield
+Action=ForceShield
+SidebarImage=FORCICON
+ShowTimer=no
+DisableableFromShell=yes
+SpecialSound=ForceShieldFading
+StartSound=ForceShieldStarting
+FlashSidebarTabFrames=120
+Range=3.4
+LineMultiplier=3
+

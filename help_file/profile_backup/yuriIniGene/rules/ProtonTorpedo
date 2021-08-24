@@ -1,0 +1,9 @@
+[ProtonTorpedo]
+Arm=2
+Shadow=no
+Proximity=yes
+Ranged=yes
+Image=TORPEDO
+ROT=1
+IgnoresFirestorm=yes
+

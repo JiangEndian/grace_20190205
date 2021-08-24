@@ -1,0 +1,13 @@
+[AAGattCann3]
+Damage=30
+ROF=4
+Range=12
+Projectile=Invisible4 
+Speed=100
+Warhead=GattWH
+Report=GattlingGunAttackLoop3
+
+Anim=VTMUZZLE
+Burst = 2
+
+

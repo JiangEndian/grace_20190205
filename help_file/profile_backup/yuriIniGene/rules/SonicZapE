@@ -1,0 +1,15 @@
+[SonicZapE]
+Damage=8
+AmbientDamage=15
+ROF=80
+Range=6
+
+Projectile=Sonic
+Speed=100
+Warhead=SonicWarhead
+Report=DolphinAttack
+IsSonic=Yes
+
+Burst=2
+DecloakToFire=no
+

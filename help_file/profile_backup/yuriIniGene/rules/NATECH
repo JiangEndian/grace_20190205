@@ -1,0 +1,32 @@
+[NATECH]
+UIName=Name:NATECH
+Name=Soviet Battle Lab
+BuildCat=Tech
+Prerequisite=NAWEAP,RADAR,NACNST
+Strength=500
+Armor=wood
+TechLevel=7
+Adjacent=2
+Sight=6
+Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs,YuriCountry
+AIBasePlanningSide=1 
+Cost=2000
+Points=85
+Power=-100
+Capturable=true
+Crewed=yes
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+DebrisAnims=DBRIS2SM,DBRIS3LG,DBRIS3SM,DBRIS7SM,DBRIS8LG,DBRS10LG
+MaxDebris=10
+MinDebris=5
+ThreatPosed=0	
+
+DamageSmokeOffset=200, 325, 200
+AIBuildThis=yes
+TogglePower=no
+Spyable=yes
+ProtectWithWall=yes
+ImmuneToPsionics=no 
+SuperWeapon=ForceShieldSpecial
+
+

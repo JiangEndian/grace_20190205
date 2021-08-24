@@ -1,0 +1,7 @@
+[TRACKS04]
+Name=Track EW
+Land=Railroad
+LegalTarget=false
+RadarColor=92,92,92
+RadarInvisible = false
+

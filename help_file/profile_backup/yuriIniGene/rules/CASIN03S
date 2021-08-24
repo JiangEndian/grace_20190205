@@ -1,0 +1,18 @@
+[CASIN03S]
+Name=Road Block Sign
+UIName=Name:CASIN03
+TechLevel=-1
+Strength=5
+Insignificant=yes
+Nominal=yes
+RadarInvisible=yes
+Points=5
+Armor=concrete
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=0
+Selectable=no
+
+BaseNormal=no 
+DamageSound=BuildingMetalDamaged
+DieSound=BuildingMetalDamaged
+

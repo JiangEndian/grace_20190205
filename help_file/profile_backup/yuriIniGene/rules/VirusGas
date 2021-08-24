@@ -1,0 +1,11 @@
+[VirusGas]
+
+CellSpread=1
+PercentAtMax=1
+Verses=100%,100%,100%,50%,50%,50%,0%,0%,0%,100%,0%
+InfDeath=8
+Poison=yes
+Particle=GasCloudSys
+ProneDamage=300%    
+
+

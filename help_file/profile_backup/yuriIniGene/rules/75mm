@@ -1,0 +1,11 @@
+[75mm]
+Damage=35
+ROF=40
+Range=6
+Projectile=Cannon
+Speed=40
+Warhead=AP
+Anim=GUNFIRE
+Bright=yes
+
+

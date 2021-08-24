@@ -1,0 +1,11 @@
+[RPGTower]
+Damage=110
+ROF=80
+Range=8
+Projectile=Lobbed2
+Speed=30 
+Warhead=RPG
+MinimumRange=2
+Report=GLNCH4
+
+

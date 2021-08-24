@@ -1,0 +1,13 @@
+[MagneticBeam]
+Damage=5000
+ROF=20
+Range=12
+MinimumRange=3
+Speed=100
+Projectile=InvisibleHigh
+Warhead=LocomotorBeam
+Report=MagnetronAttack
+
+IsMagBeam=yes
+
+

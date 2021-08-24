@@ -1,0 +1,16 @@
+[GasCloud2]
+Image=WCCLOUD1 
+
+MaxDC=60
+MaxEC=1000
+Damage=40
+Warhead=Gas
+StartFrame=0
+EndStateAI=28
+Translucency=50
+WindEffect=0
+BehavesLike=Gas
+StateAIAdvance=4
+NextParticle=GasCloudD2
+
+

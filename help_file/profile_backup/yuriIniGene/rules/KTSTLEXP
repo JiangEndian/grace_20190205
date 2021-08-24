@@ -1,0 +1,16 @@
+[KTSTLEXP]
+CellSpread=2
+PercentAtMax=.5
+Wall=yes
+Wood=yes
+Verses=100%,100%,100%,70%,35%,35%,85%,75%,50%,100%,100%
+Conventional=yes
+Rocker=yes
+InfDeath=2
+AnimList=KTSTLEXP
+Tiberium=yes
+Sparky=no
+Bright=yes
+ProneDamage=70%
+
+

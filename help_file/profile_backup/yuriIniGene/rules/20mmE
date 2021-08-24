@@ -1,0 +1,10 @@
+[20mmE]
+Damage=25
+ROF=5
+Range=5
+Projectile=Invisible3
+Speed=100
+Warhead=SSA
+Report=RocketeerAttack
+
+

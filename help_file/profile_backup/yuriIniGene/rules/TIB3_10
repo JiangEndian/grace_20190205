@@ -1,0 +1,8 @@
+[TIB3_10]
+Image=TIB10
+Name=Tiberium
+Tiberium=yes
+LegalTarget=false
+RadarInvisible=false
+ChainReaction=no
+

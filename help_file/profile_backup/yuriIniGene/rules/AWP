@@ -1,0 +1,10 @@
+[AWP]
+Damage=125
+ROF=150
+Range=14
+Projectile=InvisibleLow
+Speed=100
+Report=SniperAttack
+Warhead=HollowPoint
+RevealOnFire=no 
+

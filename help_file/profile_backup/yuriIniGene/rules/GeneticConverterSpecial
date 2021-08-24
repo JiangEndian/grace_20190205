@@ -1,0 +1,17 @@
+[GeneticConverterSpecial]
+UIName=Name:YAGNTC
+Name=Genetic Converter
+IsPowered=true
+RechargeVoice=00-I156
+ChargingVoice=
+ImpatientVoice=
+SuspendVoice=
+RechargeTime=5
+Type=GeneticConverter
+Action=GeneticConverter
+SidebarImage=MUTEICON
+ShowTimer=yes
+DisableableFromShell=yes 
+Range=5
+LineMultiplier=3
+

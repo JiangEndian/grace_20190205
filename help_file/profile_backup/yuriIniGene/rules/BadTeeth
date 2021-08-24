@@ -1,0 +1,13 @@
+[BadTeeth]
+Damage=30
+ROF=30
+Range=1.5
+CellRangefinding=yes
+Projectile=DOGJUMP
+Speed=30
+Warhead=ParasiteDog 
+LimboLaunch=yes 
+Report=DogAttack
+FireInTransport=no
+
+

@@ -1,0 +1,10 @@
+[SquidPunchE]
+Damage=200
+ROF=32 
+Range=1.83
+Projectile=InvisibleAll
+Speed=30
+Warhead=HE
+
+Report=SquidAttackNonShip
+

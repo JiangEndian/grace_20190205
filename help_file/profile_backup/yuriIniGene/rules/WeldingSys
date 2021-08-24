@@ -1,0 +1,9 @@
+[WeldingSys]
+HoldsWhat=WeldingSpark
+BehavesLike=Spark
+ParticleCap=15
+SparkSpawnFrames=20
+LightSize=25
+OneFrameLight=true
+SpawnSparkPercentage=.4
+

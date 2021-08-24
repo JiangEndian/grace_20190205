@@ -1,0 +1,27 @@
+[CAHSE06]
+UIName=Name:CAHSE06
+Name=American Mobile Home B
+TechLevel=-1
+Strength=300
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=10
+MinDebris=5
+DebrisAnim=Dbris5lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris9lg,Dbris10lg,Dbris10sm
+
+
+BaseNormal=no 
+Sight=6 
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=5
+
+CanOccupyFire=yes
+
+LeaveRubble=Yes
+
+

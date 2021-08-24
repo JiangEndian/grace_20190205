@@ -1,0 +1,11 @@
+[Virusgun]
+Damage=125
+ROF=100
+Range=10
+Projectile=InvisibleLow
+Speed=100
+Report=VirusAttack
+Warhead=Virus
+RevealOnFire=no 
+OpenToppedAnim=GUNFIRE
+

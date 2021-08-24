@@ -1,0 +1,9 @@
+[TIB2_07]
+Image=TIB07
+Name=Tiberium
+Tiberium=yes
+LegalTarget=false
+RadarInvisible=false
+ChainReaction=no
+RadarColor=220,200,0
+

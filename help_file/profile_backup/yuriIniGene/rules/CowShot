@@ -1,0 +1,15 @@
+[CowShot]
+Damage=300
+ROF=75
+Range=12
+Speed=100
+Projectile=InvisibleHigh
+Warhead=PrismWarhead
+LaserInnerColor = 216,0,184
+LaserOuterColor = 80,0,88
+LaserOuterSpread= 0,0,0
+LaserDuration = 15
+IsBigLaser=true
+IsLaser=true	
+Report=IFVCowshot
+

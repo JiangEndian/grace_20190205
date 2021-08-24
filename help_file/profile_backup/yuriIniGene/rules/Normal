@@ -1,0 +1,13 @@
+[Normal]
+Groundspeed=1.0
+Airspeed=1.0
+BuildTime=1
+Armor=1.0
+ROF=1.0
+Cost=1.0
+RepairDelay=.02
+BuildDelay=.03
+BuildSlowdown=yes
+DestroyWalls=no
+ContentScan=yes
+

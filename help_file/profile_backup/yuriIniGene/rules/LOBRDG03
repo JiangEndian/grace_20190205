@@ -1,0 +1,8 @@
+[LOBRDG03]
+Image=LOBRDG03
+Name=Low Bridge
+Land=Road
+RadarColor=92,92,92
+NoUseTileLandType=true
+RadarInvisible = false
+

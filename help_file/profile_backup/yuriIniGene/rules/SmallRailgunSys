@@ -1,0 +1,12 @@
+[SmallRailgunSys]
+HoldsWhat=SmallRailgunPart
+BehavesLike=Railgun
+SpiralRadius=6
+ParticlesPerCoord=.1
+SpiralDeltaPerCoord=.035
+MovementPerturbationCoefficient=.3
+PositionPerturbationCoefficient=20
+VelocityPerturbationCoefficient=.6
+Laser=yes
+LaserColor=255,128,0
+

@@ -1,0 +1,6 @@
+[OilExplosion]
+Projectile=Invisible
+Damage=600
+Warhead=OilExplosionWH
+Anim=RING1
+

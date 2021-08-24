@@ -1,0 +1,9 @@
+[LUNRK3]
+LegalTarget=false
+Name=Lunar Rock #3
+Land=Rock
+RadarColor=64,64,64
+NoUseTileLandType=true
+DrawFlat=false
+IsARock=true 
+

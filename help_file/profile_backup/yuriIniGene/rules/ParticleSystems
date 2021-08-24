@@ -1,0 +1,17 @@
+[ParticleSystems]
+1=GasCloudSys
+2=FireStreamSys
+3=BigGreySmokeSys
+4=SmallGreySSys
+5=DebrisSmokeSys
+6=SparkSys
+7=FirestormSparkSys
+8=TestSmokeSys
+9=SmallRailgunSys
+10=LargeRailgunSys
+11=WeldingSys
+12=LGSparkSys
+13=PsychCloudSys
+
+
+

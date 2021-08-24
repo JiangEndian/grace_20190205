@@ -1,0 +1,11 @@
+[SubTorpedo]
+Damage=100
+ROF=120
+Range=7
+Projectile=Torpedo
+Speed=25 
+Report=SubAttack
+Warhead=APSplash
+DecloakToFire=no
+
+

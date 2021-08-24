@@ -1,0 +1,16 @@
+[SuperComet]
+Damage=150
+ROF=100
+Range=10
+Projectile=SuperCometP
+Speed=10
+Report=PrismTankAttack
+Warhead=CometWH
+Bright=yes
+
+
+IsHouseColor=true
+LaserOuterSpread= 0,0,0
+LaserDuration = 15
+IsLaser=true	
+

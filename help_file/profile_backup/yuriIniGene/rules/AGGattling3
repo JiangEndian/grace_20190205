@@ -1,0 +1,13 @@
+[AGGattling3]
+Damage=25
+ROF=16
+Range=5
+Projectile=Invisiblelow 
+Speed=100
+Warhead=SSA
+Report=GattlingGunAttackLoop3
+
+Anim=VTMUZZLE
+Burst = 2
+
+

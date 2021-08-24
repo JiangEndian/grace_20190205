@@ -1,0 +1,12 @@
+[TeslaFragment]
+Damage=30
+ROF=80
+Range=3
+Projectile=SmallTeslaP
+Speed=10
+Report=TeslaCoilAttack
+Warhead=Electric
+IsElectricBolt=true
+Anim=PIFFPIFF 
+
+

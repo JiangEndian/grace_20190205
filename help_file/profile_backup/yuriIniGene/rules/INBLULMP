@@ -1,0 +1,24 @@
+[INBLULMP]
+Name=Invisible Blue Light Post
+Selectable=no
+InvisibleInGame=yes
+Insignificant=yes
+Image=GALITE
+Strength=6000
+Armor=wood
+TechLevel=-1
+Nominal=yes
+Sight=0
+Points=30
+Power=0
+Crewed=yes
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+LightVisibility=4000
+LightIntensity=0.01
+LightRedTint=0.01
+LightGreenTint=0,01
+LightBlueTint=0.7
+DamageParticleSystems=SparkSys,LGSparkSys
+Powered=true
+
+

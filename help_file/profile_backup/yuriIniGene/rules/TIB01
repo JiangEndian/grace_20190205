@@ -1,0 +1,7 @@
+[TIB01]
+Name=Tiberium (Green)
+Tiberium=yes
+LegalTarget=false
+RadarInvisible=false
+RadarColor=220,200,0
+

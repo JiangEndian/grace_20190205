@@ -1,0 +1,16 @@
+[NUKE]
+CellSpread=10
+PercentAtMax=.02 
+WallAbsoluteDestroyer=yes
+Wood=yes
+Verses=100%,100%,100%,200%,100%,100%,60%,100%,8%,100%,100%
+InfDeath=7
+Sparky=no
+Tiberium=yes
+
+AnimList=NUKEANIM	
+
+
+
+
+

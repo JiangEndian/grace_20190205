@@ -1,0 +1,11 @@
+[CRMissileLauncher]
+Damage=30
+ROF=40
+Range=8
+Burst=2
+Projectile=AAHeatSeeker2	
+Speed=30 
+Warhead=GUARDWH
+Report=GuardianGIDeployedAttack
+MinimumRange=1
+

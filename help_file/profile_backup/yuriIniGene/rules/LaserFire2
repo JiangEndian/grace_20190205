@@ -1,0 +1,15 @@
+[LaserFire2]
+Damage=30
+ROF=40
+Range=5.5
+Speed=100
+Warhead=HE
+Report=LASTUR1
+Charges=no
+LaserInnerColor = 255,0,0
+LaserOuterColor = 0,0,0
+LaserOuterSpread= 20,40,40
+LaserDuration = 15
+Projectile=LLine2
+IsLaser=true	
+

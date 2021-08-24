@@ -1,0 +1,27 @@
+[GALITE]
+Name=Light Post
+Image=GALITE
+Strength=600
+Armor=wood
+Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs,YuriCountry
+Cost=200
+TechLevel=-1 
+Nominal=yes
+Sight=0
+Points=30
+Power=0
+Crewed=NO
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=1
+LightVisibility=5000
+LightIntensity=0.2
+LightRedTint=0.05
+LightGreenTint=0.05
+LightBlueTint=0.01
+ThreatPosed=0	
+DamageParticleSystems=SparkSys,LGSparkSys
+AlphaImage=NONE
+Powered=true
+AIBuildThis=no
+
+

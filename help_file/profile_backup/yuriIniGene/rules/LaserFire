@@ -1,0 +1,17 @@
+[LaserFire]
+Damage=250
+ROF=120
+Range=10.5
+Speed=100
+Warhead=HE
+Report=PrismTowerAttack
+LaserInnerColor = 255,0,0
+LaserOuterColor = 0,0,0
+LaserOuterSpread= 20,40,40
+LaserDuration = 15
+Projectile=LLine
+IsBigLaser=true
+IsLaser=true	
+Charges=yes		
+
+

@@ -1,0 +1,24 @@
+[CAMSC07]
+Name=Thatched Hut Chief
+UIName=Name:CAMSC07
+TechLevel=-1
+Strength=600
+Insignificant=yes
+Nominal=yes
+
+Points=5
+Armor=concrete
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+DebrisAnims=DBRIS2LG,DBRIS3SM,DBRIS5SM
+MaxDebris=6
+MinDebris=3
+BaseNormal=no
+Sight=6 
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=6
+
+CanOccupyFire=yes
+
+
+

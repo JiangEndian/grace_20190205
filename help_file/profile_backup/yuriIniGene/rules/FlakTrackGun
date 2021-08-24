@@ -1,0 +1,10 @@
+[FlakTrackGun]		
+Damage=25 
+ROF=25 
+Range=5
+Projectile=FlakTProj
+Speed=50
+Report=FlakTrackAttackGround		
+Warhead=FlakTWH
+Anim=GUNFIRE
+

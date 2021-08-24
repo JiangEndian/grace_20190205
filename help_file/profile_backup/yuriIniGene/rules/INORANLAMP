@@ -1,0 +1,24 @@
+[INORANLAMP]
+Name=Orange Light Post
+Image=GALITE
+Selectable=no
+InvisibleInGame=yes
+Strength=600
+Armor=wood
+TechLevel=-1
+Nominal=yes
+Sight=0
+Points=30
+Power=0
+Crewed=no
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+LightVisibility=3000
+LightIntensity=0.01
+LightRedTint=2.0
+LightGreenTint=1.4
+LightBlueTint=0.3
+DamageParticleSystems=SparkSys,LGSparkSys
+Powered=true
+Insignificant=yes
+
+

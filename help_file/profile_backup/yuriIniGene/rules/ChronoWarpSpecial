@@ -1,0 +1,17 @@
+[ChronoWarpSpecial]
+UIName=Name:Chrono2
+Name=Chrono Warp
+IsPowered=false
+RechargeVoice=
+ChargingVoice=
+ImpatientVoice=
+SuspendVoice=
+RechargeTime=1
+Type=ChronoWarp
+Action=ChronoWarp
+SidebarImage=XXXXICON
+PostClick=yes
+PreDependent=ChronoSphere
+Range=1.4
+LineMultiplier=3
+

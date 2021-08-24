@@ -1,0 +1,9 @@
+[VEINHOLE]
+Name=Veinhole Monster
+LegalTarget=yes
+RadarColor=92,92,0
+Land=Rock
+IsVeinholeMonster=true
+IsVeins=true
+NoUseTileLandType=true
+

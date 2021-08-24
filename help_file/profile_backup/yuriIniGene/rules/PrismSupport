@@ -1,0 +1,15 @@
+[PrismSupport]
+Damage=200
+ROF=45 
+Range=8
+Speed=100
+Projectile=InvisibleHigh
+Warhead=DummyWarhead
+
+
+LaserOuterSpread= 0,0,0
+LaserDuration = 15
+IsLaser=true	
+IsHouseColor=true
+
+
