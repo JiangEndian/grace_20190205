@@ -1,9 +1,0 @@
-[CRATE]
-Name=Goodie Crate
-RadarColor=92,92,92
-Crate=yes
-CrateTrigger=yes
-RadarInvisible=yes
-Land=Clear
-DrawFlat=false
-

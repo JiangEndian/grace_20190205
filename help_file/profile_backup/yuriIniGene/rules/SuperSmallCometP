@@ -1,9 +1,0 @@
-[SuperSmallCometP]
-ShrapnelWeapon=CometFragment
-ShrapnelCount=3 
-Inviso=yes
-Image=none
-SubjectToCliffs=yes
-SubjectToElevation=no
-SubjectToWalls=no
-

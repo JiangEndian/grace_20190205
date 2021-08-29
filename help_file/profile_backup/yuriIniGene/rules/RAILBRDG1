@@ -1,8 +1,0 @@
-[RAILBRDG1]
-Image=RAILBRDG
-Name=Railroad Bridge 1
-LegalTarget=true
-RadarColor=92,92,92
-Overrides=yes
-NoUseTileLandType=false
-

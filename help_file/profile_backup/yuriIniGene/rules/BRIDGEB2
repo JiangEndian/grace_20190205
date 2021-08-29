@@ -1,9 +1,0 @@
-[BRIDGEB2]
-Image=BRIDGB
-Name = Wood Bridge 2
-LegalTarget=true
-RadarColor=115,115,115
-Overrides=yes
-NoUseTileLandType=false
-
-

@@ -1,9 +1,0 @@
-[ChemLauncher]
-Damage=100
-ROF=1 
-Range=6
-Projectile=ChemMissile
-Speed=30
-Warhead=Gas
-Report=ICBM1
-

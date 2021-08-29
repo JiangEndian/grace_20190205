@@ -1,9 +1,0 @@
-[ASWBomb]
-Damage=50
-ROF=3
-Range=3
-Projectile=DepthCharge
-Speed=30
-Warhead=APSplash
-Report=OspreyAttack
-

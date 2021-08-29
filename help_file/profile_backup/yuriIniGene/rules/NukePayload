@@ -1,9 +1,0 @@
-[NukePayload]
-Damage=600
-Range=30
-Projectile=GiantNukeDown  
-Speed=10
-RadLevel=500
-Warhead=NUKE
-Report=
-

@@ -1,9 +1,0 @@
-[WCRATE]
-Name=Water Crate
-RadarColor=92,92,92
-Crate=yes
-CrateTrigger=yes
-RadarInvisible=yes
-Land=Water
-DrawFlat=false
-

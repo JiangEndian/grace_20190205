@@ -1,8 +1,0 @@
-[FireStreamSys]
-HoldsWhat=FireStream
-Spawns=yes
-SpawnFrames=4
-BehavesLike=Fire
-Image=TWLT036
-Lifetime=30 
-

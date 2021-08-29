@@ -1,9 +1,0 @@
-[CRBAZOOKA]
-Damage=35
-ROF=30
-Range=8
-Projectile=AAHeatSeeker2
-Speed=25
-Warhead=AP
-Report=FlakCannonAttack
-

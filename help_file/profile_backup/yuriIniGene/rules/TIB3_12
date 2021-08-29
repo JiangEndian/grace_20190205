@@ -1,8 +1,0 @@
-[TIB3_12]
-Image=TIB12
-Name=Tiberium
-Tiberium=yes
-LegalTarget=false
-RadarInvisible=false
-ChainReaction=no
-

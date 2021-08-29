@@ -1,9 +1,0 @@
-[NormalBomb]
-Arm=2
-Shadow=no
-Proximity=yes
-Ranged=yes
-Image=DRAGON
-ROT=1
-IgnoresFirestorm=yes
-

@@ -1,8 +1,0 @@
-[SpyCameraWeapon]
-Damage=6
-Range=20
-Burst=1
-Projectile=InvisibleHigh
-Warhead=DummyWarhead
-Report=SpyPlaneSnapshot
-

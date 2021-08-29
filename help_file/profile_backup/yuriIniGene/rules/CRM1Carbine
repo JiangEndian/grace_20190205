@@ -1,9 +1,0 @@
-[CRM1Carbine]
-Damage=30
-ROF=15
-Range=6
-Projectile=InvisibleLow
-Speed=100
-Warhead=SA
-Report=GIAttack
-

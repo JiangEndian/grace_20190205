@@ -1,9 +1,0 @@
-[CRTerrorBomb]
-Projectile=Invisible
-Damage=250
-Warhead=TerrorBombWH
-Anim=RING1
-Range=1.5
-ROF=10
-Suicide=yes
-

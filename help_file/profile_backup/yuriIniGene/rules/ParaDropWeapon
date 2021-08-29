@@ -1,9 +1,0 @@
-[ParaDropWeapon]	
-Damage=60
-ROF=130
-Range=4
-Projectile=AAHeatSeeker2 
-Speed=30
-Warhead=MaverickHE
-Burst=1
-

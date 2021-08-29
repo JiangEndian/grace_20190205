@@ -1,8 +1,0 @@
-[LOBRDB27]
-Image=LOBRDB27
-Name=Concrete Low Bridge
-Land=Road
-RadarColor=92,92,92
-NoUseTileLandType=false
-RadarInvisible = true
-

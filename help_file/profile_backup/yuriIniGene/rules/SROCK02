@@ -1,9 +1,0 @@
-[SROCK02]
-LegalTarget=false
-Name=Sand Rock #2
-Land=Rock
-RadarColor=64,64,64
-NoUseTileLandType=true
-DrawFlat=false
-IsARock=true 
-

@@ -1,9 +1,0 @@
-[HornetBomb]
-Damage=40
-ROF=3
-Range=5
-Projectile=NormalBomb
-Speed=30
-Warhead=ORCAAP
-Report=HornetAttack
-

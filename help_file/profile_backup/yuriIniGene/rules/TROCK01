@@ -1,9 +1,0 @@
-[TROCK01]
-LegalTarget=false
-Name=Clear Rock #1
-Land=Rock
-RadarColor=64,64,64
-NoUseTileLandType=true
-DrawFlat=false
-IsARock=true 
-

@@ -1,9 +1,0 @@
-[TIB2_15]
-Image=TIB15
-Name=Tiberium
-Tiberium=yes
-LegalTarget=false
-RadarInvisible=false
-ChainReaction=no
-RadarColor=220,200,0
-

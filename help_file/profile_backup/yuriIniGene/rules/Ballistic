@@ -1,7 +1,0 @@
-[Ballistic]
-Image=120MM
-Arcing=true
-SubjectToCliffs=no
-SubjectToElevation=yes
-SubjectToWalls=no
-

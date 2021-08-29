@@ -1,9 +1,0 @@
-[DemobombWH]
-CellSpread=8
-PercentAtMax=.1 
-Verses=100%,100%,100%,100%,50%,50%,80%,150%,10%,100%,100%
-InfDeath=4
-Sparky=no
-Tiberium=yes
-AnimList=DEMTEXP
-

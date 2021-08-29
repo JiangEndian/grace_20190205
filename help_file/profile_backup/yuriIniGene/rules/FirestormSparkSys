@@ -1,9 +1,0 @@
-[FirestormSparkSys]
-HoldsWhat=FirestormSpark
-BehavesLike=Spark
-ParticleCap=20
-SparkSpawnFrames=1
-LightSize=21
-SpawnSparkPercentage=1
-
-

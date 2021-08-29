@@ -1,9 +1,0 @@
-[SuperCometP]
-ShrapnelWeapon=SuperCometFragment
-ShrapnelCount=5 
-Inviso=yes
-Image=none
-SubjectToCliffs=yes
-SubjectToElevation=no
-SubjectToWalls=no
-

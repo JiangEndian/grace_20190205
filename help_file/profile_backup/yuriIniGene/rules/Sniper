@@ -1,9 +1,0 @@
-[Sniper]
-Damage=150
-ROF=20
-Range=8
-Projectile=InvisibleLow
-Speed=100
-Warhead=HollowPoint
-Report=SILENCER
-
