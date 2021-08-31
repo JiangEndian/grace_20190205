@@ -30,7 +30,9 @@ NAMISL:核弹,ATESLA:光棱塔,GAP:裂缝,GTGCAN:巨炮,NANRCT:核电,GAPILL:碉
 NAFLAK:防空炮,CAOUTP:前哨站,THOSP:医院,AIRP:机场,CLON:复制中心,OREP:精炼厂,\
 PARS01:铁塔,AIRC:空指部,AMRADR:美国空指,PSYB:精神控制塔,BRCK:兵营,\
 GGUN:盖特机炮,PSYT:心灵控制塔,NAINDP:工业工厂,YAGRND:回收站,GNTC:基因突变,\
-PPET:超级心灵控制,NATBNK:坦克碉堡,NABNKR:战斗碉堡,TESLA:磁爆线圈'.split(',')
+PPET:超级心灵控制,NATBNK:坦克碉堡,NABNKR:战斗碉堡,TESLA:磁爆线圈,\
+MaxEC:粒子存在时间,EndStateAI:粒子结束帧号,StateAIAdvance:每帧持续越大越慢,\
+MaxDC:间隔多少帧一次伤害'.split(',')
 
 ##pickle来进行对象序列化（持久化对象)#######
 def isEnLine(line):
@@ -83,13 +85,13 @@ def createRulesIni():
         print(f'writed rulesmd.ini')
         dump2file('FatherSon', FatherSon)
             
-def allStrengthPlus200():
+def allStrengthX3():
     for father, body in FatherSon.items():
         for name, value in body.items():
             if name == 'Strength':
-                FatherSon[father][name] = str(int(value) + 200)
-                print(f'{father}.{name} plused 200')
-#allStrengthPlus200()
+                FatherSon[father][name] = str(int(value)*3)
+                print(f'{father}.{name}X3')
+#allStrengthX3()
 ###2.一些常数################################
 WHITE = (255,255,255)
 GREEN = (0,255,0)
@@ -228,6 +230,7 @@ class RoleOfImg(pygame.sprite.Sprite): #
         self.father = father
         self.oriName = name.replace('等于', '=')
         self.name = self.oriName
+        self.firstName = self.oriName
         if '=' in self.oriName:
             self.name = self.oriName.split('=')[1]
             self.firstName = self.oriName.split('=')[0]
@@ -239,6 +242,8 @@ class RoleOfImg(pygame.sprite.Sprite): #
             one = one.split(':')
             if one[0] in self.name:
                 self.image = text2Img(self.oriName+one[1], 20)
+            elif one[0] in self.firstName:
+                self.image = text2Img(one[1]+self.oriName, 20)
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
@@ -326,7 +331,7 @@ class RoleOfImg(pygame.sprite.Sprite): #
         
 
 ###4.开始游戏设定与循环########################
-width = 1280
+width = 700
 height = 720
 screen = startPygame(width, height)
 
@@ -336,7 +341,7 @@ def init():
     roles = ['InfantryTypes', 'VehicleTypes', 'AircraftTypes', 'BuildingTypes', 
             'MultiplayerDialogSettings', 'SpecialWeapons', 
             'AudioVisual', 'CrateRules', 'CombatDamage', 'Radiation',
-            'Countries', 'Sides', 'IQ', 'General']
+            'Countries', 'Sides', 'IQ', 'General', 'Particles']
     for role in roles:
         lastRole = RoleOfImg(role, role, x, y)
         x = lastRole.rect.right + 10
@@ -366,7 +371,7 @@ while running:
                 role.elected = False
                 if role.rect.collidepoint(event.pos):
                     if event.button == 3:
-                        edited = input('修改'+role.oriName+' or i/n/d/di:')
+                        edited = input(f'修改{role.father}的{role.oriName} or i/n/d/di:')
                         if edited == 'i':
                             edited = input('添加同类子项:')
                             firstName, lastName = edited.split('=')
