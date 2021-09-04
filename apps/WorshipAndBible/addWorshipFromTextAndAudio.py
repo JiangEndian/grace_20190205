@@ -13,8 +13,9 @@ def forBashCMD(CMD):
     return CMD
     #return CMD.replace('(', '\(').replace(')', '\)').replace(' ', '\ ').replace('-', '\-')
 print('~/grace_voice_file/%s/%s.mp3' % (dir_name, forBashCMD(file_name)))
-cvlc_play_mp3('~/grace_voice_file/%s/%s.mp3' % (dir_name, forBashCMD(file_name)), 1, '-', '=')
-if input('确认有声音？文件夹无误？YES?') != 'YES':
+#cvlc_play_mp3('~/grace_voice_file/%s/%s.mp3' % (dir_name, forBashCMD(file_name)), 1, '-', '=')
+runsyscmd('ls -lh ~/grace_voice_file/%s/%s.mp3' % (dir_name, forBashCMD(file_name)))
+if input('确认文件无误？YES?') != 'YES':
     exit(0)
 
 def addEveryWeek():

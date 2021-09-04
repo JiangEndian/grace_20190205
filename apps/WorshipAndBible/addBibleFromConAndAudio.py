@@ -30,9 +30,10 @@ def addEveryWeek():
     #env = input('mean:') #[ɪnˈvaɪrənmənt]环境
     env = '' #[ɪnˈvaɪrənmənt]环境
     file_name = input('file_name_with.mp3:').replace('.mp3', '')
-    cvlc_play_mp3('~/grace_voice_file/%s/%s.mp3' % (dir_name, file_name))
+    #cvlc_play_mp3('~/grace_voice_file/%s/%s.mp3' % (dir_name, file_name))
     print(con)
-    if input('确认有声音?YES?') != 'YES':
+    runsyscmd('ls -lh ~/grace_voice_file/%s/%s.mp3' % (dir_name, file_name))
+    if input('确认文件和文本?YES?') != 'YES':
         exit(0)
     f_name = '%s/%s' % (dir_name, file_name)
     

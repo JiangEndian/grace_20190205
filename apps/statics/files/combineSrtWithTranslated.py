@@ -24,13 +24,15 @@ if not file_name1 or not file_name2:
 last_one_size = 0
 eligible_amount = 0
 line_number = 0
+
+lineCircle = 1
 with open(file_name1, 'r') as f1:
     with open(file_name2, 'r') as f2:
         f2lines = f2.readlines()
         for line in f1.readlines(): 
             line_number += 1
-            if line_number % 4 == 0:
-                print(f2lines[line_number//4-1].strip())
+            if line_number % lineCircle == 0:
+                print(f2lines[line_number//lineCircle-1].strip())
             print(line.strip())
 
 
