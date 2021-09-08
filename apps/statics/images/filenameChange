@@ -1,1 +1,0 @@
- i=1001;for one in $(ls Sc*);do echo $one 20210630$i.png;let i++;done
