@@ -27,7 +27,7 @@
     {% endifequal %}
 
     {% ifequal every_info 'year' %}
-        {% include "input_cmd_default8.html" %}
+        {% include "input_cmd_default2.html" %}
     {% endifequal %}
 </form>
 
@@ -98,5 +98,11 @@
 <p align="right">
 {{ showinfo }} <a href=/alt1234> 回到主页 </a>
 </p>
+<script>
+    //给Input焦点
+    document.getElementById("default").focus();
+    scroll(0,0);
+
+</script>
 
 {% endblock %}
