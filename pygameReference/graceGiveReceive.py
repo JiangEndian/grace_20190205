@@ -274,7 +274,9 @@ class TreasuresInVessel(pygame.sprite.Sprite): #自己行动的
 
         self.vessel = vessel
         
-        self.image = text2Img(random.choice('treasure'))
+        #self.image = text2Img(random.choice('treasure'))
+        self.image = pygame.Surface((20, 20))
+        self.image.fill(WHITE)
 
         self.rect = self.image.get_rect()
     
