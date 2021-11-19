@@ -5,11 +5,7 @@
 周五13:00-14:50, 神学思想史1
 周六9:00-11:50, 论文指导
 
-<!-- wp:video -->
-<figure class="wp-block-video"><video controls preload="metadata" src="#t=3"></video></figure>
-<!-- /wp:video -->
-
-等香港的阿里云过期后，还得来个香港的。
+等香港的阿里云过期后，还得来个香港的。（换windows好浏览器）
 
 6起床圣经赞美,7早饭，8/9/10侍奉神的话语，从物质中得以自由，11讲道/听道，12午饭，13/14午休，15，16剪辑，17晚饭，18新闻加新，19/20/21习旧，22清理，23睡前听听听
 
@@ -70,9 +66,8 @@ I can do nothing graceful unless with God's Irresistible Grace. 
 7他不可抗拒的怜悯恩典。
 
 
-backupLists:
-grace_20190205, local, aliyun...
-kiwix, local, ussd...
-operateSystem, ussd, ventory
+Notes:
+stormbook充电器:12V2A
+
 
 
