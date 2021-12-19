@@ -206,6 +206,12 @@ def getnowtime( a='ymd' ):
     if a == 'ymd':
         return now.strftime('%Y%m%d')
 
+    elif a == 'y':
+        return now.strftime('%Y')
+
+    elif a == 'm':
+        return now.strftime('%m')
+
     elif a == 'md':
         return now.strftime('%m%d')
 
@@ -294,12 +300,10 @@ def getfont(fontnumber=6, fontsize=150):
 def runsyscmd(cmd='clear', print_yes='yes'):
     output = os.popen(cmd)
     if print_yes == 'yes':
-        #print(output.read())
-        msg = output.read()
+        print(output.read())
     else:
         output.read()
     output.close()
-    return msg
 ######################运行系统命令##########################################
 
 
