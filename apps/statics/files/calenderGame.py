@@ -429,7 +429,10 @@ def textImg(text, imgW=50, imgH=40, textSize=20, font=defaultFont, color=WHITE, 
 def textsImg(texts, imgW=500, imgH=400, textSize=20, font=defaultFont, color=WHITE, colorKey=BLACK):
     textSurfs = []
     for text in texts:
-        textSurfs.append(pygame.font.Font(font, textSize).render(text, True, color))
+        if 'remainTime' in text:
+            textSurfs.append(pygame.font.Font(font, int(textSize/3*2)).render(text, True, GOLD))
+        else:
+            textSurfs.append(pygame.font.Font(font, textSize).render(text, True, color))
     img = pygame.Surface((imgW, imgH))
     
     height_all = 0
@@ -438,7 +441,7 @@ def textsImg(texts, imgW=500, imgH=400, textSize=20, font=defaultFont, color=WHI
         text_rect = textSurf.get_rect()
         text_rect.x = 0
         text_rect.y = height_all
-        height_all += 50
+        height_all += 40
 
         img.blit(textSurf, text_rect) #虽一样还多一行，但于我而言更容易理解。。。
     img.set_colorkey(colorKey)
@@ -632,8 +635,11 @@ class Day(pygame.sprite.Sprite):
             self.rect.y = height/2
             centerWeekNumber = self.weekNumber
         elif today == self.ymd and not self.isToday: #上次证明了不是今天，但成为了今天
-            allSprite.empty()
-            allSprite.add(self)
+            #allSprite.empty() #这会清除所有的，包括其他的帮助用的
+            for day in allSprites:
+                if day.isDay and day is not self:
+                    day.kill()
+            allSprites.add(self)
             centerWeekNumber = self.weekNumber
             self.isToday = True
             self.rect.y = height/2
@@ -659,9 +665,14 @@ class DayDetails(pygame.sprite.Sprite):
         self.absdate = day.absdate
         self.isDay = False
         self.isDayWork = False
+        self.day = day
+        self.width = 1000
+        self.height = 500
+        self.init(day)
 
         #print(heYear, heMonth, heDay, weekday, "weekNumber" + str(self.weekNumber), sunRise, sunSet, holidaysToday, torahToday)
-
+    
+    def init(self, day):
         texts = []
         texts.append(f'Week: {day.weekNumber}, Day: {day.weekday+1}.')
         texts.append(f'Jewish: {day.heYear}, {day.heMonth} {getJewishMonthName(day.heMonth, day.heYear)}, {day.heDay}')
@@ -672,14 +683,19 @@ class DayDetails(pygame.sprite.Sprite):
             texts.append(f'Torah: {day.torahToday}')
             print(day.torahToday)
 
-        self.image = textsImg(texts, 700, 500, textSize = 40)
+        self.image = textsImg(texts, self.width, self.height, textSize = 40)
         
         self.rect = self.image.get_rect()
         self.rect.x = width/10*4
         self.rect.y = height/3*1
     
     def update(self):
-        pass
+        if self.day not in allSprites:
+            for sprite in allSprites:
+                if sprite.isDay:
+                    if sprite.isToday:
+                        self.day = sprite
+                        self.init(self.day)
 
 class DayWork(pygame.sprite.Sprite):
     def __init__(self, day):
@@ -688,7 +704,12 @@ class DayWork(pygame.sprite.Sprite):
         self.absdate = day.absdate
         self.isDay = False
         self.isDayWork = True
-
+        self.day = day
+        self.width = 1000
+        self.height = 500
+        self.init(day)
+    
+    def init(self, day):
         doubleDayWork = ['Hebrew / Greek study, Book translation, Blender, Math', 
                             'Review', 
                             'alt / Searching for tomorrow reading(ckhgeoe)']
@@ -706,7 +727,7 @@ class DayWork(pygame.sprite.Sprite):
 
         #print(heYear, heMonth, heDay, weekday, "weekNumber" + str(self.weekNumber), sunRise, sunSet, holidaysToday, torahToday)
 
-        self.image = textsImg(self.texts, 700, 500, textSize = 30)
+        self.image = textsImg(self.texts, self.width, self.height, textSize = 30)
         print(self.texts)
         self.rect = self.image.get_rect()
         self.rect.x = width/10*4
@@ -730,24 +751,33 @@ class DayWork(pygame.sprite.Sprite):
         self.timeStamp = pygame.time.get_ticks()
         self.isWorking = True
         self.study = True
-        self.image = textsImg(self.texts, 700, 500, textSize = 40, color=GREEN)
+        self.image = textsImg(self.texts, self.width, self.height, textSize = 30, color=GREEN)
     def stopWork(self):
         self.isWorking = False
-        self.image = textsImg(self.texts, 700, 500, textSize = 40, color=WHITE)
+        self.image = textsImg(self.texts, self.width, self.height, textSize = 30, color=WHITE)
 
     def update(self):
         #一个番茄钟，点击就开始，再点击就停止
+        if self.day not in allSprites:
+            for day in allSprites:
+                if day.isToday:
+                    self.day = day
+                    self.init(day)
         if self.isWorking:
             if self.study:
                 now = pygame.time.get_ticks()
-                if now - self.timeStamp > 25*1000:
+                remainTime = 25*60*1000-(now-self.timeStamp)
+                self.image = textsImg(self.texts+['remainTime:'+str(int(remainTime/1000/60)),], self.width, self.height, textSize = 30, color=GREEN)
+                if remainTime < 0:
                     self.playRing('stop')
                     self.timeStamp = now
                     self.study = False
                     self.rest = True
             elif self.rest:
                 now = pygame.time.get_ticks()
-                if now - self.timeStamp > 5 * 1000:
+                remainTime = 5*60*1000-(now-self.timeStamp)
+                self.image = textsImg(self.texts+['remainTime:'+str(int(remainTime/1000/60)),], self.width, self.height, textSize = 30, color=GREEN)
+                if remainTime < 0:
                     self.playRing('start')
                     self.timeStamp = now
                     self.rest = False
@@ -755,8 +785,8 @@ class DayWork(pygame.sprite.Sprite):
 
 
 ###4.开始游戏设定与循环########################
-width = 1340
-height = 670
+width = 1920
+height = 1000
 screen = startPygame(width, height)
 
 today = getdaystime(0)
@@ -773,7 +803,8 @@ dayDetails = DayDetails(day)
 dayWork = DayWork(day)
 
 while running:
-    clock.tick(1)
+    #clock.tick(30)
+    pygame.time.wait(1000) #休眠进程，释放CPU，不如delay()准确，但更轻松
     #大世界交互规则
     for event in pygame.event.get(): #只能获得一次，多次判断放一起
         if event.type == pygame.QUIT: 
@@ -816,8 +847,10 @@ while running:
     #screen.fill(SKYBLUE)
     allSprites.update()
     allSprites.draw(screen)
-    draw_text(screen, getnowtime('ymd'), 80, width/3*2, 10)
-    draw_text(screen, getnowtime('hm'), 80, width/3*2, 80)
+    HM = getnowtime('hm')
+    draw_text(screen, HM[:2]+':'+HM[2:4], 80, width/3*2, 10)
+    YMD = getnowtime('ymd')
+    draw_text(screen, YMD[:4]+' '+YMD[4:6]+' '+YMD[6:8], 80, width/3*2, 80)
 
     #这个画字，用在sprite里不好使，在这里，还得在sprite更新draw完后
     pygame.display.update()
