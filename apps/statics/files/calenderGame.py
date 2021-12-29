@@ -572,6 +572,8 @@ class Day(pygame.sprite.Sprite):
         self.isSelected = False
         self.isDayWork = False
 
+        self.speedy = 3
+
         gYear, gMonth, gDay = jewishcalendar.absdate_to_gregorian(absdate)
         self.heYear, self.heMonth, self.heDay = jewishcalendar.absdate_to_hebrew(absdate)
         self.weekday = jewishcalendar.get_weekday_from_absdate(absdate)
@@ -657,6 +659,16 @@ class Day(pygame.sprite.Sprite):
             self.checkNextExist()
         if self.rect.bottom > 0:
             self.checkPreviousExist()
+
+        if self.rect.top > height or self.rect.bottom < 0:
+            self.kill()
+
+        #keyPressed = pygame.key.get_pressed() #这个功能问题太多，贪心了。。。
+        #if keyPressed[pygame.K_UP]:
+            #self.rect.y -= self.speedy
+        #if keyPressed[pygame.K_DOWN]:
+            #self.rect.y += self.speedy
+
 
 class DayDetails(pygame.sprite.Sprite):
     def __init__(self, day):
@@ -759,10 +771,11 @@ class DayWork(pygame.sprite.Sprite):
     def update(self):
         #一个番茄钟，点击就开始，再点击就停止
         if self.day not in allSprites:
-            for day in allSprites:
-                if day.isToday:
-                    self.day = day
-                    self.init(day)
+            for sprite in allSprites:
+                if sprite.isDay:
+                    if sprite.isToday:
+                        self.day = sprite
+                        self.init(sprite)
         if self.isWorking:
             if self.study:
                 now = pygame.time.get_ticks()
@@ -803,7 +816,7 @@ dayDetails = DayDetails(day)
 dayWork = DayWork(day)
 
 while running:
-    #clock.tick(30)
+    #clock.tick(60)
     pygame.time.wait(1000) #休眠进程，释放CPU，不如delay()准确，但更轻松
     #大世界交互规则
     for event in pygame.event.get(): #只能获得一次，多次判断放一起
