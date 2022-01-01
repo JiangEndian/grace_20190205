@@ -15,7 +15,6 @@ if [ -f miniMapLocation ];then
         Y="Y$i"
         echo "${!X}", "${!Y}" #神奇的引用变量里的字符串名的变量。。。
     done
-    read -p 'location data exist, press enter.'
 else
     for((i=1;i<5;i++));do
         read -p "Press enter to record location$i in miniMapLocation after 4 seconds:"
@@ -31,23 +30,26 @@ else
 fi
 #打野循环顺序为1,2,3,4,循环，获取4个位置的变量##################
 
-echo 'After 6 seconds auto Jungle 10 times in 10 minutes...'
+echo 'After 6 seconds auto Jungle 10 times...'
+notify-send 'After 6 seconds auto Jungle 10 times...'
 sleep 6
 
 #根据四个位置的变量反复的移动并shift+a，一次10遍############
-for((i=0;i<10;i++));do #直接反复的循环，来个10遍一次
+for((j=0;j<7;j++));do #直接反复的循环，来个10遍一次
+    #notify-send 'After 6 seconds auto Jungle 1 times...'
+    #sleep 6
     for((i=1;i<5;i++));do
         X="X$i"
         Y="Y$i"
         echo "${!X}" "${!Y}"
         xdotool mousemove --sync "${!X}" "${!Y}"
-        sleep 1
+        sleep 0.1
         echo "shift+a"
         xdotool key "shift+a"
-        sleep 1
+        sleep 0.1
     done
-    notify-send 'sleep 60s'
-    sleep 60
+    #notify-send 'sleep 30s'
+    #sleep 30
 done
 #根据四个位置的变量反复的移动并shift+a，一次10遍############
 

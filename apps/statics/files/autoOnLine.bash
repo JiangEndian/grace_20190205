@@ -1,13 +1,16 @@
 #!/bin/bash
 
 aForward(){
-    xdotool mousemove_relative --sync -- 400 -300
+    xdotool mousemove_relative --sync -- 300 -300
     xdotool key a
 }
 
 moveBackward(){
-    xdotool mousemove_relative --sync -- -400 300
+    xdotool mousemove_relative --sync -- -300 300
     xdotool click 3
+    notify-send '回原点了，移动鼠标可更新原点'
+    sleep 2
+    xdotool key a
 }
 
 for((i=7;i>=1;i--));do
@@ -18,9 +21,9 @@ done
 
 while true;do
     aForward
-    sleep 3
+    sleep 6
     moveBackward
-    sleep 3
+    sleep 6
 done
 
 #xdotool mousemove 300 600 #移动鼠标至x,y位置
