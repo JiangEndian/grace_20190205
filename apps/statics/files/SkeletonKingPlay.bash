@@ -25,8 +25,16 @@ else
     exit 0
 fi
 
+#buy item in the first place of shop
+buyFirstItem(){
+    xdotool mousemove --sync "${XItem0}" "${YItem0}"
+    xdotool click 3;sleep 0.1
+    xdotool key x;sleep 0.1
+}
+
 #level up skill, and press skill
 skillUpPlay(){
+    buyFirstItem
     xdotool key ctrl+v; sleep 0.1
     xdotool key ctrl+r; sleep 0.1
     xdotool key ctrl+e; sleep 0.1
@@ -36,8 +44,7 @@ skillUpPlay(){
 
 #smallJungle Once, 1-2-3
 smallJungle(){
-    #for((i=1;i<=3;i++));do
-    for i in 1 2 1 2 1 2 3;do
+    for i in 1 2 3 2 3;do
         X="X$i"
         Y="Y$i"
         xdotool mousemove --sync "${!X}" "${!Y}"
@@ -53,7 +60,6 @@ smallJungle(){
     
 #middleJungle Once, 2-5, 2-3-4-5-2
 middleJungle(){
-    #for((i=1;i<=5;i++));do
     for i in 3 2 3 4 3 5 3 2 3 4 3 5;do
         X="X$i"
         Y="Y$i"
@@ -74,7 +80,7 @@ onLine(){
         sleep 0.3
         xdotool click 3
         echo "sleep 20"
-        sleep 20
+        sleep 15
         notify-send -u critical attackOnline "after backHome, attackOnline"
 
         X="X7"
@@ -82,21 +88,44 @@ onLine(){
         xdotool mousemove --sync "${!X}" "${!Y}"
         sleep 0.3
         xdotool key a
-        echo "sleep 30"
+        echo "sleep 35"
         sleep 30 #总50.6秒，正好对应V技能
     done
 }
 
+onLineDown(){
+    skillUpPlay
+    for((j=0;j<10;j++));do
+
+        xdotool mousemove --sync "${XDown1}" "${YDown1}"
+        sleep 0.3
+        xdotool key a
+        echo "sleep 5"
+        sleep 5 
+
+        X="XDown0"
+        Y="YDown0"
+        xdotool mousemove --sync "${XDown0}" "${YDown0}"
+        sleep 0.3
+        xdotool click 3
+        echo "sleep 10"
+        sleep 10
+        notify-send -u critical attackOnline "after backHome, attackOnline"
+
+    done
+    skillUpPlay
+}
+
 #earlyTime autoJungle
 earlyTime(){
-    for((j=0;j<3;j++));do
+    for((j=0;j<2;j++));do
         echo $j
         notify-send -u critical 7seconds "after 7 seconds start smallJungle"
         echo "sleep 7"
         sleep 7
         skillUpPlay
         smallJungle
-        ET=120
+        ET=90
         notify-send -u critical ${ET}seconds "sleep for ${ET} seconds"
         echo "sleep for ${ET} seconds"
         sleep ${ET}
@@ -107,14 +136,14 @@ earlyTime(){
 
 #middleTime autoJungle
 middleTime(){
-    for((j=0;j<7;j++));do
+    for((j=0;j<9;j++));do
         echo $j
         notify-send -u critical 7seconds "after 7 seconds start middleJungle"
         echo "sleep 7"
         sleep 7
         skillUpPlay
         middleJungle
-        MT=120
+        MT=100
         notify-send -u critical ${MT}seconds "sleep for ${MT} seconds"
         echo "sleep for ${MT} seconds"
         sleep ${MT}
@@ -123,25 +152,26 @@ middleTime(){
 
 #laterTime autoJungle
 laterTime(){
-    for((j=0;j<7;j++));do
+    for((j=0;j<9;j++));do
         echo $j
         notify-send -u critical 7seconds "after 7 seconds start middleJungle"
         echo "sleep 7"
         sleep 7
         skillUpPlay
         middleJungle
-        MT=70
+        MT=80
         notify-send -u critical ${MT}seconds "sleep for ${MT} seconds"
         echo "sleep for ${MT} seconds"
         sleep ${MT}
     done
 }
 
-WT=120
+WT=70
 notify-send -u critical starting... "after $WT seconds start!"
 echo "sleep $WT"
 sleep $WT
 
+onLineDown
 earlyTime
 middleTime
 laterTime
