@@ -1,4 +1,10 @@
 
+
+
+
+#调整亮度，当亮度调节按键不可用的时候
+xrandr --output eDP-1 --brightness 0.3
+
 #测试两变量不相等，双引号弱引用，单引号强引用
 if [ "$var1" -ne "$var2" ];then#测试字符串应引起来
 fi
