@@ -7,13 +7,27 @@ tf.disable_v2_behavior()
 
 import cv2
 import sys
-sys.path.append("game/")
+sys.path.append("game/") #由此可以导入下面的game
 import wrapped_flappy_bird as game
+
 import random
 import numpy as np
 from collections import deque
 
+#要有个GameState类作为整个游戏
+#GameState要留如下接口：frame_step(self, input_actions)
+#actions是个列表，只有一个值为1,单输入的，flappyBird中是10空，01飞
+#在frame_step中处理每一帧，包括加减xy
+#默认reward=0.1，flappyBird是检测player中间x等于柱子x，加一分，奖励1
+#并且要有失败惩罚，奖励为-1，重新开始游戏或不重新开始
+#要用screen.blit来处理图像，不能用精灵了吗？应该可以，但要注意，GameState类
+#要用pygame.surfarray.array3d(pygame.display.get_surface())得到image_data
+#要返回image_data, reward, terminal，与-1奖励绑定terminal，中止
+
+#超参数
 GAME = 'bird' # the name of the game being played for log files
+#birdGameResolution:288*512=147456
+
 ACTIONS = 2 # number of valid actions
 GAMMA = 0.99 # decay rate of past observations
 OBSERVE = 100000. # timesteps to observe before training
@@ -24,21 +38,24 @@ REPLAY_MEMORY = 50000 # number of previous transitions to remember
 BATCH = 32 # size of minibatch
 FRAME_PER_ACTION = 1
 
+#辅助函数，生成网络weights
 def weight_variable(shape):
     initial = tf.truncated_normal(shape, stddev = 0.01)
     return tf.Variable(initial)
 
+#辅助函数，生成网络bias
 def bias_variable(shape):
     initial = tf.constant(0.01, shape = shape)
     return tf.Variable(initial)
 
+#辅助函数，2D卷积
 def conv2d(x, W, stride):
     return tf.nn.conv2d(x, W, strides = [1, stride, stride, 1], padding = "SAME")
 
 def max_pool_2x2(x):
     return tf.nn.max_pool(x, ksize = [1, 2, 2, 1], strides = [1, 2, 2, 1], padding = "SAME")
 
-def createNetwork():
+def createNetwork(): #创建Q深度神经网络
     # network weights
     W_conv1 = weight_variable([8, 8, 4, 32])
     b_conv1 = bias_variable([32])
@@ -73,7 +90,7 @@ def createNetwork():
 
     h_fc1 = tf.nn.relu(tf.matmul(h_conv3_flat, W_fc1) + b_fc1)
 
-    # readout layer
+    # readout layer, Q值层
     readout = tf.matmul(h_fc1, W_fc2) + b_fc2
 
     return s, readout, h_fc1
@@ -108,9 +125,15 @@ def trainNetwork(s, readout, h_fc1, sess):
     saver = tf.train.Saver()
     sess.run(tf.initialize_all_variables())
     checkpoint = tf.train.get_checkpoint_state("saved_networks")
+    
+    #如果saved_networks里有checkpoint文件，并且有指定的某个，则恢复
     if checkpoint and checkpoint.model_checkpoint_path:
         saver.restore(sess, checkpoint.model_checkpoint_path)
         print("Successfully loaded:", checkpoint.model_checkpoint_path)
+        #如果这里成功的话，预测不会运行后续的东西
+        #并不是，这只是恢复了sess而已，后续会继续运行
+        #保存的就是weight们，恢复了而已，后续会继续训练
+        #就像之前训练的时候一样，只是保存了那个状态
     else:
         print("Could not find old network weights")
 
@@ -119,17 +142,20 @@ def trainNetwork(s, readout, h_fc1, sess):
     t = 0
     while "flappy bird" != "angry bird":
         # choose an action epsilon greedily
-        readout_t = readout.eval(feed_dict={s : [s_t]})[0]
-        a_t = np.zeros([ACTIONS])
+
+        readout_t = readout.eval(feed_dict={s : [s_t]})[0]  
+        #用上个状态获得这次输出
+
+        a_t = np.zeros([ACTIONS]) #生成几个0的向量
         action_index = 0
         if t % FRAME_PER_ACTION == 0:
             if random.random() <= epsilon:
                 print("----------Random Action----------")
-                action_index = random.randrange(ACTIONS)
-                a_t[random.randrange(ACTIONS)] = 1
-            else:
-                action_index = np.argmax(readout_t)
-                a_t[action_index] = 1
+                action_index = random.randrange(ACTIONS) #随机位置
+                a_t[action_index] = 1 #随机位置选1
+            else: #不选择随机，则
+                action_index = np.argmax(readout_t) #位置是神经网络输出
+                a_t[action_index] = 1 #然后确定为1
         else:
             a_t[0] = 1 # do nothing
 
@@ -164,11 +190,11 @@ def trainNetwork(s, readout, h_fc1, sess):
             y_batch = []
             readout_j1_batch = readout.eval(feed_dict = {s : s_j1_batch})
             for i in range(0, len(minibatch)):
-                terminal = minibatch[i][4]
+                terminal = minibatch[i][4] #-1时,terminal为True
                 # if terminal, only equals reward
-                if terminal:
+                if terminal: #有-1奖励，结束游戏的话，不打折扣，True
                     y_batch.append(r_batch[i])
-                else:
+                else: #没有-1奖励，没有结束游戏的话，打个折扣，不懂
                     y_batch.append(r_batch[i] + GAMMA * np.max(readout_j1_batch[i]))
 
             # perform gradient step
