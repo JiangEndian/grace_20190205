@@ -7,8 +7,12 @@ tf.disable_v2_behavior()
 
 import cv2
 import sys
+
 sys.path.append("game/") #由此可以导入下面的game
-import wrapped_flappy_bird as game
+
+#在这里替换游戏，Gamestate.frame_step(self, input_actons)
+#import wrapped_flappy_bird as game 
+import receiveFire as game
 
 import random
 import numpy as np
@@ -25,15 +29,23 @@ from collections import deque
 #要返回image_data, reward, terminal，与-1奖励绑定terminal，中止
 
 #超参数
-GAME = 'bird' # the name of the game being played for log files
+
+#在这里替换游戏名字用来保存网络
+#GAME = 'bird' # the name of the game being played for log files
+GAME = 'fire' # the name of the game being played for log files 
 #birdGameResolution:288*512=147456
 
-ACTIONS = 2 # number of valid actions
+#在这里替换游戏的操作数，几个操作是几个位置，1的那个位置执行操作，只能有一个1
+#ACTIONS = 2 # number of valid actions
+ACTIONS = 3 # number of valid actions
+
+#从头训练和从已保存的网络训练不同，只观察则
+#当将OBSERVE和EXPLORE设置极大，EPSILON设置极小，
 GAMMA = 0.99 # decay rate of past observations
-OBSERVE = 100000. # timesteps to observe before training
-EXPLORE = 2000000. # frames over which to anneal epsilon
+OBSERVE = 10000. # timesteps to observe before training
+EXPLORE = 3000000. # frames over which to anneal epsilon
 FINAL_EPSILON = 0.0001 # final value of epsilon
-INITIAL_EPSILON = 0.0001 # starting value of epsilon
+INITIAL_EPSILON = 0.5 # starting value of epsilon
 REPLAY_MEMORY = 50000 # number of previous transitions to remember
 BATCH = 32 # size of minibatch
 FRAME_PER_ACTION = 1
@@ -110,8 +122,8 @@ def trainNetwork(s, readout, h_fc1, sess):
     D = deque()
 
     # printing
-    a_file = open("logs_" + GAME + "/readout.txt", 'w')
-    h_file = open("logs_" + GAME + "/hidden.txt", 'w')
+    #a_file = open("logs_" + GAME + "/readout.txt", 'w')
+    #h_file = open("logs_" + GAME + "/hidden.txt", 'w')
 
     # get the first state by doing nothing and preprocess the image to 80x80x4
     do_nothing = np.zeros(ACTIONS)
@@ -127,6 +139,7 @@ def trainNetwork(s, readout, h_fc1, sess):
     checkpoint = tf.train.get_checkpoint_state("saved_networks")
     
     #如果saved_networks里有checkpoint文件，并且有指定的某个，则恢复
+    #换游戏的话，原来保存的checkpoint要更名存放
     if checkpoint and checkpoint.model_checkpoint_path:
         saver.restore(sess, checkpoint.model_checkpoint_path)
         print("Successfully loaded:", checkpoint.model_checkpoint_path)
@@ -140,7 +153,7 @@ def trainNetwork(s, readout, h_fc1, sess):
     # start training
     epsilon = INITIAL_EPSILON
     t = 0
-    while "flappy bird" != "angry bird":
+    while True:
         # choose an action epsilon greedily
 
         readout_t = readout.eval(feed_dict={s : [s_t]})[0]  
@@ -156,8 +169,10 @@ def trainNetwork(s, readout, h_fc1, sess):
             else: #不选择随机，则
                 action_index = np.argmax(readout_t) #位置是神经网络输出
                 a_t[action_index] = 1 #然后确定为1
-        else:
-            a_t[0] = 1 # do nothing
+        else: #如果不是操作的帧，则什么也不做，因为FRAME_PER_ACTION为1,所以任何时候都会行动
+            #什么也不做的指令位置需要按需更改
+            #a_t[0] = 1 # do nothing 
+            a_t[1] = 1 # do nothing
 
         # scale down epsilon
         if epsilon > FINAL_EPSILON and t > OBSERVE:

@@ -104,11 +104,12 @@ class Player(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.add(allSprites)
 
-        self.image = pygame.Surface((30, 3))
-        self.image.fill(GRAY)
+        self.image = pygame.Surface((30, 5))
+        self.image.fill(RED)
 
         self.rect = self.image.get_rect()
         self.rect.centerx = WIDTH / 2
+        self.rect.y = HEIGHT - 2
         self.rect.bottom = HEIGHT
 
         self.score = 0
@@ -128,20 +129,21 @@ class GameState():
         self.player = Player()
 
     def frame_step(self, input_actions=[0, 1, 0]):
-        clock.tick(30)
-        #pygame.event.pump() #这个是用来内部处理event的，要注释掉来搞
-        #在这里，用pygame获取键盘输入来获得input_actions
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                exit(0)
-        key_pressed = pygame.key.get_pressed()
-        if key_pressed[pygame.K_LEFT]:
-            input_actions = [1, 0, 0]
-        elif key_pressed[pygame.K_RIGHT]:
-            input_actions = [0, 0, 1]
-        else:
-            input_actions = [0, 1, 0]
-        print(input_actions)
+        clock.tick(60)
+        pygame.event.pump() #这个是用来内部处理event的，要注释掉来搞
+
+        #在这里，用pygame获取键盘输入来获得input_actions，自动时要注释掉
+        #for event in pygame.event.get():
+            #if event.type == pygame.QUIT:
+                #exit(0)
+        #key_pressed = pygame.key.get_pressed()
+        #if key_pressed[pygame.K_LEFT]:
+            #input_actions = [1, 0, 0]
+        #elif key_pressed[pygame.K_RIGHT]:
+            #input_actions = [0, 0, 1]
+        #else:
+            #input_actions = [0, 1, 0]
+        #print(input_actions)
 
         reward = 0.1
         terminal = False
@@ -182,7 +184,7 @@ class GameState():
 
         return image_data, reward, terminal
 
-game_state = GameState()
-while True:
-    game_state.frame_step()
+#game_state = GameState()
+#while True:
+    #game_state.frame_step()
 
