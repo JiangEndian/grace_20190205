@@ -8,7 +8,7 @@ testLocation(){
 #echo $X, $Y, $SCREEN, $WINDOW
 
 Info='1,2,3,4,5,6为下路野区位置
-7,8,9为家-中间河道-对方基地
+7,8,9为中一塔-中间河道-对方基地
 10,11,12,13,14,15为属性，黄点，4,3,2,1技能位置
 16,17,18,19,20为疯脸，假腿，电锤，隐刀，BKB位置
 21,22,23,24为商店位置，第二页物品位置，两行物品第一行的位置，第二行位置
@@ -59,7 +59,9 @@ getItems(){
 
 buyFirstItem(){
     moveAndClick3 ${X24} ${Y24}
+    xdotool key asciitilde;sleep 0.2
     xdotool key x;sleep 0.2
+    xdotool key space;sleep 0.2
 }
 
 skillUp(){
@@ -83,7 +85,7 @@ onLineFirst(){
     let "END=START+ALLTIME*60"
     
     while [ $(date +%s) -lt ${END} ];do
-        attackForward ${X8} ${Y8};sleep 3
+        attackForward ${X8} ${Y8};sleep 2
         buyFirstItem
         skillUp
         moveAndClick3 ${X7} ${Y7};sleep 2
@@ -127,18 +129,28 @@ onLineLater(){
     ALLTIME=$1
     let "END=START+ALLTIME*60"
     
+    #autoPress1 $1 & #给转到后台自动运行去
+
+    LOOPTIMES=0
+    
     while [ $(date +%s) -lt ${END} ];do
-        attackForward ${X9} ${Y9};sleep 3
-        buyFirstItem
-        skillUp
+        echo $LOOPTIMES
         moveAndClick3 ${X7} ${Y7};sleep 2
+        attackForward ${X9} ${Y9}; echo sleep9; sleep 9
+
+        let "LOOPTIMES++"
+        if [ $LOOPTIMES -eq 10 ];then 
+            buyFirstItem
+            skillUp
+            let "LOOPTIMES=0"
+        fi
     done
 }
 
 WT=7;notify-send -u critical starting... "after $WT seconds start!";echo "sleep $WT";sleep $WT
 
-onLineFirst 8
-middleJungle 30
+#onLineFirst 8
+#middleJungle 20
 onLineLater 999
 
 #xdotool mousemove 300 600 #移动鼠标至x,y位置

@@ -25,6 +25,269 @@
 倒角Bevel可以给物体生成圆润的边缘
 线框Wireframe可以让物体变成线框：
 
+全选用a，双击某个取消选中，可用Objects的Links把一个的材料应用到所有的上
+
+#layout: up:info, left:3d, right:text, bottom:console
+
+import random
+from math import pi
+import bpy #blenderPython, autoCompeletion work in console
+#bpy.context, Read-only lists of what's currently active in Blender
+#bpy.data, All internal data, such as objects
+#bpy.ops, All the operations in Blender
+#bps.types, Every type of thing, from modifiers to textures
+#bpy.utils, Utility functions
+
+#bpy.ops.transform.translate(value=(0.5, 0, 0)) #move selected objects 0.5 on x
+#bpy.ops.transform.rotate(value=0.1, orient_axis='X') #rotation
+#bpy.ops.transform.resize(value=(2, 1, 1)) #Resize, scale on X
+
+#bpy.ops.object.modifier_add(type="BEVEL") #round corner
+#bpy.ops.object.modifier_add(type="WIREFRAME") #Wireframe
+
+#bpy.ops.object.modifier_add(type='SUBSURF')
+#bpy.context.object.modifiers['Subdivision'].render_levels = 3
+#bpy.context.object.modifiers['Subdivision'].levels = 3
+
+#bpy.data.objects['Cube.001'].select_set(True) #select a Object
+
+#use numberPad 0 to look via camera, and n, to click lock to camera
+#Diffuse BSDF material is used for simple color
+#bpy.ops.object.select_all(action='SELECT')
+#bpy.ops.object.delete(use_global=False)
+#for i in range(100): #monkeys fill the space
+#        x = random.randint(-1, 10)
+#        y = random.randint(-1, 10)
+#        z = random.randint(-1, 1)
+#        bpy.ops.mesh.primitive_monkey_add(location=(x, y, z))
+#        bpy.ops.object.modifier_add(type='SUBSURF')
+#        bpy.context.object.modifiers['Subdivision'].render_levels = 3
+#        bpy.context.object.modifiers['Subdivision'].levels = 3
+#        bpy.ops.object.shade_smooth()
+
+
+#Random Solar System
+from random import random
+import bpy
+
+
+
+def create_sphere(radius, distance_to_sun, obj_name):
+    # instantiate a UV sphere with a given
+    # radius, at a given distance from the
+    # world origin point
+    obj = bpy.ops.mesh.primitive_uv_sphere_add(
+        radius=radius,
+        location=(distance_to_sun, 0, 0),
+        scale=(1, 1, 1)
+    )
+    # rename the object
+    bpy.context.object.name = obj_name
+    
+    # apply smooth shading
+    bpy.ops.object.shade_smooth()
+    
+    # return the object reference
+    return bpy.context.object
+
+def create_torus(radius, obj_name):
+    # (same as the create_sphere method)
+    obj = bpy.ops.mesh.primitive_torus_add(
+        location=(0, 0, 0),
+        major_radius=radius,
+        minor_radius=0.1,
+        major_segments=60
+    )
+    bpy.context.object.name = obj_name
+    
+    # apply smooth shading
+    bpy.ops.object.shade_smooth()
+    
+    return bpy.context.object
+def create_emission_shader(color, strength, mat_name):
+    # create a new material resource (with its
+    # associated shader)
+    mat = bpy.data.materials.new(mat_name)
+    # enable the node-graph edition mode
+    mat.use_nodes = True
+    
+    # clear all starter nodes
+    nodes = mat.node_tree.nodes
+    nodes.clear()
+
+    # add the Emission node
+    node_emission = nodes.new(type="ShaderNodeEmission")
+    # (input[0] is the color)
+    node_emission.inputs[0].default_value = color
+    # (input[1] is the strength)
+    node_emission.inputs[1].default_value = strength
+    
+    # add the Output node
+    node_output = nodes.new(type="ShaderNodeOutputMaterial")
+    
+    # link the two nodes
+    links = mat.node_tree.links
+    link = links.new(node_emission.outputs[0], node_output.inputs[0])
+
+    # return the material reference
+    return mat
+
+def delete_object(name):
+    #return 0
+    # try to find the object by name
+    if name in bpy.data.objects:
+        # if it exists, select it and delete it
+        obj = bpy.data.objects[name]
+        obj.select_set(True)
+        bpy.ops.object.delete(use_global=False)
+
+
+def find_3dview_space():
+    # find the 3D view panel and its screen space
+    area = None
+    for a in bpy.data.window_managers[0].windows[0].screen.areas:
+        if a.type == "VIEW_3D":
+            area = a
+            break
+    return area.spaces[0] if area else bpy.context.space_data
+
+def setup_scene():
+    # (set a black background)
+    bpy.data.worlds["World"].node_tree.nodes["Background"].inputs[0].default_value = (0, 0, 0, 1)
+    # (make sure we use the EEVEE render engine + enable bloom effect)
+    scene = bpy.context.scene
+    scene.render.engine = "BLENDER_EEVEE"
+    scene.eevee.use_bloom = True
+    # (set the animation start/end/current frames)
+    scene.frame_start = START_FRAME
+    scene.frame_end = END_FRAME
+    scene.frame_current = START_FRAME
+    # get the current 3D view (among all visible windows
+    # in the workspace)
+    space = find_3dview_space()
+    # apply a "rendered" shading mode + hide all
+    # additional markers, grids, cursors...
+    space.shading.type = 'RENDERED'
+    space.overlay.show_floor = False
+    space.overlay.show_axis_x = False
+    space.overlay.show_axis_y = False
+    space.overlay.show_cursor = False
+    space.overlay.show_object_origins = False
+    
+    
+N_PLANETS = 6
+
+START_FRAME = 1
+END_FRAME = 200
+
+# setup scene settings
+setup_scene()
+
+# clean scene + planet materials
+delete_object("Sun")
+for n in range(N_PLANETS):
+    delete_object("Planet-{:02d}".format(n))
+    delete_object("Radius-{:02d}".format(n))
+for m in bpy.data.materials:
+    bpy.data.materials.remove(m)
+
+
+ring_mat = create_emission_shader(
+    (1, 1, 1, 1), 1, "RingMat"
+)
+
+for n in range(N_PLANETS):
+    # get a random radius (a float in [1, 5])
+    r = 1 + random() * 4
+    # get a random distace to the origin point:
+    # - an initial offset of 30 to get out of the sun's sphere
+    # - a shift depending on the index of the planet
+    # - a little "noise" with a random float
+    d = 30 + n * 12 + (random() * 4 - 2)
+    # instantiate the planet with these parameters
+    
+    # and a custom object name
+    planet = create_sphere(r, d, "Planet-{:02d}".format(n))
+    planet.data.materials.append(
+        create_emission_shader(
+            (random(), random(), 1, 1),
+            2,
+            "PlanetMat-{:02d}".format(n)
+        )
+    )
+    # add the radius ring display
+    ring = create_torus(d, "Radius-{:02d}".format(n))
+    ring.data.materials.append(ring_mat)
+    
+    # set planet as active object
+    bpy.context.view_layer.objects.active = planet
+    planet.select_set(True)
+    # set object origin at world origin
+    bpy.ops.object.origin_set(type="ORIGIN_CURSOR", center="MEDIAN")
+    
+    # setup the planet animation data
+    planet.animation_data_create()
+    planet.animation_data.action = bpy.data.actions.new(name="RotationAction")
+    fcurve = planet.animation_data.action.fcurves.new(
+        data_path="rotation_euler", index=2
+    )
+    k1 = fcurve.keyframe_points.insert(
+        frame=START_FRAME,
+        value=0
+    )
+    k1.interpolation = "LINEAR"
+    k2 = fcurve.keyframe_points.insert(
+        frame=END_FRAME,
+        value=(2 + random() * 2) * pi
+    )
+    k2.interpolation = "LINEAR"
+
+# add the sun sphere
+sun = create_sphere(12, 0, "Sun")
+sun.data.materials.append(
+    create_emission_shader(
+        (1, 0.66, 0.08, 1), 10, "SunMat"
+    ))
+
+# deselect all objects
+bpy.ops.object.select_all(action='DESELECT')
+
+
+class TestPanel(bpy.types.Panel): #a Panel from bpy.types.Panel
+        bl_label = 'Test1Panel1'
+        bl_idname = 'PT_TestPanel'
+        bl_space_type = 'VIEW_3D'
+        bl_region_type = 'UI'
+        bl_category = 'NewTab'
+        
+        def draw(self, context): #function for action
+            layout = self.layout
+            
+            row = layout.row() #first row
+            row.label(text='Logos', icon='CUBE') 
+            
+            row = layout.row() #second row
+            row.operator('mesh.primitive_cube_add', icon='CUBE') #operator
+            
+            
+            row = layout.row() #3rd row
+            row.operator('mesh.primitive_uv_sphere_add', icon='SPHERE')
+            
+            row = layout.row() 
+            row.operator('object.text_add')
+            
+            
+def register():
+    bpy.utils.register_class(TestPanel) #to registe the panel class
+    
+def unregister():
+    bpy.utils.unregister_class(TestPanel)
+
+if __name__ == '__main__':
+    #register()
+    pass
+    
+VIM可以:set paste粘贴来保持缩进，然后:set nopaste恢复正常
 
 动画阶段
 在打关键帧的时候，可以根据自己的需要，选择插入关键帧还是单项关键帧。
@@ -44,18 +307,5 @@ Material: Emission, then turn on Bloom in Engine).
 Add a camera, and then operate it like others. 
 Camera view, you can lock camera and change it by mouse and keyboard. 
 Output properties: settings of output. Then render it... 
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
