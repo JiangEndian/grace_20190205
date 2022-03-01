@@ -22,4 +22,4 @@ No, I want to test this in server. Ah, Why I delete history??? it cause me very 
 Today is 20210527, if I have a new PC, before dependency broken, install those things first:
     mysql5.7, apache2, php7.4, adb, 
 Aliyun ECS IP: 47.244.31.34, 8.142.71.24
-
+20220301, 17:43:23, 现在已经准备回中国了，github在中国已经是断断续续，不可正常用的了。因此现在也几乎不用了。
